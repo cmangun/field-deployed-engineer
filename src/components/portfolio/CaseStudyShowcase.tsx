@@ -37,6 +37,21 @@ const CaseStudyShowcase = () => {
             <BackToTop />
             <PortfolioWebglHeader />
 
+            {/* Hero H1 - Top Left */}
+            <h1 style={{
+                position: 'fixed',
+                top: '30px',
+                left: '30px',
+                zIndex: 9999,
+                fontSize: '30px',
+                fontWeight: 600,
+                color: '#000',
+                margin: 0,
+                letterSpacing: '0.5px',
+            }}>
+                FORWARD DEPLOYED ENGINEER <span style={{ color: '#999', fontWeight: 400 }}>|</span> <span style={{ fontWeight: 400, color: '#666' }}>Christopher Mangun</span>
+            </h1>
+
             <main>
                 <div className="parallax-slider-wrapper">
                     <div className="parallax-sliders">
