@@ -20,6 +20,7 @@ import { abbottNormalized } from "./abbott.normalized";
 // ─────────────────────────────────────────────────────────────────────────────
 import { pfizerData, pfizerCharts } from "./pfizerData";
 import { colabData, colabCharts } from "./colabData";
+import { cocoData, cocoCharts } from "./cocoData";
 import { medtronicData, medtronicCharts } from "./medtronicData";
 import { amgenData, amgenCharts } from "./amgenData";
 import { sanofiData, sanofiCharts } from "./sanofi";
@@ -54,8 +55,8 @@ export const caseStudyConfigs: Record<string, CaseStudyConfig> = {
   "colab": { slug: "colab", study: colabData, charts: colabCharts },
   // 3. Pfizer — RAG Co-Pilot (placeholder - uses colab charts)
   "pfizer-pipeline": { slug: "pfizer-pipeline", study: colabData, charts: colabCharts },
-  // 4. Pfizer — CoCo (placeholder - uses pfizer charts)
-  "coco": { slug: "coco", study: pfizerData, charts: pfizerCharts },
+  // 4. Pfizer — CoCo (focused enablement case)
+  "coco": { slug: "coco", study: cocoData, charts: cocoCharts },
   // 5. Abbott — BinaxNOW
   "binaxnow": { slug: "binaxnow", study: binaxNowData, charts: binaxNowCharts },
   // 6. Abbott — Alinity
