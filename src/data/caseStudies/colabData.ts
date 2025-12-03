@@ -21,7 +21,7 @@ import { chartColors } from '@/charts_D3/colors';
 export const colabData: CaseStudyData = {
   id: 'colab',
   slug: 'colab',
-  brandLogo: '/assets/img/logo/Pfizer-(2021).png',
+  brandLogo: '/assets/img/logo/Pfizer_(2021).png',
   title: 'Pfizer – Architecture Colab Datasphere',
   subtitle: 'Enterprise Data Architecture',
   company: 'Pfizer',
