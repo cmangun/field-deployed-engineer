@@ -10,12 +10,14 @@ interface PortfolioWebglHeaderProps {
     logoBlack?: boolean;
     logoWidth?: number;
     logoHeight?: number;
+    hideIdentity?: boolean;
 }
 
 const PortfolioWebglHeader: React.FC<PortfolioWebglHeaderProps> = ({
     customClass = 'header-transparent',
     logoBlack,
-    logoWidth = 120
+    logoWidth = 120,
+    hideIdentity = false
 }) => {
     const [openOffCanvas, setOpenOffCanvas] = useState(false);
 
@@ -35,8 +37,8 @@ const PortfolioWebglHeader: React.FC<PortfolioWebglHeaderProps> = ({
                 </div>
             </div>
             
-            {/* Fixed top-left identity - hidden when menu is open */}
-            {!openOffCanvas && (
+            {/* Fixed top-left identity - hidden when menu is open or hideIdentity is true */}
+            {!openOffCanvas && !hideIdentity && (
             <div className="header-identity" style={{
                 position: 'fixed',
                 top: '15px',
