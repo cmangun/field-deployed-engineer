@@ -21,7 +21,7 @@ export const pfizerData: CaseStudyData = {
   slug: 'pfizer',
   brandLogo: '/assets/logo/pfizer.png',
   title: 'Pfizer AI Content Engine',
-  subtitle: 'Field Deployed Engineer',
+  subtitle: 'AI/ML Engineering',
   company: 'Pfizer',
   client: 'Pfizer Global Production',
   role: 'Lead AI/ML Engineer',

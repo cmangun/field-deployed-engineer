@@ -17,7 +17,7 @@ export const ipgIntranetData: CaseStudyData = {
   slug: 'ipg-searchable-intranet',
   brandLogo: '/assets/logo/ipg.png',
   title: 'IPG Searchable Azure Intranet',
-  subtitle: 'Field Deployed Engineer',
+  subtitle: 'Enterprise Architecture',
   company: 'IPG Health',
   client: 'Area 23 + ProHealth',
   role: 'Lead Architect & Forward Deployed Engineer',

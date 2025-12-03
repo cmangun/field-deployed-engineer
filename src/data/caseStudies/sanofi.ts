@@ -23,7 +23,7 @@ export const sanofiData: CaseStudyData = {
   slug: 'sanofi-vaccines-dam',
   brandLogo: '/assets/logo/sanofi.png',
   title: 'Sanofi Vaccines Digital Asset Management',
-  subtitle: 'Field Deployed Engineer',
+  subtitle: 'Technical Program Management',
   company: 'Sanofi',
   client: 'Sanofi Global Vaccines',
   role: 'Lead AI/ML Architect & Forward Deployed Engineer',
