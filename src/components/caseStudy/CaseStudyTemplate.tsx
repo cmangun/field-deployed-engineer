@@ -790,7 +790,7 @@ const CaseStudyTemplate: React.FC<CaseStudyTemplateProps> = ({ study, charts }) 
                 <div id="ball"></div>
             </div>
 
-            <PortfolioWebglHeader hideIdentity={true} />
+            <PortfolioWebglHeader />
 
             <div className="case-study-template" style={{ paddingBottom: '10px', backgroundImage: 'url(/assets/img/background.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }} ref={containerRef}>
                 {/* Hero Section */}

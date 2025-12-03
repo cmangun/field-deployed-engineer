@@ -10,14 +10,12 @@ interface PortfolioWebglHeaderProps {
     logoBlack?: boolean;
     logoWidth?: number;
     logoHeight?: number;
-    hideIdentity?: boolean;
 }
 
 const PortfolioWebglHeader: React.FC<PortfolioWebglHeaderProps> = ({
     customClass = 'header-transparent',
     logoBlack,
-    logoWidth = 120,
-    hideIdentity = false
+    logoWidth = 120
 }) => {
     const [openOffCanvas, setOpenOffCanvas] = useState(false);
 
@@ -36,45 +34,6 @@ const PortfolioWebglHeader: React.FC<PortfolioWebglHeaderProps> = ({
                     </div>
                 </div>
             </div>
-            
-            {/* Fixed top-left identity - hidden when menu is open or hideIdentity is true */}
-            {!openOffCanvas && !hideIdentity && (
-            <div className="header-identity" style={{
-                position: 'fixed',
-                top: '15px',
-                left: '84px',
-                zIndex: 99999,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '12px 0',
-            }}>
-                <style jsx>{`
-                    @media (min-width: 768px) {
-                        .header-identity {
-                            top: 30px !important;
-                            left: 84px !important;
-                        }
-                    }
-                `}</style>
-                <span style={{
-                    fontSize: '15px',
-                    fontWeight: 600,
-                    color: '#333',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                }}>
-                    Field Deployed Engineer
-                </span>
-                <span style={{ color: '#ccc', fontSize: '15px' }}>|</span>
-                <span style={{
-                    fontSize: '15px',
-                    color: '#666',
-                }}>
-                    Christopher Mangun
-                </span>
-            </div>
-            )}
 
             {/* Fixed bottom-right menu button */}
             <div className="header-buttons" style={{
