@@ -1,5 +1,4 @@
 "use client"
-import thumbImg from "../../../public/assets/img/hero.png"
 import { fadeAnimation } from "@/hooks/useGsapAnimation";
 import { useCursorAndBackground } from '@/hooks/useCursorAndBackground';
 import PortfolioWebglHeader from '@/layouts/headers/PortfolioWebglHeader';
@@ -8,6 +7,9 @@ import CareerDetails from "@/components/career/CareerDetails";
 import useScrollSmooth from '@/hooks/useScrollSmooth';
 import { useGSAP } from '@gsap/react';
 import React from 'react';
+
+// Use string path for image
+const thumbImg = "/assets/img/hero.png";
 
 const CareerDetailsMain = () => {
     // Initialize custom cursor and background styles

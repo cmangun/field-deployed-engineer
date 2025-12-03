@@ -1,10 +1,9 @@
-import errorImg from '../../public/assets/img/error/error.png';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: "Agntix - 404 Not Found Page",
+    title: "Field Deployed Engineer - 404 Not Found",
 };
 
 export default function NotFound() {
@@ -16,11 +15,11 @@ export default function NotFound() {
                         <div className="col-xl-12">
                             <div className="tp-error-wrapper text-center">
                                 <h4 className="tp-error-title">Oops!</h4>
-                                <Image src={errorImg} alt="error" />
+                                <Image src="/assets/img/error/error.png" alt="error" width={400} height={300} />
                                 <div className="tp-error-content">
                                     <h4 className="tp-error-title-sm">Something went Wrong...</h4>
                                     <p>Sorry, we {`couldn't`} find your page.</p>
-                                    <Link className="tp-btn" href="/">Back to Home</Link>
+                                    <Link className="tp-btn" href="/career-details-light">Back to Home</Link>
                                 </div>
                             </div>
                         </div>
