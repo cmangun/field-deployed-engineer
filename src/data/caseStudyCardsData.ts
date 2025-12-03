@@ -41,7 +41,7 @@ export const caseStudyCardsData: CaseStudyCard[] = [
     domain: "Healthcare · Life Sciences · Enterprise AI",
     services: ["RAG Systems", "ML Governance", "Technical Program Leadership"],
     year: "",
-    heroImage: "/assets/img/case-studies/_showcase/Sanofi 2.png",
+    heroImage: "",
     delay: 0,
     isPlaceholder: true,
   },

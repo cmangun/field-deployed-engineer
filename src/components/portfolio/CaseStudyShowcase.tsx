@@ -49,6 +49,11 @@ const CaseStudyShowcase = () => {
                         max-width: calc(100% - 40px);
                     }
                 }
+                .intro-card-bg {
+                    background: #a8a8a8 !important;
+                    background-image: none !important;
+                    background-color: #a8a8a8 !important;
+                }
             `}</style>
 
             {/* Magic cursor */}
@@ -138,10 +143,11 @@ const CaseStudyShowcase = () => {
                                                 </div>
                                             </div>
                                             <div 
-                                                className="parallax-img"
+                                                className="parallax-img intro-card-bg"
                                                 style={{
-                                                    backgroundColor: '#e5e5e5',
-                                                    backgroundImage: 'none',
+                                                    backgroundColor: '#a8a8a8',
+                                                    backgroundImage: 'none !important' as any,
+                                                    background: '#a8a8a8 !important' as any,
                                                 }}
                                             ></div>
                                         </>
