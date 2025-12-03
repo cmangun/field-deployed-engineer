@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g>
+    <path d="M18.418,6.215a6.994,6.994,0,0,0-13.141.85A4.007,4.007,0,0,0,2,11a5.018,5.018,0,0,0,2.5,4.331l1-1.732A3.012,3.012,0,0,1,4,11,1.993,1.993,0,0,1,5.906,8.995l1.026.042.143-.864a4.993,4.993,0,0,1,9.654-.782l.192.563.587.1A2.993,2.993,0,0,1,18.5,13.6l1,1.732a4.993,4.993,0,0,0-1.082-9.116Z"/>
+    <rect x="7.919" y="19.5" width="3.162" height="2" transform="translate(-12.953 23.026) rotate(-71.556)"/>
+    <rect x="9.919" y="14.5" width="3.162" height="2" transform="translate(-6.842 21.505) rotate(-71.556)"/>
+    <rect x="11.919" y="9.5" width="3.162" height="2" transform="translate(-0.732 19.985) rotate(-71.556)"/>
+    <rect x="6.919" y="11.5" width="3.162" height="2" transform="translate(-6.047 16.609) rotate(-71.556)"/>
+    <rect x="4.919" y="16.5" width="3.162" height="2" transform="translate(-12.158 18.13) rotate(-71.556)"/>
+    <rect x="14.919" y="12.5" width="3.162" height="2" transform="translate(-1.527 24.881) rotate(-71.556)"/>
+    <rect x="12.919" y="17.5" width="3.162" height="2" transform="translate(-7.637 26.402) rotate(-71.556)"/>
+  </g>
+</svg>

@@ -1,0 +1,220 @@
+/* ===========================================================
+   CHARTS STYLESHEET
+   Neumorphic design system for chart components
+   
+   Import this file in your components or layout:
+   import '@/styles/scss/charts.scss';
+   ========================================================== */
+
+// Core chart card pattern (Neumorphic)
+@import './chart-card';
+
+/* ===========================================================
+   CSS VARIABLES FOR THEMING
+   ========================================================== */
+
+.charts-gallery {
+  --bg-base: #f2f2f2;
+  --text-hero: #222;
+  --text-primary: #333;
+  --text-secondary: #444;
+  --text-label: #888;
+  --text-subtle: #999;
+  --text-muted: #aaa;
+  --tag-bg: #e0e0e0;
+  --progress-track: #d0d0d0;
+  --progress-fill: #777;
+  
+  /* Neumorphic shadows */
+  --shadow-raised: -5px 5px 20px #c6c6c6, 5px -5px 20px #ffffff;
+  --shadow-raised-sm: -3px 3px 10px #c6c6c6, 3px -3px 10px #ffffff;
+  --shadow-raised-tag: -2px 2px 6px #c6c6c6, 2px -2px 6px #ffffff;
+  --shadow-inset: inset -3px 3px 10px #c6c6c6, inset 3px -3px 10px #ffffff;
+  --shadow-inset-sm: inset -2px 2px 6px #c6c6c6, inset 2px -2px 6px #ffffff;
+  --shadow-pressed: inset -2px 2px 6px rgba(0, 0, 0, 0.2), inset 2px -2px 6px rgba(255, 255, 255, 0.1);
+  
+  --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --radius-sm: 8px;
+  --radius-md: 8px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
+  --radius-full: 9999px;
+}
+
+/* ===========================================================
+   ACCORDION GRID SYSTEM
+   Container for organizing charts in expandable categories
+   ========================================================== */
+
+.accordion-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 0 24px 48px;
+}
+
+.accordion {
+  background: linear-gradient(225deg, #dadada, #ffffff);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+  
+  box-shadow:
+    -5px 5px 20px #c6c6c6,
+    5px -5px 20px #ffffff;
+}
+
+.accordion:hover {
+  box-shadow:
+    -6px 6px 24px #c0c0c0,
+    6px -6px 24px #ffffff;
+}
+
+.accordion--open {
+  box-shadow:
+    -6px 6px 24px #c0c0c0,
+    6px -6px 24px #ffffff;
+}
+
+.accordion__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.accordion__header:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.accordion__header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.accordion__header-right {
+  display: flex;
+  align-items: center;
+}
+
+.accordion__icon {
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.accordion__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.accordion__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  
+  background: linear-gradient(225deg, #e6e6e6, #f5f5f5);
+  box-shadow:
+    inset -2px 2px 5px #c6c6c6,
+    inset 2px -2px 5px #ffffff;
+}
+
+.accordion__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: 300;
+  color: #555;
+  transition: all 0.2s ease;
+  
+  background: linear-gradient(225deg, #dadada, #ffffff);
+  box-shadow:
+    -2px 2px 6px #c6c6c6,
+    2px -2px 6px #ffffff;
+}
+
+.accordion--open .accordion__toggle {
+  background: linear-gradient(225deg, #1a1a1a, #333333);
+  color: white;
+  box-shadow:
+    -2px 2px 6px #c6c6c6,
+    2px -2px 6px #ffffff;
+}
+
+.accordion__content {
+  padding: 0 28px 28px;
+}
+
+.accordion__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* ===========================================================
+   CHARTS GALLERY HEADER
+   ========================================================== */
+
+.charts-gallery {
+  min-height: 100vh;
+  padding: 32px;
+  background: #f2f2f2;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #333;
+}
+
+.charts-gallery__container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.charts-gallery-header {
+  border-radius: 8px;
+  padding: 32px 28px;
+  margin-bottom: 32px;
+  
+  background: linear-gradient(225deg, #dadada, #ffffff);
+  box-shadow:
+    -5px 5px 20px #c6c6c6,
+    5px -5px 20px #ffffff;
+}
+
+.charts-gallery-header__title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #222;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+}
+
+.charts-gallery-header__subtitle {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #888;
+  margin: 0;
+}

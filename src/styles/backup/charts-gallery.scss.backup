@@ -1,0 +1,347 @@
+// Charts Gallery Styles
+// =====================
+// Global styles for the D3 visualization gallery
+// All chart components should use these classes for consistent styling
+
+@use 'sass:string';
+@use 'sass:color';
+
+// ===================
+// HEALTHCARE COLOR PALETTE
+// ===================
+$healthcare-primary: #3281a8;      // Main blue
+$healthcare-dark: #1e333d;         // Dark navy
+$healthcare-teal: #22b0bf;         // Teal accent
+$healthcare-navy: #05305c;         // Deep navy
+$healthcare-cyan: #0bb9e0;         // Bright cyan
+
+// Derived colors (pre-calculated to avoid deprecation warnings)
+$healthcare-light: #c5e0ed;        // Lightened primary
+$healthcare-muted: #5a94a8;        // Desaturated primary
+
+// ===================
+// TYPOGRAPHY
+// ===================
+$font-family: var(--font-poppins), 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-size-base: 12px;            // Minimum 12pt
+$font-size-sm: 12px;              // Never smaller than 12px
+$font-size-md: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 18px;
+$font-size-2xl: 24px;
+$font-size-3xl: 32px;
+
+// ===================
+// SPACING
+// ===================
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 48px;
+
+// ===================
+// CARD STYLES
+// ===================
+$chart-bg: #f8fafc;
+$chart-card-bg: #ffffff;
+$chart-border-radius: 16px;
+$chart-shadow: 0 2px 8px rgba(30, 51, 61, 0.08);
+$chart-border: 1px solid rgba(50, 129, 168, 0.15);
+
+// ===================
+// TEXT COLORS (using healthcare palette - pre-calculated)
+// ===================
+$text-primary: #1e333d;
+$text-secondary: #5a94a8;
+$text-muted: #6a8a96;              // Pre-calculated lighten
+$text-subtle: #4a6a76;             // Pre-calculated lighten
+
+// ===================
+// STAKEHOLDER COLORS (healthcare-aligned)
+// ===================
+$stakeholder-colors: (
+  'ceo': #05305c,
+  'cfo': #3281a8,
+  'cto': #22b0bf,
+  'product': #0bb9e0,
+  'dataeng': #1a8a96,
+  'sre': #3281a8,
+  'devops': #2a5070,
+  'architect': #1e333d,
+  'pharma': #22b0bf,
+  'ciso': #05305c,
+  'sales': #0bb9e0,
+  'cmo': #4a9fc0,
+  'hr': #5a94a8,
+  'cs': #22b0bf,
+  'legal': #1e333d,
+  'mleng': #0bb9e0
+);
+
+// ===================
+// GALLERY CONTAINER
+// ===================
+.charts-gallery {
+  min-height: 100vh;
+  background-color: $chart-bg;
+  padding: 40px $spacing-lg;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  color: $text-primary;
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+// ===================
+// GALLERY HEADER
+// ===================
+.charts-gallery-header {
+  margin-bottom: $spacing-2xl;
+
+  &__title {
+    font-family: $font-family;
+    font-size: $font-size-3xl;
+    font-weight: 600;
+    color: $healthcare-dark;
+    margin-bottom: $spacing-sm;
+    letter-spacing: -0.5px;
+  }
+
+  &__subtitle {
+    font-family: $font-family;
+    font-size: $font-size-md;
+    font-weight: 400;
+    color: $text-secondary;
+    margin-bottom: $spacing-md;
+  }
+}
+
+// ===================
+// FILTERS SECTION
+// ===================
+.charts-gallery-filters {
+  display: flex;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+
+  &__group {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__label {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    font-weight: 500;
+    color: $text-secondary;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  &__text {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    font-weight: 400;
+    color: $text-subtle;
+  }
+
+  &__count {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    font-weight: 400;
+    color: $text-muted;
+  }
+}
+
+// Generate stakeholder color classes
+@each $stakeholder, $color in $stakeholder-colors {
+  .charts-gallery-filters__dot--#{$stakeholder} {
+    background-color: $color;
+  }
+  
+  .chart-card__tag--#{$stakeholder} {
+    color: $color;
+    background-color: rgba($color, 0.12);
+  }
+}
+
+// ===================
+// CHARTS GRID
+// ===================
+.charts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+// ===================
+// CHART CARD
+// ===================
+.chart-card {
+  background-color: $chart-card-bg;
+  border-radius: $chart-border-radius;
+  padding: $spacing-lg;
+  box-shadow: $chart-shadow;
+  border: $chart-border;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-md;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__number {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    font-weight: 500;
+    color: $text-muted;
+  }
+
+  &__title {
+    font-family: $font-family;
+    font-size: $font-size-xl;
+    font-weight: 600;
+    color: $healthcare-dark;
+    margin: 0;
+  }
+
+  &__category {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    font-weight: 400;
+    color: $text-muted;
+  }
+
+  &__description {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    font-weight: 400;
+    color: $text-secondary;
+    margin: 0;
+  }
+
+  &__tag {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    font-weight: 500;
+    padding: $spacing-xs 12px;
+    border-radius: 12px;
+  }
+
+  &__chart {
+    width: 100%;
+    overflow: hidden;
+    
+    svg {
+      display: block;
+      max-width: 100%;
+      font-family: $font-family;
+    }
+  }
+}
+
+// ===================
+// COLOR PALETTE REFERENCE
+// ===================
+.color-palette {
+  max-width: 1400px;
+  margin: $spacing-2xl auto 0;
+  background-color: $chart-card-bg;
+  border-radius: $chart-border-radius;
+  padding: $spacing-lg;
+  box-shadow: $chart-shadow;
+
+  &__title {
+    font-family: $font-family;
+    font-size: $font-size-xl;
+    font-weight: 600;
+    color: $healthcare-dark;
+    margin-bottom: $spacing-md;
+  }
+
+  &__grid {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__swatch {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid rgba(30, 51, 61, 0.1);
+  }
+
+  &__name {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__hex {
+    font-family: $font-family;
+    font-size: $font-size-base;
+    font-weight: 400;
+    color: $text-secondary;
+  }
+}
+
+// ===================
+// RESPONSIVE
+// ===================
+@media (max-width: 768px) {
+  .charts-gallery {
+    padding: $spacing-md;
+  }
+
+  .charts-gallery-header__title {
+    font-size: $font-size-2xl;
+  }
+
+  .charts-gallery-filters {
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  .chart-card {
+    padding: $spacing-md;
+
+    &__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-sm;
+    }
+  }
+}

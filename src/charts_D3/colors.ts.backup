@@ -1,0 +1,92 @@
+// Chart color palette - Healthcare color harmony
+// Primary colors: #3281a8, #1e333d, #22b0bf, #05305c, #0bb9e0
+
+export const chartColors = {
+  // Healthcare Primary Palette
+  primary: '#3281a8',       // Main blue
+  dark: '#1e333d',          // Dark navy (text/contrast)
+  teal: '#22b0bf',          // Teal accent
+  navy: '#05305c',          // Deep navy (emphasis)
+  cyan: '#0bb9e0',          // Bright cyan (highlights)
+  
+  // Derived colors
+  light: '#e8f4f8',         // Light background
+  muted: '#5a9bb8',         // Muted primary
+  background: '#f8fafc',    // Page background
+  white: '#ffffff',
+  
+  // Semantic mappings
+  secondary: '#22b0bf',
+  accent: '#0bb9e0',
+  charcoal: '#1e333d',
+  charcoalLight: '#4a6a76',
+  gray: '#5a9bb8',
+  grayLight: '#8ab4c4',
+  
+  // Legacy compatibility mappings
+  cobalt: '#3281a8',
+  sky: '#0bb9e0',
+  slate: '#5a9bb8',
+  steel: '#3281a8',
+  ice: '#e8f4f8',
+  periwinkle: '#22b0bf',
+  
+  // Status colors (healthcare-themed)
+  green: '#22b0bf',         // Teal for positive
+  red: '#1e333d',           // Dark for negative/alerts
+  orange: '#3281a8',        // Primary for warning
+  indigo: '#05305c',        // Deep navy
+  purple: '#5a9bb8',        // Muted
+  pink: '#0bb9e0',          // Cyan
+};
+
+// Ordered palette for sequential use in charts
+export const healthcarePalette = [
+  '#3281a8',  // Primary blue
+  '#1e333d',  // Dark navy
+  '#22b0bf',  // Teal
+  '#05305c',  // Deep navy
+  '#0bb9e0',  // Bright cyan
+];
+
+// Extended palette with derived colors
+export const chartSequence = [
+  '#3281a8',  // Primary blue - main data
+  '#22b0bf',  // Teal - secondary data
+  '#05305c',  // Deep navy - tertiary
+  '#0bb9e0',  // Cyan - quaternary
+  '#1e333d',  // Dark - fifth
+  '#5a9bb8',  // Muted primary - sixth
+  '#4a9cb3',  // Mid-tone - seventh
+  '#2d4a5a',  // Dark muted - eighth
+];
+
+// For legacy compatibility
+export const bluePalette = chartSequence;
+
+// Typography settings for D3 charts
+export const chartTypography = {
+  fontFamily: "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  fontSize: {
+    xs: 12,      // Minimum - never smaller
+    sm: 12,      // Same as xs - 12pt minimum
+    md: 14,
+    lg: 16,
+    xl: 18,
+    xxl: 24,
+  },
+  fontWeight: {
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+  },
+};
+
+// Text colors for charts
+export const chartTextColors = {
+  primary: '#1e333d',
+  secondary: '#5a9bb8',
+  muted: '#7a9aaa',
+  light: '#a8c4d0',
+};

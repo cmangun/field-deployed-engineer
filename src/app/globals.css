@@ -1,0 +1,100 @@
+/* ===========================================================
+   CASE STUDY SHOWCASE — Horizontal slider overrides
+   ========================================================== */
+
+/* Wider cards like the original template */
+.parallax-item {
+  width: 700px !important;
+}
+
+.parallax-img {
+  width: 900px !important;
+}
+
+/* Add gap between cards */
+.parallax-slider-inner {
+  gap: 24px;
+}
+
+/* Make overlay 50% darker on hover (was 30%) */
+.parallax-item:hover .parallax-img::after {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Ensure text is readable with stronger contrast */
+.parallax-content {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Video modal style */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9); 
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-modal-container {
+  width: 90%;
+  max-width: 1200px; 
+  position: relative;
+}
+
+.video-modal-iframe {
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 32px;
+  transition: all 0.3s ease;
+}
+
+.video-modal-close:hover {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .video-modal-iframe {
+    height: 50vh;
+    min-height: 300px;
+  }
+  
+  .video-modal-close {
+    top: -40px;
+    font-size: 28px;
+  }
+}
+
+/* ===========================================================
+   CHARTS GALLERY STYLES
+   
+   MOVED TO: /src/styles/scss/charts.scss
+   
+   The chart-card pattern and charts gallery styles now live in
+   a canonical SCSS file for better maintainability:
+   
+   - /src/styles/scss/_chart-card.scss  (Soft UI card pattern)
+   - /src/styles/scss/charts.scss       (Main entry point)
+   
+   Import in components: import '@/styles/scss/charts.scss';
+   ========================================================== */

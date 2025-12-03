@@ -1,0 +1,47 @@
+"use client"
+import thumbImg from "../../../public/assets/img/hero.png"
+import { fadeAnimation } from "@/hooks/useGsapAnimation";
+import { useCursorAndBackground } from '@/hooks/useCursorAndBackground';
+import PortfolioWebglHeader from '@/layouts/headers/PortfolioWebglHeader';
+import AboutUsBanner from '@/components/banner/AboutUsBanner';
+import CareerDetails from "@/components/career/CareerDetails";
+import useScrollSmooth from '@/hooks/useScrollSmooth';
+import { useGSAP } from '@gsap/react';
+import React from 'react';
+
+const CareerDetailsMain = () => {
+    // Initialize custom cursor and background styles
+    useCursorAndBackground({ bgColor: "#fff" });
+
+    // Enable smooth scroll animations
+    useScrollSmooth();
+
+    useGSAP(() => {
+        const timer = setTimeout(() => {
+            fadeAnimation();
+        }, 100)
+        return () => clearTimeout(timer);
+    });
+
+    return (
+        <>
+            <div id="magic-cursor" className="cursor-bg-red-2">
+                <div id="ball"></div>
+            </div>
+
+            {/* Global Components */}
+            <PortfolioWebglHeader />
+
+            <div id="smooth-wrapper">
+                <div id="smooth-content">
+                    <main>
+                        <AboutUsBanner image={thumbImg} spacingCls='' />
+                        <CareerDetails />
+                    </main>
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default CareerDetailsMain;

@@ -1,0 +1,420 @@
+/* ===========================================================
+   SOFT UI VARIANT – CHART CARD SYSTEM
+   Neumorphic design with extruded plastic look
+   ========================================================== */
+
+/* Page / gallery background */
+.charts-gallery-page {
+  min-height: 100vh;
+  padding: 32px;
+  background: #f2f2f2;
+}
+
+/* Card shell – neumorphic surface */
+.chart-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+
+  padding: 26px 28px;
+  border-radius: 8px;
+  background: linear-gradient(225deg, #dadada, #ffffff);
+
+  /* Neumorphic shadow: extruded plastic look */
+  box-shadow:
+    -5px 5px 20px #c6c6c6,
+    5px -5px 20px #ffffff;
+
+  border: none;
+}
+
+/* Remove the old inner highlight */
+.chart-card::before {
+  display: none;
+}
+
+/* HEADER */
+.chart-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chart-card__title {
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 600;
+  color: #111111;
+  margin: 0;
+}
+
+.chart-card__subtitle,
+.chart-card__purpose {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: #5a5a5a;
+  margin: 0;
+}
+
+.chart-card__description {
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #555555;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* CONTEXT */
+.chart-card__context {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444444;
+  margin: 0;
+  
+  p {
+    margin: 0;
+  }
+}
+
+/* CHART REGION */
+.chart-card__chart {
+  margin-top: 8px;
+}
+
+.chart-card__chart svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Legend */
+.chart-card__legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+
+  font-size: 12px;
+  font-weight: 500;
+  color: #444444;
+}
+
+.chart-card__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chart-card__legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 4px;
+  background: #808080;
+  box-shadow:
+    -1px 1px 3px #c6c6c6,
+    1px -1px 3px #ffffff;
+}
+
+/* CTA SECTION – INSIGHT + NEXT STEP */
+.chart-card__cta {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-radius: 8px;
+
+  /* Inset neumorphic effect */
+  background: linear-gradient(225deg, #e6e6e6, #f0f0f0);
+  box-shadow:
+    inset -3px 3px 10px #c6c6c6,
+    inset 3px -3px 10px #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* FOOTER PANEL – INSIGHT + NEXT STEP (legacy class) */
+.chart-card__footer {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-radius: 8px;
+
+  background: linear-gradient(225deg, #e6e6e6, #f0f0f0);
+  box-shadow:
+    inset -3px 3px 10px #c6c6c6,
+    inset 3px -3px 10px #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* INSIGHT */
+.chart-card__insight {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chart-card__insight-label,
+.chart-card__cta-label {
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #888888;
+  margin: 0;
+}
+
+.chart-card__insight-text,
+.chart-card__insight p {
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #444444;
+  margin: 0;
+}
+
+/* RECOMMENDATION ROW */
+.chart-card__recommendation-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* NEXT STEP */
+.chart-card__next-step {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chart-card__next-step-label {
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #888888;
+  margin: 0;
+}
+
+/* Soft card inside the footer */
+.chart-card__next-step-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 14px 18px;
+  border-radius: 8px;
+
+  background: linear-gradient(225deg, #dadada, #ffffff);
+  border: none;
+  box-shadow:
+    -3px 3px 10px #c6c6c6,
+    3px -3px 10px #ffffff;
+}
+
+/* Recommendation + meta */
+.chart-card__recommendation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chart-card__recommendation-text,
+.chart-card__recommendation p {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #111111;
+  margin: 0;
+}
+
+.chart-card__next-step-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.chart-card__owner {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666666;
+}
+
+.chart-card__impact {
+  font-size: 12px;
+  font-weight: 500;
+  color: #888888;
+  padding-left: 8px;
+  border-left: 1px solid #cccccc;
+}
+
+/* CTA Actions */
+.chart-card__cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Pills – neumorphic capsules */
+.chart-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  border: none;
+}
+
+.chart-pill--stakeholder {
+  background: linear-gradient(225deg, #dadada, #ffffff);
+  color: #444444;
+  box-shadow:
+    -2px 2px 6px #c6c6c6,
+    2px -2px 6px #ffffff;
+}
+
+.chart-pill--impact {
+  background: linear-gradient(225deg, #1a1a1a, #333333);
+  color: #ffffff;
+  box-shadow:
+    -2px 2px 6px #c6c6c6,
+    2px -2px 6px #ffffff;
+}
+
+.chart-pill--status {
+  &.approved {
+    background: linear-gradient(225deg, #047857, #10b981);
+    color: #ffffff;
+  }
+  &.draft {
+    background: linear-gradient(225deg, #d97706, #fbbf24);
+    color: #ffffff;
+  }
+  &.in-review {
+    background: linear-gradient(225deg, #2563eb, #60a5fa);
+    color: #ffffff;
+  }
+}
+
+/* Accept / Approved button – neumorphic */
+.chart-card__accept-btn,
+.chart-card__approved-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+
+  background: linear-gradient(225deg, #1a1a1a, #333333);
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+
+  box-shadow:
+    -3px 3px 10px #c6c6c6,
+    3px -3px 10px #ffffff;
+
+  transition:
+    background 120ms ease,
+    transform 80ms ease,
+    box-shadow 120ms ease;
+}
+
+.chart-card__accept-btn:hover,
+.chart-card__approved-button:hover {
+  background: linear-gradient(225deg, #0a0a0a, #222222);
+  box-shadow:
+    -4px 4px 14px #c6c6c6,
+    4px -4px 14px #ffffff;
+}
+
+.chart-card__accept-btn:active,
+.chart-card__approved-button:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset -2px 2px 6px rgba(0, 0, 0, 0.3),
+    inset 2px -2px 6px rgba(255, 255, 255, 0.1);
+}
+
+.chart-card__accept-btn:focus-visible,
+.chart-card__approved-button:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 2px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .charts-gallery-page {
+    padding: 20px;
+  }
+
+  .chart-card {
+    padding: 20px;
+  }
+
+  .chart-card__title {
+    font-size: 20px;
+  }
+
+  .chart-card__next-step-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .chart-card__cta-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .chart-card__recommendation-row {
+    flex-direction: column;
+  }
+}
+
+/* ===========================================================
+   CHART CARD WRAPPER COMPONENT
+   For use with the insight/next-step footer
+   ========================================================== */
+
+.chart-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Grid layout for multiple cards */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+  padding: 24px;
+}
+
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 16px;
+  }
+}
