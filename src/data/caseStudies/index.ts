@@ -18,9 +18,15 @@ import { abbottNormalized } from "./abbott.normalized";
 // ─────────────────────────────────────────────────────────────────────────────
 // LEGACY CASE STUDY IMPORTS (To be migrated)
 // ─────────────────────────────────────────────────────────────────────────────
+// Pfizer Quartet (focused single-phase case studies)
+import { pfizerDiagnoseData, pfizerDiagnoseCharts } from "./pfizerDiagnoseData";
+import { colabArchitectData, colabArchitectCharts } from "./colabArchitectData";
+import { pfizerPipelineData, pfizerPipelineCharts } from "./pfizerPipelineData";
+import { cocoData, cocoCharts } from "./cocoData";
+// Legacy full E2E versions (kept for reference)
 import { pfizerData, pfizerCharts } from "./pfizerData";
 import { colabData, colabCharts } from "./colabData";
-import { cocoData, cocoCharts } from "./cocoData";
+// Other case studies
 import { medtronicData, medtronicCharts } from "./medtronicData";
 import { amgenData, amgenCharts } from "./amgenData";
 import { sanofiData, sanofiCharts } from "./sanofi";
@@ -49,14 +55,20 @@ const normalizedRegistry: Record<string, NormalizedCaseStudy> = {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const caseStudyConfigs: Record<string, CaseStudyConfig> = {
-  // 1. Pfizer — Field-Embedded Engineer
-  "pfizer": { slug: "pfizer", study: pfizerData, charts: pfizerCharts },
-  // 2. Pfizer — RAG Solution Architect
-  "colab": { slug: "colab", study: colabData, charts: colabCharts },
-  // 3. Pfizer — RAG Co-Pilot (placeholder - uses colab charts)
-  "pfizer-pipeline": { slug: "pfizer-pipeline", study: colabData, charts: colabCharts },
-  // 4. Pfizer — CoCo (focused enablement case)
+  // ═══════════════════════════════════════════════════════════════════════════
+  // PFIZER QUARTET — Focused single-phase case studies
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 1. Pfizer — Diagnostic Search Baseline (Diagnose-only)
+  "pfizer": { slug: "pfizer", study: pfizerDiagnoseData, charts: pfizerDiagnoseCharts },
+  // 2. Pfizer — Architecture Colab Datasphere (Architect-only)
+  "colab": { slug: "colab", study: colabArchitectData, charts: colabArchitectCharts },
+  // 3. Pfizer — RAG Co-Pilot Engineering (Engineer-only)
+  "pfizer-pipeline": { slug: "pfizer-pipeline", study: pfizerPipelineData, charts: pfizerPipelineCharts },
+  // 4. Pfizer — CoCo Company Companion (Enable-only)
   "coco": { slug: "coco", study: cocoData, charts: cocoCharts },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // OTHER CASE STUDIES
+  // ═══════════════════════════════════════════════════════════════════════════
   // 5. Abbott — BinaxNOW
   "binaxnow": { slug: "binaxnow", study: binaxNowData, charts: binaxNowCharts },
   // 6. Abbott — Alinity
