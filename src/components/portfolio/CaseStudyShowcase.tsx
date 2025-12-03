@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useCursorAndBackground } from '@/hooks/useCursorAndBackground';
-import BackToTop from '@/components/shared/BackToTop/BackToTop';
 import { caseStudyCardsData } from '@/data/caseStudyCardsData';
 import { parallaxSlider } from '@/utils/ParallaxSlider';
 import PortfolioWebglHeader from '@/layouts/headers/PortfolioWebglHeader';
@@ -62,7 +61,6 @@ const CaseStudyShowcase = () => {
             </div>
 
             {/* Global Components */}
-            <BackToTop />
             <PortfolioWebglHeader />
 
 
