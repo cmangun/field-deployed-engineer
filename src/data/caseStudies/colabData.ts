@@ -21,38 +21,38 @@ import { chartColors } from '@/charts_D3/colors';
 export const colabData: CaseStudyData = {
   id: 'colab',
   slug: 'colab',
-  brandLogo: '/assets/img/cmlogo.png',
-  title: 'Colab Company Companion',
-  subtitle: 'Retrieval & Knowledge Engineering',
-  company: 'Global Enterprise',
-  client: 'Enterprise Research & Operations',
-  role: 'Lead Retrieval & Knowledge Engineer',
+  brandLogo: '/assets/img/logo/Pfizer-(2021).png',
+  title: 'Pfizer – Architecture Colab Datasphere',
+  subtitle: 'Enterprise Data Architecture',
+  company: 'Pfizer',
+  client: 'Pfizer Enterprise Architecture',
+  role: 'Lead Solution Architect',
   year: '2024',
-  services: ['Knowledge Engineering', 'RAG Pipeline', 'Vector Search', 'Semantic Infrastructure'],
+  services: ['Data Architecture', 'System Integration', 'Governance Design', 'Platform Engineering'],
   heroImage: '/assets/img/case-studies/_showcase/Knowledge_Retreval.jpg',
-  overview: 'Turned a fragmented intranet into a single source of truth with an AI assistant ("CoCo") that cut search-to-answer time from 15 minutes to under 30 seconds and tripled successful document discovery for onboarding, SOPs, and internal workflows.',
+  overview: 'Designed a governed content datasphere that unified SharePoint, Veeva, Workfront, and Salesforce while keeping each system of record intact. This became the foundation for all RAG and co-pilot work.',
 
   // Three-line hero context
   heroContext: {
-    client: 'Enterprise research & operations teams working across multiple business units.',
-    constraint: 'Knowledge lived in disconnected wikis, SharePoint sites, and legacy portals; new hires and project teams could not reliably find the "latest approved" document.',
-    result: 'A governed RAG knowledge engine ("CoCo") became the company companion for onboarding and daily work, with measurable gains in time-to-answer, SOP adoption, and cross-team reuse.',
+    client: 'Pfizer commercial and digital teams operating under MLR governance.',
+    constraint: 'Content, metadata, and claims lived in siloed systems with no unified retrieval surface for AI consumption.',
+    result: 'A governed data plane that feeds AI systems without creating a shadow system of record, with MLR boundaries enforced at the integration layer.',
   },
 
   // Metrics row under hero
   heroMetrics: [
-    { label: 'Search → Answer', value: '15 min → 30 sec', delta: '-97%' },
-    { label: 'Doc Discovery', value: '3×', delta: 'first-result correct' },
-    { label: 'Onboarding Ramp', value: '-30%', delta: 'time-to-independence' },
+    { label: 'Systems Unified', value: '5', delta: 'core integrations' },
+    { label: 'Compliance', value: 'MLR', delta: 'boundaries enforced' },
+    { label: 'Architecture', value: 'Approved', delta: 'security sign-off' },
   ],
 
   executiveSnapshot: {
-    headline: '97% faster search-to-answer, 3× discovery rate',
+    headline: '5 systems unified under governed data plane',
     keyOutcomes: [
-      '15 min → 30 sec search time',
-      '3× document discovery',
-      '180+ active pilot users',
-      '4 systems integrated',
+      '5 core systems integrated',
+      'MLR boundaries enforced',
+      'Security & compliance approved',
+      'Foundation for RAG pipeline',
     ],
   },
 

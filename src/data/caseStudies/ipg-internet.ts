@@ -16,68 +16,68 @@ import { pfizerCharts } from '@/data/caseStudies/pfizerData';
 export const ipgIntranetData: CaseStudyData = {
   slug: 'ipg-searchable-intranet',
   brandLogo: '/assets/img/logo/IPG-white.png',
-  title: 'IPG Searchable Azure Intranet',
+  title: 'IPG – Multi-Agency System Unification',
   subtitle: 'Enterprise Architecture',
   company: 'IPG Health',
-  client: 'Area 23 + ProHealth',
+  client: 'ProHealth, Area 23, and network agencies',
   role: 'Lead Architect & Forward Deployed Engineer',
-  year: '2022–2023',
+  year: '2022',
   services: [
-    'Azure Architecture',
-    'Enterprise Search',
-    'SharePoint Engineering',
-    'Document Governance',
-    'Indexing & Metadata',
+    'Multi-Tenant Architecture',
+    'Content Supply Chain',
+    'Identity & Routing',
+    'Asset Lifecycle',
+    'MLR Integration',
   ],
   heroImage: '/assets/img/home-06/project/publicis.jpg',
 
   overview:
-    'Built a production-grade, Azure-hosted SharePoint intranet for Area 23 and ProHealth to unify fragmented brand documents, accelerate global drug launches, and establish a single source of truth for regulatory, creative, and medical teams.',
+    'Unified 14 agency systems into a governed content supply chain while preserving local autonomy and creative velocity. One governed backbone, many distinct agencies.',
 
   heroContext: {
     client:
-      'Two award-winning IPG agencies with global pharma portfolios and distributed teams working across hundreds of launches.',
+      'IPG Health wanted a single supply chain for regulated content across 14 agencies without flattening their differences.',
     mandate:
-      'Eliminate silos, accelerate cross-team onboarding, and create true document discoverability for high-velocity global drug launches.',
+      'Standardize identity, routing, and approval states while each agency keeps its own brands, teams, and nuanced workflows.',
     surface:
-      'Azure-hosted SharePoint Online, Microsoft Graph search, custom metadata + taxonomies, and Azure Cognitive Search enrichment.',
+      'Multi-tenant platform with unified SSO, standardized asset states from Idea through MLR to Deployed.',
   },
 
   heroMetrics: [
     {
-      label: 'Search Accuracy',
-      value: '92% relevance',
-      caption: 'Across 14,000+ indexed documents with medical, creative, and regulatory metadata.',
+      label: 'Agencies Unified',
+      value: '14',
+      caption: 'Supported on a single content backbone.',
       color: chartColors.blue,
     },
     {
-      label: 'Time Saved',
-      value: '3.4 hrs/week',
-      caption: 'Per project manager after search + tagging rollout.',
+      label: 'Onboarding Time',
+      value: '-30%',
+      caption: 'Reduction in new team ramp-up.',
       color: chartColors.teal,
     },
     {
-      label: 'Adoption',
-      value: '87% active',
-      caption: 'Within 60 days of launch across Area 23 + ProHealth teams.',
+      label: 'Identity',
+      value: 'Unified SSO',
+      caption: 'Across the network.',
       color: chartColors.purple,
     },
     {
-      label: 'Content Velocity',
-      value: '28% faster',
-      caption: 'Launch documentation prep for global drug campaigns.',
+      label: 'Asset States',
+      value: 'Standardized',
+      caption: 'Idea → MLR → Deployed.',
       color: chartColors.orange,
     },
   ],
 
   executiveSnapshot: {
     headline:
-      'Created a unified, searchable Azure intranet that turned SharePoint into an accelerator for global drug launches—not an archive.',
+      'Created a multi-tenant content backbone that unified 14 agencies while preserving local autonomy.',
     bullets: [
-      'Engineered a single source of truth for all creative, strategy, medical, and regulatory documentation.',
-      'Implemented Azure Cognitive Search, Microsoft Graph connectors, and enriched metadata pipelines.',
-      'Standardized taxonomies and file governance across Area 23 + ProHealth portfolios.',
-      'Enabled rapid onboarding, reduced duplicative work, and increased launch throughput.',
+      'Architected multi-tenant platform with standardized identity and routing.',
+      'Harmonized taxonomies and asset lifecycles across all agencies.',
+      'Enabled concept handoff across agency boundaries with preserved MLR context.',
+      'Built portfolio planning views for network leadership.',
     ],
   },
 

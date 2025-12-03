@@ -14,35 +14,35 @@ import { pfizerCharts } from './pfizerData';
 export const nakedHeartFoundationData: CaseStudyData = {
   slug: 'nakedheart',
   brandLogo: '/assets/img/logo/NHF.png',
-  title: 'Naked Heart Foundation',
-  subtitle: 'Inclusive Playground Network',
+  title: 'Naked Heart Foundation – Inclusive Playground Network',
+  subtitle: 'Networked Execution Model',
   company: 'Naked Heart Foundation',
   client: 'Naked Heart Foundation',
-  role: 'Digital Platform Architect',
-  year: '2022',
-  services: ['Data Platform', 'Analytics', 'Donor Operations', 'Impact Measurement'],
+  role: 'Embedded Project Lead',
+  year: '2014',
+  services: ['Program Operations', 'Process Design', 'Intake Systems', 'Impact Tracking'],
   heroImage: '/assets/img/case-studies/_showcase/nakedheart.jpg',
-  overview: 'Built a data and recommendations platform supporting early-childhood programs and donor transparency. Delivered a distributed network of inclusive play spaces across Russian cities and towns, each one a piece of social infrastructure that families can touch, climb, and trust.',
+  overview: 'Helped scale a repeatable model for building safe, inclusive playgrounds across Russian cities. Turned individual playground builds into a pipeline with standardized intake, approvals, and tracking.',
 
   heroContext: {
-    client: 'In 2004, the Beslan school tragedy exposed not only a crisis of security, but a deeper wound: children and families with nowhere to process grief, no safe public spaces.',
-    constraint: 'Public infrastructure in many cities was functional at best-broken equipment, inaccessible layouts, and nothing deliberately built for healing, inclusion, or play.',
-    result: 'Modern, safe, inclusive playgrounds as a public promise that childhood still mattered-co-designed with communities, municipalities, and partners.'
+    client: 'Playgrounds were historically run as heroic one-off projects with no consistent process.',
+    constraint: 'Without a pipeline, projects stalled between land approval, design, and construction.',
+    result: 'A networked execution model that gave donors, leadership, and communities visibility into where each playground stood.',
   },
 
   heroMetrics: [
-    { value: '100+', label: 'Playgrounds Built' },
-    { value: '1000s', label: 'Children Reached' },
-    { value: '100%', label: 'Inclusive Access' }
+    { value: 'Multi-city', label: 'Rollout' },
+    { value: 'Pipeline', label: 'Established' },
+    { value: 'Predictable', label: 'Delivery' }
   ],
 
   executiveSnapshot: {
-    headline: 'Turning grief into tangible spaces for play and community repair',
+    headline: 'From one-off playgrounds to a scalable rollout pattern',
     keyOutcomes: [
-      'Free, safe, inclusive playgrounds across Russia',
-      'Thousands of children and families benefited',
-      'Repeatable mission model established',
-      'Platform for future programming created'
+      'Clear visibility from Proposed Site to Launched Playground',
+      'Reduced idle time between project phases',
+      'Standardized intake and evaluation process',
+      'Repeatable reporting for donors and partners'
     ]
   },
 
@@ -51,33 +51,33 @@ export const nakedHeartFoundationData: CaseStudyData = {
       key: 'diagnose',
       title: 'Diagnose',
       challenge:
-        'The Beslan tragedy exposed a deeper structural absence: families had nowhere safe to gather, play, or process grief together.',
+        'We did not know why some playground projects moved quickly while others stalled for months.',
       outcome:
-        'Reframed the mission from one-time charity into long-lived, inclusive public spaces: playgrounds as visible social infrastructure and a permanent response to trauma.'
+        'Mapped the end-to-end process and identified where blockers consistently appeared.'
     },
     {
       key: 'architect',
       title: 'Architect',
       challenge:
-        'Resources were limited and cities were diverse; building "where it feels right" was not enough to maximize impact.',
+        'Each playground was managed differently with no shared framework.',
       outcome:
-        'Defined a data-informed selection model that combined demographics, accessibility, safety constraints, municipal readiness, and partner capacity into a repeatable site-prioritization framework.'
+        'Designed a standardized intake form and status model that worked across all sites.'
     },
     {
       key: 'engineer',
       title: 'Engineer',
       challenge:
-        'Every project touched donors, municipalities, contractors, and communities; ad-hoc coordination would not scale beyond a handful of playgrounds.',
+        'Tracking dozens of playgrounds in parallel required simple but reliable tooling.',
       outcome:
-        'Implemented basic but robust data pipelines and tooling for tracking sites, grants, timelines, and partners so the organization could run dozens of projects in parallel without losing fidelity.'
+        'Built a Kanban-style tracker and weekly operating rhythm so blockers surfaced early.'
     },
     {
       key: 'enable',
       title: 'Enable',
       challenge:
-        'Playgrounds only succeed if communities feel ownership and if local partners can operate and maintain them over time.',
+        'Donors, leadership, and local communities needed to see progress without asking for updates.',
       outcome:
-        'Co-designed engagement templates, partnership models, and reporting mechanisms so local NGOs and city officials could adopt the framework without bespoke reinvention every time.'
+        'Created reporting packs and status views that gave stakeholders self-service visibility into the pipeline.'
     },
     {
       key: 'impact',

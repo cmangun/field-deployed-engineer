@@ -14,35 +14,35 @@ import { pfizerCharts } from './pfizerData';
 export const abbottAlinityData: CaseStudyData = {
   slug: 'alinity',
   brandLogo: '/assets/img/logo/alinity-m-logo.png',
-  title: 'Abbott Alinity Systems',
-  subtitle: 'GxP-Qualified AWS Diagnostic Platform',
+  title: 'Abbott – Alinity Enterprise Production',
+  subtitle: 'Edge + Cloud Reliability Engineering',
   company: 'Abbott Labs',
   client: 'Abbott Diagnostics',
-  role: 'Lead Cloud Architect',
-  year: '2023',
-  services: ['Edge Computing', 'Alerting Systems', 'Reliability Engineering', 'GxP Compliance'],
+  role: 'Lead Platform Engineer',
+  year: '2020',
+  services: ['Edge Computing', 'Reliability Engineering', 'Alerting Systems', 'Fleet Observability'],
   heroImage: '/assets/img/home-06/project/alinity.jpg',
-  overview: 'GxP-qualified AWS data platform powering 15B+ diagnostic tests a year with sub-minute analytics, zero data integrity incidents, and global mission reliability. Reduced complex query latency from 24 hours to seconds, supported 650+ concurrent users globally, cut infrastructure cost by ~79%, and maintained zero GxP findings across FDA and international audits.',
+  overview: 'Built an edge + cloud reliability and alerting engine for Alinity diagnostics running in resource-constrained hospital environments. Turned opaque instruments into an observable diagnostic network with fleet-level uptime tracking and incident response.',
 
   heroContext: {
-    client: 'Abbott Architect, Alinity, and Libre platforms were running on aging on-prem Oracle systems with 14-24 hour query times.',
-    constraint: '15 billion diagnostic tests per year across 180+ countries under strict GxP and 21 CFR Part 11 oversight.',
-    result: 'Harmonized three fragmented systems into cloud-native diagnostic backbone with near-real-time insight.'
+    client: 'Alinity instruments sit in hospitals where downtime is simply not acceptable.',
+    constraint: 'No unified view of device health, throughput anomalies, or SLA breaches across the global fleet.',
+    result: 'An edge + cloud hybrid platform that collected telemetry, standardized events, and powered a reliability dashboard for global operations.',
   },
 
   heroMetrics: [
-    { value: '15B+', label: 'Tests/Year' },
-    { value: '~79%', label: 'Cost Reduction' },
-    { value: '0', label: 'GxP Findings' }
+    { value: '99.9%', label: 'Uptime Target' },
+    { value: 'Global', label: 'Fleet Monitored' },
+    { value: 'Real-time', label: 'Alerting' }
   ],
 
   executiveSnapshot: {
-    headline: 'Global diagnostic platform with zero integrity incidents',
+    headline: 'From opaque instruments to observable network',
     keyOutcomes: [
-      'Query performance: 24 hrs → seconds',
-      '~$12.7M annual cost reduction (~79%)',
-      '15B+ tests/year supported',
-      '0 audit findings, 0 integrity incidents'
+      'Fleet-level uptime tracked against 99.9% target',
+      'Clear incident breakdown by cause and region',
+      'Faster detection of throughput anomalies',
+      'Actionable alerts to local teams'
     ]
   },
 
@@ -51,33 +51,33 @@ export const abbottAlinityData: CaseStudyData = {
       key: 'diagnose',
       title: 'Diagnose',
       challenge:
-        'Three fragmented diagnostic platforms - Architect, Alinity, and Libre - ran on aging Oracle systems with 14–24 hour query times, creating blind spots across 15B+ annual tests.',
+        'Operations had no unified view of device health across the global Alinity fleet.',
       outcome:
-        'Reframed the problem from "database migration" to "diagnostic mission integrity": mapped 850TB+ of workloads, identified where GxP compliance was at risk, and aligned stakeholders around a unified data strategy.'
+        'Mapped telemetry gaps and identified the key signals needed for proactive reliability management.'
     },
     {
       key: 'architect',
       title: 'Architect',
       challenge:
-        'We needed to design a GxP-qualified AWS landing zone that could replace decades of Oracle infrastructure while satisfying 21 CFR Part 11, EU Annex 11, and internal audit expectations.',
+        'We needed an architecture that could work at the edge in resource-constrained environments and aggregate to cloud for fleet-wide visibility.',
       outcome:
-        'Defined a three-zone data lake architecture (raw → curated → analytics-ready) with ALCOA+ integrity controls, dual-path query patterns, and compliance mappings codified into the landing-zone baseline.'
+        'Designed edge collectors that normalized telemetry before sending upstream, with cloud aggregation for dashboards and alerting.'
     },
     {
       key: 'engineer',
       title: 'Engineer',
       challenge:
-        'Migrating 850TB+ of diagnostic data required chain-of-custody logging, schema normalization across three platforms, and a full GAMP 5 CSV validation approach - all while production systems stayed live.',
+        'Building reliable telemetry from instruments in hospital environments with variable connectivity.',
       outcome:
-        'Executed the migration using Snowball Edge with SHA-256 checksums, built Treesitter-enhanced ETL pipelines for schema validation, and completed IQ/OQ/PQ with 450+ test cases and 99.97% result agreement.'
+        'Implemented edge collectors, a shared ML-ready store, and reliability dashboards showing uptime, test volumes, and incident trends.'
     },
     {
       key: 'enable',
       title: 'Enable',
       challenge:
-        'Clinicians, scientists, and regulators needed to trust the new platform - not just see faster queries, but verify that data integrity was intact.',
+        'Local teams needed actionable signals instead of noisy logs or missing data.',
       outcome:
-        'Shipped a React-based query layer with SQL-free analysis, real-time GxP compliance dashboards, and monitoring that gave users confidence the platform was operating within validated bounds.'
+        'Defined alert rules and on-call paths so regional teams could respond to issues before they impacted patients.'
     },
     {
       key: 'impact',

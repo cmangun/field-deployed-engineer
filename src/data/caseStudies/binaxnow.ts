@@ -14,35 +14,35 @@ import { pfizerCharts } from './pfizerData';
 export const binaxNowData: CaseStudyData = {
   slug: 'binaxnow',
   brandLogo: '/assets/img/logo/Binax.png',
-  title: 'Abbott BinaxNOW',
-  subtitle: 'Rapid Antigen Testing at Scale',
+  title: 'Abbott – BinaxNOW Evaluation Backbone',
+  subtitle: 'Diagnostic Evaluation Infrastructure',
   company: 'Abbott Labs',
   client: 'Abbott Diagnostics',
   role: 'Technical Program Lead',
-  year: '2022',
-  services: ['Data QA', 'FDA Compliance', 'Evaluation Design', 'Manufacturing Scale'],
+  year: '2021',
+  services: ['Evaluation Design', 'Data QA', 'Regulatory Compliance', 'Clinical Operations'],
   heroImage: '/assets/img/case-studies/_showcase/BInaxNow.jpg',
-  overview: 'In August 2020, Abbott launched the BinaxNOW COVID-19 Antigen Card. Within months it became one of the most widely used rapid antigen tests in the U.S. By March 2021, it secured OTC EUA for self-testing—shifting diagnostics from hospitals to households. Manufactured at tens of millions of units per month, BinaxNOW democratized access to testing, enabling real-time isolation decisions and reducing transmission risk nationwide.',
+  overview: 'Built a controlled evaluation dataset and process so BinaxNOW performance claims could withstand regulatory and clinical scrutiny. Harmonized runs, conditions, and outcomes into a dataset that regulators and clinicians could trust.',
 
   heroContext: {
-    client: 'The U.S. faced a diagnostics bottleneck - centralized PCR testing could not scale to meet the volume, speed, and accessibility required during early SARS-CoV-2 waves.',
-    constraint: 'Communities needed a low-cost, instrument-free, 15-minute test that could work in schools, workplaces, and homes.',
-    result: 'Abbott adapted its LFIA lineage to detect the virus nucleocapsid protein, enabling mass manufacturing at unprecedented speed and scale.'
+    client: 'Abbott needed proof—not slides—that low-cost rapid tests behaved consistently across lots, sites, and conditions.',
+    constraint: 'Data lived in different systems and formats, making it hard to prove stability or trace specific anomalies.',
+    result: 'A structured evaluation backbone that aligned lab, field, and manufacturing inputs to a single evaluation schema.',
   },
 
   heroMetrics: [
-    { value: '15', suffix: 'min', label: 'Time to Result' },
-    { value: 'M+', label: 'Tests/Month' },
-    { value: 'OTC', label: 'EUA Approved' }
+    { value: 'Multi-lot', label: 'Coverage' },
+    { value: 'Multi-site', label: 'Validation' },
+    { value: 'FDA', label: 'Ready' }
   ],
 
   executiveSnapshot: {
-    headline: 'Democratized diagnostics at pandemic scale',
+    headline: 'Evaluation as infrastructure, not afterthought',
     keyOutcomes: [
-      '15-minute results enabling immediate isolation decisions',
-      'Tens of millions of tests manufactured per month',
-      'OTC EUA achieved March 2021',
-      'National distribution through CVS, Walgreens, Walmart'
+      'Harmonized lab and field evaluation schema',
+      'Consistent metadata for environment and handling',
+      'Regulatory-ready summary views',
+      'Performance stability proven across conditions'
     ]
   },
 
@@ -51,33 +51,33 @@ export const binaxNowData: CaseStudyData = {
       key: 'diagnose',
       title: 'Diagnose',
       challenge:
-        'The U.S. was trapped in a lab-based PCR bottleneck; we did not know whether the right lever was assay chemistry, instrumentation, or distribution.',
+        'We did not have a single view of how BinaxNOW performed across lots, sites, and storage conditions.',
       outcome:
-        'Assessment revealed that the fastest safe path was not a new platform, but re-using the Binax LFIA lineage and existing manufacturing capacity for SARS-CoV-2.'
+        'Mapped all evaluation touchpoints and defined a harmonized schema so each run became a structured, comparable record.'
     },
     {
       key: 'architect',
       title: 'Architect',
       challenge:
-        'We needed an assay that could run instrument-free, be interpretable by non-clinicians, and still meet FDA performance thresholds.',
+        'We needed evaluation infrastructure that could handle ongoing runs without manual reconciliation.',
       outcome:
-        'Designed a lateral-flow architecture: nasal swab sample, extraction buffer, capillary strip, gold-labeled anti-N antibodies, and visual test/control lines suitable for home and point-of-care use.'
+        'Designed ingestion and QC procedures that normalized data on arrival and flagged anomalies automatically.'
     },
     {
       key: 'engineer',
       title: 'Engineer',
       challenge:
-        'Engineering had to compress years of assay optimization into months without compromising specificity or manufacturability.',
+        'Clinical and regulatory teams needed confidence in the data without rebuilding reports each time.',
       outcome:
-        'Iterated on antibody pairs, strip geometry, and buffer chemistry; locked a design that met sensitivity/specificity targets and could run on existing high-volume lines.'
+        'Built regulatory-ready summary views showing sensitivity/specificity by lot and condition, with drill-down for investigations.'
     },
     {
       key: 'enable',
       title: 'Enable',
       challenge:
-        'Even the best assay would fail if end-users mis-swabbed, mis-timed, or mis-read the card, or if regulators could not trust the data.',
+        'The evaluation backbone needed to be usable by clinical affairs, not just data engineers.',
       outcome:
-        'Delivered clear IFU, training material, and EUA submission packages; aligned with public-health agencies and retailers on correct use and reporting flows.'
+        'Delivered training and documentation so teams could run evaluations and generate submission-ready outputs independently.'
     },
     {
       key: 'impact',
