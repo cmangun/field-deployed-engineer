@@ -1,6 +1,6 @@
 // src/data/caseStudies/nhf.ts
 // ═══════════════════════════════════════════════════════════════════════════════
-// NAKED HEART FOUNDATION CASE STUDY — NARRATIVE + CHART DATA
+// NAKED HEART FOUNDATION CASE STUDY - NARRATIVE + CHART DATA
 // Mission-Embedded Non-Profit: From Trauma to Social Infrastructure
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -13,6 +13,7 @@ import { pfizerCharts } from './pfizerData';
 
 export const nakedHeartFoundationData: CaseStudyData = {
   slug: 'nakedheart',
+  brandLogo: '/assets/img/logo/NHF.png',
   title: 'Naked Heart Foundation',
   subtitle: 'Inclusive Playground Network',
   company: 'Naked Heart Foundation',
@@ -25,8 +26,8 @@ export const nakedHeartFoundationData: CaseStudyData = {
 
   heroContext: {
     client: 'In 2004, the Beslan school tragedy exposed not only a crisis of security, but a deeper wound: children and families with nowhere to process grief, no safe public spaces.',
-    constraint: 'Public infrastructure in many cities was functional at best—broken equipment, inaccessible layouts, and nothing deliberately built for healing, inclusion, or play.',
-    result: 'Modern, safe, inclusive playgrounds as a public promise that childhood still mattered—co-designed with communities, municipalities, and partners.'
+    constraint: 'Public infrastructure in many cities was functional at best-broken equipment, inaccessible layouts, and nothing deliberately built for healing, inclusion, or play.',
+    result: 'Modern, safe, inclusive playgrounds as a public promise that childhood still mattered-co-designed with communities, municipalities, and partners.'
   },
 
   heroMetrics: [
@@ -43,6 +44,58 @@ export const nakedHeartFoundationData: CaseStudyData = {
       'Repeatable mission model established',
       'Platform for future programming created'
     ]
+  },
+
+  phasesMeta: [
+    {
+      key: 'diagnose',
+      title: 'Diagnose',
+      challenge:
+        'The Beslan tragedy exposed a deeper structural absence: families had nowhere safe to gather, play, or process grief together.',
+      outcome:
+        'Reframed the mission from one-time charity into long-lived, inclusive public spaces: playgrounds as visible social infrastructure and a permanent response to trauma.'
+    },
+    {
+      key: 'architect',
+      title: 'Architect',
+      challenge:
+        'Resources were limited and cities were diverse; building "where it feels right" was not enough to maximize impact.',
+      outcome:
+        'Defined a data-informed selection model that combined demographics, accessibility, safety constraints, municipal readiness, and partner capacity into a repeatable site-prioritization framework.'
+    },
+    {
+      key: 'engineer',
+      title: 'Engineer',
+      challenge:
+        'Every project touched donors, municipalities, contractors, and communities; ad-hoc coordination would not scale beyond a handful of playgrounds.',
+      outcome:
+        'Implemented basic but robust data pipelines and tooling for tracking sites, grants, timelines, and partners so the organization could run dozens of projects in parallel without losing fidelity.'
+    },
+    {
+      key: 'enable',
+      title: 'Enable',
+      challenge:
+        'Playgrounds only succeed if communities feel ownership and if local partners can operate and maintain them over time.',
+      outcome:
+        'Co-designed engagement templates, partnership models, and reporting mechanisms so local NGOs and city officials could adopt the framework without bespoke reinvention every time.'
+    },
+    {
+      key: 'impact',
+      title: 'Impact',
+      challenge:
+        'The foundation needed to show that these playgrounds changed daily life, not just produced photo opportunities.',
+      outcome:
+        'Tracking usage, geographic spread, and community stories showed a growing network of inclusive spaces, giving donors and partners confidence to fund additional sites and programming.'
+    }
+  ],
+
+  patternGeneralization: {
+    bestFitEnvironments:
+      'Mission-driven organizations turning collective trauma or systemic neglect into visible, physical infrastructure that must endure for decades.',
+    corePrimitives:
+      'A data-backed site selection model, a structured project and donor pipeline, repeatable partner engagement patterns, and metrics that connect physical assets to lived community impact.',
+    whatYouNeedReady:
+      'A clear mission narrative, access to basic demographic and municipal data, at least one reliable implementation partner, and a commitment to treat infrastructure as a long-term social contract-not a one-off project.'
   },
 
   phases: {
@@ -183,7 +236,7 @@ export const nakedHeartFoundationData: CaseStudyData = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHART DATA — Inherits from Pfizer canonical charts
+// CHART DATA - Inherits from Pfizer canonical charts
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const nakedHeartCharts: CaseStudyCharts = {

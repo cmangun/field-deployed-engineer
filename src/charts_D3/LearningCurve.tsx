@@ -244,7 +244,7 @@ const LearningCurve: React.FC<LearningCurveProps> = ({ width = 800, height = 500
       .attr('font-size', '11px')
       .attr('font-weight', 600)
       .attr('fill', chartColors.charcoal)
-      .text('Diagnosis');
+      .text('Diagnostics');
 
     const diagItems = [
       { label: 'High Bias', status: false },

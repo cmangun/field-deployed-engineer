@@ -149,6 +149,16 @@ export { default as NeuralScaling } from './NeuralScaling';
 // Re-export colors
 export { chartColors } from './colors';
 
+// Chart Registry for CaseStudyTemplate
+export { 
+  chartRegistry, 
+  getChartConfig, 
+  getChartsByPhase, 
+  getAvailableChartKeys,
+  isValidChartKey 
+} from './chartRegistry';
+export type { ChartConfig, ChartRegistry } from './chartRegistry';
+
 // Chart Card Wrapper - Neo-skeuomorphic soft UI wrapper
 export { default as ChartCardWrapper, ChartCardWrapperInline } from './ChartCardWrapper';
 

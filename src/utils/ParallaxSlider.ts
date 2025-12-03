@@ -87,7 +87,9 @@ export function parallaxSlider() {
   // Add wheel event listener only if sliderWrapper exists
   sliderWrapper.addEventListener('wheel', (e) => {
     e.preventDefault();
-    target += e.deltaY * 0.5;
+    // Support both vertical (deltaY) and horizontal (deltaX) scrolling
+    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    target += delta * 0.5;
     
     // Limit target to valid range (need to wait for init to set sliderWidth)
     if (sliderWidth) {
@@ -95,6 +97,56 @@ export function parallaxSlider() {
       target = Math.min(sliderWidth - window.innerWidth, target);
     }
   });
+
+  // Touch/drag support for mobile and trackpad
+  let isDragging = false;
+  let startX = 0;
+  let startTarget = 0;
+
+  sliderWrapper.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    startTarget = target;
+    sliderWrapper.style.cursor = 'grabbing';
+  });
+
+  sliderWrapper.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    startX = e.touches[0].clientX;
+    startTarget = target;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const deltaX = startX - e.clientX;
+    target = startTarget + deltaX;
+    if (sliderWidth) {
+      target = Math.max(0, target);
+      target = Math.min(sliderWidth - window.innerWidth, target);
+    }
+  });
+
+  window.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const deltaX = startX - e.touches[0].clientX;
+    target = startTarget + deltaX;
+    if (sliderWidth) {
+      target = Math.max(0, target);
+      target = Math.min(sliderWidth - window.innerWidth, target);
+    }
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDragging = false;
+    sliderWrapper.style.cursor = 'grab';
+  });
+
+  window.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
+  // Set initial cursor
+  sliderWrapper.style.cursor = 'grab';
 
   function lerp(start: number, end: number, t: number): number {
     return start * (1 - t) + end * t;
@@ -123,7 +175,7 @@ export function parallaxSlider() {
 
     images.forEach((image, idx) => {
       intersectionRatioValue = ratio - (idx * 0.7);
-      setTransform(image, `translateX(${intersectionRatioValue * 100}px)`);
+      setTransform(image, `translateX(${intersectionRatioValue * 70}px)`);
     });
   }
   

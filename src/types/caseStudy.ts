@@ -1,3 +1,16 @@
+// ═══════════════════════════════════════════════════════════════════════════════
+// RE-EXPORT NORMALIZED TYPES FROM CANONICAL SOURCE
+// ═══════════════════════════════════════════════════════════════════════════════
+export type {
+  PhaseId as NormalizedPhaseId,
+  HeroStat,
+  CaseStudyMetricBlock,
+  CaseStudySection,
+  NormalizedPatternGeneralization,
+  NormalizedExecutiveSummary,
+  NormalizedCaseStudy,
+} from '@/data/caseStudies/types';
+
 // Case Study Data Interface
 export interface CaseStudySlide {
     id: number;

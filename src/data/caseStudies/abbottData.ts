@@ -1,6 +1,6 @@
 // src/data/caseStudies/abbottData.ts
 // ═══════════════════════════════════════════════════════════════════════════════
-// ABBOTT CASE STUDY — NARRATIVE + CHART DATA
+// ABBOTT CASE STUDY - NARRATIVE + CHART DATA
 // Responsible AI & Governance for Global Diagnostics
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -24,6 +24,7 @@ import { chartColors } from '@/charts_D3/colors';
 
 export const abbottData: CaseStudyData = {
     slug: 'abbott',
+    brandLogo: '/assets/img/logo/3ZRCyYepAeiCxbJM.png',
     title: 'Abbott Responsible AI',
     subtitle: 'Governance & Compliance Infrastructure',
     company: 'Abbott Laboratories',
@@ -31,17 +32,108 @@ export const abbottData: CaseStudyData = {
     role: 'Lead AI/ML Architect',
     year: '2024',
     services: ['AI Governance', 'HIPAA Compliance', 'ML Pipeline Architecture', 'Audit Infrastructure'],
-    heroImage: '/images/abbott-hero.jpg',
-    overview: 'Engineered HIPAA-compliant data planes and audit-ready ML pipelines for global diagnostics. Achieved zero audit findings across 3 regulatory reviews and established governance frameworks for LLM readiness.',
+    heroImage: '/assets/img/home-06/project/abbott.jpg',
+    overview: 'Designed and implemented an AI governance and LLM foundation for Abbott diagnostics portfolio, ' +
+        'unblocking stalled initiatives and creating a compliant path to production across regions.',
+
+    heroContext: {
+        client: 'Global diagnostics leader with CLIA labs, POC devices, and regional AI initiatives.',
+        constraint:
+            'Multiple AI pilots were stalled because there was no agreed governance pattern for data, models, and LLMs across FDA, IVDR, and HIPAA-regulated products.',
+        result:
+            'Delivered a policy-as-code governance layer, centralized AI registry, and compliant pipelines that enabled blocked use cases to progress with zero major audit findings and modeled cost avoidance in the seven figures.'
+    },
+
+    heroMetrics: [
+        { label: 'Blocked Initiatives', value: '12 → 0', delta: 'cleared with governance path' },
+        { label: 'Audit Findings', value: '0 major', delta: 'across initial audits' },
+        { label: 'Time to Approval', value: '6–9 mo → ~8 weeks', delta: 'for governed AI use cases' },
+        { label: 'Cost Avoidance', value: '$1.2M+', delta: 'modeled across delayed initiatives' }
+    ],
 
     executiveSnapshot: {
-        headline: 'Zero audit findings, LLM-ready infrastructure',
+        headline: 'Unblocked diagnostics AI with a reusable, policy-as-code governance framework',
         keyOutcomes: [
-            '0 audit findings',
-            '5 business units adopted',
-            'HIPAA-compliant ML pipeline',
-            'LLM governance framework'
+            '12+ stalled AI initiatives given a clear path to production',
+            'Zero major findings in the first external and internal audits post-framework',
+            '$1.2M+ modeled cost avoidance from reduced delay and rework',
+            'Single AI governance pattern usable across FDA, IVDR, HIPAA, and internal policies'
         ]
+    },
+
+    executiveSummary: {
+        client: 'Abbott Diagnostics',
+        context: 'Global diagnostics portfolio with CLIA labs, central labs, and point-of-care products',
+        primaryConstraint: 'No unified governance framework for AI/ML and LLM workloads across regulated products and regions',
+        primaryProblem:
+            'AI pilots were blocked or slowed by unclear lines of accountability, inconsistent validation expectations, and audit concerns.',
+        solutionPattern:
+            'Policy-as-code governance layer, central AI registry, standardized validation packages, and compliant MLOps/LLMOps pipelines.',
+        scope:
+            'Diagnostics AI initiatives spanning lab analytics, device telemetry, decision-support, and internal operations dashboards.',
+        engagementRole: 'Forward-Deployed Engineer embedded with Compliance, Data Science, and Platform teams.',
+        impact: {
+            cycleTime: 'AI approval cycle reduced from 6-9 months to ~8 weeks.',
+            throughput: '12+ stalled initiatives unblocked and moved to production path.',
+            cost: '$1.2M+ modeled cost avoidance from reduced delay and rework.',
+            risk: 'Zero major audit findings; governance pattern adopted across business units.'
+        }
+    },
+
+    phasesMeta: [
+        {
+            key: 'diagnose',
+            title: 'Diagnose',
+            challenge:
+                'Dozens of AI proposals existed, but no one could say whether the core problem was regulation, tooling, or organizational ownership.',
+            outcome:
+                'Gap analysis across 3 business units and 4 regulatory frameworks showed the binding constraints were governance and validation, not model capability.'
+        },
+        {
+            key: 'architect',
+            title: 'Architect',
+            challenge:
+                'We needed a governance model that could satisfy FDA, IVDR, HIPAA, and internal audit without freezing experimentation.',
+            outcome:
+                'Designed a layered governance architecture: policy-as-code engine, AI registry, standardized validation packages, and clear RACI assignments.'
+        },
+        {
+            key: 'engineer',
+            title: 'Engineer',
+            challenge:
+                'Governance had to be real code - not just PDFs - so it could run inside CI/CD, MLOps, and LLMOps pipelines without crippling delivery.',
+            outcome:
+                'Implemented encrypted data pipelines, automated compliance checks in build/deploy stages, model and dataset lineage tracking, and real-time audit log streams ' +
+                'so any model, dataset, or LLM configuration could be traced from production back to source.'
+        },
+        {
+            key: 'enable',
+            title: 'Enable',
+            challenge:
+                'Teams feared governance would add more bureaucracy and slow them down further, rather than unblocking work.',
+            outcome:
+                'Partnered with several high-value pilots, provided templates and examples that passed governance gates on the first attempt, and showed that codified checks reduced rework, questions from audit, and ambiguous approvals.'
+        },
+        {
+            key: 'impact',
+            title: 'Impact',
+            challenge:
+                'We needed to prove that governance was enabling AI in diagnostics-not just constraining it.',
+            outcome:
+                'Previously stalled initiatives moved forward under the new framework, regulators and auditors accepted the documentation and traces produced by the system, ' +
+                'and Abbott emerged with an LLM-ready infrastructure and a reusable governance pattern for future AI work.'
+        }
+    ],
+
+    patternGeneralization: {
+        bestFitEnvironments:
+            'Enterprises in regulated diagnostics, devices, or healthcare where multiple business units pursue AI/LLM use cases under overlapping regulatory regimes and fragmented ownership.',
+        corePrimitives:
+            'Central AI/ML registry, policy-as-code engine integrated into MLOps/LLMOps pipelines, HIPAA-grade data isolation and encryption, lineage-aware artifact storage, ' +
+            'and standard validation/documentation packages that satisfy internal and external auditors.',
+        whatYouNeedReady:
+            'Executive sponsorship for AI governance, access to current FDA/CLIA/IVDR/HIPAA interpretations, ' +
+            'platform teams willing to wire policy into their pipelines, and cross-functional agreement on who owns AI risk and approval decisions.'
     },
 
     phases: {
@@ -208,11 +300,11 @@ export const abbottData: CaseStudyData = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHART DATA — 8 Core Charts (Required)
+// CHART DATA - 8 Core Charts (Required)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 // ─────────────────────────────────────────────────────────────────────────────
-// FUNNEL CHART — Diagnose: Compliance Gap Pipeline
+// FUNNEL CHART - Diagnose: Compliance Gap Pipeline
 // ─────────────────────────────────────────────────────────────────────────────
 const funnel: FunnelDataPoint[] = [
     { stage: 'AI Use Cases Identified', value: 47, color: chartColors.charcoal },
@@ -223,7 +315,7 @@ const funnel: FunnelDataPoint[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// RACI MATRIX — Diagnose: AI Governance Accountability
+// RACI MATRIX - Diagnose: AI Governance Accountability
 // ─────────────────────────────────────────────────────────────────────────────
 const raciMatrix: RaciMatrixData = {
     project: 'AI Governance Framework',
@@ -254,7 +346,7 @@ const raciMatrix: RaciMatrixData = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SYSTEM CONTEXT — Architect: AI Governance Platform
+// SYSTEM CONTEXT - Architect: AI Governance Platform
 // ─────────────────────────────────────────────────────────────────────────────
 const systemContext: SystemContextData = {
     system: {
@@ -320,7 +412,7 @@ const systemContext: SystemContextData = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// GANTT CHART — Architect/Execute: 19-week Implementation
+// GANTT CHART - Architect/Execute: 19-week Implementation
 // ─────────────────────────────────────────────────────────────────────────────
 const gantt: GanttTask[] = [
     { id: 1, task: 'Governance Gap Assessment', start: 0, duration: 3, category: 'Discovery', progress: 100 },
@@ -336,7 +428,7 @@ const gantt: GanttTask[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SERVICE HEALTH — Engineer: Governance Platform Reliability
+// SERVICE HEALTH - Engineer: Governance Platform Reliability
 // ─────────────────────────────────────────────────────────────────────────────
 const serviceHealth: ServiceHealthData = {
     services: [
@@ -374,7 +466,7 @@ const serviceHealth: ServiceHealthData = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// JOURNEY MAP — Enable: Data Scientist Governance Journey
+// JOURNEY MAP - Enable: Data Scientist Governance Journey
 // ─────────────────────────────────────────────────────────────────────────────
 const journeyMap: JourneyMapData = {
     persona: { name: 'Data Scientist', role: 'Senior ML Engineer', company: 'Abbott Diagnostics', avatar: '/assets/SVG/Chart Statistics 1.svg' },
@@ -411,7 +503,7 @@ const journeyMap: JourneyMapData = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// WATERFALL — Impact: Compliance Cost Avoidance ($1.2M)
+// WATERFALL - Impact: Compliance Cost Avoidance ($1.2M)
 // ─────────────────────────────────────────────────────────────────────────────
 const waterfall: WaterfallDataPoint[] = [
     { label: 'Baseline Compliance Cost', value: 2.4, type: 'total' },
@@ -423,7 +515,7 @@ const waterfall: WaterfallDataPoint[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// UNIT ECONOMICS — Impact: Per-Model Governance Cost
+// UNIT ECONOMICS - Impact: Per-Model Governance Cost
 // ─────────────────────────────────────────────────────────────────────────────
 const unitEconomics = {
     period: 'Q4 2024',
@@ -469,7 +561,7 @@ const unitEconomics = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// EXPORT — Abbott Chart Bundle (8 Core Charts)
+// EXPORT - Abbott Chart Bundle (8 Core Charts)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const abbottCharts: CaseStudyCharts = {

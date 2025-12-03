@@ -1,332 +1,299 @@
+// src/components/caseStudy/CaseStudyTemplate.tsx
+// ═══════════════════════════════════════════════════════════════════════════════
+// CASE STUDY TEMPLATE — Renders NormalizedCaseStudy with ChartRegistry
+// Contract: study: NormalizedCaseStudy, charts: CaseStudyCharts
+// ═══════════════════════════════════════════════════════════════════════════════
+
 "use client";
-import { CaseStudyData, CaseStudyCharts, PhaseSection, CaseStudyExecutiveSummary, PhaseNarrativeMeta, PatternGeneralization, PhaseKey } from '@/types/caseStudy';
-import AnimatedCounter from '../counter/AnimatedCounter';
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import type { CaseStudyCharts } from '@/types/caseStudy';
+import type { NormalizedCaseStudy, CaseStudySection, HeroStat, CaseStudyMetricBlock } from '@/data/caseStudies/types';
+import { chartRegistry, ChartConfig } from '@/charts_D3/chartRegistry';
+import AnimatedCounter from '../counter/AnimatedCounter';
 import PortfolioWebglHeader from '@/layouts/headers/PortfolioWebglHeader';
 import { PhaseHeader, PhaseId } from './PhaseHeader';
-
-// Chart Components
-import GanttChart from '@/charts_D3/GanttChart';
-import FunnelChart from '@/charts_D3/FunnelChart';
-import SystemContextDiagram from '@/charts_D3/SystemContextDiagram';
-import ServiceHealthDashboard from '@/charts_D3/ServiceHealthDashboard';
-import CustomerJourneyMap from '@/charts_D3/CustomerJourneyMap';
-import WaterfallChart from '@/charts_D3/WaterfallChart';
 import CollapsibleChart from './CollapsibleChart';
-import CalendarHeatmap from '@/charts_D3/CalendarHeatmap';
-import RACIMatrix from '@/charts_D3/RACIMatrix';
-import RAGPipeline from '@/charts_D3/RAGPipeline';
-import ModelCard from '@/charts_D3/ModelCard';
-import LatencyPercentiles from '@/charts_D3/LatencyPercentiles';
-import DataQualityScorecard from '@/charts_D3/DataQualityScorecard';
-import OrgHealthDashboard from '@/charts_D3/OrgHealthDashboard';
-import UnitEconomics from '@/charts_D3/UnitEconomics';
-import SparklineGrid from '@/charts_D3/SparklineGrid';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// RESPONSIVE STYLES
+// RESPONSIVE STYLES — Polished spacing & typography
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const responsiveStyles = `
-    .cs-title-main { font-size: clamp(48px, 8vw, 90px); font-weight: 700; margin-bottom: 10px; line-height: 1.1; }
-    .cs-subtitle-main { font-size: clamp(32px, 5vw, 58px); font-weight: 600; margin: 0; line-height: 1.2; }
-    .cs-section-title { font-size: clamp(32px, 5vw, 56px); font-weight: 700; font-style: normal; margin-bottom: 48px; word-wrap: break-word; overflow-wrap: break-word; }
-    .cs-section-title-no-margin { font-size: clamp(32px, 5vw, 56px); font-weight: 700; font-style: normal; word-wrap: break-word; overflow-wrap: break-word; }
-    .cs-phase-label { font-size: clamp(48px, 6vw, 72px); font-weight: 800; color: #0d9488; }
-    .cs-section { padding-top: 45px; padding-bottom: 45px; }
-    .cs-hero-logo { height: 140px; width: auto; margin-bottom: 16px; object-fit: contain; }
-    .cs-hero-metrics { display: flex; gap: 32px; flex-wrap: wrap; }
-    .cs-hero-section { padding-top: 40px !important; }
+    /* ─────────────────────────────────────────────────────────────────────────────
+       TYPOGRAPHY SCALE
+       ───────────────────────────────────────────────────────────────────────────── */
+    .cs-title-main { font-size: clamp(48px, 8vw, 90px); font-weight: 700; margin-bottom: 8px; line-height: 1.05; }
+    .cs-subtitle-main { font-size: clamp(28px, 4vw, 48px); font-weight: 500; margin: 0; line-height: 1.25; color: #555; }
+    .cs-section-title { font-size: clamp(32px, 5vw, 56px); font-weight: 700; margin-bottom: 40px; word-wrap: break-word; }
+    .cs-section-title-no-margin { font-size: clamp(32px, 5vw, 56px); font-weight: 700; word-wrap: break-word; }
+    .cs-phase-label { font-size: clamp(48px, 6vw, 72px); font-weight: 800; color: #0d9488; margin-bottom: 12px; }
     
-    /* Phase column layout */
-    .cs-phase-row { display: flex; flex-wrap: wrap; gap: 48px; }
-    .cs-phase-col-left { flex: 0 0 45%; max-width: 45%; }
-    .cs-phase-col-right { flex: 0 0 calc(55% - 48px); max-width: calc(55% - 48px); }
+    /* ─────────────────────────────────────────────────────────────────────────────
+       SECTION SPACING
+       ───────────────────────────────────────────────────────────────────────────── */
+    .cs-section { padding-top: 48px; padding-bottom: 48px; }
+    .cs-hero-section { padding-top: 32px !important; padding-bottom: 40px !important; }
     
+    /* ─────────────────────────────────────────────────────────────────────────────
+       HERO COMPONENTS
+       ───────────────────────────────────────────────────────────────────────────── */
+    .cs-hero-logo { height: 100px; width: auto; object-fit: contain; }
+    .cs-hero-metrics { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+        gap: 24px; 
+    }
+    .cs-hero-stat {
+        min-width: 0;
+    }
+    
+    /* ─────────────────────────────────────────────────────────────────────────────
+       PHASE LAYOUT
+       ───────────────────────────────────────────────────────────────────────────── */
+    .cs-phase-row { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 24px; }
+    .cs-phase-col-left { flex: 0 0 42%; max-width: 42%; }
+    .cs-phase-col-right { flex: 0 0 calc(58% - 40px); max-width: calc(58% - 40px); }
+    
+    /* ─────────────────────────────────────────────────────────────────────────────
+       BULLETS — Cleaner list styling
+       ───────────────────────────────────────────────────────────────────────────── */
+    .cs-bullet-list {
+        margin: 0 0 20px 0;
+        padding: 0;
+        list-style: none;
+    }
+    .cs-bullet-list li {
+        position: relative;
+        padding: 5px 0 5px 20px;
+        font-size: 14px;
+        color: #444;
+        line-height: 1.55;
+    }
+    .cs-bullet-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 12px;
+        width: 6px;
+        height: 6px;
+        background: #0d9488;
+        border-radius: 50%;
+    }
+    
+    /* ─────────────────────────────────────────────────────────────────────────────
+       IMPACT SECTION EMPHASIS
+       ───────────────────────────────────────────────────────────────────────────── */
+    .cs-section-impact {
+        background: linear-gradient(180deg, rgba(13, 148, 136, 0.03) 0%, rgba(13, 148, 136, 0.08) 100%);
+        border-top: 3px solid #0d9488;
+        margin-top: 8px;
+    }
+    .cs-section-impact .cs-metric-value {
+        font-size: 40px !important;
+        font-weight: 800 !important;
+    }
+    .cs-section-impact .cs-metric-delta {
+        font-size: 18px !important;
+        font-weight: 700 !important;
+    }
+    
+    /* ─────────────────────────────────────────────────────────────────────────────
+       CHART CARDS — Tighter padding, left-aligned
+       ───────────────────────────────────────────────────────────────────────────── */
+    .cs-chart-container {
+        background-color: #fafafa;
+        border-radius: 10px;
+        padding: 12px 16px;
+        border: 1px solid #e5e5e5;
+        overflow: hidden;
+        margin-bottom: 12px;
+    }
+    .cs-chart-footer {
+        background-color: #f7f7f7;
+        border-radius: 10px;
+        padding: 14px 18px;
+        border: 1px solid #e5e5e5;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr auto;
+        gap: 14px;
+        align-items: center;
+    }
+    .cs-chart-footer-label {
+        font-size: 9px;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 3px;
+    }
+    .cs-chart-footer-text {
+        font-size: 12px;
+        color: #444;
+        margin: 0;
+        line-height: 1.35;
+    }
+    
+    /* ─────────────────────────────────────────────────────────────────────────────
+       CONNECT FOOTER
+       ───────────────────────────────────────────────────────────────────────────── */
+    .cs-connect-footer {
+        margin-top: 64px !important;
+    }
+    .cs-connect-icons {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+    }
+    .cs-connect-icon {
+        width: 52px;
+        height: 52px;
+        border: 2px solid rgba(255,255,255,0.8);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        font-size: 20px;
+    }
+    .cs-connect-icon:hover {
+        background: rgba(255,255,255,0.15);
+        transform: translateY(-2px);
+    }
+    
+    /* ─────────────────────────────────────────────────────────────────────────────
+       RESPONSIVE BREAKPOINTS
+       ───────────────────────────────────────────────────────────────────────────── */
     @media (max-width: 991px) {
-        .cs-title-main { margin-bottom: 8px; }
-        .cs-subtitle-main { margin-bottom: 20px; }
-        .cs-section-title { margin-bottom: 32px; }
-        .cs-section-title, .cs-section-title-no-margin { font-size: clamp(28px, 4vw, 40px); }
-        .cs-phase-label { font-size: clamp(36px, 5vw, 48px); margin-bottom: 24px; }
-        .cs-section { padding-top: 28px; padding-bottom: 28px; }
-        .cs-phase-row { gap: 32px; }
+        .cs-title-main { margin-bottom: 6px; }
+        .cs-subtitle-main { margin-bottom: 16px; font-size: clamp(22px, 3.5vw, 32px); }
+        .cs-section-title { margin-bottom: 28px; font-size: clamp(28px, 4vw, 40px); }
+        .cs-phase-label { font-size: clamp(36px, 5vw, 48px); margin-bottom: 16px; }
+        .cs-section { padding-top: 32px; padding-bottom: 32px; }
+        .cs-phase-row { gap: 28px; margin-top: 20px; }
         .cs-phase-col-left { flex: 0 0 100%; max-width: 100%; }
         .cs-phase-col-right { flex: 0 0 100%; max-width: 100%; }
+        .cs-chart-footer { grid-template-columns: 1fr 1fr; gap: 12px; }
+        .cs-connect-footer { margin-top: 48px !important; }
     }
+    
     @media (max-width: 767px) {
-        .cs-hero-logo { height: 70px; margin-bottom: 12px; }
-        .cs-hero-metrics { gap: 16px; }
-        .cs-hero-metrics > div { min-width: 70px; }
-        .cs-section { padding-top: 20px; padding-bottom: 20px; }
-        .cs-hero-section { padding-top: 24px !important; }
-        .cs-phase-row { gap: 24px; }
+        .cs-hero-logo { height: 64px; }
+        .cs-hero-metrics { grid-template-columns: 1fr; gap: 20px; }
+        .cs-section { padding-top: 24px; padding-bottom: 24px; }
+        .cs-hero-section { padding-top: 20px !important; padding-bottom: 28px !important; }
+        .cs-phase-row { gap: 20px; margin-top: 16px; }
+        .cs-chart-footer { grid-template-columns: 1fr; gap: 10px; padding: 12px 14px; }
+        .cs-connect-footer { margin-top: 32px !important; }
+        .cs-connect-icons { gap: 12px; }
+        .cs-connect-icon { width: 44px; height: 44px; border-radius: 12px; font-size: 18px; }
     }
 `;
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// TEMPLATE PROPS
+// TEMPLATE PROPS — NormalizedCaseStudy only
 // ═══════════════════════════════════════════════════════════════════════════════
 
 interface CaseStudyTemplateProps {
-    study: CaseStudyData;
+    study: NormalizedCaseStudy;
     charts: CaseStudyCharts;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHART METADATA — Titles, subtitles, insights for each chart
+// CHART METADATA — Extended metadata for chart insights
 // ═══════════════════════════════════════════════════════════════════════════════
 
 interface ChartMeta {
-    title: string;
-    subtitle: string;
-    description: string;
     insight: string;
     transformation: string;
     nextStep: string;
-    owner: string;
-    impact: string;
-    stats: { label: string; value: string }[];
 }
 
-const getChartMeta = (chartKey: string): ChartMeta => {
-    const metadata: Record<string, ChartMeta> = {
-        funnel: {
-            title: 'Funnel: Content Pipeline',
-            subtitle: 'Quarterly MLR content flow',
-            description: 'Content review funnel from Draft → MLR → Approved, highlighting bottlenecks.',
+const getChartInsights = (chartKey: string): ChartMeta => {
+    const insights: Record<string, ChartMeta> = {
+        FunnelChart: {
             insight: '40% of assets required multiple revision cycles due to retrieval failures.',
             transformation: '25+ min search → <60 sec AI-powered retrieval.',
-            nextStep: 'Implement AI-assisted pre-review before MLR submission.',
-            owner: '@Content Operations',
-            impact: 'Cycle time reduction',
-            stats: [{ label: 'Assets/Quarter', value: '2,450+' }, { label: 'Conversion', value: '25%' }]
+            nextStep: 'Implement AI-assisted pre-review before MLR submission.'
         },
-        raciMatrix: {
-            title: 'RACI: Accountability Map',
-            subtitle: 'Who owns what across workstreams',
-            description: 'Responsibility, accountability, consultation, and information assignments.',
+        RACIMatrix: {
             insight: 'Clear accountability reduced decision cycles from 5 days to 1 day.',
             transformation: 'Unclear ownership → explicit R/A/C/I assignments per workstream.',
-            nextStep: 'Review RACI quarterly to reflect org changes.',
-            owner: '@Program Management',
-            impact: 'Decision velocity',
-            stats: [{ label: 'Workstreams', value: '6' }, { label: 'Stakeholders', value: '5' }]
+            nextStep: 'Review RACI quarterly to reflect org changes.'
         },
-        systemContext: {
-            title: 'System Context (C4)',
-            subtitle: 'Regulated boundary architecture',
-            description: 'AI content engine positioned inside existing stack with governance boundaries.',
+        SystemContextDiagram: {
             insight: 'Architecture ensured AI operated inside compliance perimeter.',
             transformation: 'Fragmented content → single AI gateway with audit trails.',
-            nextStep: 'Finalize data flow contracts with Veeva and Workfront.',
-            owner: '@Enterprise Architecture',
-            impact: 'System compliance',
-            stats: [{ label: 'Integrations', value: '5' }, { label: 'User Types', value: '4' }]
+            nextStep: 'Finalize data flow contracts with Veeva and Workfront.'
         },
-        gantt: {
-            title: 'Gantt: Project Timeline',
-            subtitle: '14-week implementation',
-            description: 'Progress across Discovery, Architecture, Engineering, Enablement phases.',
-            insight: 'Parallel workstreams enabled 30% faster delivery.',
-            transformation: '6-month waterfall → agile sprints with bi-weekly demos.',
-            nextStep: 'Apply same timeline model to Q2 expansion.',
-            owner: '@Program Management',
-            impact: 'Delivery velocity',
-            stats: [{ label: 'Duration', value: '14 weeks' }, { label: 'Tasks', value: '14' }]
-        },
-        ragPipeline: {
-            title: 'RAG Pipeline Architecture',
-            subtitle: 'Retrieval-augmented generation flow',
-            description: 'End-to-end RAG: embeddings, vector store, retrieval, augmentation, generation.',
+        RAGPipeline: {
             insight: 'Hybrid retrieval improved relevance 35% over pure vector search.',
             transformation: 'Manual search → AI-powered retrieval with brand/region filtering.',
-            nextStep: 'Add re-ranking layer for top-k refinement.',
-            owner: '@ML Engineering',
-            impact: 'Retrieval quality',
-            stats: [{ label: 'Retrieval Accuracy', value: '94%' }, { label: 'Latency', value: '<500ms' }]
+            nextStep: 'Add re-ranking layer for top-k refinement.'
         },
-        serviceHealth: {
-            title: 'Service Health Dashboard',
-            subtitle: 'Production service monitoring',
-            description: 'AI content service: p95 latency, error rates, request volume.',
-            insight: 'p95 response time: 850ms → 280ms.',
-            transformation: '850ms average → 280ms p95 with automated routing and SLA indicators.',
-            nextStep: 'Add auto-scaling for RAG pipeline during peak hours.',
-            owner: '@Platform Engineering',
-            impact: 'Service reliability',
-            stats: [{ label: 'Uptime', value: '99.74%' }, { label: 'p95 Latency', value: '280ms' }]
+        GanttChart: {
+            insight: 'Parallel workstreams compressed 6-month timeline to 14 weeks.',
+            transformation: 'Sequential waterfall → parallel agile sprints.',
+            nextStep: 'Lock Phase 2 dependencies before sprint planning.'
         },
-        modelCard: {
-            title: 'Model Card',
-            subtitle: 'ML model documentation',
-            description: 'Model purpose, training data, metrics, limitations, ethical considerations.',
-            insight: 'Model cards reduced ML engineer onboarding time by 60%.',
-            transformation: 'Tribal knowledge → standardized documentation for every model.',
-            nextStep: 'Automate model card generation from training metadata.',
-            owner: '@ML Governance',
-            impact: 'Model transparency',
-            stats: [{ label: 'Models Documented', value: '3' }, { label: 'Coverage', value: '100%' }]
+        ModelCard: {
+            insight: 'Model card documented all training data, bias checks, and limitations.',
+            transformation: 'Undocumented AI → transparent, auditable model governance.',
+            nextStep: 'Schedule quarterly model reviews with compliance.'
         },
-        latencyPercentiles: {
-            title: 'Latency Percentiles',
-            subtitle: 'Response time distribution',
-            description: 'p50, p95, p99 latency over time to identify patterns and outliers.',
-            insight: 'p99 spikes correlated with cache misses during content refreshes.',
-            transformation: 'No tail latency visibility → real-time percentile tracking with alerting.',
-            nextStep: 'Implement predictive cache warming.',
-            owner: '@SRE',
-            impact: 'User experience',
-            stats: [{ label: 'p50', value: '120ms' }, { label: 'p99', value: '450ms' }]
+        ServiceHealthDashboard: {
+            insight: 'p95 latency improved 67% after caching layer deployment.',
+            transformation: '850ms avg response → 280ms with 99.9% uptime.',
+            nextStep: 'Set up PagerDuty alerts for SLO breaches.'
         },
-        dataQuality: {
-            title: 'Data Quality Scorecard',
-            subtitle: 'Content data health metrics',
-            description: 'Completeness, accuracy, consistency, and freshness of content metadata.',
-            insight: 'Data quality score improved from 72% to 94%.',
-            transformation: 'Manual spot checks → continuous automated quality monitoring.',
-            nextStep: 'Add anomaly detection for quality drift.',
-            owner: '@Data Engineering',
-            impact: 'Data reliability',
-            stats: [{ label: 'Overall Score', value: '94%' }, { label: 'Dimensions', value: '4' }]
+        LatencyPercentiles: {
+            insight: 'Tail latency (p99) was 3x median due to cold starts.',
+            transformation: 'Unpredictable performance → consistent sub-300ms responses.',
+            nextStep: 'Implement connection pooling to eliminate cold starts.'
         },
-        journeyMap: {
-            title: 'Journey Map: Producer Experience',
-            subtitle: 'Content producer workflow transformed',
-            description: 'Content producer journey: Brief → Draft → AI Assist → MLR → Approved → Field.',
-            insight: 'Emotional score: 3/5 → 5/5 with 65% faster approval cycles.',
-            transformation: 'Dreaded MLR submissions → confident submissions with AI pre-checks.',
-            nextStep: 'Launch monthly office hours for advanced AI features.',
-            owner: '@Learning & Development',
-            impact: 'User adoption',
-            stats: [{ label: 'Users Trained', value: '200+' }, { label: 'Satisfaction', value: '4.2/5' }]
+        DataQualityScorecard: {
+            insight: 'Data completeness improved from 72% to 96% after validation rules.',
+            transformation: 'Manual spot-checks → automated quality gates.',
+            nextStep: 'Add anomaly detection for real-time quality monitoring.'
         },
-        orgHealth: {
-            title: 'Org Health Dashboard',
-            subtitle: 'Team adoption and satisfaction',
-            description: 'Team adoption rates, satisfaction scores, engagement metrics across BUs.',
-            insight: 'Teams with AI champions showed 40% higher adoption.',
-            transformation: 'No adoption visibility → real-time org health metrics.',
-            nextStep: 'Scale AI champion program to remaining BUs.',
-            owner: '@Change Management',
-            impact: 'Organizational adoption',
-            stats: [{ label: 'Adoption Rate', value: '85%' }, { label: 'Teams', value: '5' }]
+        CustomerJourneyMap: {
+            insight: 'Identified 3 friction points causing 45% drop-off in onboarding.',
+            transformation: 'Assumed journey → evidence-based touchpoint optimization.',
+            nextStep: 'A/B test simplified onboarding flow.'
         },
-        waterfall: {
-            title: 'Waterfall: Cost Breakdown',
-            subtitle: 'Annual savings analysis ($2.08M)',
-            description: 'Baseline costs → net savings showing cumulative improvements.',
-            insight: 'MLR cycles (45%), revisions (20%), agency (18%), producer hours (12%).',
-            transformation: '42-day cycles, $4.2M → 14-day cycles, $2.08M net.',
-            nextStep: 'Expand to 3 additional therapeutic areas in Q2.',
-            owner: '@Product Management',
-            impact: 'ROI validation',
-            stats: [{ label: 'Baseline', value: '$4.2M' }, { label: 'Savings', value: '$2.12M' }]
+        OrgHealthDashboard: {
+            insight: 'Training completion correlated 0.8 with adoption velocity.',
+            transformation: 'Ad-hoc enablement → structured change management.',
+            nextStep: 'Launch champions program for super-users.'
         },
-        unitEconomics: {
-            title: 'Unit Economics',
-            subtitle: 'Per-asset cost analysis',
-            description: 'Value per content asset vs. cost to produce, showing margin and ROI.',
-            insight: 'Cost per approved asset: $1,720 → $850 (51% reduction).',
-            transformation: 'High variable costs → fixed AI infrastructure amortized across volume.',
-            nextStep: 'Model economics at 2x and 5x current volume.',
-            owner: '@Finance',
-            impact: 'Unit profitability',
-            stats: [{ label: 'Cost/Asset', value: '$850' }, { label: 'ROI', value: '4.2×' }]
+        WaterfallChart: {
+            insight: 'Cycle time savings drove 45% of total cost reduction.',
+            transformation: '$4.2M baseline → $2.08M annual savings.',
+            nextStep: 'Reinvest savings into Phase 2 expansion.'
         },
-        calendarHeatmap: {
-            title: 'Calendar Heatmap',
-            subtitle: 'Activity density over time',
-            description: 'Daily activity patterns: peak usage, seasonality, trends.',
+        UnitEconomics: {
+            insight: 'Cost per asset dropped 68% while quality scores improved.',
+            transformation: 'Manual process → AI-augmented workflow.',
+            nextStep: 'Model ROI for additional therapeutic areas.'
+        },
+        SparklineGrid: {
+            insight: 'All 6 KPIs trending positive over 12-week measurement period.',
+            transformation: 'Point-in-time metrics → continuous trend visibility.',
+            nextStep: 'Set up executive dashboard for monthly reviews.'
+        },
+        CalendarHeatmap: {
             insight: 'Q4 showed 3x activity spike aligned with product launches.',
             transformation: 'No usage visibility → clear seasonality insights.',
-            nextStep: 'Align infrastructure scaling with seasonal patterns.',
-            owner: '@Operations',
-            impact: 'Capacity planning',
-            stats: [{ label: 'Peak Day', value: '847 queries' }, { label: 'Avg/Day', value: '312' }]
-        },
-        sparklineGrid: {
-            title: 'Sparkline Grid',
-            subtitle: 'Multi-metric trend overview',
-            description: 'Multiple KPIs with trend lines for at-a-glance monitoring.',
-            insight: 'All 6 key metrics trending positive, with cycle time showing strongest improvement.',
-            transformation: 'Before: Scattered metrics in multiple dashboards. After: Unified KPI view.',
-            nextStep: 'Add predictive trend lines for forecasting',
-            owner: '@Analytics',
-            impact: 'Executive visibility',
-            stats: [{ label: 'Metrics Tracked', value: '6' }, { label: 'Trend', value: '↑ All positive' }]
+            nextStep: 'Align infrastructure scaling with seasonal patterns.'
         }
     };
-    return metadata[chartKey] || {
-        title: chartKey,
-        subtitle: '',
-        description: '',
-        insight: '',
-        transformation: '',
-        nextStep: '',
-        owner: '',
-        impact: '',
-        stats: []
-    };
-};
-
-// Get phase PURPOSE LINE (executive orientation)
-const getPhasePurpose = (phaseName: string): string => {
-    if (!phaseName) return '';
-    const purposes: Record<string, string> = {
-        diagnose: 'Identify the bottleneck and quantify the operational baseline.',
-        architect: 'Design the governed system that survives security, compliance, and scale.',
-        engineer: 'Prove the system works under real workloads with production metrics.',
-        enable: 'Ensure cross-team adoption, training, and behavioral change.',
-        impact: 'Demonstrate measurable outcomes, ROI, and expansion pathways.'
-    };
-    return purposes[phaseName.toLowerCase()] || '';
-};
-
-// Get phase KEY RESULT summary
-const getPhaseSummary = (phaseName: string): string => {
-    if (!phaseName) return '';
-    const summaries: Record<string, string> = {
-        diagnose: 'Found the real bottleneck: content retrieval and version duplication.',
-        architect: 'Designed a compliant AI engine that fit inside governance perimeter.',
-        engineer: 'Built a production-grade RAG pipeline with measurable performance gains.',
-        enable: 'Ensured AI adoption scaled across global brand teams.',
-        impact: 'Delivered $2M+ annual savings with 65% faster review cycles.'
-    };
-    return summaries[phaseName.toLowerCase()] || '';
-};
-
-// Get phase color for pills
-const getPhaseColor = (phaseName: string): string => {
-    if (!phaseName) return '#666';
-    const colors: Record<string, string> = {
-        diagnose: '#6366f1',  // indigo
-        architect: '#8b5cf6', // violet
-        engineer: '#0d9488',  // teal
-        enable: '#f59e0b',    // amber
-        impact: '#10b981'     // emerald
-    };
-    return colors[phaseName.toLowerCase()] || '#666';
-};
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// CANONICAL CHART ORDER — Phase → Chart keys (in display order)
-// ═══════════════════════════════════════════════════════════════════════════════
-// This is the single source of truth for chart sequence per phase.
-// All case studies inherit this order; individual charts are optional.
-// ═══════════════════════════════════════════════════════════════════════════════
-type ChartKey = keyof CaseStudyCharts;
-
-const phaseChartOrder: Record<PhaseKey, ChartKey[]> = {
-    diagnose: ['funnel', 'raciMatrix'],
-    architect: ['systemContext', 'ragPipeline', 'gantt'],
-    engineer: ['serviceHealth', 'latencyPercentiles', 'modelCard', 'dataQuality'],
-    enable: ['journeyMap', 'orgHealth'],
-    impact: ['waterfall', 'unitEconomics', 'calendarHeatmap', 'sparklineGrid'],
+    return insights[chartKey] || { insight: '', transformation: '', nextStep: '' };
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -335,406 +302,219 @@ const phaseChartOrder: Record<PhaseKey, ChartKey[]> = {
 
 interface ChartWrapperProps {
     chartKey: string;
-    children: React.ReactNode;
+    chartData: unknown;
     defaultExpanded?: boolean;
 }
 
-const ChartWrapper: React.FC<ChartWrapperProps> = ({ chartKey, children, defaultExpanded = false }) => {
-    const meta = getChartMeta(chartKey);
+const ChartWrapper: React.FC<ChartWrapperProps> = ({ chartKey, chartData, defaultExpanded = false }) => {
+    const config = chartRegistry[chartKey];
+    if (!config) {
+        console.warn(`Chart not found in registry: ${chartKey}`);
+        return null;
+    }
+    
+    const insights = getChartInsights(chartKey);
     
     return (
-        <div style={{ marginBottom: '64px' }}>
+        <div style={{ marginBottom: '56px' }}>
             <CollapsibleChart 
-                title={meta.title}
-                subtitle={meta.subtitle}
-                description={meta.description}
+                title={config.title}
+                subtitle={config.subtitle || ''}
+                description=""
                 defaultExpanded={defaultExpanded}
             >
-                {/* Chart Container */}
-                <div style={{ 
-                    backgroundColor: '#fafafa', 
-                    borderRadius: '12px', 
-                    padding: '16px 20px',
-                    border: '1px solid #e8e8e8',
-                    overflow: 'hidden',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    marginBottom: '16px'
-                }}>
-                    {children}
+                {/* Chart Container — tighter padding */}
+                <div className="cs-chart-container">
+                    {config.render(chartData)}
                 </div>
 
-                {/* Compressed Insight Footer */}
-                <div style={{ 
-                    backgroundColor: '#f9f9f9',
-                    borderRadius: '12px',
-                    padding: '16px 20px',
-                    border: '1px solid #e8e8e8',
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr 1fr auto',
-                    gap: '16px',
-                    alignItems: 'center'
-                }}>
-                    {/* Insight */}
-                    <div>
-                        <span style={{ fontSize: '10px', color: '#888', textTransform: 'uppercase', letterSpacing: '1.5px', fontWeight: 500, display: 'block', marginBottom: '4px' }}>Insight</span>
-                        <p style={{ fontSize: '13px', color: '#333', margin: 0, lineHeight: 1.4 }}>{meta.insight}</p>
+                {/* Insight Footer — consistent spacing */}
+                {(insights.insight || insights.transformation || insights.nextStep) && (
+                    <div className="cs-chart-footer">
+                        <div>
+                            <span className="cs-chart-footer-label">Insight</span>
+                            <p className="cs-chart-footer-text">{insights.insight}</p>
+                        </div>
+                        <div>
+                            <span className="cs-chart-footer-label" style={{ color: '#0d9488' }}>Transformation</span>
+                            <p className="cs-chart-footer-text" style={{ fontWeight: 500 }}>{insights.transformation}</p>
+                        </div>
+                        <div>
+                            <span className="cs-chart-footer-label">Next Step</span>
+                            <p className="cs-chart-footer-text" style={{ fontWeight: 600, color: '#222' }}>{insights.nextStep}</p>
+                        </div>
+                        <div style={{ backgroundColor: '#1a1a1a', color: '#fff', padding: '8px 16px', borderRadius: '16px', fontSize: '12px', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '5px', whiteSpace: 'nowrap' }}>
+                            Approved <span>✓</span>
+                        </div>
                     </div>
-
-                    {/* Transformation */}
-                    <div>
-                        <span style={{ fontSize: '10px', color: '#0d9488', textTransform: 'uppercase', letterSpacing: '1.5px', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Transformation</span>
-                        <p style={{ fontSize: '13px', color: '#222', margin: 0, lineHeight: 1.4, fontWeight: 500 }}>{meta.transformation}</p>
-                    </div>
-
-                    {/* Next Step */}
-                    <div>
-                        <span style={{ fontSize: '10px', color: '#888', textTransform: 'uppercase', letterSpacing: '1.5px', fontWeight: 500, display: 'block', marginBottom: '4px' }}>Next Step</span>
-                        <p style={{ fontSize: '13px', fontWeight: 600, color: '#000', margin: 0, lineHeight: 1.4 }}>{meta.nextStep}</p>
-                    </div>
-
-                    {/* Approved Badge */}
-                    <div style={{ backgroundColor: '#1a1a1a', color: '#fff', padding: '10px 20px', borderRadius: '20px', fontSize: '13px', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '6px', whiteSpace: 'nowrap' }}>
-                        Approved <span>✓</span>
-                    </div>
-                </div>
+                )}
             </CollapsibleChart>
         </div>
     );
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// EXECUTIVE HEADER — Full case study context block
+// SECTION BLOCK — Renders narrative + charts for a section
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const ExecutiveHeader: React.FC<{ summary?: CaseStudyExecutiveSummary }> = ({ summary }) => {
-    if (!summary) return null;
-
-    return (
-        <section
-            style={{
-                marginTop: '32px',
-                marginBottom: '40px',
-                padding: '24px',
-                borderRadius: '16px',
-                backgroundColor: '#f7f7f8',
-                border: '1px solid #e3e4ea',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '24px',
-            }}
-        >
-            <div>
-                <h3 style={{ fontSize: '12px', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 8, color: '#666' }}>
-                    Problem & Context
-                </h3>
-                <p style={{ fontSize: 13, marginBottom: 4, color: '#333' }}><strong>Client:</strong> {summary.client}</p>
-                <p style={{ fontSize: 13, marginBottom: 4, color: '#333' }}><strong>Context:</strong> {summary.context}</p>
-                <p style={{ fontSize: 13, marginBottom: 4, color: '#333' }}><strong>Primary Constraint:</strong> {summary.primaryConstraint}</p>
-                <p style={{ fontSize: 13, color: '#333' }}><strong>Primary Problem:</strong> {summary.primaryProblem}</p>
-            </div>
-
-            <div>
-                <h3 style={{ fontSize: '12px', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 8, color: '#666' }}>
-                    Solution Pattern
-                </h3>
-                <p style={{ fontSize: 13, marginBottom: 4, color: '#333' }}>{summary.solutionPattern}</p>
-                <p style={{ fontSize: 13, marginBottom: 4, color: '#333' }}><strong>Scope:</strong> {summary.scope}</p>
-                <p style={{ fontSize: 13, color: '#333' }}><strong>Engagement Role:</strong> {summary.engagementRole}</p>
-            </div>
-
-            <div>
-                <h3 style={{ fontSize: '12px', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 8, color: '#666' }}>
-                    Impact Snapshot
-                </h3>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 13, color: '#333' }}>
-                    <li style={{ marginBottom: 4 }}><strong>Cycle Time:</strong> {summary.impact.cycleTime}</li>
-                    <li style={{ marginBottom: 4 }}><strong>Throughput:</strong> {summary.impact.throughput}</li>
-                    <li style={{ marginBottom: 4 }}><strong>Cost:</strong> {summary.impact.cost}</li>
-                    <li><strong>Risk:</strong> {summary.impact.risk}</li>
-                </ul>
-            </div>
-        </section>
-    );
-};
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// PHASE INTRO — Challenge/Outcome per phase
-// ═══════════════════════════════════════════════════════════════════════════════
-
-const PhaseIntro: React.FC<{ phaseKey: PhaseKey; phasesMeta?: PhaseNarrativeMeta[] }> = ({
-    phaseKey,
-    phasesMeta,
-}) => {
-    if (!phasesMeta) return null;
-    const meta = phasesMeta.find((p) => p.key === phaseKey);
-    if (!meta) return null;
-
-    return (
-        <div style={{ marginBottom: 20, padding: '16px 20px', backgroundColor: '#fafbfc', borderRadius: '12px', border: '1px solid #e8e8e8' }}>
-            <p style={{ fontSize: 13, color: '#555', marginBottom: 8, lineHeight: 1.5 }}>
-                <strong style={{ color: '#0d9488' }}>Challenge:</strong> {meta.challenge}
-            </p>
-            <p style={{ fontSize: 13, color: '#555', margin: 0, lineHeight: 1.5 }}>
-                <strong style={{ color: '#0d9488' }}>Outcome:</strong> {meta.outcome}
-            </p>
-        </div>
-    );
-};
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// PHASE BLOCK — Renders narrative + all charts for a phase
-// ═══════════════════════════════════════════════════════════════════════════════
-
-interface PhaseBlockProps {
-    phase: PhaseSection;
-    phaseName: string;
-    isLast?: boolean;
+interface SectionBlockProps {
+    section: CaseStudySection;
     charts: CaseStudyCharts;
-    phasesMeta?: PhaseNarrativeMeta[];
+    isLast?: boolean;
 }
 
-const PhaseBlock: React.FC<PhaseBlockProps> = ({ phase, phaseName, isLast = false, charts, phasesMeta }) => {
-    const phaseId = phaseName.toLowerCase() as PhaseId;
+const SectionBlock: React.FC<SectionBlockProps> = ({ section, charts, isLast = false }) => {
+    const phaseId = section.id as PhaseId;
+    const isImpact = section.id === 'impact';
     
-    // Build customMeta from phasesMeta if available
-    const phaseMeta = phasesMeta?.find(p => p.key === phaseId);
-    const customMeta = phaseMeta ? {
-        eyebrow: phaseMeta.challenge,
-        summary: phaseMeta.outcome,
-    } : undefined;
+    // Build customMeta for PhaseHeader
+    const customMeta = {
+        eyebrow: section.kpiFocus || '',
+        summary: section.summary,
+    };
 
-    // ═══════════════════════════════════════════════════════════════════════════
-    // CHART–SECTION MAPPING — Canonical order per phase
-    // ═══════════════════════════════════════════════════════════════════════════
-    // Diagnose:  Funnel → RACI
-    // Architect: System Context → RAG Pipeline → Gantt
-    // Engineer:  Service Health → Latency → Model Card → Data Quality
-    // Enable:    Journey Map → Org Health
-    // Impact:    Waterfall → Unit Economics → Calendar Heatmap → Sparkline Grid
-    // ═══════════════════════════════════════════════════════════════════════════
-    const renderPhaseCharts = () => {
-        const phaseKey = phaseName.toLowerCase();
-        
-        switch (phaseKey) {
-            case 'diagnose':
-                return (
-                    <>
-                        {/* 1. Funnel Chart — Content Pipeline */}
-                        <ChartWrapper chartKey="funnel">
-                            <FunnelChart data={charts.funnel as any} width={800} height={420} title="" />
-                        </ChartWrapper>
-                        
-                        {/* 2. RACI Matrix — Accountability Map */}
-                        <ChartWrapper chartKey="raciMatrix">
-                            <RACIMatrix data={charts.raciMatrix as any} width={900} height={500} title="" />
-                        </ChartWrapper>
-                    </>
-                );
-                
-            case 'architect':
-                return (
-                    <>
-                        {/* 3. C4 System Context — Regulated boundary architecture */}
-                        <ChartWrapper chartKey="systemContext">
-                            <SystemContextDiagram data={charts.systemContext as any} width={900} height={700} title="" />
-                        </ChartWrapper>
-                        
-                        {/* 4. RAG Pipeline — Retrieval-augmented generation flow */}
-                        {charts.ragPipeline && (
-                            <ChartWrapper chartKey="ragPipeline">
-                                <RAGPipeline data={charts.ragPipeline as any} width={1100} height={700} title="" />
-                            </ChartWrapper>
-                        )}
-                        
-                        {/* 5. Gantt Timeline — Discovery → Arch → Eng → Enable */}
-                        <ChartWrapper chartKey="gantt">
-                            <GanttChart data={charts.gantt as any} width={900} height={520} title="" weeksToShow={14} />
-                        </ChartWrapper>
-                    </>
-                );
-                
-            case 'engineer':
-                return (
-                    <>
-                        {/* 6. Service Health Dashboard — Uptime, latency, throughput */}
-                        <ChartWrapper chartKey="serviceHealth">
-                            <ServiceHealthDashboard data={charts.serviceHealth as any} width={900} height={480} title="" />
-                        </ChartWrapper>
-                        
-                        {/* 7. Latency Percentiles — API response time distribution */}
-                        {charts.latencyPercentiles && (
-                            <ChartWrapper chartKey="latencyPercentiles">
-                                <LatencyPercentiles data={charts.latencyPercentiles as any} width={900} height={400} title="" />
-                            </ChartWrapper>
-                        )}
-                        
-                        {/* 8. Model Card — ML model documentation */}
-                        {charts.modelCard && (
-                            <ChartWrapper chartKey="modelCard">
-                                <ModelCard data={charts.modelCard as any} width={900} height={600} title="" />
-                            </ChartWrapper>
-                        )}
-                        
-                        {/* 9. Data Quality Scorecard — Content data health */}
-                        {charts.dataQuality && (
-                            <ChartWrapper chartKey="dataQuality">
-                                <DataQualityScorecard data={charts.dataQuality as any} width={900} height={400} title="" />
-                            </ChartWrapper>
-                        )}
-                    </>
-                );
-                
-            case 'enable':
-                return (
-                    <>
-                        {/* 10. Journey Map — Producer Experience */}
-                        <ChartWrapper chartKey="journeyMap">
-                            <CustomerJourneyMap data={charts.journeyMap as any} width={900} height={600} title="" />
-                        </ChartWrapper>
-                        
-                        {/* 11. Org Health Dashboard — Team adoption & satisfaction */}
-                        {charts.orgHealth && (
-                            <ChartWrapper chartKey="orgHealth">
-                                <OrgHealthDashboard data={charts.orgHealth as any} width={900} height={500} title="" />
-                            </ChartWrapper>
-                        )}
-                    </>
-                );
-                
-            case 'impact':
-                return (
-                    <>
-                        {/* 12. Waterfall — Cost Breakdown */}
-                        <ChartWrapper chartKey="waterfall">
-                            <WaterfallChart data={charts.waterfall as any} width={800} height={400} title="" />
-                        </ChartWrapper>
-                        
-                        {/* 13. Unit Economics — Per-asset cost analysis */}
-                        <ChartWrapper chartKey="unitEconomics">
-                            <UnitEconomics data={charts.unitEconomics as any} width={900} height={500} title="" />
-                        </ChartWrapper>
-                        
-                        {/* 14. Calendar Heatmap — Activity density */}
-                        {charts.calendarHeatmap && (
-                            <ChartWrapper chartKey="calendarHeatmap">
-                                <CalendarHeatmap data={(charts.calendarHeatmap as any).data} width={900} height={200} title="" />
-                            </ChartWrapper>
-                        )}
-                        
-                        {/* 15. Sparkline Grid — Multi-metric KPI trends */}
-                        {charts.sparklineGrid && (
-                            <ChartWrapper chartKey="sparklineGrid">
-                                <SparklineGrid data={charts.sparklineGrid as any} width={900} height={400} title="" />
-                            </ChartWrapper>
-                        )}
-                    </>
-                );
-                
-            default:
-                return null;
-        }
+    // Get chart data by key
+    const getChartData = (chartKey: string): unknown => {
+        const keyMap: Record<string, string> = {
+            'FunnelChart': 'funnel',
+            'RACIMatrix': 'raciMatrix',
+            'SystemContextDiagram': 'systemContext',
+            'RAGPipeline': 'ragPipeline',
+            'GanttChart': 'gantt',
+            'ServiceHealthDashboard': 'serviceHealth',
+            'LatencyPercentiles': 'latencyPercentiles',
+            'DataQualityScorecard': 'dataQuality',
+            'ModelCard': 'modelCard',
+            'CustomerJourneyMap': 'journeyMap',
+            'OrgHealthDashboard': 'orgHealth',
+            'WaterfallChart': 'waterfall',
+            'UnitEconomics': 'unitEconomics',
+            'SparklineGrid': 'sparklineGrid',
+            'CalendarHeatmap': 'calendarHeatmap',
+        };
+        const dataKey = keyMap[chartKey] || chartKey.charAt(0).toLowerCase() + chartKey.slice(1);
+        return (charts as Record<string, unknown>)[dataKey];
     };
 
     return (
         <div 
-            id={phase.id} 
-            className="cs-section"
+            id={section.id} 
+            className={`cs-section ${isImpact ? 'cs-section-impact' : ''}`}
             style={{ 
-                borderBottom: !isLast ? '1px solid #eee' : 'none',
+                borderBottom: !isLast && !isImpact ? '1px solid #eee' : 'none',
                 scrollMarginTop: '100px'
             }}
         >
             <div className="container container-1230">
-                {/* New PhaseHeader Component */}
+                {/* Phase Header — tighter spacing to body */}
                 <PhaseHeader phase={phaseId} customMeta={customMeta} />
 
                 <div className="cs-phase-row">
                     {/* Left Column - Narrative */}
                     <div className="cs-phase-col-left">
-                        <p style={{ fontSize: '16px', color: '#666', lineHeight: 1.7, marginBottom: '24px' }}>{phase.description}</p>
+                        <p style={{ fontSize: '15px', color: '#555', lineHeight: 1.65, marginBottom: '20px' }}>{section.summary}</p>
                         
-                        {/* Points - Tight Bullet List */}
-                        {phase.points && phase.points.length > 0 && (
-                            <ul style={{ margin: '0 0 24px 0', padding: '0 0 0 18px', listStyle: 'disc' }}>
-                                {phase.points.map((point, i) => (
-                                    <li key={i} style={{ padding: '4px 0', fontSize: '14px', color: '#333', lineHeight: 1.5 }}>{point}</li>
+                        {/* Bullets — cleaner custom bullets */}
+                        {section.bullets && section.bullets.length > 0 && (
+                            <ul className="cs-bullet-list">
+                                {section.bullets.map((bullet, i) => (
+                                    <li key={i}>{bullet}</li>
                                 ))}
                             </ul>
                         )}
 
                         {/* Deliverables */}
-                        {phase.deliverables && phase.deliverables.length > 0 && (
-                            <div style={{ marginBottom: '24px' }}>
-                                <span style={{ fontSize: '12px', color: '#999', textTransform: 'uppercase', letterSpacing: '1px', display: 'block', marginBottom: '12px' }}>Deliverables</span>
-                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                                    {phase.deliverables.map((item, i) => (
-                                        <span key={i} style={{ padding: '6px 12px', backgroundColor: '#f5f5f5', borderRadius: '14px', fontSize: '13px', color: '#333' }}>{item}</span>
+                        {section.deliverables && section.deliverables.length > 0 && (
+                            <div style={{ marginBottom: '20px' }}>
+                                <span style={{ fontSize: '11px', color: '#999', textTransform: 'uppercase', letterSpacing: '0.8px', fontWeight: 600, display: 'block', marginBottom: '10px' }}>Deliverables</span>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                                    {section.deliverables.map((item, i) => (
+                                        <span key={i} style={{ padding: '5px 10px', backgroundColor: '#f0f0f0', borderRadius: '12px', fontSize: '12px', color: '#444' }}>{item}</span>
                                     ))}
                                 </div>
                             </div>
                         )}
 
-                        {/* Stakeholders */}
-                        {phase.stakeholders && phase.stakeholders.length > 0 && (
-                            <div style={{ borderTop: '1px solid #eee', marginTop: '24px', paddingTop: '8px' }}>
-                                {phase.stakeholders.map((stakeholder, i) => (
-                                    <div key={i} style={{ padding: '16px 0', borderBottom: '1px solid #eee' }}>
-                                        <span style={{ fontSize: '12px', color: '#999', textTransform: 'uppercase', letterSpacing: '1px', display: 'block', marginBottom: '6px' }}>{stakeholder.role}</span>
-                                        <span style={{ fontSize: '14px', fontWeight: 500 }}>{stakeholder.contribution}</span>
-                                    </div>
-                                ))}
+                        {/* Duration */}
+                        {section.duration && (
+                            <div style={{ marginTop: '12px', padding: '10px 14px', backgroundColor: '#f5f5f5', borderRadius: '10px', display: 'inline-block' }}>
+                                <span style={{ fontSize: '11px', color: '#888', textTransform: 'uppercase', letterSpacing: '0.8px', fontWeight: 500 }}>Duration: </span>
+                                <span style={{ fontSize: '13px', fontWeight: 600, color: '#333' }}>{section.duration}</span>
                             </div>
                         )}
                     </div>
 
-                    {/* Right Column - Metrics/Testimonial */}
+                    {/* Right Column - Metrics */}
                     <div className="cs-phase-col-right">
-                        {/* Metrics */}
-                        {phase.metrics && phase.metrics.length > 0 && (
-                            <div style={{ backgroundColor: '#f8f8f8', borderRadius: '24px', padding: '28px', marginBottom: '32px' }}>
-                                {phase.metrics.map((metric, i) => (
-                                    <div key={i} style={{ padding: '18px 0', borderBottom: i < phase.metrics!.length - 1 ? '1px solid #ddd' : 'none' }}>
-                                        <span style={{ fontSize: '14px', color: '#666', display: 'block', marginBottom: '8px' }}>{metric.label}</span>
-                                        <span style={{ fontSize: '32px', fontWeight: 700 }}>
-                                            {metric.numericValue !== undefined ? (
-                                                <><AnimatedCounter min={0} max={metric.numericValue} />{metric.suffix}</>
-                                            ) : metric.value}
-                                        </span>
+                        {section.metrics && section.metrics.length > 0 && (
+                            <div style={{ backgroundColor: isImpact ? 'rgba(255,255,255,0.9)' : '#f8f8f8', borderRadius: '20px', padding: '24px', marginBottom: '28px', border: isImpact ? '1px solid rgba(13, 148, 136, 0.2)' : 'none' }}>
+                                {section.metrics.map((metric, i) => (
+                                    <div key={i} style={{ padding: '14px 0', borderBottom: i < section.metrics!.length - 1 ? '1px solid #e5e5e5' : 'none' }}>
+                                        <span style={{ fontSize: '13px', color: '#666', display: 'block', marginBottom: '6px' }}>{metric.label}</span>
+                                        <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap' }}>
+                                            <span style={{ fontSize: '13px', color: '#888' }}>{metric.baseline}</span>
+                                            <span style={{ fontSize: '18px', color: '#0d9488' }}>→</span>
+                                            <span className="cs-metric-value" style={{ fontSize: isImpact ? '40px' : '32px', fontWeight: isImpact ? 800 : 700, color: '#0d9488' }}>{metric.outcome}</span>
+                                            {metric.delta && (
+                                                <span className="cs-metric-delta" style={{ fontSize: isImpact ? '18px' : '15px', fontWeight: isImpact ? 700 : 600, color: '#059669', backgroundColor: '#d1fae5', padding: '3px 10px', borderRadius: '10px' }}>{metric.delta}</span>
+                                            )}
+                                        </div>
                                     </div>
                                 ))}
-                            </div>
-                        )}
-
-                        {/* Testimonial */}
-                        {phase.testimonial && (
-                            <div style={{ 
-                                marginTop: '32px', 
-                                padding: '32px 36px', 
-                                backgroundColor: '#0d1117', 
-                                borderRadius: '24px', 
-                                color: '#fff',
-                                boxShadow: '0 8px 32px rgba(0,0,0,0.15)'
-                            }}>
-                                <p style={{ fontSize: '22px', fontStyle: 'italic', lineHeight: 1.6, marginBottom: '24px', fontWeight: 400 }}>
-                                    &ldquo;{phase.testimonial.quote}&rdquo;
-                                </p>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.15)' }}>
-                                    <div>
-                                        <strong style={{ display: 'block', fontSize: '16px', fontWeight: 600 }}>{phase.testimonial.author}</strong>
-                                        <span style={{ color: '#0d9488', fontSize: '14px', fontWeight: 500 }}>{phase.testimonial.role}, {phase.testimonial.company}</span>
-                                    </div>
-                                </div>
                             </div>
                         )}
                     </div>
                 </div>
 
-                {/* Phase Charts */}
-                <div style={{ marginTop: '48px' }}>
-                    {renderPhaseCharts()}
-                </div>
+                {/* Section Charts */}
+                {section.chartKeys && section.chartKeys.length > 0 && (
+                    <div style={{ marginTop: '40px' }}>
+                        {section.chartKeys.map((chartKey, i) => {
+                            const chartData = getChartData(chartKey);
+                            if (!chartData) {
+                                console.warn(`No chart data found for key: ${chartKey}`);
+                                return null;
+                            }
+                            return (
+                                <ChartWrapper 
+                                    key={chartKey}
+                                    chartKey={chartKey}
+                                    chartData={chartData}
+                                    defaultExpanded={i === 0}
+                                />
+                            );
+                        })}
+                    </div>
+                )}
             </div>
+        </div>
+    );
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// HERO STATS ROW — Balanced grid layout
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const HeroStatsRow: React.FC<{ stats: HeroStat[] }> = ({ stats }) => {
+    if (!stats || stats.length === 0) return null;
+    
+    return (
+        <div className="cs-hero-metrics">
+            {stats.map((stat, i) => (
+                <div key={stat.id || i} className="cs-hero-stat">
+                    <span style={{ fontSize: '11px', color: '#888', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
+                        {stat.label}
+                    </span>
+                    <span style={{ fontSize: '44px', fontWeight: 800, color: '#0d9488', display: 'block', lineHeight: 1.05, marginBottom: '4px' }}>
+                        {stat.value}
+                    </span>
+                    {stat.annotation && (
+                        <span style={{ fontSize: '14px', color: '#666', fontWeight: 500 }}>
+                            {stat.annotation}
+                        </span>
+                    )}
+                </div>
+            ))}
         </div>
     );
 };
@@ -771,7 +551,7 @@ const CaseStudyTemplate: React.FC<CaseStudyTemplateProps> = ({ study, charts }) 
         };
     }, []);
 
-    // Guard clause for undefined props
+    // Guard clause
     if (!study || !charts) {
         return (
             <div style={{ padding: '100px', textAlign: 'center' }}>
@@ -779,8 +559,6 @@ const CaseStudyTemplate: React.FC<CaseStudyTemplateProps> = ({ study, charts }) 
             </div>
         );
     }
-
-    const phases = study.phases;
 
     return (
         <>
@@ -793,121 +571,109 @@ const CaseStudyTemplate: React.FC<CaseStudyTemplateProps> = ({ study, charts }) 
             <PortfolioWebglHeader />
 
             <div className="case-study-template" style={{ paddingBottom: '10px', backgroundImage: 'url(/assets/img/background.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }} ref={containerRef}>
-                {/* Hero Section */}
-                <div id="overview" className="cs-section cs-hero-section" style={{ paddingTop: '40px', borderBottom: '1px solid #eee', scrollMarginTop: '100px' }}>
+                
+                {/* ═══════════════════════════════════════════════════════════════════ */}
+                {/* HERO SECTION — Tightened vertical spacing */}
+                {/* ═══════════════════════════════════════════════════════════════════ */}
+                <div id="overview" className="cs-section cs-hero-section" style={{ borderBottom: '1px solid #eee', scrollMarginTop: '100px' }}>
                     <div className="container container-1230">
-                        {/* Logo + Subtitle Row */}
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '24px', flexWrap: 'wrap' }}>
-                            {/* Logo */}
+                        {/* Logo + Title Row */}
+                        <div style={{ marginBottom: '20px' }}>
                             {study.brandLogo ? (
                                 <img 
                                     src={study.brandLogo} 
                                     alt={study.title}
                                     className="cs-hero-logo"
-                                    style={{ margin: 0 }}
+                                    style={{ marginBottom: '12px' }}
                                 />
                             ) : (
-                                <h1 style={{ fontSize: 'clamp(42px, 6vw, 72px)', fontWeight: 700, lineHeight: 1.1, margin: 0, color: '#000' }}>
-                                    {study.title}
+                                <h1 style={{ fontSize: 'clamp(42px, 6vw, 72px)', fontWeight: 700, lineHeight: 1.1, margin: '0 0 8px 0', color: '#000' }}>
+                                    {study.client}
                                 </h1>
                             )}
                             
-                            {/* Subtitle */}
                             {study.subtitle && (
-                                <h2 style={{ fontSize: '34px', fontWeight: 500, color: '#666', margin: 0 }}>
+                                <h2 className="cs-subtitle-main">
                                     {study.subtitle}
                                 </h2>
                             )}
                         </div>
                         
-                        {/* Hero Image - Full Width */}
-                        <div style={{ borderRadius: '16px', overflow: 'hidden', marginBottom: '32px', boxShadow: '0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)', border: '1px solid rgba(0,0,0,0.06)' }}>
-                            <img src={study.heroImage} alt={study.title} style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} />
-                        </div>
-
-                        {/* Description */}
-                        <p style={{ fontSize: '26px', lineHeight: 1.4, color: '#444', margin: '0 0 40px 0', fontWeight: 500 }}>
-                            {study.overview}
-                        </p>
-
-                        <div className="row">
-                            <div className="col-12">
-                                {/* Hero Metrics - Full Width & Large */}
-                                {study.heroMetrics && (
-                                    <div style={{ 
-                                        display: 'flex',
-                                        justifyContent: 'space-between',
-                                        marginBottom: '32px',
-                                        paddingTop: '24px',
-                                        gap: '32px',
-                                    }}>
-                                        {study.heroMetrics.map((metric, i) => (
-                                            <div key={i} style={{ flex: 1 }}>
-                                                <span style={{ fontSize: '12px', color: '#888', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
-                                                    {metric.label}
-                                                </span>
-                                                <span style={{ fontSize: '48px', fontWeight: 800, color: '#0d9488', display: 'block', lineHeight: 1, marginBottom: '6px' }}>
-                                                    {metric.value}
-                                                </span>
-                                                <span style={{ fontSize: '15px', color: '#666', fontWeight: 500 }}>
-                                                    {metric.delta}
-                                                </span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
+                        {/* Hero Image */}
+                        {study.heroImage && (
+                            <div style={{ borderRadius: '14px', overflow: 'hidden', marginBottom: '28px', boxShadow: '0 10px 32px rgba(0,0,0,0.10), 0 3px 10px rgba(0,0,0,0.06)', border: '1px solid rgba(0,0,0,0.05)' }}>
+                                <img src={study.heroImage} alt={study.title} style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} />
                             </div>
-                        </div>
+                        )}
+
+                        {/* Title */}
+                        <h1 style={{ fontSize: '28px', fontWeight: 700, color: '#000', marginBottom: '10px', lineHeight: 1.25 }}>
+                            {study.title}
+                        </h1>
+
+                        {/* Category Tags */}
+                        {study.category && (
+                            <p style={{ fontSize: '15px', color: '#888', marginBottom: '20px' }}>
+                                {study.category}
+                            </p>
+                        )}
+
+                        {/* Hero Stats — balanced grid */}
+                        <HeroStatsRow stats={study.heroStats} />
                     </div>
                 </div>
 
-                {/* Phase Sections — Canonical Order */}
-                {phases && (
-                    <>
-                        <PhaseBlock phase={phases.diagnose} phaseName="Diagnose" charts={charts} phasesMeta={study.phasesMeta} />
-                        <PhaseBlock phase={phases.architect} phaseName="Architect" charts={charts} phasesMeta={study.phasesMeta} />
-                        <PhaseBlock phase={phases.engineer} phaseName="Engineer" charts={charts} phasesMeta={study.phasesMeta} />
-                        <PhaseBlock phase={phases.enable} phaseName="Enable" charts={charts} phasesMeta={study.phasesMeta} />
-                        <PhaseBlock phase={phases.impact} phaseName="Impact" isLast charts={charts} phasesMeta={study.phasesMeta} />
-                    </>
-                )}
+                {/* ═══════════════════════════════════════════════════════════════════ */}
+                {/* PHASE SECTIONS */}
+                {/* ═══════════════════════════════════════════════════════════════════ */}
+                {study.sections.map((section, i) => (
+                    <SectionBlock 
+                        key={section.id} 
+                        section={section} 
+                        charts={charts}
+                        isLast={i === study.sections.length - 1}
+                    />
+                ))}
 
-                {/* Next Case Study Button */}
+                {/* ═══════════════════════════════════════════════════════════════════ */}
+                {/* NEXT CASE STUDY */}
+                {/* ═══════════════════════════════════════════════════════════════════ */}
                 {study.nextCaseStudy && (
-                    <div className="cs-section" style={{ borderTop: '1px solid #eee', paddingTop: '40px', paddingBottom: '40px' }}>
+                    <div className="cs-section" style={{ borderTop: '1px solid #eee', paddingTop: '36px', paddingBottom: '36px' }}>
                         <div className="container container-1230">
                             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                <a href={study.nextCaseStudy.href} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 24px', backgroundColor: '#000', color: '#fff', borderRadius: '14px', textDecoration: 'none', fontSize: '15px', fontWeight: 600, transition: 'all 0.3s ease' }}>
-                                    View Next Case Study <span style={{ fontSize: '18px' }}>→</span>
+                                <a href={`/case-study/${study.nextCaseStudy.slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 20px', backgroundColor: '#000', color: '#fff', borderRadius: '12px', textDecoration: 'none', fontSize: '14px', fontWeight: 600, transition: 'all 0.2s ease' }}>
+                                    {study.nextCaseStudy.title} <span style={{ fontSize: '16px' }}>→</span>
                                 </a>
                             </div>
                         </div>
                     </div>
                 )}
 
-
-                {/* Connect CTA */}
-                <div className="cta-footer-grain cs-section" style={{ backgroundColor: '#0d9488', color: '#fff', borderRadius: '24px', margin: '20px 20px 10px', position: 'relative', overflow: 'hidden', padding: '60px 0' }}>
+                {/* ═══════════════════════════════════════════════════════════════════ */}
+                {/* CONNECT CTA — Breathing room above, balanced icons */}
+                {/* ═══════════════════════════════════════════════════════════════════ */}
+                <div className="cta-footer-grain cs-section cs-connect-footer" style={{ backgroundColor: '#0d9488', color: '#fff', borderRadius: '20px', margin: '20px 20px 10px', position: 'relative', overflow: 'hidden', padding: '52px 0' }}>
                     <div style={{
-                        position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, borderRadius: '24px', zIndex: 1, pointerEvents: 'none', opacity: 0.4, mixBlendMode: 'overlay' as const,
+                        position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, borderRadius: '20px', zIndex: 1, pointerEvents: 'none', opacity: 0.35, mixBlendMode: 'overlay' as const,
                         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
                         filter: 'contrast(200%) brightness(150%)',
                     }} />
                     <div className="container container-1230" style={{ position: 'relative', zIndex: 2 }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}>
                             <h4 className="cs-section-title-no-margin" style={{ color: '#fff', margin: 0 }}>Connect</h4>
-                            <div style={{ display: 'flex', gap: '20px' }}>
-                                <a href="tel:+19177171894" style={{ width: '60px', height: '60px', border: '2px solid #fff', borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', textDecoration: 'none' }}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V19.92C22 20.48 21.56 20.93 21 20.99C20.44 21.05 19.87 21.08 19.29 21.08C10.23 21.08 2.92 13.77 2.92 4.71C2.92 4.13 2.95 3.56 3.01 3C3.07 2.44 3.52 2 4.08 2H7.08C7.56 2 7.97 2.34 8.06 2.81C8.24 3.76 8.53 4.68 8.92 5.55C9.09 5.93 9 6.38 8.68 6.67L7.01 8.34C8.39 11.02 10.98 13.61 13.66 14.99L15.33 13.32C15.62 13 16.07 12.91 16.45 13.08C17.32 13.47 18.24 13.76 19.19 13.94C19.66 14.03 20 14.44 20 14.92V16.92H22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                            <div className="cs-connect-icons">
+                                <a href="tel:+19177171894" className="cs-connect-icon" aria-label="Phone">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                                 </a>
-                                <a href="mailto:cmangun@gmail.com" style={{ width: '60px', height: '60px', border: '2px solid #fff', borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', textDecoration: 'none' }}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M22 6L12 13L2 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                                <a href="mailto:chris@cmangun.com" className="cs-connect-icon" aria-label="Email">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                                 </a>
-                                <a href="https://www.linkedin.com/in/christopher-mangun-5257265/" target="_blank" rel="noopener noreferrer" style={{ width: '60px', height: '60px', border: '2px solid #fff', borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', textDecoration: 'none' }}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M6 9H2V21H6V9Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                                <a href="https://linkedin.com/in/christophermangun" target="_blank" rel="noopener noreferrer" className="cs-connect-icon" aria-label="LinkedIn">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
                                 </a>
-                                <a href="https://github.com/cmangun" target="_blank" rel="noopener noreferrer" style={{ width: '60px', height: '60px', border: '2px solid #fff', borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', textDecoration: 'none' }}>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 19C4 20.5 4 16.5 2 16M16 22V18.13C16.0375 17.6532 15.9731 17.1738 15.811 16.7238C15.6489 16.2738 15.3929 15.8634 15.06 15.52C18.2 15.17 21.5 13.98 21.5 8.52C21.4997 7.12383 20.9627 5.7812 20 4.77C20.4559 3.54851 20.4236 2.19835 19.91 1C19.91 1 18.73 0.650001 16 2.48C13.708 1.85882 11.292 1.85882 9 2.48C6.27 0.650001 5.09 1 5.09 1C4.57638 2.19835 4.54414 3.54851 5 4.77C4.03013 5.7887 3.49252 7.14346 3.5 8.55C3.5 13.97 6.8 15.16 9.94 15.55C9.611 15.89 9.35726 16.2954 9.19531 16.7399C9.03335 17.1844 8.96681 17.6581 9 18.13V22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                                <a href="https://github.com/christophermangun" target="_blank" rel="noopener noreferrer" className="cs-connect-icon" aria-label="GitHub">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
                                 </a>
                             </div>
                         </div>

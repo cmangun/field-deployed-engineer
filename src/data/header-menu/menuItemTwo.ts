@@ -1,4 +1,8 @@
-// Define menu data
+// ═══════════════════════════════════════════════════════════════════════════════
+// MENU ITEMS — Canonical 1-12 Case Study Order
+// Updated: December 2024
+// ═══════════════════════════════════════════════════════════════════════════════
+
 interface CaseStudyItem {
     brand: string;
     role: string;
@@ -20,76 +24,99 @@ const menuItemsTwo: MenuItem[] = [
         href: "#",
         static: true,
         caseStudies: [
+            // ─────────────────────────────────────────────────────────────
+            // PFIZER / COLAB (End-to-End Transformation Arc) — 1-4
+            // ─────────────────────────────────────────────────────────────
             {
                 brand: "Pfizer",
                 role: "Field-Embedded Engineering",
-                description: "Engineering AI workflows that accelerated content supply operations and integrated OpenAI systems into high-stakes brand pipelines.",
+                description: "Governed AI content engine that cut MLR cycles 42→14 days, tripled AI-assisted throughput.",
                 href: "/case-study/pfizer"
             },
             {
-                brand: "Colab",
-                role: "Retrieval & Knowledge Engineering",
-                description: "Designed and deployed an internal AI search assistant using OpenAI + SharePoint with Glean-style semantic indexing.",
+                brand: "Pfizer",
+                role: "RAG Solution Architect",
+                description: "Cross-cloud knowledge engine using vector search, auto-labeling, and semantic pipelines.",
                 href: "/case-study/colab"
             },
             {
-                brand: "Publicis",
-                role: "Enterprise Architecture at Scale",
-                description: "Architected a multi-brand RAG ecosystem across SharePoint/Teams and Azure ML, reducing review cycles by 35%.",
-                href: "/case-study/publicis"
+                brand: "Pfizer",
+                role: "RAG Co-Pilot Engineer",
+                description: "Production pipeline architecture for RAG systems with quality gates and evaluation harnesses.",
+                href: "/case-study/pfizer-pipeline"
             },
             {
-                brand: "Medtronic",
-                role: "LLM-Centered Architecture",
-                description: "Led architecture for an LLM-driven decision-support system within regulated workflows with clinical-grade reliability.",
-                href: "/case-study/medtronic"
+                brand: "Pfizer",
+                role: "CoCo Company Companion",
+                description: "Enterprise AI assistant productization — from POC to governed, scalable deployment.",
+                href: "/case-study/coco"
             },
+
+            // ─────────────────────────────────────────────────────────────
+            // ABBOTT (Evaluation → Platform Enablement) — 5-6
+            // ─────────────────────────────────────────────────────────────
             {
                 brand: "Abbott",
-                role: "Responsible AI & Governance",
-                description: "Engineered HIPAA-compliant data planes and audit-ready ML pipelines for global diagnostics with zero audit findings.",
-                href: "/case-study/abbott"
-            },
-            {
-                brand: "Amgen",
-                role: "Technical Program Leadership",
-                description: "Directed AI-enabled product launches and cross-functional engineering streams for Biosimilars and Repatha.",
-                href: "/case-study/amgen"
-            },
-            {
-                brand: "Sanofi",
-                role: "Cross-Sector Communication",
-                description: "Unified technical, medical, and commercial stakeholders across seven global vaccine brands.",
-                href: "/case-study/sanofi"
-            },
-            {
-                brand: "Alinity",
-                role: "Systems for Mission Outcomes",
-                description: "Deployed real-time data ingestion and ML-readiness pipelines across 30,000+ diagnostic systems.",
-                href: "/case-study/alinity"
-            },
-            {
-                brand: "BinaxNOW",
-                role: "Eval-Controlled LLM Asset",
-                description: "Built evaluation-driven NLP/LLM pipelines establishing continuous validation loops and boosting retrieval efficiency by 65%.",
+                role: "BinaxNOW Evaluation Dataset",
+                description: "Controlled-quality evaluation dataset for low-cost diagnostics ensuring FDA submission consistency.",
                 href: "/case-study/binaxnow"
             },
             {
-                brand: "Eli Lilly",
-                role: "Regulated Portfolio Deployment",
-                description: "Managed large-scale technical deployments and Veeva/Salesforce governance ensuring compliant data flows.",
-                href: "/case-study/lilly"
+                brand: "Abbott",
+                role: "Alinity Platform",
+                description: "Reliability and alerting engine for global diagnostic devices in resource-constrained environments.",
+                href: "/case-study/alinity"
+            },
+
+            // ─────────────────────────────────────────────────────────────
+            // MAJOR ENTERPRISE ARCHITECTURE WORK — 7-9
+            // ─────────────────────────────────────────────────────────────
+            {
+                brand: "Medtronic",
+                role: "Genius GI Surgical AI",
+                description: "Surgical AI platform with spec-to-model traceability, model cards, and latency-bound inference.",
+                href: "/case-study/medtronic"
             },
             {
-                brand: "IPG Global",
+                brand: "Publicis Health",
+                role: "Enterprise Architecture at Scale",
+                description: "Unified 14 agency systems into governed content supply-chain with identity and workflow alignment.",
+                href: "/case-study/publicis"
+            },
+            {
+                brand: "IPG / Area 23",
                 role: "Sub-Portfolio Planning",
-                description: "Architected global intranet and knowledge systems creating single-source-of-truth environments.",
+                description: "Intranet-as-platform with modular features, shared UI components, and cross-client governance.",
                 href: "/case-study/ipg"
             },
+
+            // ─────────────────────────────────────────────────────────────
+            // TECHNICAL PROGRAM LEADERSHIP — 10
+            // ─────────────────────────────────────────────────────────────
             {
-                brand: "NHF",
-                role: "Mission-Embedded Non-Profit",
-                description: "Built the foundation's first global digital platform with multi-currency, tax-compliant donation infrastructure.",
+                brand: "Syneos Health",
+                role: "Repatha Technical Program Lead",
+                description: "Multi-team, multi-cloud rollout of scientific data platform with harmonized taxonomies.",
+                href: "/case-study/amgen"
+            },
+
+            // ─────────────────────────────────────────────────────────────
+            // CROSS-SECTOR ANALYTICS — 11
+            // ─────────────────────────────────────────────────────────────
+            {
+                brand: "Sanofi",
+                role: "Cross-Sector Dashboard",
+                description: "Global dashboard aligning R&D, supply, commercial, and safety into unified decision center.",
+                href: "/case-study/sanofi"
+            },
+
+            // ─────────────────────────────────────────────────────────────
+            // MISSION-DRIVEN / HUMANITARIAN — 12
+            // ─────────────────────────────────────────────────────────────
+            {
+                brand: "Naked Heart Foundation",
+                role: "Global Playground Program",
+                description: "Data and recommendations platform supporting early-childhood programs & donor transparency.",
                 href: "/case-study/nakedheart"
             },
         ],

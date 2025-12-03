@@ -35,6 +35,77 @@ export const abbottLibre3Data = {
       "Design, deploy, and validate a multi-stakeholder trust framework across patients, clinicians, and regulators to ensure safe, transparent, globally compliant sensor failure detection."
   },
 
+  // Three-line FDE hero context (parallel to Pfizer / Colab)
+  heroContext: {
+    client: 'Abbott Diabetes Care — global Libre 3 continuous glucose monitoring platform.',
+    constraint:
+      'Libre 3 sensors operate in life-critical contexts under FDA, EU MDR, and global data-protection regimes. ' +
+      'Any AI involved in detecting sensor anomalies or advising patients must be explainable, auditable, and safe at population scale.',
+    result:
+      'Delivered a trust-first AI architecture for sensor anomaly detection that reduced false alarms, improved early failure detection, and maintained full traceability from edge device through cloud to clinician review.'
+  },
+
+  // Single-row hero metrics (top of page visual punch)
+  heroMetrics: [
+    { label: 'False Alarm Rate', value: '-35%', delta: 'false positives vs. legacy rules' },
+    { label: 'Early Failure Detection', value: '+24%', delta: 'detected ≥24h earlier on flagged sensors' },
+    { label: 'Regulated Markets', value: '47+', delta: 'jurisdictions under unified trust architecture' },
+    { label: 'Escalation Rate', value: 'stable', delta: 'no increase in safety incidents during pilot' }
+  ],
+
+  phasesMeta: [
+    {
+      key: 'diagnose',
+      title: 'Diagnose',
+      challenge:
+        'Patients, clinicians, regulators, and internal QA all experienced Libre 3 differently; we needed to understand whether the primary constraint was model accuracy, UX, or trust.',
+      outcome:
+        'Discovery work showed that trust and explainability were the binding constraints: even correct alerts were doubted if they felt noisy, late, or opaque.'
+    },
+    {
+      key: 'architect',
+      title: 'Architect',
+      challenge:
+        'We needed an AI architecture that could observe sensor behavior, raise early warnings, and still fit within FDA/EU MDR expectations for SaMD and device-adjacent intelligence.',
+      outcome:
+        'Defined a layered trust stack: edge-level signal checks, cloud-side anomaly models, clinician-facing review queues, and fully traceable decision logs tied to device IDs and firmware.'
+    },
+    {
+      key: 'engineer',
+      title: 'Engineer',
+      challenge:
+        'Engineering efforts had to integrate telemetry, patient context, and labeling into a pipeline that could be validated, monitored, and rolled back without interrupting continuous monitoring.',
+      outcome:
+        'Built feature pipelines and anomaly models with strict versioning, golden-set evaluation harnesses, and rollout plans that allowed gradual exposure across cohorts and regions.'
+    },
+    {
+      key: 'enable',
+      title: 'Enable',
+      challenge:
+        'Patients and clinicians needed to understand what the alerts meant, why they were raised, and how they would change behavior — otherwise even good signals would be ignored.',
+      outcome:
+        'Co-designed communication patterns with clinical and patient-advocacy teams, ensuring that every AI-driven alert shipped with human-legible context and clear next-step guidance.'
+    },
+    {
+      key: 'impact',
+      title: 'Impact',
+      challenge:
+        'We needed to show that the trust architecture improved experience and safety without over-alerting or triggering recalls.',
+      outcome:
+        'Pilot cohorts showed reduced false positives, earlier detection of degrading sensors, and stable or improved satisfaction from patients and clinicians, giving Abbott confidence to extend the pattern globally.'
+    }
+  ],
+
+  patternGeneralization: {
+    bestFitEnvironments:
+      'Networked medical devices (CGM, wearables, implantables) where continuous streams feed life-critical decisions under strict regulatory oversight.',
+    corePrimitives:
+      'Telemetry ingestion with lineage, anomaly models wrapped in evaluation harnesses, trust dashboards for clinicians, and audit-ready logs that tie model outputs back to device state and firmware.',
+    whatYouNeedReady:
+      'Clear SaMD/AI regulatory interpretation, access to de-identified historical telemetry, alignment with safety and clinical affairs, ' +
+      'and infrastructure capable of linking device IDs, firmware, and AI outputs into a single traceable record.'
+  },
+
   phases: [
     // -----------------------------
     // PHASE 1 — DISCOVER

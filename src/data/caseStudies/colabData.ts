@@ -29,7 +29,7 @@ export const colabData: CaseStudyData = {
   role: 'Lead Retrieval & Knowledge Engineer',
   year: '2024',
   services: ['Knowledge Engineering', 'RAG Pipeline', 'Vector Search', 'Semantic Infrastructure'],
-  heroImage: '/assets/img/home-06/project/colab.jpg',
+  heroImage: '/assets/img/case-studies/_showcase/Knowledge_Retreval.jpg',
   overview: 'Turned a fragmented intranet into a single source of truth with an AI assistant ("CoCo") that cut search-to-answer time from 15 minutes to under 30 seconds and tripled successful document discovery for onboarding, SOPs, and internal workflows.',
 
   // Three-line hero context

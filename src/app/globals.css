@@ -4,11 +4,11 @@
 
 /* Wider cards like the original template */
 .parallax-item {
-  width: 700px !important;
+  width: 950px !important;
 }
 
 .parallax-img {
-  width: 900px !important;
+  width: 1150px !important;
 }
 
 /* Add gap between cards */

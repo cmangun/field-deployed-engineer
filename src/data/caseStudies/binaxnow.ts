@@ -13,6 +13,7 @@ import { pfizerCharts } from './pfizerData';
 
 export const binaxNowData: CaseStudyData = {
   slug: 'binaxnow',
+  brandLogo: '/assets/img/logo/Binax.png',
   title: 'Abbott BinaxNOW',
   subtitle: 'Rapid Antigen Testing at Scale',
   company: 'Abbott Labs',
@@ -43,6 +44,58 @@ export const binaxNowData: CaseStudyData = {
       'OTC EUA achieved March 2021',
       'National distribution through CVS, Walgreens, Walmart'
     ]
+  },
+
+  phasesMeta: [
+    {
+      key: 'diagnose',
+      title: 'Diagnose',
+      challenge:
+        'The U.S. was trapped in a lab-based PCR bottleneck; we did not know whether the right lever was assay chemistry, instrumentation, or distribution.',
+      outcome:
+        'Assessment revealed that the fastest safe path was not a new platform, but re-using the Binax LFIA lineage and existing manufacturing capacity for SARS-CoV-2.'
+    },
+    {
+      key: 'architect',
+      title: 'Architect',
+      challenge:
+        'We needed an assay that could run instrument-free, be interpretable by non-clinicians, and still meet FDA performance thresholds.',
+      outcome:
+        'Designed a lateral-flow architecture: nasal swab sample, extraction buffer, capillary strip, gold-labeled anti-N antibodies, and visual test/control lines suitable for home and point-of-care use.'
+    },
+    {
+      key: 'engineer',
+      title: 'Engineer',
+      challenge:
+        'Engineering had to compress years of assay optimization into months without compromising specificity or manufacturability.',
+      outcome:
+        'Iterated on antibody pairs, strip geometry, and buffer chemistry; locked a design that met sensitivity/specificity targets and could run on existing high-volume lines.'
+    },
+    {
+      key: 'enable',
+      title: 'Enable',
+      challenge:
+        'Even the best assay would fail if end-users mis-swabbed, mis-timed, or mis-read the card, or if regulators could not trust the data.',
+      outcome:
+        'Delivered clear IFU, training material, and EUA submission packages; aligned with public-health agencies and retailers on correct use and reporting flows.'
+    },
+    {
+      key: 'impact',
+      title: 'Impact',
+      challenge:
+        'We needed to show that decentralized rapid tests actually changed behavior and transmission, not just shipped units.',
+      outcome:
+        '15-minute result windows enabled on-site isolation decisions in schools, workplaces, and community sites, with tens of millions of tests/month distributed nationally.'
+    }
+  ],
+
+  patternGeneralization: {
+    bestFitEnvironments:
+      'Public-health crises where centralized lab capacity is the bottleneck and time-to-result directly impacts transmission and behavior.',
+    corePrimitives:
+      'Reusable assay platform (LFIA), existing high-volume manufacturing lines, simple sample collection, instrument-free readout, and clear EUA/IVD regulatory pathway.',
+    whatYouNeedReady:
+      'Prior infectious-disease assay IP, established quality systems, regulatory relationships, and a distribution network that can move diagnostics through retail and public-health channels.'
   },
 
   phases: {

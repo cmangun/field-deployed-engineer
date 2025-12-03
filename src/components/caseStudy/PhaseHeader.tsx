@@ -18,7 +18,7 @@ const typography = {
     color: '#000',
     lineHeight: 1.1,
     letterSpacing: '-0.02em',
-    margin: '0 0 16px 0',
+    margin: '0 0 12px 0',
   },
   eyebrow: {
     fontSize: '12px',
@@ -26,17 +26,17 @@ const typography = {
     color: '#666',
     letterSpacing: '0.12em',
     textTransform: 'uppercase' as const,
-    margin: '0 0 20px 0',
+    margin: '0 0 16px 0',
     maxWidth: '480px',
   },
   summary: {
-    fontSize: '18px',
+    fontSize: '17px',
     fontWeight: 500,
     color: '#444',
     fontStyle: 'italic' as const,
     lineHeight: 1.5,
     maxWidth: '540px',
-    margin: '0 0 28px 0',
+    margin: '0 0 20px 0',
   },
   metricLabel: {
     fontSize: '11px',
@@ -44,10 +44,10 @@ const typography = {
     color: '#888',
     textTransform: 'uppercase' as const,
     letterSpacing: '0.08em',
-    marginBottom: '6px',
+    marginBottom: '4px',
   },
   metricValue: {
-    fontSize: '15px',
+    fontSize: '14px',
     fontWeight: 600,
     color: '#111',
   },
@@ -148,8 +148,8 @@ export function PhaseHeader({ phase, customMeta }: PhaseHeaderProps) {
 
   return (
     <header style={{ 
-      marginTop: '48px',
-      marginBottom: '48px',
+      marginTop: '40px',
+      marginBottom: '32px',
     }}>
       {/* Phase Title */}
       <h2 style={typography.title}>

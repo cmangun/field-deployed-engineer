@@ -1,6 +1,6 @@
 // src/data/caseStudies/amgenData.ts
 // ═══════════════════════════════════════════════════════════════════════════════
-// AMGEN CASE STUDY — NARRATIVE + CHART DATA
+// AMGEN CASE STUDY - NARRATIVE + CHART DATA
 // Technical Program Leadership for Multi-Cloud Scientific Data Platform
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -13,6 +13,7 @@ import { pfizerCharts } from './pfizerData';
 
 export const amgenData: CaseStudyData = {
   slug: 'amgen',
+  brandLogo: '/assets/img/logo/Amgen-black.png',
   title: 'Amgen Technical Program Leadership',
   subtitle: 'Multi-Cloud Scientific Data Platform',
   company: 'Amgen',
@@ -45,12 +46,64 @@ export const amgenData: CaseStudyData = {
     ]
   },
 
+  phasesMeta: [
+    {
+      key: 'diagnose',
+      title: 'Diagnose',
+      challenge:
+        "Amgen\'s scientific content for launch lived across Sitecore, AWS S3, on-prem DAMs, and analytics tools. No one could say with confidence where 'truth' lived or why updates took days.",
+      outcome:
+        'In 48 hours we mapped 30+ asset flows, identified taxonomy divergence across 7 therapeutic areas, and showed that misaligned metadata and embeddings - not lack of tools - were the real bottlenecks.'
+    },
+    {
+      key: 'architect',
+      title: 'Architect',
+      challenge:
+        'We needed a platform that could harmonize taxonomies and embeddings across clouds, avoid locking into a single vendor stack, and still support launch-level SLAs (<24 hours) for changes.',
+      outcome:
+        'Defined a multi-cloud scientific data platform: governed taxonomies, a unified embedding store, and routing patterns that treated Sitecore, AWS, and on-prem systems as peers behind a single truth layer.'
+    },
+    {
+      key: 'engineer',
+      title: 'Engineer',
+      challenge:
+        'Engineering efforts had to move while launch pressure was building; there was no option to take systems offline or rebuild from scratch.',
+      outcome:
+        'Implemented ingestion, normalization, and embedding pipelines around existing systems; wired health checks and dashboards so business owners could see drift, latency, and coverage in real time.'
+    },
+    {
+      key: 'enable',
+      title: 'Enable',
+      challenge:
+        'Brand, medical, and regulatory teams had different vocabularies and incentives; without alignment, even a perfect platform would be underused or misused.',
+      outcome:
+        'Facilitated working sessions to align on a unified taxonomy, onboarded teams onto the new flows, and embedded platform usage into launch playbooks rather than "optional" tools.'
+    },
+    {
+      key: 'impact',
+      title: 'Impact',
+      challenge:
+        'We needed to demonstrate that the platform reduced launch risk and cycle time, not just added another layer of abstraction.',
+      outcome:
+        'Update latency dropped to under 24 hours, metadata alignment reached 100% across targeted clouds, and cross-team workflows became measurably more stable, establishing a blueprint for future launches.'
+    }
+  ],
+
+  patternGeneralization: {
+    bestFitEnvironments:
+      'Global life-science organizations where launch-critical content spans multiple clouds, legacy CMS/DAM platforms, and analytics stacks, and where "scientific truth" must update quickly.',
+    corePrimitives:
+      'Unified taxonomy and ID strategy, cross-cloud embedding store, ingestion/normalization pipelines, and routing patterns that treat clouds and platforms as interchangeable views over a single source of truth.',
+    whatYouNeedReady:
+      'Agreement on the scientific and brand taxonomy, access to existing CMS/DAM/analytics systems, sponsorship from brand and medical leaders, and willingness from platform teams to expose metadata and events.'
+  },
+
   phases: {
     diagnose: {
       id: 'diagnose',
       title: 'Diagnose',
       duration: '48 hours',
-      description: 'Dropped into a fragmented ecosystem at the moment Amgen needed surgical execution. Conducted a compressed discovery cycle across Sitecore, AWS, brand teams, MLR workflows, and DAMs to map where scientific truth was stored—and where it was drifting.',
+      description: 'Dropped into a fragmented ecosystem at the moment Amgen needed surgical execution. Conducted a compressed discovery cycle across Sitecore, AWS, brand teams, MLR workflows, and DAMs to map where scientific truth was stored-and where it was drifting.',
       points: [
         'Interviewed brand, medical, regulatory, IT, and agency partners within 48 hours',
         'Mapped 30+ asset flows spanning Sitecore, AWS, on-prem DAMs, and analytics',
@@ -183,7 +236,7 @@ export const amgenData: CaseStudyData = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHART DATA — Inherits from Pfizer canonical charts
+// CHART DATA - Inherits from Pfizer canonical charts
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const amgenCharts: CaseStudyCharts = {

@@ -365,7 +365,7 @@ export const medtronicChartData: CaseStudyCharts = {
           "Under-represented training data for pediatrics"
         ]
       },
-      insight: "Model is strong for adult triage summaries but must be explicitly constrained away from diagnosis.",
+      insight: "Model is strong for adult triage summaries but must be explicitly constrained away from diagnostics.",
       next_step: "Publish the model card in the Medtronic model registry and reference it in SOPs.",
       owner: "@Medtronic Clinical AI",
       impact: "Regulator-ready documentation",

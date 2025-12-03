@@ -1,6 +1,6 @@
 // src/data/caseStudies/medtronicData.ts
 // ═══════════════════════════════════════════════════════════════════════════════
-// MEDTRONIC CASE STUDY — NARRATIVE + CHART DATA
+// MEDTRONIC CASE STUDY - NARRATIVE + CHART DATA
 // LLM-Centered Architecture for Clinical Decision Support
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -24,6 +24,7 @@ import { chartColors } from '@/charts_D3/colors';
 
 export const medtronicData: CaseStudyData = {
     slug: 'medtronic',
+    brandLogo: '/assets/img/logo/images.jpg',
     title: 'Medtronic Clinical AI',
     subtitle: 'LLM-Centered Decision Support',
     company: 'Medtronic',
@@ -31,19 +32,93 @@ export const medtronicData: CaseStudyData = {
     role: 'Lead AI/ML Architect',
     year: '2024',
     services: ['LLM Architecture', 'Clinical AI', 'Security Design', 'Evaluation Systems'],
-    heroImage: '/images/medtronic-hero.jpg',
+    heroImage: '/assets/img/home-06/project/medtronic.jpg',
     overview:
         'Led architecture for an LLM-driven decision-support system within regulated clinical workflows. ' +
         'Integrated secure context windows and evaluation layers for clinical-grade reliability with 99.2% accuracy.',
 
+    heroContext: {
+        client: 'Global medtech leader building next-generation surgical decision-support.',
+        constraint:
+            'Clinical decisions must run under FDA SaMD and HIPAA constraints with strict latency, auditability, and safety - ' +
+            'legacy systems could not host LLM context windows or expose reliable confidence signals to clinicians.',
+        result:
+            'Defined and implemented an LLM-centered architecture that achieved 99.2% evaluated accuracy, ~40% faster decisions, ' +
+            'and a fully traceable audit trail aligned with 21 CFR Part 11 and Medtronic\'s internal SaMD standards.'
+    },
+
+    heroMetrics: [
+        { label: 'Decision Accuracy', value: '96% → 99.2%', delta: '+3.2 pts' },
+        { label: 'Decision Time', value: '10 min → 6 min', delta: '-40%' },
+        { label: 'Security Incidents', value: '0', delta: 'across pilot period' },
+        { label: 'Systems Integrated', value: '3', delta: 'EHR, imaging, device telemetry' }
+    ],
+
     executiveSnapshot: {
-        headline: '99.2% clinical accuracy, FDA-compliant AI',
+        headline: '99.2% clinical decision-support accuracy, SaMD-ready architecture',
         keyOutcomes: [
-            '99.2% evaluation accuracy',
-            '40% faster decisions',
-            '0 security incidents',
-            'FDA-compliant audit trail'
+            '99.2% evaluated accuracy on curated clinical scenarios (vs ~96% baseline tooling)',
+            '≈40% faster time-to-decision in pilot workflows',
+            'Zero security incidents or privacy breaches during evaluation and pilot',
+            'Audit trail and logging aligned with FDA 21 CFR Part 11 and internal SaMD standards'
         ]
+    },
+
+    phasesMeta: [
+        {
+            key: 'diagnose',
+            title: 'Diagnose',
+            challenge:
+                'Clinical teams blamed "slow AI" or "immature models", but it was unclear whether the binding constraint was model quality, infrastructure, or regulation.',
+            outcome:
+                'Discovery showed that legacy systems could not support LLM context windows, there was no accepted safety envelope for AI suggestions, ' +
+                'and clinicians lacked calibrated confidence metrics - governance and infrastructure, not modeling, were the primary blockers.'
+        },
+        {
+            key: 'architect',
+            title: 'Architect',
+            challenge:
+                'We needed an LLM-centered architecture that could plug into EHR/imaging systems, operate under SaMD and HIPAA rules, and still respond within sub-second latency in the OR.',
+            outcome:
+                'Defined a layered architecture: guarded context builder, air-gapped LLM gateway, evaluation harness with golden sets, and an audit/logging layer, ' +
+                'with explicit degraded modes when signals or models were unavailable.'
+        },
+        {
+            key: 'engineer',
+            title: 'Engineer',
+            challenge:
+                'We had to integrate with existing clinical systems without downtime, build evaluation at the same time as inference, and prove reliability under real usage, not just offline tests.',
+            outcome:
+                'Implemented encrypted context management, streaming-safe APIs, evaluation pipelines tied to curated clinical scenarios, and service health dashboards exposing latency, error rates, and confidence stability.'
+        },
+        {
+            key: 'enable',
+            title: 'Enable',
+            challenge:
+                'Surgeons and risk officers were skeptical of black-box outputs and worried about liability if an AI suggestion was wrong or over-trusted.',
+            outcome:
+                'Piloted in restricted workflows with human-in-the-loop confirmation, explicit labeling of AI suggestions, and training on confidence interpretation and escalation procedures, ' +
+                'building trust without shifting final responsibility away from clinicians.'
+        },
+        {
+            key: 'impact',
+            title: 'Impact',
+            challenge:
+                'We needed to demonstrate that the system actually reduced cognitive load and time-to-decision without introducing new safety incidents or regulatory risk.',
+            outcome:
+                'Pilot metrics showed 99.2% evaluated accuracy on curated scenarios, ~40% faster time-to-decision, zero security incidents, and a clear path for SaMD-grade validation and broader rollout.'
+        }
+    ],
+
+    patternGeneralization: {
+        bestFitEnvironments:
+            'Real-time clinical decision-support and surgical guidance where AI suggestions must be fast, auditable, and bounded by safety envelopes.',
+        corePrimitives:
+            'Guarded context builder, air-gapped LLM gateway with policy-as-code, evaluation harness with golden clinical sets, ' +
+            'real-time observability over latency and confidence, and explicit degraded modes when AI is unavailable.',
+        whatYouNeedReady:
+            'Defined clinical workflows, de-identified historical cases for evaluation, alignment with clinical risk and regulatory teams, ' +
+            'and infrastructure teams willing to host LLM components inside existing HIPAA/SaMD security zones.'
     },
 
     phases: {
@@ -228,11 +303,11 @@ export const medtronicData: CaseStudyData = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHART DATA — 8 Core Charts (Required)
+// CHART DATA - 8 Core Charts (Required)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 // ─────────────────────────────────────────────────────────────────────────────
-// FUNNEL CHART — Diagnose: Clinical Query Pipeline
+// FUNNEL CHART - Diagnose: Clinical Query Pipeline
 // ─────────────────────────────────────────────────────────────────────────────
 const funnel: FunnelDataPoint[] = [
     { stage: 'Clinical Queries/Day', value: 450, color: chartColors.charcoal },
@@ -243,7 +318,7 @@ const funnel: FunnelDataPoint[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// RACI MATRIX — Diagnose: Clinical AI Accountability
+// RACI MATRIX - Diagnose: Clinical AI Accountability
 // ─────────────────────────────────────────────────────────────────────────────
 const raciMatrix: RaciMatrixData = {
     project: 'Clinical LLM Decision Support',
@@ -274,7 +349,7 @@ const raciMatrix: RaciMatrixData = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SYSTEM CONTEXT — Architect: Clinical LLM Platform
+// SYSTEM CONTEXT - Architect: Clinical LLM Platform
 // ─────────────────────────────────────────────────────────────────────────────
 const systemContext: SystemContextData = {
     system: {
@@ -340,7 +415,7 @@ const systemContext: SystemContextData = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// GANTT CHART — Architect/Execute: 21-week Implementation
+// GANTT CHART - Architect/Execute: 21-week Implementation
 // ─────────────────────────────────────────────────────────────────────────────
 const gantt: GanttTask[] = [
     { id: 1, task: 'Technical Assessment', start: 0, duration: 2, category: 'Discovery',   progress: 100 },
@@ -357,7 +432,7 @@ const gantt: GanttTask[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SERVICE HEALTH — Engineer: Clinical LLM Platform Reliability
+// SERVICE HEALTH - Engineer: Clinical LLM Platform Reliability
 // ─────────────────────────────────────────────────────────────────────────────
 const serviceHealth: ServiceHealthData = {
     services: [
@@ -427,7 +502,7 @@ const serviceHealth: ServiceHealthData = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// JOURNEY MAP — Enable: Surgeon Clinical AI Journey
+// JOURNEY MAP - Enable: Surgeon Clinical AI Journey
 // ─────────────────────────────────────────────────────────────────────────────
 const journeyMap: JourneyMapData = {
     persona: {
@@ -507,7 +582,7 @@ const journeyMap: JourneyMapData = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// WATERFALL — Impact: Clinical Value ($2.1M Annual)
+// WATERFALL - Impact: Clinical Value ($2.1M Annual)
 // ─────────────────────────────────────────────────────────────────────────────
 const waterfall: WaterfallDataPoint[] = [
     { label: 'Baseline Decision Time', value: 3.5,  type: 'total'    },
@@ -519,7 +594,7 @@ const waterfall: WaterfallDataPoint[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// UNIT ECONOMICS — Impact: Per-Procedure AI Value
+// UNIT ECONOMICS - Impact: Per-Procedure AI Value
 // ─────────────────────────────────────────────────────────────────────────────
 const unitEconomics: UnitEconomicsData = {
     period: 'Q4 2024',
@@ -565,7 +640,7 @@ const unitEconomics: UnitEconomicsData = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// EXPORT — Medtronic Chart Bundle (8 Core Charts)
+// EXPORT - Medtronic Chart Bundle (8 Core Charts)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const medtronicCharts: CaseStudyCharts = {

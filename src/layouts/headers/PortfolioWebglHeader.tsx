@@ -79,7 +79,7 @@ const PortfolioWebglHeader: React.FC<PortfolioWebglHeaderProps> = ({
                     cursor: 'pointer',
                     boxShadow: openOffCanvas ? 'none' : '0 4px 20px rgba(0,0,0,0.08)',
                 }}>
-                    <span>{openOffCanvas ? 'Close' : 'Menu'}</span>
+                    <span>{openOffCanvas ? 'Close' : 'Case Studies'}</span>
                     <span style={{ 
                         display: 'flex', 
                         alignItems: 'center',

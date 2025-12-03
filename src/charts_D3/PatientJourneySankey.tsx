@@ -8,14 +8,14 @@ const defaultData = {
   indication: 'NSCLC',
   totalPatients: 10000,
   stages: [
-    { id: 'diagnosis', name: 'Diagnosis', x: 0 },
+    { id: 'diagnosis', name: 'Diagnostics', x: 0 },
     { id: 'treatment', name: 'Treatment Selection', x: 1 },
     { id: 'therapy', name: 'Therapy', x: 2 },
     { id: 'response', name: 'Response', x: 3 },
     { id: 'outcome', name: 'Outcome (12mo)', x: 4 },
   ],
   nodes: [
-    // Diagnosis
+    // Diagnostics
     { id: 'stage-iiib', name: 'Stage IIIB', stage: 'diagnosis', value: 3500, color: chartColors.navy },
     { id: 'stage-iv', name: 'Stage IV', stage: 'diagnosis', value: 6500, color: chartColors.navy },
     // Treatment Selection
@@ -41,7 +41,7 @@ const defaultData = {
     { id: 'deceased', name: 'Deceased', stage: 'outcome', value: 1500, color: chartColors.muted },
   ],
   links: [
-    // Diagnosis → Treatment
+    // Diagnostics → Treatment
     { source: 'stage-iiib', target: 'first-line', value: 2800 },
     { source: 'stage-iiib', target: 'second-line', value: 600 },
     { source: 'stage-iiib', target: 'palliative', value: 100 },
@@ -313,7 +313,7 @@ const PatientJourneySankey: React.FC<PatientJourneySankeyProps> = ({
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <div style={{ width: '12px', height: '12px', borderRadius: '3px', backgroundColor: chartColors.navy }} />
-          <span style={{ color: chartColors.charcoalLight }}>Diagnosis Stage</span>
+          <span style={{ color: chartColors.charcoalLight }}>Diagnostics Stage</span>
         </div>
         <div style={{ marginLeft: 'auto', color: chartColors.gray }}>
           Hover node to highlight flow

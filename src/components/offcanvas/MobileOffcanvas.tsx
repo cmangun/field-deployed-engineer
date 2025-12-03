@@ -1,5 +1,5 @@
 import MobileMenus from "../../layouts/subComponents/MobileMenus";
-import React from 'react';
+import React, { useEffect } from 'react';
 
 type IProps = {
     openOffcanvas: boolean;
@@ -7,6 +7,18 @@ type IProps = {
 };
 
 const MobileOffcanvas: React.FC<IProps> = ({ openOffcanvas, setOpenOffcanvas }) => {
+    // Add/remove body class when menu opens/closes
+    useEffect(() => {
+        if (openOffcanvas) {
+            document.body.classList.add('menu-open');
+        } else {
+            document.body.classList.remove('menu-open');
+        }
+        return () => {
+            document.body.classList.remove('menu-open');
+        };
+    }, [openOffcanvas]);
+
     return (
         <>
             <style jsx>{`

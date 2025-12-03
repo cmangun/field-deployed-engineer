@@ -19,7 +19,7 @@ import { chartColors } from '@/charts_D3/colors';
 
 export const pfizerData: CaseStudyData = {
   slug: 'pfizer',
-  brandLogo: '/assets/logo/pfizer.png',
+  brandLogo: '/assets/img/logo/Pfizer-(2021).png',
   title: 'Pfizer AI Content Engine',
   subtitle: 'AI/ML Engineering',
   company: 'Pfizer',

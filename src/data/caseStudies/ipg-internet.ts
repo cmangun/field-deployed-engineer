@@ -15,7 +15,7 @@ import { pfizerCharts } from '@/data/caseStudies/pfizerData';
 
 export const ipgIntranetData: CaseStudyData = {
   slug: 'ipg-searchable-intranet',
-  brandLogo: '/assets/logo/ipg.png',
+  brandLogo: '/assets/img/logo/IPG-white.png',
   title: 'IPG Searchable Azure Intranet',
   subtitle: 'Enterprise Architecture',
   company: 'IPG Health',
@@ -29,7 +29,7 @@ export const ipgIntranetData: CaseStudyData = {
     'Document Governance',
     'Indexing & Metadata',
   ],
-  heroImage: '/assets/img/case-studies/ipg/hero.jpg',
+  heroImage: '/assets/img/home-06/project/publicis.jpg',
 
   overview:
     'Built a production-grade, Azure-hosted SharePoint intranet for Area 23 and ProHealth to unify fragmented brand documents, accelerate global drug launches, and establish a single source of truth for regulatory, creative, and medical teams.',

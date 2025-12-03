@@ -1,6 +1,6 @@
 // src/data/caseStudies/alinity.ts
 // ═══════════════════════════════════════════════════════════════════════════════
-// ABBOTT ALINITY CASE STUDY — NARRATIVE + CHART DATA
+// ABBOTT ALINITY CASE STUDY - NARRATIVE + CHART DATA
 // GxP-Qualified AWS Data Platform for Global Diagnostics
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -13,6 +13,7 @@ import { pfizerCharts } from './pfizerData';
 
 export const abbottAlinityData: CaseStudyData = {
   slug: 'alinity',
+  brandLogo: '/assets/img/logo/alinity-m-logo.png',
   title: 'Abbott Alinity Systems',
   subtitle: 'GxP-Qualified AWS Diagnostic Platform',
   company: 'Abbott Labs',
@@ -43,6 +44,58 @@ export const abbottAlinityData: CaseStudyData = {
       '15B+ tests/year supported',
       '0 audit findings, 0 integrity incidents'
     ]
+  },
+
+  phasesMeta: [
+    {
+      key: 'diagnose',
+      title: 'Diagnose',
+      challenge:
+        'Three fragmented diagnostic platforms - Architect, Alinity, and Libre - ran on aging Oracle systems with 14–24 hour query times, creating blind spots across 15B+ annual tests.',
+      outcome:
+        'Reframed the problem from "database migration" to "diagnostic mission integrity": mapped 850TB+ of workloads, identified where GxP compliance was at risk, and aligned stakeholders around a unified data strategy.'
+    },
+    {
+      key: 'architect',
+      title: 'Architect',
+      challenge:
+        'We needed to design a GxP-qualified AWS landing zone that could replace decades of Oracle infrastructure while satisfying 21 CFR Part 11, EU Annex 11, and internal audit expectations.',
+      outcome:
+        'Defined a three-zone data lake architecture (raw → curated → analytics-ready) with ALCOA+ integrity controls, dual-path query patterns, and compliance mappings codified into the landing-zone baseline.'
+    },
+    {
+      key: 'engineer',
+      title: 'Engineer',
+      challenge:
+        'Migrating 850TB+ of diagnostic data required chain-of-custody logging, schema normalization across three platforms, and a full GAMP 5 CSV validation approach - all while production systems stayed live.',
+      outcome:
+        'Executed the migration using Snowball Edge with SHA-256 checksums, built Treesitter-enhanced ETL pipelines for schema validation, and completed IQ/OQ/PQ with 450+ test cases and 99.97% result agreement.'
+    },
+    {
+      key: 'enable',
+      title: 'Enable',
+      challenge:
+        'Clinicians, scientists, and regulators needed to trust the new platform - not just see faster queries, but verify that data integrity was intact.',
+      outcome:
+        'Shipped a React-based query layer with SQL-free analysis, real-time GxP compliance dashboards, and monitoring that gave users confidence the platform was operating within validated bounds.'
+    },
+    {
+      key: 'impact',
+      title: 'Impact',
+      challenge:
+        'We needed to prove that the migration reduced cost and improved velocity without introducing new compliance or integrity risks.',
+      outcome:
+        'Passed FDA, EU GMP, and global audits with zero findings; reduced infrastructure cost by ~79% (~$12.7M annually); achieved 1,440× query speedup; and maintained zero data integrity incidents since launch.'
+    }
+  ],
+
+  patternGeneralization: {
+    bestFitEnvironments:
+      'Regulated diagnostics and life-science organizations migrating high-volume, mission-critical data platforms from on-prem Oracle or legacy systems to cloud under GxP, 21 CFR Part 11, or similar frameworks.',
+    corePrimitives:
+      'GxP-qualified landing zone, tiered data lake (raw → curated → analytics), ALCOA+ integrity controls, GAMP 5 validation approach, dual-path query architecture, and real-time compliance dashboards.',
+    whatYouNeedReady:
+      'Clear mapping of regulatory requirements to target architecture, access to production schemas and data flows, stakeholder alignment across platform, regulatory, and clinical teams, and a validation strategy that covers IQ/OQ/PQ with parallel-run verification.'
   },
 
   phases: {
@@ -183,7 +236,7 @@ export const abbottAlinityData: CaseStudyData = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHART DATA — Inherits from Pfizer canonical charts
+// CHART DATA - Inherits from Pfizer canonical charts
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const abbottAlinityCharts: CaseStudyCharts = {

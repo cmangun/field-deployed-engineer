@@ -1,6 +1,6 @@
 // src/data/caseStudies/publicisData.ts
 // ═══════════════════════════════════════════════════════════════════════════════
-// PUBLICIS HEALTH CASE STUDY — NARRATIVE + CHART DATA
+// PUBLICIS HEALTH CASE STUDY - NARRATIVE + CHART DATA
 // Enterprise Architecture at Scale - Multi-Agency System Unification
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -13,6 +13,7 @@ import { pfizerCharts } from './pfizerData';
 
 export const publicisData: CaseStudyData = {
   slug: 'publicis',
+  brandLogo: '/assets/img/logo/images.png',
   title: 'Publicis Health Enterprise Architecture',
   subtitle: 'Multi-Agency System Unification',
   company: 'Publicis Health',
@@ -43,6 +44,58 @@ export const publicisData: CaseStudyData = {
       'Single source of truth for 2,500+ users',
       'Zero duplicate asset creation incidents post-launch'
     ]
+  },
+
+  phasesMeta: [
+    {
+      key: 'diagnose',
+      title: 'Diagnose',
+      challenge:
+        'Publicis Health\'s 14 agencies each had their own stack, workflows, and identity model. No one had an end-to-end picture of how content moved from creative through MLR, or where it stalled.',
+      outcome:
+        'In four weeks we inventoried 14 tech stacks, mapped 47 workflows, and quantified $2.3M in annual cost from duplicate asset creation and rework, reframing the problem as a system unification challenge, not a tooling issue at any single agency.'
+    },
+    {
+      key: 'architect',
+      title: 'Architect',
+      challenge:
+        'We needed a unification architecture that respected agency autonomy but enforced shared identity, routing, and governance - without breaking existing client commitments.',
+      outcome:
+        'Defined an enterprise architecture with a federated identity layer, shared routing and metadata services, and clear integration patterns so agencies could plug in without rewriting their entire stacks.'
+    },
+    {
+      key: 'engineer',
+      title: 'Engineer',
+      challenge:
+        'The engineering work had to land incrementally; we could not "big bang" cut over 14 agencies at once.',
+      outcome:
+        'Implemented the identity and routing layers, integrated priority agencies first, and wired observability so we could see cross-agency handoffs, errors, and latency before rolling out to the full network.'
+    },
+    {
+      key: 'enable',
+      title: 'Enable',
+      challenge:
+        'Agency leaders were wary of losing autonomy and feared a central architecture would slow them down or impose one-size-fits-all workflows.',
+      outcome:
+        'Framed the architecture as an accelerator, not a constraint: showed how unified identity and routing reduced friction with MLR, improved client governance, and still allowed agency-specific tools behind the shared interfaces.'
+    },
+    {
+      key: 'impact',
+      title: 'Impact',
+      challenge:
+        'We needed proof that unification reduced friction and compliance risk in practice, not just on diagrams.',
+      outcome:
+        'Handoff times fell by 60%, 2,500+ users moved under a single identity fabric, and content routing became observable and governable across the network, reducing duplicate work and compliance exposure.'
+    }
+  ],
+
+  patternGeneralization: {
+    bestFitEnvironments:
+      'Holding-company or multi-agency networks where each unit has grown its own stack, but clients and regulators expect unified behavior and governance.',
+    corePrimitives:
+      'Federated identity layer, shared content routing and metadata services, integration patterns that allow local stacks to plug into a central nervous system, and cross-agency observability over workflows.',
+    whatYouNeedReady:
+      'Executive sponsorship across agencies, agreement on core identity and content models, a minimal central platform team, and a phased rollout plan that starts with the most constrained or highest-value agencies.'
   },
 
   phases: {
@@ -183,7 +236,7 @@ export const publicisData: CaseStudyData = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHART DATA — Inherits from Pfizer canonical charts
+// CHART DATA - Inherits from Pfizer canonical charts
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const publicisCharts: CaseStudyCharts = {

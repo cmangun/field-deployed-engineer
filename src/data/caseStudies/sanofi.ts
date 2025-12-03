@@ -21,7 +21,7 @@ import { pfizerCharts } from '@/data/caseStudies/pfizerData';
 
 export const sanofiData: CaseStudyData = {
   slug: 'sanofi-vaccines-dam',
-  brandLogo: '/assets/logo/sanofi.png',
+  brandLogo: '/assets/img/logo/Logo_Sanofi_(2022).png',
   title: 'Sanofi Vaccines Digital Asset Management',
   subtitle: 'Technical Program Management',
   company: 'Sanofi',
@@ -35,7 +35,7 @@ export const sanofiData: CaseStudyData = {
     'Production Observability',
     'Cost Optimization',
   ],
-  heroImage: '/assets/img/case-studies/sanofi/hero.jpg',
+  heroImage: '/assets/img/case-studies/_showcase/Sanofi.jpg',
   overview:
     'Replaced a fragmented, legacy vaccines DAM with an Adobe Experience Manager–based platform integrated with Veeva Vault, delivering 48% TCO reduction, sub-500ms global search, and a validated shadow deployment with 99.1% functional parity before full cutover.',
 

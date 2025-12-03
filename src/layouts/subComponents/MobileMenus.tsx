@@ -6,17 +6,17 @@ import Image from 'next/image';
 // Logo mapping - white logos for dark menu
 const logoMap: Record<string, string> = {
   'pfizer': '/assets/img/logo/Pfizer-white.png',
-  'colab': '/assets/img/logo/logo-white.png',
-  'publicis': '/assets/img/logo/logo-white.png',
+  'colab': '/assets/img/logo/Pfizer-white.png', // Pfizer RAG work
+  'syneos health': '/assets/img/logo/Amgen-white.png', // Repatha program
+  'publicis health': '/assets/img/logo/logo-white.png',
   'medtronic': '/assets/img/logo/logo-white.png',
   'abbott': '/assets/img/logo/logo-white.png',
   'amgen': '/assets/img/logo/Amgen-white.png',
   'sanofi': '/assets/img/logo/Logo_Sanofi_white.png',
   'alinity': '/assets/img/logo/alinity-m-logo-white.png',
   'binaxnow': '/assets/img/logo/Binax.png',
-  'eli lilly': '/assets/img/logo/Eli_Lilly-white-logo.png',
-  'ipg global': '/assets/img/logo/IPG-white.png',
-  'nhf': '/assets/img/logo/NHF.png',
+  'ipg / area 23': '/assets/img/logo/IPG-white.png',
+  'naked heart foundation': '/assets/img/logo/NHF.png',
 };
 
 const LogoPlaceholder = ({ brand }: { brand: string }) => {
@@ -78,46 +78,8 @@ const MobileMenus = () => {
       backgroundColor: '#000',
       minHeight: '100vh',
       width: '100%',
-      padding: '50px 40px',
+      padding: '100px 40px 50px 40px',
     }}>
-      {/* Header Section */}
-      <div style={{
-        marginBottom: '50px',
-        paddingBottom: '40px',
-        borderBottom: '1px solid rgba(255,255,255,0.15)',
-      }}>
-        <div style={{
-          fontSize: '24px',
-          fontWeight: 600,
-          color: '#fff',
-          marginBottom: '4px',
-          letterSpacing: '-0.02em',
-        }}>
-          Field Deployed Engineer
-        </div>
-        <div style={{
-          fontSize: '24px',
-          fontWeight: 400,
-          color: 'rgba(255,255,255,0.7)',
-          marginBottom: '12px',
-        }}>
-          Christopher Mangun
-        </div>
-        <a 
-          href="mailto:cmangun@gmail.com"
-          style={{
-            fontSize: '14px',
-            color: 'rgba(255,255,255,0.4)',
-            textDecoration: 'none',
-            transition: 'color 0.2s ease',
-          }}
-          onMouseEnter={(e) => e.currentTarget.style.color = '#fff'}
-          onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
-        >
-          cmangun@gmail.com
-        </a>
-      </div>
-
       {/* Home Link */}
       <Link 
         href="/career-details-light"

@@ -1,6 +1,6 @@
 import Wrapper from "@/layouts/wrapper";
 import CaseStudyTemplate from "@/components/caseStudy/CaseStudyTemplate";
-import { getCaseStudyBySlug, getCaseStudySlugs } from "@/data/caseStudies";
+import { getCaseStudy, getCaseStudyCharts, getCaseStudySlugs } from "@/data/caseStudies";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
@@ -14,31 +14,32 @@ export async function generateStaticParams() {
 // Generate metadata for each case study
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
-    const config = getCaseStudyBySlug(slug);
+    const study = getCaseStudy(slug);
     
-    if (!config) {
+    if (!study) {
         return {
             title: "Case Study Not Found",
         };
     }
     
     return {
-        title: `${config.study.title} | Christopher Mangun`,
-        description: config.study.overview.substring(0, 160),
+        title: `${study.title} | Christopher Mangun`,
+        description: study.subtitle?.substring(0, 160) || study.title,
     };
 }
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const config = getCaseStudyBySlug(slug);
+    const study = getCaseStudy(slug);
+    const charts = getCaseStudyCharts(slug);
     
-    if (!config) {
+    if (!study) {
         notFound();
     }
     
     return (
         <Wrapper>
-            <CaseStudyTemplate study={config.study} charts={config.charts} />
+            <CaseStudyTemplate study={study} charts={charts} />
         </Wrapper>
     );
 }

@@ -27,7 +27,30 @@ const CaseStudyShowcase = () => {
     };
 
     return (
-        <>
+        <div style={{
+            backgroundImage: 'url(/assets/img/background2.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+            minHeight: '100vh',
+        }}>
+            {/* Global style for menu-open state */}
+            <style>{`
+                body.menu-open .fixed-header-title,
+                body.menu-open .fixed-header-title span,
+                body.menu-open .fixed-header-title * {
+                    color: #fff !important;
+                }
+                @media (max-width: 767px) {
+                    .fixed-header-title {
+                        font-size: 18px !important;
+                        top: 20px !important;
+                        left: 20px !important;
+                        max-width: calc(100% - 40px);
+                    }
+                }
+            `}</style>
+
             {/* Magic cursor */}
             <div id="magic-cursor" className="cursor-white-bg">
                 <div id="ball"></div>
@@ -37,20 +60,7 @@ const CaseStudyShowcase = () => {
             <BackToTop />
             <PortfolioWebglHeader />
 
-            {/* Hero H1 - Top Left */}
-            <h1 style={{
-                position: 'fixed',
-                top: '30px',
-                left: '30px',
-                zIndex: 9999,
-                fontSize: '30px',
-                fontWeight: 600,
-                color: '#000',
-                margin: 0,
-                letterSpacing: '0.5px',
-            }}>
-                FORWARD DEPLOYED ENGINEER <span style={{ color: '#999', fontWeight: 400 }}>|</span> <span style={{ fontWeight: 400, color: '#666' }}>Christopher Mangun</span>
-            </h1>
+
 
             <main>
                 <div className="parallax-slider-wrapper">
@@ -60,63 +70,95 @@ const CaseStudyShowcase = () => {
                                 <div 
                                     key={card.id} 
                                     className="parallax-item not-hide-cursor"
-                                    data-cursor={card.isPlaceholder ? "Coming<br>Soon" : "View<br>Case Study"}
-                                    onClick={() => handleCardClick(card.slug, card.isPlaceholder)}
+                                    data-cursor={card.id === 'intro' ? "" : (card.isPlaceholder ? "Coming<br>Soon" : "View<br>Case Study")}
+                                    onClick={() => card.id !== 'intro' && handleCardClick(card.slug, card.isPlaceholder)}
                                     style={{ 
-                                        cursor: card.isPlaceholder ? 'default' : 'pointer',
-                                        opacity: card.isPlaceholder ? 0.85 : 1,
+                                        cursor: card.id === 'intro' ? 'default' : (card.isPlaceholder ? 'default' : 'pointer'),
+                                        opacity: card.isPlaceholder && card.id !== 'intro' ? 0.85 : 1,
                                     }}
                                 >
+                                    {/* Special intro card */}
+                                    {card.id === 'intro' ? (
+                                        <>
+                                            <style>{`
+                                                .intro-content:hover h2,
+                                                .intro-content:hover p,
+                                                .intro-content:hover span {
+                                                    color: #fff !important;
+                                                }
+                                            `}</style>
+                                            <div className="parallax-content intro-content" style={{ 
+                                                opacity: 1, 
+                                                visibility: 'visible',
+                                                position: 'absolute',
+                                                top: '80px',
+                                                left: '40px',
+                                                right: '40px',
+                                                transition: 'all 0.3s ease',
+                                            }}>
+                                                <h2 style={{ 
+                                                    fontSize: '48px',
+                                                    fontWeight: 700,
+                                                    color: '#000',
+                                                    marginBottom: '16px',
+                                                    lineHeight: 1.1,
+                                                    transition: 'color 0.3s ease',
+                                                }}>
+                                                    Christopher Mangun
+                                                </h2>
+                                                <p style={{ 
+                                                    fontSize: '24px',
+                                                    fontWeight: 500,
+                                                    color: '#333',
+                                                    marginBottom: '24px',
+                                                    lineHeight: 1.3,
+                                                    transition: 'color 0.3s ease',
+                                                }}>
+                                                    AI/MLOps<br/>Field Deployed Engineer
+                                                </p>
+                                                <p style={{ 
+                                                    fontSize: '18px',
+                                                    fontWeight: 400,
+                                                    color: '#666',
+                                                    transition: 'color 0.3s ease',
+                                                    marginBottom: '16px',
+                                                }}>
+                                                    15 years engineering constrained regulated systems into defined and aligned diagnostic architecture and enterprise enablement.
+                                                </p>
+                                                <div style={{
+                                                    display: 'flex',
+                                                    justifyContent: 'flex-end',
+                                                    width: '100%',
+                                                }}>
+                                                    <span style={{
+                                                        fontSize: '32px',
+                                                        color: '#000',
+                                                        transition: 'color 0.3s ease',
+                                                    }}>→</span>
+                                                </div>
+                                            </div>
+                                            <div 
+                                                className="parallax-img"
+                                                style={{
+                                                    backgroundColor: '#e5e5e5',
+                                                    backgroundImage: 'none',
+                                                }}
+                                            ></div>
+                                        </>
+                                    ) : (
+                                        <>
                                     <div className="parallax-content">
-                                        {/* Case Study Number */}
-                                        <span style={{ 
-                                            fontSize: '12px', 
-                                            color: '#fff',
-                                            letterSpacing: '2px',
-                                            textTransform: 'uppercase',
-                                            marginBottom: '8px',
-                                            display: 'block'
-                                        }}>
-                                            {String(index + 1).padStart(2, '0')} / {caseStudyCardsData.length}
-                                        </span>
-                                        
-                                        {/* Client */}
-                                        <span style={{ 
-                                            fontSize: '14px',
-                                            fontWeight: 500,
-                                            color: '#fff',
-                                            marginBottom: '4px',
-                                            display: 'block'
-                                        }}>
-                                            {card.client}
-                                        </span>
-                                        
                                         {/* Title */}
-                                        <h4 style={{ marginBottom: '12px', color: '#fff' }}>{card.title}</h4>
+                                        <h4 style={{ marginBottom: '8px', color: '#fff' }}>{card.title}</h4>
                                         
-                                        {/* Subtitle/Description */}
-                                        <p style={{ 
-                                            fontSize: '14px', 
+                                        {/* Domain - simplified */}
+                                        <p style={{
+                                            fontSize: '14px',
                                             color: '#fff',
-                                            lineHeight: 1.5,
-                                            maxWidth: '320px',
-                                            marginBottom: '16px'
-                                        }}>
-                                            {card.subtitle}
-                                        </p>
-                                        
-                                        {/* Domain */}
-                                        <div style={{
-                                            fontSize: '11px',
-                                            color: '#fff',
-                                            textTransform: 'uppercase',
-                                            letterSpacing: '0.5px',
-                                            borderTop: '1px solid rgba(255,255,255,0.3)',
-                                            paddingTop: '12px',
-                                            marginTop: 'auto'
+                                            opacity: 0.8,
                                         }}>
                                             {card.domain}
-                                        </div>
+                                        </p>
 
                                         {/* Placeholder Badge */}
                                         {card.isPlaceholder && (
@@ -143,13 +185,15 @@ const CaseStudyShowcase = () => {
                                             filter: card.isPlaceholder ? 'grayscale(30%)' : 'none'
                                         }}
                                     ></div>
+                                        </>
+                                    )}
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
             </main>
-        </>
+        </div>
     );
 };
 

@@ -1,6 +1,6 @@
 // src/data/caseStudies/lillyData.ts
 // ═══════════════════════════════════════════════════════════════════════════════
-// ELI LILLY CASE STUDY — NARRATIVE + CHART DATA
+// ELI LILLY CASE STUDY - NARRATIVE + CHART DATA
 // Regulated Portfolio Deployment - MLR-Compliant AI Sandbox
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -13,6 +13,7 @@ import { pfizerCharts } from './pfizerData';
 
 export const lillyData: CaseStudyData = {
   slug: 'lilly',
+  brandLogo: '/assets/img/logo/Eli_Lilly_and_Company.svg.png',
   title: 'Eli Lilly AI Sandbox',
   subtitle: 'MLR-Compliant Rapid Experimentation',
   company: 'Eli Lilly',
@@ -43,6 +44,58 @@ export const lillyData: CaseStudyData = {
       'Zero compliance incidents across all deployments',
       'Framework adopted by 4 additional therapeutic areas'
     ]
+  },
+
+  phasesMeta: [
+    {
+      key: 'diagnose',
+      title: 'Diagnose',
+      challenge:
+        'Digital teams wanted to experiment with AI, but every proof-of-concept was treated like a one-off launch project with full MLR overhead.',
+      outcome:
+        'Mapped the end-to-end approval flow and showed that the bottleneck was process and governance-not lack of ideas or models. A shared sandbox pattern could absorb most compliance friction up front.'
+    },
+    {
+      key: 'architect',
+      title: 'Architect',
+      challenge:
+        'We needed a sandbox architecture that enforced the same audit and traceability expectations as production, without requiring every POC to be "production-ready."',
+      outcome:
+        'Defined an MLR-compliant sandbox: controlled data sources, standardized logging and lineage, pre-approved model patterns, and clear guardrails on what could and could not be done inside the environment.'
+    },
+    {
+      key: 'engineer',
+      title: 'Engineer',
+      challenge:
+        'The sandbox had to be easy enough for teams to use without a heavy platform gatekeeper, and strict enough that compliance could trust its outputs.',
+      outcome:
+        'Implemented self-service project onboarding, templated pipelines, and built-in observability so teams could launch experiments quickly while MLR and risk teams could see exactly what was running.'
+    },
+    {
+      key: 'enable',
+      title: 'Enable',
+      challenge:
+        'Without cultural adoption, the sandbox would be perceived as "yet another platform" and teams would revert to side projects and shadow IT.',
+      outcome:
+        'Partnered with early adopters, showcased quick wins, and embedded the sandbox into portfolio planning so new ideas automatically flowed through the governed path instead of bypassing it.'
+    },
+    {
+      key: 'impact',
+      title: 'Impact',
+      challenge:
+        'Leadership needed hard proof that the sandbox reduced time-to-value without increasing regulatory risk.',
+      outcome:
+        'Cycle time dropped from ~12 weeks to ~3 weeks per POC, 20+ experiments ran in the first year with zero compliance incidents, and the pattern was adopted by additional therapeutic areas as the default way to do AI experimentation.'
+    }
+  ],
+
+  patternGeneralization: {
+    bestFitEnvironments:
+      'Large, regulated organizations where every AI idea risks getting stuck in approval loops, but leadership wants a steady flow of experiments without compromising MLR or regulatory posture.',
+    corePrimitives:
+      'A controlled sandbox with pre-approved data sources, logging and lineage baked in, codified guardrails for what can run, and templates that make compliant experimentation the path of least resistance.',
+    whatYouNeedReady:
+      'Clear MLR and regulatory expectations, a minimum viable data estate you can safely expose, sponsorship from compliance and digital leads, and at least a few motivated teams to seed the first wave of experiments.'
   },
 
   phases: {
@@ -183,7 +236,7 @@ export const lillyData: CaseStudyData = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHART DATA — Inherits from Pfizer canonical charts
+// CHART DATA - Inherits from Pfizer canonical charts
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const lillyCharts: CaseStudyCharts = {
