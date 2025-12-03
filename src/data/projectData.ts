@@ -1,76 +1,80 @@
-
 import { projectsDT } from '@/types/project-d-t';
-//home main project
-import project1 from "../../public/assets/img/home-01/project/project-1.jpg"
-import project2 from "../../public/assets/img/home-01/project/project-2.jpg"
-import project3 from "../../public/assets/img/home-01/project/project-3.jpg"
-import project4 from "../../public/assets/img/home-01/project/project-4.jpg"
-import project5 from "../../public/assets/img/home-01/project/project-5.jpg"
-import project6 from "../../public/assets/img/home-01/project/project-6.jpg"
-//home 3 project image
-import project7 from "../../public/assets/img/home-03/project/project-1.jpg";
-import project8 from "../../public/assets/img/home-03/project/project-2.jpg";
-import project9 from "../../public/assets/img/home-03/project/project-3.jpg";
 
-//home 4 project image
-import project10 from "../../public/assets/img/home-04/project/project-4.jpg";
-import project11 from "../../public/assets/img/home-04/project/project-1.jpg";
-import project12 from "../../public/assets/img/home-04/project/project-3.jpg";
-import project13 from "../../public/assets/img/home-04/project/project-2.jpg";
+// All images use string paths (served from /public)
+// home-01
+const project1 = "/assets/img/home-01/project/project-1.jpg";
+const project2 = "/assets/img/home-01/project/project-2.jpg";
+const project3 = "/assets/img/home-01/project/project-3.jpg";
+const project4 = "/assets/img/home-01/project/project-4.jpg";
+const project5 = "/assets/img/home-01/project/project-5.jpg";
+const project6 = "/assets/img/home-01/project/project-6.jpg";
 
-//home 5 project image
-import project14 from "../../public/assets/img/home-05/project/project-1.jpg";
-import project15 from "../../public/assets/img/home-05/project/project-2.jpg";
-import project16 from "../../public/assets/img/home-05/project/project-3.jpg";
-//home 6 project image
-import imgPfizer from "../../public/assets/img/home-06/project/Embedded.jpg";
-import imgPublicis from "../../public/assets/img/home-06/project/publicishealth.jpg";
-import imgColab from "../../public/assets/img/home-06/project/colab.jpg";
-import imgMedtronic from "../../public/assets/img/home-06/project/medtronic.jpg";
-import imgAbbott from "../../public/assets/img/home-06/project/abbott.jpg";
-import imgAmgen from "../../public/assets/img/home-06/project/amgen.jpg";
-import imgSanofi from "../../public/assets/img/home-06/project/sanofi.jpg";
-import imgAlinity from "../../public/assets/img/home-06/project/alinity.jpg";
-import imgBinaxNOW from "../../public/assets/img/home-06/project/binaxnow.jpg";
-import imgEliLilly from "../../public/assets/img/home-06/project/elililly.jpg";
-import imgNakedHeart from "../../public/assets/img/home-06/project/nakedheart.jpg";
+// home-03
+const project7 = "/assets/img/home-03/project/project-1.jpg";
+const project8 = "/assets/img/home-03/project/project-2.jpg";
+const project9 = "/assets/img/home-03/project/project-3.jpg";
 
-//home 7 project image
-import project21 from "../../public/assets/img/home-08/project/project-1.jpg";
-import project22 from "../../public/assets/img/home-08/project/project-2.jpg";
-import project23 from "../../public/assets/img/home-08/project/project-3.jpg";
-import project24 from "../../public/assets/img/home-08/project/project-4.jpg";
+// home-04
+const project10 = "/assets/img/home-04/project/project-4.jpg";
+const project11 = "/assets/img/home-04/project/project-1.jpg";
+const project12 = "/assets/img/home-04/project/project-3.jpg";
+const project13 = "/assets/img/home-04/project/project-2.jpg";
 
-//home 8 project image
-import project25 from "../../public/assets/img/home-07/project/project-1.jpg";
-import project26 from "../../public/assets/img/home-07/project/project-2.jpg";
-import project27 from "../../public/assets/img/home-07/project/project-3.jpg";
-import project28 from "../../public/assets/img/home-07/project/project-4.jpg";
-import project29 from "../../public/assets/img/home-07/project/project-5.jpg";
-import project30 from "../../public/assets/img/home-07/project/project-6.jpg";
+// home-05
+const project14 = "/assets/img/home-05/project/project-1.jpg";
+const project15 = "/assets/img/home-05/project/project-2.jpg";
+const project16 = "/assets/img/home-05/project/project-3.jpg";
 
-//home 9 project image
-import project31 from "../../public/assets/img/home-09/project/project-1.png";
-import project32 from "../../public/assets/img/home-09/project/project-2.png";
-import project33 from "../../public/assets/img/home-09/project/project-3.png";
-import project34 from "../../public/assets/img/home-09/project/project-4.png";
-//home IT Solution project image
-import project35 from "../../public/assets/img/home-11/project/project-1.jpg";
-import project36 from "../../public/assets/img/home-11/project/project-2.jpg";
-import project37 from "../../public/assets/img/home-11/project/project-3.jpg";
-import project38 from "../../public/assets/img/home-11/project/project-4.jpg";
+// home-06 project images
+const imgPfizer = "/assets/img/home-06/project/Embedded.jpg";
+const imgPublicis = "/assets/img/home-06/project/publicishealth.jpg";
+const imgColab = "/assets/img/home-06/project/colab.jpg";
+const imgMedtronic = "/assets/img/home-06/project/medtronic.jpg";
+const imgAbbott = "/assets/img/home-06/project/abbott.jpg";
+const imgAmgen = "/assets/img/home-06/project/amgen.jpg";
+const imgSanofi = "/assets/img/home-06/project/sanofi.jpg";
+const imgAlinity = "/assets/img/home-06/project/alinity.jpg";
+const imgBinaxNOW = "/assets/img/home-06/project/binaxnow.jpg";
+const imgEliLilly = "/assets/img/home-06/project/elililly.jpg";
+const imgNakedHeart = "/assets/img/home-06/project/nakedheart.jpg";
 
-// Home Personal Portfolio Project image
-import project40 from '../../public/assets/img/home-04/project/project-5.jpg';
-import project41 from '../../public/assets/img/home-04/project/project-6.jpg';
-import project42 from '../../public/assets/img/home-04/project/project-7.jpg';
+// home-08
+const project21 = "/assets/img/home-08/project/project-1.jpg";
+const project22 = "/assets/img/home-08/project/project-2.jpg";
+const project23 = "/assets/img/home-08/project/project-3.jpg";
+const project24 = "/assets/img/home-08/project/project-4.jpg";
 
-//portfolio metro images
-import portfolioThumb21 from '../../public/assets/img/home-05/project/project-1.jpg';
-import portfolioThumb22 from '../../public/assets/img/home-05/project/project-2.jpg';
-import portfolioThumb23 from '../../public/assets/img/home-05/project/project-3.jpg';
-import portfolioThumb24 from '../../public/assets/img/home-05/project/project-4.jpg';
-import portfolioThumb25 from '../../public/assets/img/home-05/project/project-5.jpg';
+// home-07
+const project25 = "/assets/img/home-07/project/project-1.jpg";
+const project26 = "/assets/img/home-07/project/project-2.jpg";
+const project27 = "/assets/img/home-07/project/project-3.jpg";
+const project28 = "/assets/img/home-07/project/project-4.jpg";
+const project29 = "/assets/img/home-07/project/project-5.jpg";
+const project30 = "/assets/img/home-07/project/project-6.jpg";
+
+// home-09
+const project31 = "/assets/img/home-09/project/project-1.png";
+const project32 = "/assets/img/home-09/project/project-2.png";
+const project33 = "/assets/img/home-09/project/project-3.png";
+const project34 = "/assets/img/home-09/project/project-4.png";
+
+// home-11
+const project35 = "/assets/img/home-11/project/project-1.jpg";
+const project36 = "/assets/img/home-11/project/project-2.jpg";
+const project37 = "/assets/img/home-11/project/project-3.jpg";
+const project38 = "/assets/img/home-11/project/project-4.jpg";
+
+// home-04 additional
+const project40 = "/assets/img/home-04/project/project-5.jpg";
+const project41 = "/assets/img/home-04/project/project-6.jpg";
+const project42 = "/assets/img/home-04/project/project-7.jpg";
+
+// portfolio metro
+const portfolioThumb21 = "/assets/img/home-05/project/project-1.jpg";
+const portfolioThumb22 = "/assets/img/home-05/project/project-2.jpg";
+const portfolioThumb23 = "/assets/img/home-05/project/project-3.jpg";
+const portfolioThumb24 = "/assets/img/home-05/project/project-4.jpg";
+const portfolioThumb25 = "/assets/img/home-05/project/project-5.jpg";
 
 export const projectsData: projectsDT[] = [
     {

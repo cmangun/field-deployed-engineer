@@ -1,80 +1,84 @@
+// All images use string paths (served from /public)
 
-import { StaticImageData } from "next/image";
-import portfolio1 from "../../public/assets/img/home-02/portfolio/portfolio-1.jpg";
-import portfolio2 from "../../public/assets/img/home-02/portfolio/portfolio-2.jpg";
-import portfolio3 from "../../public/assets/img/home-02/portfolio/portfolio-3.jpg";
-import portfolio4 from "../../public/assets/img/home-02/portfolio/portfolio-4.jpg";
-//startup agency portfolio image
-import portfolio5 from '../../public/assets/img/home-12/portfolio/portfolio-thumb-1.jpg';
-import portfolio6 from '../../public/assets/img/home-12/portfolio/portfolio-thumb-2.jpg';
-import portfolio7 from '../../public/assets/img/home-12/portfolio/portfolio-thumb-3.jpg';
-import portfolio8 from '../../public/assets/img/home-12/portfolio/portfolio-thumb-4.jpg';
-import portfolio9 from '../../public/assets/img/home-12/portfolio/portfolio-thumb-5.jpg';
-import portfolio10 from '../../public/assets/img/home-12/portfolio/portfolio-thumb-6.jpg';
-//Fashion studio portfolio image
-import project1 from '../../public/assets/img/home-15/project-2/project-1.jpg';
-import project2 from '../../public/assets/img/home-15/project-2/project-2.jpg';
-import project3 from '../../public/assets/img/home-15/project-2/project-3.jpg';
-import project4 from '../../public/assets/img/home-15/project-2/project-4.jpg';
-import project5 from '../../public/assets/img/home-15/project-2/project-5.jpg';
-import project6 from '../../public/assets/img/home-15/project-2/project-6.jpg';
+// home-02 portfolio
+const portfolio1 = "/assets/img/home-02/portfolio/portfolio-1.jpg";
+const portfolio2 = "/assets/img/home-02/portfolio/portfolio-2.jpg";
+const portfolio3 = "/assets/img/home-02/portfolio/portfolio-3.jpg";
+const portfolio4 = "/assets/img/home-02/portfolio/portfolio-4.jpg";
 
-// Portfolio data for coverflow slider images
-import portfolio11 from '../../public/assets/img/project-slider-img/portfolio-slider-4/portfolio-1.jpg';
-import portfolio12 from '../../public/assets/img/project-slider-img/portfolio-slider-4/portfolio-2.jpg';
-import portfolio13 from '../../public/assets/img/project-slider-img/portfolio-slider-4/portfolio-3.jpg';
-import portfolio14 from '../../public/assets/img/project-slider-img/portfolio-slider-4/portfolio-4.jpg';
-import portfolio15 from '../../public/assets/img/project-slider-img/portfolio-slider-4/portfolio-5.jpg';
-import portfolio16 from '../../public/assets/img/project-slider-img/portfolio-slider-4/portfolio-6.jpg';
-import portfolio17 from '../../public/assets/img/project-slider-img/portfolio-slider-4/portfolio-7.jpg';
+// home-12 startup agency portfolio
+const portfolio5 = "/assets/img/home-12/portfolio/portfolio-thumb-1.jpg";
+const portfolio6 = "/assets/img/home-12/portfolio/portfolio-thumb-2.jpg";
+const portfolio7 = "/assets/img/home-12/portfolio/portfolio-thumb-3.jpg";
+const portfolio8 = "/assets/img/home-12/portfolio/portfolio-thumb-4.jpg";
+const portfolio9 = "/assets/img/home-12/portfolio/portfolio-thumb-5.jpg";
+const portfolio10 = "/assets/img/home-12/portfolio/portfolio-thumb-6.jpg";
 
-//porttfolio col-2 images
-import portfolioThumb1 from '../../public/assets/img/portfolio/portfolio-col-2/portfolio-thumb-1.jpg';
-import portfolioThumb2 from '../../public/assets/img/portfolio/portfolio-col-2/portfolio-thumb-2.jpg';
-import portfolioThumb3 from '../../public/assets/img/portfolio/portfolio-col-2/portfolio-thumb-3.jpg';
-import portfolioThumb4 from '../../public/assets/img/portfolio/portfolio-col-2/portfolio-thumb-4.jpg';
-import portfolioThumb5 from '../../public/assets/img/portfolio/portfolio-col-2/portfolio-thumb-5.jpg';
-import portfolioThumb6 from '../../public/assets/img/portfolio/portfolio-col-2/portfolio-thumb-6.jpg';
+// home-15 Fashion studio portfolio
+const project1 = "/assets/img/home-15/project-2/project-1.jpg";
+const project2 = "/assets/img/home-15/project-2/project-2.jpg";
+const project3 = "/assets/img/home-15/project-2/project-3.jpg";
+const project4 = "/assets/img/home-15/project-2/project-4.jpg";
+const project5 = "/assets/img/home-15/project-2/project-5.jpg";
+const project6 = "/assets/img/home-15/project-2/project-6.jpg";
 
-//portfolio col-3 images
-import portfolioThumb7 from '../../public/assets/img/portfolio/portfolio-col-3/portfolio-thumb-1.jpg';
-import portfolioThumb8 from '../../public/assets/img/portfolio/portfolio-col-3/portfolio-thumb-2.jpg';
-import portfolioThumb9 from '../../public/assets/img/portfolio/portfolio-col-3/portfolio-thumb-3.jpg';
-import portfolioThumb10 from '../../public/assets/img/portfolio/portfolio-col-3/portfolio-thumb-4.jpg';
-import portfolioThumb11 from '../../public/assets/img/portfolio/portfolio-col-3/portfolio-thumb-5.jpg';
-import portfolioThumb12 from '../../public/assets/img/portfolio/portfolio-col-3/portfolio-thumb-6.jpg';
-import portfolioThumb13 from '../../public/assets/img/portfolio/portfolio-col-3/portfolio-thumb-7.jpg';
-import portfolioThumb14 from '../../public/assets/img/portfolio/portfolio-col-3/portfolio-thumb-8.jpg';
-import portfolioThumb15 from '../../public/assets/img/portfolio/portfolio-col-3/portfolio-thumb-9.jpg';
+// Portfolio coverflow slider
+const portfolio11 = "/assets/img/project-slider-img/portfolio-slider-4/portfolio-1.jpg";
+const portfolio12 = "/assets/img/project-slider-img/portfolio-slider-4/portfolio-2.jpg";
+const portfolio13 = "/assets/img/project-slider-img/portfolio-slider-4/portfolio-3.jpg";
+const portfolio14 = "/assets/img/project-slider-img/portfolio-slider-4/portfolio-4.jpg";
+const portfolio15 = "/assets/img/project-slider-img/portfolio-slider-4/portfolio-5.jpg";
+const portfolio16 = "/assets/img/project-slider-img/portfolio-slider-4/portfolio-6.jpg";
+const portfolio17 = "/assets/img/project-slider-img/portfolio-slider-4/portfolio-7.jpg";
 
-//portfolio masonry images
-import portfolioThumb16 from '../../public/assets/img/portfolio/portfolio-masonry/portfolio-masonry-1.jpg';
-import portfolioThumb17 from '../../public/assets/img/portfolio/portfolio-masonry/portfolio-masonry-2.jpg';
-import portfolioThumb18 from '../../public/assets/img/portfolio/portfolio-masonry/portfolio-masonry-3.jpg';
-import portfolioThumb19 from '../../public/assets/img/portfolio/portfolio-masonry/portfolio-masonry-4.jpg';
-import portfolioThumb20 from '../../public/assets/img/portfolio/portfolio-masonry/portfolio-masonry-5.jpg';
+// portfolio col-2
+const portfolioThumb1 = "/assets/img/portfolio/portfolio-col-2/portfolio-thumb-1.jpg";
+const portfolioThumb2 = "/assets/img/portfolio/portfolio-col-2/portfolio-thumb-2.jpg";
+const portfolioThumb3 = "/assets/img/portfolio/portfolio-col-2/portfolio-thumb-3.jpg";
+const portfolioThumb4 = "/assets/img/portfolio/portfolio-col-2/portfolio-thumb-4.jpg";
+const portfolioThumb5 = "/assets/img/portfolio/portfolio-col-2/portfolio-thumb-5.jpg";
+const portfolioThumb6 = "/assets/img/portfolio/portfolio-col-2/portfolio-thumb-6.jpg";
 
-// portfolio-horizontal-showcase image
-import sliderImg1 from '../../public/assets/img/project-slider-img/portfolio-slider-5/port-1.jpg';
-import sliderImg2 from '../../public/assets/img/project-slider-img/portfolio-slider-5/port-2.jpg';
-import sliderImg3 from '../../public/assets/img/project-slider-img/portfolio-slider-5/port-5.jpg';
-import sliderImg4 from '../../public/assets/img/project-slider-img/portfolio-slider-5/port-6.jpg';
-import sliderImg5 from '../../public/assets/img/project-slider-img/portfolio-slider-5/port-3.jpg';
-import sliderImg6 from '../../public/assets/img/project-slider-img/portfolio-slider-5/port-4.jpg';
-import sliderImg7 from '../../public/assets/img/project-slider-img/portfolio-slider-5/port-7.jpg';
-//portfolio perspective slider images
-import perspectiveImg1 from '../../public/assets/img/perspective-slider/slider-3.jpg';
-import perspectiveImg2 from '../../public/assets/img/perspective-slider/slider-2.jpg';
-import perspectiveImg3 from '../../public/assets/img/perspective-slider/slider-4.jpg';
-import perspectiveImg4 from '../../public/assets/img/perspective-slider/slider-5.jpg';
-import perspectiveImg5 from '../../public/assets/img/perspective-slider/slider-1.jpg';
-import perspectiveImg6 from '../../public/assets/img/perspective-slider/slider-6.jpg';
+// portfolio col-3
+const portfolioThumb7 = "/assets/img/portfolio/portfolio-col-3/portfolio-thumb-1.jpg";
+const portfolioThumb8 = "/assets/img/portfolio/portfolio-col-3/portfolio-thumb-2.jpg";
+const portfolioThumb9 = "/assets/img/portfolio/portfolio-col-3/portfolio-thumb-3.jpg";
+const portfolioThumb10 = "/assets/img/portfolio/portfolio-col-3/portfolio-thumb-4.jpg";
+const portfolioThumb11 = "/assets/img/portfolio/portfolio-col-3/portfolio-thumb-5.jpg";
+const portfolioThumb12 = "/assets/img/portfolio/portfolio-col-3/portfolio-thumb-6.jpg";
+const portfolioThumb13 = "/assets/img/portfolio/portfolio-col-3/portfolio-thumb-7.jpg";
+const portfolioThumb14 = "/assets/img/portfolio/portfolio-col-3/portfolio-thumb-8.jpg";
+const portfolioThumb15 = "/assets/img/portfolio/portfolio-col-3/portfolio-thumb-9.jpg";
+
+// portfolio masonry
+const portfolioThumb16 = "/assets/img/portfolio/portfolio-masonry/portfolio-masonry-1.jpg";
+const portfolioThumb17 = "/assets/img/portfolio/portfolio-masonry/portfolio-masonry-2.jpg";
+const portfolioThumb18 = "/assets/img/portfolio/portfolio-masonry/portfolio-masonry-3.jpg";
+const portfolioThumb19 = "/assets/img/portfolio/portfolio-masonry/portfolio-masonry-4.jpg";
+const portfolioThumb20 = "/assets/img/portfolio/portfolio-masonry/portfolio-masonry-5.jpg";
+
+// portfolio-horizontal-showcase
+const sliderImg1 = "/assets/img/project-slider-img/portfolio-slider-5/port-1.jpg";
+const sliderImg2 = "/assets/img/project-slider-img/portfolio-slider-5/port-2.jpg";
+const sliderImg3 = "/assets/img/project-slider-img/portfolio-slider-5/port-5.jpg";
+const sliderImg4 = "/assets/img/project-slider-img/portfolio-slider-5/port-6.jpg";
+const sliderImg5 = "/assets/img/project-slider-img/portfolio-slider-5/port-3.jpg";
+const sliderImg6 = "/assets/img/project-slider-img/portfolio-slider-5/port-4.jpg";
+const sliderImg7 = "/assets/img/project-slider-img/portfolio-slider-5/port-7.jpg";
+
+// portfolio perspective slider
+const perspectiveImg1 = "/assets/img/perspective-slider/slider-3.jpg";
+const perspectiveImg2 = "/assets/img/perspective-slider/slider-2.jpg";
+const perspectiveImg3 = "/assets/img/perspective-slider/slider-4.jpg";
+const perspectiveImg4 = "/assets/img/perspective-slider/slider-5.jpg";
+const perspectiveImg5 = "/assets/img/perspective-slider/slider-1.jpg";
+const perspectiveImg6 = "/assets/img/perspective-slider/slider-6.jpg";
 
 
 // Define the portfolio item type
 export interface PortfolioDT {
   id: number;
-  image: StaticImageData;
+  image: string;
   categories?: string[];
   year?: string;
   title: string;
