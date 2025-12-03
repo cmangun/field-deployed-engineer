@@ -1,194 +1,190 @@
 // src/data/caseStudies/cocoData.ts
 // ═══════════════════════════════════════════════════════════════════════════════
-// COCO COMPANY COMPANION — Focused Enablement Case Study
-// Single-phase story: Enable only (adoption, training, operationalization)
+// COCO COMPANY COMPANION — Enable-Only Case Study
+// Part of the Pfizer Quartet: Diagnose → Architect → Engineer → Enable
+// This is the Enable story: How we landed the platform in the org
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import type { CaseStudyData, CaseStudyCharts } from '@/types/caseStudy';
 import { chartColors } from '@/charts_D3/colors';
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// COCO CASE STUDY DATA — Enablement Focus
+// NARRATIVE DATA — Enable Focus Only
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const cocoData: CaseStudyData = {
   slug: 'coco',
-  title: 'CoCo: The Company Companion',
-  subtitle: 'Enablement & Adoption Engineering',
+  title: 'CoCo: The Company Companion for Global Medical Content',
+  subtitle: 'Enablement & Organizational Adoption',
   company: 'Pfizer',
-  client: 'Pfizer Global Commercial',
-  role: 'Enablement Lead',
+  client: 'Pfizer Global Medical Content',
+  role: 'Field-Deployed Engineer / Enablement Lead',
   year: '2024',
-  services: ['Change Management', 'Training Design', 'Adoption Engineering', 'Governance Ops'],
+  services: ['AI Assistant Enablement', 'Change Management', 'Training & Governance', 'Knowledge Management'],
   heroImage: '/assets/img/case-studies/_showcase/coco-hero.jpg',
   brandLogo: '/assets/img/logo/coco-logo.png',
 
-  overview: 'Turned a production RAG content engine into CoCo—a "company companion" that became the default starting point for content producers and MLR reviewers. Trained 200+ users, certified 5 platform admins, and made CoCo the front door for onboarding, process help, and content retrieval.',
+  overview: 'Turned a governed RAG pipeline into a daily Company Companion for global medical content—onboarding 200+ producers and reviewers, achieving 94% training completion, and cutting average time-to-answer from 15 minutes to under 60 seconds.',
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // HERO CONTEXT — Adoption-focused metrics (not E2E program metrics)
+  // HERO CONTEXT — Adoption-focused framing
   // ─────────────────────────────────────────────────────────────────────────────
   heroContext: {
-    problemStatement: 'Pfizer had a production RAG engine but risked it becoming another unused AI project. Without adoption by real teams, all the engineering work would be wasted.',
-    solutionPattern: 'Reframed the technical tool as CoCo—a daily companion for getting work done—then embedded it in existing workflows, trained champions, and built governance ops.',
+    problemStatement: 'Before CoCo, people hopped 3–5 systems and asked a human. Without adoption by MLR and field teams, the platform would become another unused AI experiment.',
+    solutionPattern: 'We treated CoCo like a product, not a demo: embedded in Teams, backed by training and governance, and measured by behavior change instead of just model quality.',
   },
 
   heroMetrics: [
-    { value: '208', label: 'Users onboarded', delta: 'across 4 teams' },
-    { value: '94%', label: 'Training completion', delta: 'target: 80%' },
-    { value: '4.2/5', label: 'User satisfaction', delta: 'NPS: +42' },
+    { value: '200+', label: 'Users Onboarded', delta: 'global producers & reviewers' },
+    { value: '94%', label: 'Training Completion', delta: 'within 6 weeks' },
+    { value: '15 min → <60 sec', label: 'Time-to-Answer', delta: 'per question' },
   ],
 
   // ─────────────────────────────────────────────────────────────────────────────
   // EXECUTIVE SNAPSHOT
   // ─────────────────────────────────────────────────────────────────────────────
   executiveSnapshot: {
-    context: 'Pfizer commercial and MLR teams had a production RAG engine built on Azure OpenAI, but risked it becoming another unused internal tool.',
-    insight: 'Adoption engineering is as important as model engineering. The tool needed a name, a personality, and a path into daily workflows.',
-    outcome: 'CoCo crossed the "habit threshold"—producers and reviewers now start sessions in CoCo first, then click through to Veeva/Workfront only when needed.',
+    context: 'We already diagnosed the bottleneck and built the architecture + pipeline. CoCo is how we landed it in the org.',
+    insight: 'Adoption engineering is as important as model engineering. The assistant needed to become part of the daily ritual, not just available.',
+    outcome: 'CoCo became the default way to ask content questions, with 200+ active users, 94% training completion, and 4.3/5 satisfaction.',
     heroImage: '/assets/img/case-studies/_showcase/coco-hero.jpg',
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // PHASES — Enable only (single-phase case study)
+  // PHASES — Enable only, others as pointers to quartet siblings
   // ─────────────────────────────────────────────────────────────────────────────
   phases: {
-    enable: {
-      id: 'enable',
-      title: 'Enable',
-      duration: '4 weeks',
-      description: 'Branded, launched, and operationalized CoCo so it became the default starting point for content producers and reviewers.',
-      points: [
-        'Onboarded 200+ content producers with hands-on training flows tailored to producers vs. reviewers',
-        'Certified 5 platform admins to manage content governance, access, and guardrails without engineering',
-        'Published governance playbook and runbooks so new brands and regions can adopt CoCo with a repeatable process',
-        'Established monthly office hours and power-user sessions to turn early adopters into champions',
-        'Embedded CoCo into Teams, the intranet home page, and onboarding checklists',
-        'Created lightweight "How to ask CoCo" guides for each function',
-      ],
-      deliverables: [
-        'CoCo brand identity and naming',
-        'Role-based training curriculum (producers, reviewers, admins)',
-        'Governance playbook and access control runbook',
-        'Monthly office hours cadence',
-        'Power-user champion network',
-      ],
-      tools: [
-        { label: 'Training Platform', value: 'Workday Learning' },
-        { label: 'Collaboration', value: 'Microsoft Teams' },
-        { label: 'Documentation', value: 'SharePoint' },
-        { label: 'Feedback', value: 'Qualtrics' },
-      ],
-      metrics: [
-        { value: '208', label: 'Users onboarded', suffix: '' },
-        { value: '94', label: 'Training completion', suffix: '%' },
-        { value: '4.2', label: 'User satisfaction', suffix: '/5' },
-        { value: '5', label: 'Certified admins', suffix: '' },
-      ],
-    },
-    // Empty placeholders for other phases (single-phase case study)
     diagnose: {
       id: 'diagnose',
       title: 'Diagnose',
       duration: '',
-      description: 'See Pfizer Search Baseline case study for diagnostics.',
+      description: 'See Pfizer – Diagnostic Search Baseline for the constraint-mapping story.',
       points: [],
     },
     architect: {
       id: 'architect',
       title: 'Architect',
       duration: '',
-      description: 'See Colab Datasphere case study for architecture.',
+      description: 'See Pfizer – Architecture Colab Datasphere for the architecture story.',
       points: [],
     },
     engineer: {
       id: 'engineer',
       title: 'Engineer',
       duration: '',
-      description: 'See RAG Co-Pilot case study for engineering.',
+      description: 'See Pfizer – RAG Co-Pilot Engineering for the production story.',
       points: [],
+    },
+    enable: {
+      id: 'enable',
+      title: 'Enable',
+      duration: '4 weeks',
+      description: 'Embedded CoCo as a "Company Companion" across Teams and CLM workflows, trained producers and reviewers, and made the RAG engine part of the daily content ritual.',
+      points: [
+        'Embedded CoCo in Microsoft Teams and the internal intranet as the default place to ask content questions',
+        'Ran live training sessions and office hours for 200+ content producers and reviewers',
+        'Published a governance playbook: what CoCo can answer, when to escalate to humans, and how to cite sources',
+        'Created champion cohorts in 3 pilot brands to drive habit formation and peer coaching',
+        'Instrumented usage, satisfaction, and time-to-answer metrics to track behavior change',
+      ],
+      deliverables: [
+        'CoCo assistant embedded in Teams and intranet',
+        'Training curriculum and quick-start guides',
+        'Governance & escalation playbook',
+        'Org adoption & health dashboard',
+      ],
+      tools: [
+        { label: 'Assistant Surface', value: 'Microsoft Teams' },
+        { label: 'Knowledge Store', value: 'SharePoint / Veeva' },
+        { label: 'Analytics', value: 'Power BI / custom dashboards' },
+      ],
+      metrics: [
+        { value: '200', label: 'Users onboarded', suffix: '+' },
+        { value: '94', label: 'Training completion', suffix: '%' },
+        { value: '4.3', label: 'Satisfaction score', suffix: '/5' },
+        { value: '60', label: 'Time-to-answer', suffix: 'sec' },
+      ],
     },
     impact: {
       id: 'impact',
       title: 'Impact',
       duration: '',
-      description: 'Impact metrics roll up to the Pfizer E2E program.',
+      description: 'Impact metrics roll up to the Pfizer E2E program (see Impact on the main Pfizer case).',
       points: [],
     },
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // PHASES META — Short summaries for Enable only
+  // PHASES META — Enable only
   // ─────────────────────────────────────────────────────────────────────────────
   phasesMeta: [
     {
       key: 'enable',
-      tagline: 'From tool to teammate.',
-      challenge: 'Without adoption by real teams, CoCo would become another unused internal tool.',
-      outcome: 'CoCo became the default starting point—users now ask CoCo first before navigating to source systems.',
-      summaryTitle: 'Make CoCo the default way to get work done.',
-      summaryBody: 'We branded the RAG engine as CoCo, embedded it in existing tools—Teams, intranet, onboarding—then trained champions in each function to own usage norms and feedback loops.',
+      tagline: 'Make the assistant part of the daily ritual.',
+      challenge: 'Without adoption by MLR and field teams, the platform would become another unused AI experiment.',
+      outcome: 'CoCo became the default way to ask content questions, with 200+ active users and 94% training completion.',
+      summaryTitle: 'Turn a RAG platform into a trusted companion.',
+      summaryBody: 'We treated CoCo like a product, not a demo: embedded in Teams, backed by training and governance, and measured by behavior change instead of just model quality.',
       bullets: [
-        'Onboarded 200+ content producers with role-tailored training',
-        'Certified 5 platform admins to manage governance without engineering',
-        'Published repeatable governance playbook for new brand/region rollouts',
-        'Established monthly office hours and power-user champion network',
+        'Embedded CoCo in Teams and intranet as the default question surface',
+        'Trained 200+ content producers and reviewers with live sessions',
+        'Published governance playbook for escalation and citation',
+        'Created champion cohorts in 3 pilot brands',
       ],
-      deliverables: ['CoCo brand identity', 'Training curriculum', 'Governance playbook', 'Champion network'],
-      kpiFocus: 'User activation & satisfaction',
+      deliverables: ['CoCo in Teams', 'Training curriculum', 'Governance playbook', 'Adoption dashboard'],
+      kpiFocus: 'User activation & behavior change',
       decisionOwner: 'Learning & Development',
     },
   ],
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // LEGACY FIELDS (required by type but not primary for this case)
+  // LEGACY FIELDS — Enablement-focused
   // ─────────────────────────────────────────────────────────────────────────────
   challenge: {
-    title: 'The Adoption Gap',
-    description: 'Pfizer had built a production RAG engine but risked it becoming shelfware. The technical capability existed, but users didn\'t know about it or how to use it.',
+    title: 'Landing the Platform',
+    description: 'The RAG pipeline was built, but without adoption by MLR and field teams, it would become another unused AI experiment.',
     points: [
-      'No brand identity or memorable name for the tool',
-      'No training or onboarding path for different user roles',
-      'No governance model for ongoing operations',
-      'No feedback loop to capture issues and improvements',
+      'People hopped 3–5 systems and asked humans instead of using the new assistant',
+      'No training or onboarding path for producers and reviewers',
+      'No governance model for what CoCo can answer vs. escalate',
+      'No metrics for adoption or behavior change',
     ],
   },
 
   approach: {
-    title: 'Enablement Engineering',
-    description: 'We treated adoption as a product problem, not a communication problem. CoCo needed a personality, a path into daily workflows, and operational support.',
+    title: 'Product-Style Enablement',
+    description: 'We treated CoCo like a product launch, not a demo: embedded where people work, backed by training and governance, measured by behavior change.',
     points: [
-      'Named and branded the assistant as "CoCo" (Company Companion)',
-      'Designed role-specific training paths for producers, reviewers, and admins',
-      'Built governance playbook for repeatable rollout to new teams',
-      'Created champion network for peer support and feedback',
+      'Embedded CoCo in Teams and intranet—the daily surfaces',
+      'Ran live training sessions and office hours',
+      'Published governance playbook for escalation and citation',
+      'Created champion cohorts in 3 pilot brands',
     ],
   },
 
   solution: {
-    title: 'CoCo Launch & Operations',
-    description: 'CoCo launched embedded in Teams and intranet, with training, governance, and ongoing support baked in from day one.',
+    title: 'CoCo as Daily Companion',
+    description: 'CoCo became the default way to ask content questions, embedded in the daily workflow and backed by governance.',
     points: [
-      'Embedded CoCo in Teams and intranet home page',
-      'Trained 200+ users with hands-on curriculum',
-      'Certified 5 admins to run governance ops',
-      'Monthly office hours and power-user sessions',
+      '200+ users onboarded across producers and reviewers',
+      '94% training completion within 6 weeks',
+      'Time-to-answer reduced from 15 min to <60 sec',
+      '4.3/5 satisfaction score',
     ],
     tools: [
       { name: 'Microsoft Teams', icon: '' },
       { name: 'SharePoint', icon: '' },
-      { name: 'Workday Learning', icon: '' },
-      { name: 'Qualtrics', icon: '' },
+      { name: 'Power BI', icon: '' },
     ],
   },
 
   results: {
     title: 'Adoption Outcomes',
     metrics: [
-      { value: '208', label: 'Users onboarded', suffix: '' },
+      { value: '200+', label: 'Users onboarded', suffix: '' },
       { value: '94%', label: 'Training completion', suffix: '' },
-      { value: '4.2/5', label: 'User satisfaction', suffix: '' },
-      { value: '5', label: 'Certified admins', suffix: '' },
+      { value: '4.3/5', label: 'Satisfaction score', suffix: '' },
+      { value: '<60 sec', label: 'Time-to-answer', suffix: '' },
     ],
   },
 
@@ -207,133 +203,37 @@ export const cocoData: CaseStudyData = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// COCO CHARTS — Single primary chart (adoption curve)
+// CHARTS — One Enable chart only (orgHealth for adoption)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const cocoCharts: CaseStudyCharts = {
   // ─────────────────────────────────────────────────────────────────────────────
-  // ADOPTION CURVE — Primary chart for Enable phase
-  // ─────────────────────────────────────────────────────────────────────────────
-  adoptionCurve: {
-    id: 'cocoAdoptionCurve',
-    phase: 'enable',
-    title: 'CoCo Adoption Curve',
-    subtitle: 'Weekly active users and training completion during initial rollout.',
-    type: 'line',
-    xAxisLabel: 'Week',
-    yAxisLabel: 'Users / % completion',
-    series: [
-      {
-        id: 'wau',
-        label: 'Weekly active users',
-        data: [12, 35, 78, 122, 156, 181, 195, 208],
-        color: chartColors.charcoal,
-      },
-      {
-        id: 'trainingCompletion',
-        label: 'Training completion (%)',
-        data: [10, 25, 48, 63, 78, 86, 91, 94],
-        color: chartColors.gray,
-      },
-    ],
-  },
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // SIMPLE GANTT — 4-week enablement timeline
-  // ─────────────────────────────────────────────────────────────────────────────
-  gantt: [
-    { id: 1, task: 'CoCo Branding', start: 0, duration: 1, category: 'Enable', progress: 100 },
-    { id: 2, task: 'Training Design', start: 0.5, duration: 1.5, category: 'Enable', progress: 100 },
-    { id: 3, task: 'Teams Integration', start: 1, duration: 1, category: 'Enable', progress: 100 },
-    { id: 4, task: 'Pilot Group Rollout', start: 1.5, duration: 1, category: 'Enable', progress: 100 },
-    { id: 5, task: 'Admin Certification', start: 2, duration: 1, category: 'Enable', progress: 100 },
-    { id: 6, task: 'Full Rollout', start: 2.5, duration: 1.5, category: 'Enable', progress: 100 },
-    { id: 7, task: 'Office Hours Launch', start: 3, duration: 1, category: 'Enable', progress: 100 },
-  ],
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // CUSTOMER JOURNEY — User experience with CoCo
-  // ─────────────────────────────────────────────────────────────────────────────
-  journeyMap: {
-    persona: {
-      name: 'Content Producer',
-      role: 'Senior Associate, Commercial Marketing',
-      image: '/assets/SVG/Salaried Male.svg',
-      goals: ['Find approved content fast', 'Avoid compliance issues', 'Reduce search time'],
-    },
-    goal: 'Use CoCo to find the right content without digging through multiple systems',
-    stages: [
-      {
-        id: 'discover',
-        name: 'Discover CoCo',
-        icon: '/assets/SVG/Touchscreen.svg',
-        color: chartColors.charcoal,
-        duration: '< 2 min',
-        actions: ['Sees CoCo in Teams sidebar', 'Clicks to explore', 'Views quick-start guide'],
-        emotions: ['Curious', 'Cautiously optimistic'],
-        painPoints: ['Not sure if this is another tool to learn'],
-        opportunities: ['Make first interaction delightful'],
-        touchpoints: [
-          { channel: 'Teams', type: 'owned' as const },
-          { channel: 'Intranet', type: 'owned' as const },
-        ],
-        thoughts: ['"What is this?"', '"Hope it\'s not another tool I have to learn"'],
-        satisfaction: 3,
-      },
-      {
-        id: 'ask',
-        name: 'Ask CoCo',
-        icon: '/assets/SVG/Chat Message.svg',
-        color: chartColors.charcoal,
-        duration: '< 30 sec',
-        actions: ['Types natural language question', 'Gets instant response with citations', 'Clicks through to source'],
-        emotions: ['Surprised', 'Impressed'],
-        painPoints: [],
-        opportunities: ['Reinforce trust with citations'],
-        touchpoints: [
-          { channel: 'CoCo Chat', type: 'owned' as const },
-          { channel: 'Source Document', type: 'owned' as const },
-        ],
-        thoughts: ['"That used to take 15 minutes"', '"I should tell my team"'],
-        satisfaction: 5,
-      },
-      {
-        id: 'trust',
-        name: 'Build Trust',
-        icon: '/assets/SVG/Handshake Heart.svg',
-        color: chartColors.charcoal,
-        duration: 'Ongoing',
-        actions: ['Uses CoCo for daily questions', 'Verifies answers with sources', 'Shares with colleagues'],
-        emotions: ['Confident', 'Appreciative'],
-        painPoints: [],
-        opportunities: ['Champion program'],
-        touchpoints: [
-          { channel: 'CoCo', type: 'owned' as const },
-          { channel: 'Team Chat', type: 'owned' as const },
-        ],
-        thoughts: ['"This is my new starting point"', '"Why didn\'t we have this before?"'],
-        satisfaction: 5,
-      },
-    ],
-  },
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // ORG HEALTH — Enablement metrics
+  // ORG HEALTH / ADOPTION — Primary chart for Enable phase
   // ─────────────────────────────────────────────────────────────────────────────
   orgHealth: {
-    title: 'CoCo Enablement Scorecard',
+    title: 'CoCo Adoption & Satisfaction',
+    subtitle: 'Active users, training completion, and satisfaction over first 12 weeks',
     period: 'Q4 2024',
     metrics: [
-      { id: 'adoption', label: 'User Adoption', value: 208, target: 200, unit: 'users', status: 'green' as const },
+      { id: 'users', label: 'Active Users', value: 208, target: 200, unit: 'users', status: 'green' as const },
       { id: 'training', label: 'Training Completion', value: 94, target: 80, unit: '%', status: 'green' as const },
-      { id: 'satisfaction', label: 'User Satisfaction', value: 4.2, target: 4.0, unit: '/5', status: 'green' as const },
-      { id: 'admins', label: 'Certified Admins', value: 5, target: 5, unit: 'admins', status: 'green' as const },
+      { id: 'satisfaction', label: 'Satisfaction', value: 4.3, target: 4.0, unit: '/5', status: 'green' as const },
+      { id: 'tta', label: 'Avg Time-to-Answer', value: 55, target: 60, unit: 'sec', status: 'green' as const },
     ],
     teams: [
-      { id: 'commercial', name: 'Commercial Marketing', health: 92, headcount: 85, engagement: 95, velocity: 88 },
-      { id: 'mlr', name: 'MLR Reviewers', health: 88, headcount: 45, engagement: 91, velocity: 85 },
-      { id: 'medical', name: 'Medical Affairs', health: 85, headcount: 52, engagement: 87, velocity: 82 },
-      { id: 'admins', name: 'Platform Admins', health: 95, headcount: 5, engagement: 100, velocity: 90 },
+      { id: 'producers', name: 'Content Producers', health: 92, headcount: 120, engagement: 95, velocity: 88 },
+      { id: 'reviewers', name: 'MLR Reviewers', health: 88, headcount: 45, engagement: 91, velocity: 85 },
+      { id: 'brand', name: 'Brand Teams', health: 85, headcount: 30, engagement: 87, velocity: 82 },
+      { id: 'champions', name: 'Champion Cohorts', health: 95, headcount: 13, engagement: 100, velocity: 92 },
+    ],
+    weeklyData: [
+      { week: 1, activeUsers: 12, completion: 10, satisfaction: 3.6 },
+      { week: 2, activeUsers: 28, completion: 22, satisfaction: 3.8 },
+      { week: 4, activeUsers: 68, completion: 55, satisfaction: 4.0 },
+      { week: 6, activeUsers: 98, completion: 72, satisfaction: 4.1 },
+      { week: 8, activeUsers: 142, completion: 82, satisfaction: 4.2 },
+      { week: 10, activeUsers: 178, completion: 89, satisfaction: 4.2 },
+      { week: 12, activeUsers: 208, completion: 94, satisfaction: 4.3 },
     ],
   },
 };
