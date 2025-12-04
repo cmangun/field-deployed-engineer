@@ -8,14 +8,14 @@ const logoMap: Record<string, string> = {
   'pfizer': '/assets/img/logo/Pfizer-white.png',
   'colab': '/assets/img/logo/Pfizer-white.png', // Pfizer RAG work
   'syneos health': '/assets/img/logo/Amgen-white.png', // Repatha program
-  'publicis health': '/assets/img/logo/logo-white.png',
+  'publicis health': '/assets/img/logo/IPG-white-logo.png', // IPG enterprise work
   'medtronic': '/assets/img/logo/logo-white.png',
-  'abbott': '/assets/img/logo/logo-white.png',
+  'abbott': '/assets/img/logo/abbott-logo.png', // Abbott labs - BinaxNOW & Alinity
   'amgen': '/assets/img/logo/Amgen-white.png',
   'sanofi': '/assets/img/logo/Logo_Sanofi_white.png',
-  'alinity': '/assets/img/logo/alinity-m-logo-white.png',
-  'binaxnow': '/assets/img/logo/Binax.png',
-  'ipg / area 23': '/assets/img/logo/IPG-white.png',
+  'alinity': '/assets/img/logo/abbott-logo.png', // Abbott Alinity
+  'binaxnow': '/assets/img/logo/abbott-logo.png', // Abbott BinaxNOW
+  'ipg / area 23': '/assets/img/logo/IPG-white-logo.png',
   'naked heart foundation': '/assets/img/logo/NHF.png',
 };
 
