@@ -99,6 +99,7 @@ export { default as CapacityPlanning } from './CapacityPlanning';
 export { default as UserSegmentation } from './UserSegmentation';
 export { default as HypercareDashboard } from './HypercareDashboard';
 export { default as ProjectPlanChart } from './ProjectPlanChart';
+export { default as LayerModelChart } from './LayerModelChart';
 
 // Sales & Marketing (71-76)
 export { default as PipelineWaterfall } from './PipelineWaterfall';

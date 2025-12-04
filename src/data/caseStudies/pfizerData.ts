@@ -162,7 +162,7 @@ export const pfizerData: CaseStudyData = {
       ],
       kpiFocus: ["Retrieval accuracy SLO", "Latency SLO", "Uptime SLO"],
       decisionOwner: "Enterprise Architecture",
-      chartKeys: ["systemContext", "ragPipeline"],
+      chartKeys: ["systemContext", "ragPipeline", "layerModel"],
     },
     {
       id: "engineer",
@@ -479,6 +479,96 @@ const systemContext: SystemContextData = {
   ],
 };
 
+// ─────────────────────────────────────────────────────────────────────────────
+// ARCHITECT — Layer Model (7-Layer Architecture Stack)
+// ─────────────────────────────────────────────────────────────────────────────
+
+const layerModel = {
+  title: 'Layer Model — How CoCo Is Built "Top to Bottom"',
+  subtitle: 'You can talk through CoCo as seven layers; this pairs cleanly with the case study and the milestones above.',
+  layers: [
+    {
+      id: 'layer-1',
+      number: 1,
+      title: 'Identity & Compliance Boundary',
+      bullets: [
+        'Enterprise identity and roles (e.g., commercial, medical, reviewer, admin).',
+        'Region, brand, and claim-type permissions.',
+        'Promo vs. medical separation encoded at the identity/role level.',
+      ],
+      whyItExists: 'To ensure every CoCo action respects who the user is, where they sit, and what they are allowed to see or suggest under MLR and regulatory rules.',
+    },
+    {
+      id: 'layer-2',
+      number: 2,
+      title: 'Systems of Record',
+      bullets: [
+        'Veeva Vault (approved assets, label, SMPC, references).',
+        'CLM / CRM (field-deployed content).',
+        'Workfront (projects, tasks, status).',
+        'Internal repositories (e.g., team drives, regional decks).',
+      ],
+      whyItExists: 'These systems remain the authoritative truth. CoCo never takes over their role; it sits on top, reading from them and pointing users back to them.',
+    },
+    {
+      id: 'layer-3',
+      number: 3,
+      title: 'Ingestion & Normalization',
+      bullets: [
+        'Connectors or ETL jobs that pull approved assets, templates, prior MLR decisions, label fragments, references.',
+        'OCR, format normalization, deduplication, and version resolution.',
+        'Enrichment with metadata (brand, region, indication, version, lifecycle).',
+      ],
+      whyItExists: 'RAG cannot function on messy, duplicate, untracked documents. This layer turns the live content universe into a clean, structured, versioned corpus.',
+    },
+    {
+      id: 'layer-4',
+      number: 4,
+      title: 'Indexing & Retrieval',
+      bullets: [
+        'Indexes optimized for claims, safety, contraindications, references, templates.',
+        'Hybrid search: keyword/term search for exact regulatory text, semantic/vector search for related prior assets.',
+        'Region and promo/medical separation baked into index design and filters.',
+      ],
+      whyItExists: 'So producers and reviewers get the right, approved content in under 60 seconds, instead of 25 minutes.',
+    },
+    {
+      id: 'layer-5',
+      number: 5,
+      title: 'RAG Orchestration Layer',
+      bullets: [
+        'Stateless orchestration service that receives user queries and context (role, region, brand).',
+        'Calls retrieval with the right filters, injects retrieved snippets into prompt templates.',
+        'Enforces guardrails (no off-label, no hallucinated references).',
+        'Logs source docs → prompt → model output at sentence granularity.',
+      ],
+      whyItExists: 'This is the brainstem of CoCo: where generation is controlled, auditable, and always grounded in approved content.',
+    },
+    {
+      id: 'layer-6',
+      number: 6,
+      title: 'AI Content Behaviors',
+      bullets: [
+        'Prompt templates for first-pass draft generation, reference suggestion, MLR-readiness checks, reviewer response assistance.',
+        'Behavior tuned to only suggest content that can be traced to approved assets.',
+        'Surface lineage and references inline for reviewers.',
+      ],
+      whyItExists: 'To translate retrieval into usable work product—draft copy, checklists, briefings—while staying inside a compliance envelope.',
+    },
+    {
+      id: 'layer-7',
+      number: 7,
+      title: 'Experience & Adoption Layer',
+      bullets: [
+        'Surfaces inside Teams, CLM, Workfront, MLR portals—not as yet another standalone tool.',
+        'Producer and reviewer journeys: AI-assisted brief creation, pre-MLR review, and comment resolution.',
+        'Telemetry and UX: org health dashboards, satisfaction scores, A/B-tested onboarding.',
+      ],
+      whyItExists: 'This is where CoCo becomes the default way work gets done, not a toy. It\'s where the 42 → 14 days and 3× throughput actually materialize.',
+    },
+  ],
+};
+
 const ragPipeline = {
   sections: [
     { id: 'ingestion', name: 'Ingest', color: chartColors.navy || '#1a365d', components: [{ id: 'ingest', name: 'Ingestion', icon: '📄', desc: 'Pull content from SharePoint, Veeva, Workfront into staging.' }] },
@@ -789,6 +879,7 @@ export const pfizerCharts: CaseStudyCharts = {
   calendarHeatmap,
   raciMatrix,
   projectPlan,
+  layerModel,
   ragPipeline,
   modelCard,
   latencyPercentiles,

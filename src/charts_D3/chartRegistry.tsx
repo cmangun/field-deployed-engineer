@@ -33,6 +33,7 @@ import OKRTracker from './OKRTracker';
 import HCPEngagementFunnel from './HCPEngagementFunnel';
 import ModelRegistry from './ModelRegistry';
 import ProjectPlanChart from './ProjectPlanChart';
+import LayerModelChart from './LayerModelChart';
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // TYPES
@@ -129,6 +130,14 @@ export const chartRegistry: ChartRegistry = {
     phase: 'architect',
     tags: ['rag', 'ai', 'architecture'],
     render: (data) => <RAGPipeline data={data as Record<string, unknown>} />,
+  },
+  LayerModelChart: {
+    key: 'LayerModelChart',
+    title: 'Layer Model',
+    subtitle: 'Architecture stack from identity to experience',
+    phase: 'architect',
+    tags: ['architecture', 'layers', 'stack'],
+    render: (data) => <LayerModelChart data={data as Record<string, unknown>} />,
   },
   GanttChart: {
     key: 'GanttChart',
