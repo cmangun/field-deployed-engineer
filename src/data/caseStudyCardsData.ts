@@ -57,7 +57,7 @@ export const caseStudyCardsData: CaseStudyCard[] = [
     domain: "Data Strategy Enterprise Platform Planning",
     services: ["RAG Architecture", "MLR Workflow", "Azure OpenAI"],
     year: "2024",
-    heroImage: "/assets/img/case-studies/_showcase/1Embedded_Pfizer.png",
+    heroImage: "/assets/img/case-studies/_showcase/Pfizerhero.png",
     delay: 0.08,
     isPlaceholder: false,
   },
