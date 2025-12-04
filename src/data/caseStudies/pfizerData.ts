@@ -101,25 +101,17 @@ export const pfizerData: CaseStudyData = {
       key: 'diagnose',
       title: 'Diagnose',
       tagline: 'Find the real constraint before building anything.',
-      challenge:
-        'The organization did not know whether AI initiatives were constrained by demand, MLR review capacity, or production throughput.',
-      outcome:
-        'Diagnostics showed that search, retrieval, and revision loops inside the MLR pipeline were the binding constraints.',
+      challenge: 'The organization did not know whether AI initiatives were constrained by demand, MLR review capacity, or production throughput.',
+      outcome: 'Diagnostics showed that search, retrieval, and revision loops inside the MLR pipeline were the binding constraints.',
       summaryTitle: 'Baseline the MLR content pipeline.',
-      summaryBody:
-        'By combining interviews, process mapping, and log analysis, we established a quantitative baseline for review cycles, revision rates, and search time across three priority brands.',
+      summaryBody: 'By combining interviews, process mapping, and log analysis, we established a quantitative baseline for review cycles, revision rates, and search time across three priority brands.',
       bullets: [
         'Mapped end-to-end content flow from brief to field deployment.',
         'Measured search time, queue delays, and revision loops at each stage.',
         'Showed that 75% of delays clustered in Search & Retrieval and early MLR triage.',
         'Documented that ~40% of assets required multiple revision cycles.',
       ],
-      deliverables: [
-        'MLR cycle-time baseline',
-        'Content funnel & bottleneck analysis',
-        'RACI accountability map',
-        'Risk register for AI interventions',
-      ],
+      deliverables: ['MLR cycle-time baseline', 'Content funnel & bottleneck analysis', 'RACI accountability map', 'Risk register for AI interventions'],
       kpiFocus: 'Review cycle time & revision rate',
       decisionOwner: 'Commercial Operations',
     },
@@ -127,51 +119,36 @@ export const pfizerData: CaseStudyData = {
       key: 'architect',
       title: 'Architect',
       tagline: 'Design the smallest compliant surface area that can scale.',
-      challenge:
-        'We needed an AI system that could plug into existing CLM/CRM and survive MLR scrutiny without becoming a shadow system of record.',
-      outcome:
-        'Designed a governed "datasphere" and RAG engine that kept Salesforce/CLM as system of record and treated the AI layer as stateless and replaceable.',
+      challenge: 'We needed an AI system that could plug into existing CLM/CRM and survive MLR scrutiny without becoming a shadow system of record.',
+      outcome: 'Designed a governed "datasphere" and RAG engine that kept Salesforce/CLM as system of record and treated the AI layer as stateless and replaceable.',
       summaryTitle: 'Colab datasphere and governed RAG architecture.',
-      summaryBody:
-        'We defined a Colab datasphere pattern where content lives in existing stores (SharePoint, Veeva, Workfront) while the AI engine orchestrates retrieval and drafting under explicit compliance boundaries.',
+      summaryBody: 'We defined a Colab datasphere pattern where content lives in existing stores (SharePoint, Veeva, Workfront) while the AI engine orchestrates retrieval and drafting under explicit compliance boundaries.',
       bullets: [
         'C4 system-context diagram with five external integrations.',
         'Explicit separation of systems of record vs. AI orchestration layer.',
         'Integration contracts for SharePoint, Veeva Vault, Workfront, Teams, and Azure OpenAI.',
         'Non-functional requirements defined for latency, auditability, and data residency.',
       ],
-      deliverables: [
-        'C4 system-context diagram',
-        'RAG pipeline blueprint',
-        'Integration & data-flow contracts',
-        'Architecture decision records (ADRs)',
-      ],
+      deliverables: ['C4 system-context diagram', 'RAG pipeline blueprint', 'Integration & data-flow contracts', 'Architecture decision records (ADRs)'],
       kpiFocus: 'Architecture sign-off',
       decisionOwner: 'Enterprise Architecture',
     },
+
     {
       key: 'engineer',
       title: 'Engineer',
       tagline: 'Turn a diagram into a service that behaves under load.',
-      challenge:
-        'We had to prove the RAG co-pilot could handle real workloads, not just demos, while respecting strict MLR and security constraints.',
-      outcome:
-        'Built a production RAG co-pilot with clear SLOs, service-health dashboards, and incident paths, reducing p95 latency from 850ms to ~280ms and reaching 99.7% uptime.',
+      challenge: 'We had to prove the RAG co-pilot could handle real workloads, not just demos, while respecting strict MLR and security constraints.',
+      outcome: 'Built a production RAG co-pilot with clear SLOs, service-health dashboards, and incident paths, reducing p95 latency from 850ms to ~280ms and reaching 99.7% uptime.',
       summaryTitle: 'Production RAG co-pilot with SLOs.',
-      summaryBody:
-        'We implemented the RAG pipeline, instrumented it like any other tier-1 service, and exposed a single AI content API with role-aware access and MLR-aware guardrails.',
+      summaryBody: 'We implemented the RAG pipeline, instrumented it like any other tier-1 service, and exposed a single AI content API with role-aware access and MLR-aware guardrails.',
       bullets: [
         'Hybrid search (semantic + keyword) with caching on hot paths.',
         'Single AI Content API with role-aware access control.',
         'End-to-end service health instrumentation (uptime, latency, error rate).',
         'MLR gateway checks and audit logging for every AI suggestion.',
       ],
-      deliverables: [
-        'Production RAG pipeline',
-        'AI Content API',
-        'Service-health & latency dashboard',
-        'Incident playbooks & on-call runbooks',
-      ],
+      deliverables: ['Production RAG pipeline', 'AI Content API', 'Service-health & latency dashboard', 'Incident playbooks & on-call runbooks'],
       kpiFocus: 'p95 latency, uptime, and error rate',
       decisionOwner: 'Platform Engineering',
     },
@@ -179,24 +156,17 @@ export const pfizerData: CaseStudyData = {
       key: 'enable',
       title: 'Enable',
       tagline: 'If no one uses it, it does not exist.',
-      challenge:
-        'Without adoption by MLR reviewers, brand teams, and producers, the engine would become yet another unused AI experiment.',
-      outcome:
-        'Embedded the co-pilot into existing tools, trained producers and admins, and reached >200 active users with 94% training completion and 4.2/5 satisfaction.',
+      challenge: 'Without adoption by MLR reviewers, brand teams, and producers, the engine would become yet another unused AI experiment.',
+      outcome: 'Embedded the co-pilot into existing tools, trained producers and admins, and reached >200 active users with 94% training completion and 4.2/5 satisfaction.',
       summaryTitle: 'CoCo – the Company Companion.',
-      summaryBody:
-        'We branded and deployed the co-pilot as "CoCo – the Company Companion," embedded directly in Teams and CLM surfaces with targeted onboarding journeys.',
+      summaryBody: 'We branded and deployed the co-pilot as "CoCo – the Company Companion," embedded directly in Teams and CLM surfaces with targeted onboarding journeys.',
       bullets: [
         'Producer journey redesign focused on search and pre-review.',
         'Hands-on training for 200+ content producers.',
         'Power-user track for platform admins and MLR champions.',
         'Monthly office hours and playbook updates based on real use.',
       ],
-      deliverables: [
-        'Producer journey & UX flows',
-        'Training & governance playbook',
-        'Org-adoption & health dashboard',
-      ],
+      deliverables: ['Producer journey & UX flows', 'Training & governance playbook', 'Org-adoption & health dashboard'],
       kpiFocus: 'User activation & satisfaction',
       decisionOwner: 'Learning & Development',
     },
@@ -204,25 +174,17 @@ export const pfizerData: CaseStudyData = {
       key: 'impact',
       title: 'Impact',
       tagline: 'Prove the economics, then expand.',
-      challenge:
-        'Leaders needed durable ROI proof to justify ongoing investment and expansion into additional therapeutic areas.',
-      outcome:
-        'Showed 65% cycle-time reduction, 3× throughput, and $2.08M in annual savings with a clear path to multi-brand expansion.',
+      challenge: 'Leaders needed durable ROI proof to justify ongoing investment and expansion into additional therapeutic areas.',
+      outcome: 'Showed 65% cycle-time reduction, 3× throughput, and $2.08M in annual savings with a clear path to multi-brand expansion.',
       summaryTitle: 'From pilot economics to portfolio impact.',
-      summaryBody:
-        'We translated performance and usage telemetry into an executive-level ROI model and expansion roadmap tied directly to cycle time, volume, and rework savings.',
+      summaryBody: 'We translated performance and usage telemetry into an executive-level ROI model and expansion roadmap tied directly to cycle time, volume, and rework savings.',
       bullets: [
         'Cost waterfall decomposing where savings actually came from.',
         'Unit-economics model at the "per asset" level.',
         'Usage seasonality and trend analysis across quarters.',
         'Phase-2 roadmap for 5+ additional therapeutic areas.',
       ],
-      deliverables: [
-        'ROI waterfall & savings model',
-        'Unit-economics model',
-        'Usage seasonality report',
-        'Executive KPI grid',
-      ],
+      deliverables: ['ROI waterfall & savings model', 'Unit-economics model', 'Usage seasonality report', 'Executive KPI grid'],
       kpiFocus: 'ROI & expansion readiness',
       decisionOwner: 'Product & Finance',
     },
@@ -268,6 +230,7 @@ export const pfizerData: CaseStudyData = {
         { label: 'Platform', value: 'SharePoint, Veeva, Workfront' }
       ]
     },
+
     engineer: {
       id: 'engineer',
       title: 'Engineer',
@@ -329,8 +292,7 @@ export const pfizerData: CaseStudyData = {
   // ─────────────────────────────────────────────────────────────────────────────
   challenge: {
     title: 'Slow, fragmented MLR pipeline',
-    description:
-      "Pfizer's teams produced thousands of assets per quarter, but 4–6 week MLR cycles and duplicated work made AI investment hard to justify.",
+    description: "Pfizer's teams produced thousands of assets per quarter, but 4–6 week MLR cycles and duplicated work made AI investment hard to justify.",
     points: [
       '42-day average review cycle time across piloted brands.',
       '2,450+ assets per quarter entering some form of MLR review.',
@@ -341,8 +303,7 @@ export const pfizerData: CaseStudyData = {
 
   approach: {
     title: 'Field-embedded AI/ML engineering',
-    description:
-      'Rather than starting from a model, we started from the bottleneck, embedded in the teams experiencing it, and worked backwards to architecture and implementation.',
+    description: 'Rather than starting from a model, we started from the bottleneck, embedded in the teams experiencing it, and worked backwards to architecture and implementation.',
     points: [
       'Diagnostic sprint to quantify the constraint.',
       'Governed architecture that preserved systems of record.',
@@ -353,8 +314,7 @@ export const pfizerData: CaseStudyData = {
 
   solution: {
     title: 'Pfizer AI Content Engine',
-    description:
-      'A governed AI content engine embedded in CLM/CRM workflows that accelerates MLR cycles without compromising compliance.',
+    description: 'A governed AI content engine embedded in CLM/CRM workflows that accelerates MLR cycles without compromising compliance.',
     points: [
       'RAG engine tuned for high-trust template retrieval and drafting.',
       'Integration with Salesforce, Veeva, SharePoint, Workfront, and Teams.',
@@ -380,8 +340,7 @@ export const pfizerData: CaseStudyData = {
   },
 
   testimonial: {
-    quote:
-      'For the first time, we could see exactly where our content pipeline broke—and how AI actually fixed it without adding risk.',
+    quote: 'For the first time, we could see exactly where our content pipeline broke—and how AI actually fixed it without adding risk.',
     author: 'Director',
     role: 'Commercial Operations',
     company: 'Pfizer',
@@ -451,123 +410,30 @@ const systemContext: SystemContextData = {
     type: 'Software System',
   },
   users: [
-    {
-      id: 'content-producer',
-      name: 'Content Producer',
-      icon: '/assets/SVG/Edit 1.svg',
-      description: 'Creates and submits content through CLM/CRM surfaces',
-      interactions: ['Draft content', 'Request AI suggestions', 'Submit for review'],
-    },
-    {
-      id: 'mlr-reviewer',
-      name: 'MLR Reviewer',
-      icon: '/assets/SVG/Legal.svg',
-      description: 'Reviews, comments, and approves content for field use',
-      interactions: ['Review submissions', 'Flag issues', 'Approve content'],
-    },
-    {
-      id: 'brand-lead',
-      name: 'Brand Lead',
-      icon: '/assets/SVG/Chart Statistics 1.svg',
-      description: 'Owns campaign objectives and portfolio',
-      interactions: ['Track approvals', 'View dashboards', 'Manage templates'],
-    },
-    {
-      id: 'platform-admin',
-      name: 'Platform Admin',
-      icon: '/assets/SVG/Settings 1.svg',
-      description: 'Manages access, guardrails, and configuration',
-      interactions: ['User management', 'Configure guardrails', 'Monitor usage'],
-    },
+    { id: 'content-producer', name: 'Content Producer', icon: '/assets/SVG/Edit 1.svg', description: 'Creates and submits content through CLM/CRM surfaces', interactions: ['Draft content', 'Request AI suggestions', 'Submit for review'] },
+    { id: 'mlr-reviewer', name: 'MLR Reviewer', icon: '/assets/SVG/Legal.svg', description: 'Reviews, comments, and approves content for field use', interactions: ['Review submissions', 'Flag issues', 'Approve content'] },
+    { id: 'brand-lead', name: 'Brand Lead', icon: '/assets/SVG/Chart Statistics 1.svg', description: 'Owns campaign objectives and portfolio', interactions: ['Track approvals', 'View dashboards', 'Manage templates'] },
+    { id: 'platform-admin', name: 'Platform Admin', icon: '/assets/SVG/Settings 1.svg', description: 'Manages access, guardrails, and configuration', interactions: ['User management', 'Configure guardrails', 'Monitor usage'] },
   ],
   externalSystems: [
-    {
-      id: 'salesforce',
-      name: 'Salesforce / CLM',
-      type: 'CRM',
-      icon: '/assets/SVG/Folder.svg',
-      description: 'Field and campaign execution',
-      protocol: 'REST API',
-      direction: 'bidirectional' as const,
-      dataFlow: ['Campaign data', 'Field feedback', 'Asset metadata'],
-    },
-    {
-      id: 'veeva',
-      name: 'Veeva Vault',
-      type: 'Content Platform',
-      icon: '/assets/SVG/Medical Kit.svg',
-      description: 'MLR submission and tracking',
-      protocol: 'REST API',
-      direction: 'bidirectional' as const,
-      dataFlow: ['MLR submissions', 'Approval status', 'Audit trail'],
-    },
-    {
-      id: 'sharepoint',
-      name: 'SharePoint',
-      type: 'Document Store',
-      icon: '/assets/SVG/Folder.svg',
-      description: 'Template and asset repository',
-      protocol: 'Graph API',
-      direction: 'bidirectional' as const,
-      dataFlow: ['Templates', 'Approved assets', 'Brand guidelines'],
-    },
-    {
-      id: 'workfront',
-      name: 'Workfront',
-      type: 'Project Management',
-      icon: '/assets/SVG/Clipboard.svg',
-      description: 'Project and workflow management',
-      protocol: 'REST API',
-      direction: 'bidirectional' as const,
-      dataFlow: ['Task assignments', 'Status updates', 'Deadlines'],
-    },
-    {
-      id: 'teams',
-      name: 'Microsoft Teams',
-      type: 'Collaboration',
-      icon: '/assets/SVG/Chat Bubble.svg',
-      description: 'CoCo assistant interface',
-      protocol: 'Bot Framework',
-      direction: 'bidirectional' as const,
-      dataFlow: ['User queries', 'AI responses', 'Notifications'],
-    },
-    {
-      id: 'openai',
-      name: 'Azure OpenAI',
-      type: 'AI Service',
-      icon: '/assets/SVG/Light Bulb.svg',
-      description: 'LLM inference and embeddings',
-      protocol: 'REST API',
-      direction: 'outbound' as const,
-      dataFlow: ['Prompts', 'Completions', 'Embeddings'],
-    },
+    { id: 'salesforce', name: 'Salesforce / CLM', type: 'CRM', icon: '/assets/SVG/Folder.svg', description: 'Field and campaign execution', protocol: 'REST API', direction: 'bidirectional' as const, dataFlow: ['Campaign data', 'Field feedback', 'Asset metadata'] },
+    { id: 'veeva', name: 'Veeva Vault', type: 'Content Platform', icon: '/assets/SVG/Medical Kit.svg', description: 'MLR submission and tracking', protocol: 'REST API', direction: 'bidirectional' as const, dataFlow: ['MLR submissions', 'Approval status', 'Audit trail'] },
+    { id: 'sharepoint', name: 'SharePoint', type: 'Document Store', icon: '/assets/SVG/Folder.svg', description: 'Template and asset repository', protocol: 'Graph API', direction: 'bidirectional' as const, dataFlow: ['Templates', 'Approved assets', 'Brand guidelines'] },
+    { id: 'workfront', name: 'Workfront', type: 'Project Management', icon: '/assets/SVG/Clipboard.svg', description: 'Project and workflow management', protocol: 'REST API', direction: 'bidirectional' as const, dataFlow: ['Task assignments', 'Status updates', 'Deadlines'] },
+    { id: 'teams', name: 'Microsoft Teams', type: 'Collaboration', icon: '/assets/SVG/Chat Bubble.svg', description: 'CoCo assistant interface', protocol: 'Bot Framework', direction: 'bidirectional' as const, dataFlow: ['User queries', 'AI responses', 'Notifications'] },
+    { id: 'openai', name: 'Azure OpenAI', type: 'AI Service', icon: '/assets/SVG/Light Bulb.svg', description: 'LLM inference and embeddings', protocol: 'REST API', direction: 'outbound' as const, dataFlow: ['Prompts', 'Completions', 'Embeddings'] },
   ],
 };
 
 const ragPipeline = {
   sections: [
-    { id: 'ingestion', name: 'Ingest', color: chartColors.navy || '#1a365d', components: [
-      { id: 'ingest', name: 'Ingest', icon: '📄', desc: 'Ingest approved assets, templates, and claims from systems of record.' },
-    ]},
-    { id: 'indexing', name: 'Index', color: chartColors.purple || '#553c9a', components: [
-      { id: 'index', name: 'Index', icon: '⬡', desc: 'Chunk, embed, and index content with claims-aware metadata.' },
-    ]},
-    { id: 'retrieval', name: 'Retrieve', color: chartColors.teal || '#0d9488', components: [
-      { id: 'retrieve', name: 'Retrieve', icon: '⟐', desc: 'Hybrid semantic + keyword retrieval with brand and region filters.' },
-    ]},
-    { id: 'generation', name: 'Generate', color: chartColors.orange || '#dd6b20', components: [
-      { id: 'generate', name: 'Generate', icon: '★', desc: 'LLM drafts content with explicit citations and claim references.' },
-    ]},
-    { id: 'review', name: 'Review', color: chartColors.green || '#38a169', components: [
-      { id: 'review', name: 'Review', icon: '✓', desc: 'Producers and MLR reviewers inspect, edit, and approve drafts.' },
-    ]},
+    { id: 'ingestion', name: 'Ingest', color: chartColors.navy || '#1a365d', components: [{ id: 'ingest', name: 'Ingest', icon: '📄', desc: 'Ingest approved assets, templates, and claims from systems of record.' }] },
+    { id: 'indexing', name: 'Index', color: chartColors.purple || '#553c9a', components: [{ id: 'index', name: 'Index', icon: '⬡', desc: 'Chunk, embed, and index content with claims-aware metadata.' }] },
+    { id: 'retrieval', name: 'Retrieve', color: chartColors.teal || '#0d9488', components: [{ id: 'retrieve', name: 'Retrieve', icon: '⟐', desc: 'Hybrid semantic + keyword retrieval with brand and region filters.' }] },
+    { id: 'generation', name: 'Generate', color: chartColors.orange || '#dd6b20', components: [{ id: 'generate', name: 'Generate', icon: '★', desc: 'LLM drafts content with explicit citations and claim references.' }] },
+    { id: 'review', name: 'Review', color: chartColors.green || '#38a169', components: [{ id: 'review', name: 'Review', icon: '✓', desc: 'Producers and MLR reviewers inspect, edit, and approve drafts.' }] },
   ],
-  flows: [
-    { from: 'ingest', to: 'index' },
-    { from: 'index', to: 'retrieve' },
-    { from: 'retrieve', to: 'generate' },
-    { from: 'generate', to: 'review' },
-  ],
+  flows: [{ from: 'ingest', to: 'index' }, { from: 'index', to: 'retrieve' }, { from: 'retrieve', to: 'generate' }, { from: 'generate', to: 'review' }],
   metrics: [
     { name: 'Relevance', value: 0.91, desc: 'Retrieved doc relevance' },
     { name: 'Faithfulness', value: 0.96, desc: 'Citations verified' },
@@ -576,84 +442,31 @@ const ragPipeline = {
   ]
 };
 
-
 // ─────────────────────────────────────────────────────────────────────────────
 // ENGINEER — Service Health + Latency + Data Quality
 // ─────────────────────────────────────────────────────────────────────────────
 
 const serviceHealth = {
   services: [
-    {
-      name: 'AI Content API',
-      status: 'healthy' as const,
-      uptime: 99.72,
-      latency: { p50: 145, p95: 280, p99: 420 },
-      errorRate: 0.28,
-      throughput: 4200,
-      lastIncident: '14d ago',
-    },
-    {
-      name: 'Vector Search',
-      status: 'healthy' as const,
-      uptime: 99.9,
-      latency: { p50: 85, p95: 165, p99: 280 },
-      errorRate: 0.1,
-      throughput: 8400,
-      lastIncident: '28d ago',
-    },
-    {
-      name: 'Embedding Service',
-      status: 'healthy' as const,
-      uptime: 99.8,
-      latency: { p50: 120, p95: 220, p99: 350 },
-      errorRate: 0.2,
-      throughput: 4200,
-      lastIncident: '21d ago',
-    },
-    {
-      name: 'MLR Gateway',
-      status: 'healthy' as const,
-      uptime: 99.95,
-      latency: { p50: 45, p95: 95, p99: 150 },
-      errorRate: 0.05,
-      throughput: 980,
-      lastIncident: '42d ago',
-    },
-    {
-      name: 'Cache Layer',
-      status: 'healthy' as const,
-      uptime: 99.99,
-      latency: { p50: 5, p95: 12, p99: 25 },
-      errorRate: 0.01,
-      throughput: 12500,
-      lastIncident: '90d ago',
-    },
+    { name: 'AI Content API', status: 'healthy' as const, uptime: 99.72, latency: { p50: 145, p95: 280, p99: 420 }, errorRate: 0.28, throughput: 4200, lastIncident: '14d ago' },
+    { name: 'Vector Search', status: 'healthy' as const, uptime: 99.9, latency: { p50: 85, p95: 165, p99: 280 }, errorRate: 0.1, throughput: 8400, lastIncident: '28d ago' },
+    { name: 'Embedding Service', status: 'healthy' as const, uptime: 99.8, latency: { p50: 120, p95: 220, p99: 350 }, errorRate: 0.2, throughput: 4200, lastIncident: '21d ago' },
+    { name: 'MLR Gateway', status: 'healthy' as const, uptime: 99.95, latency: { p50: 45, p95: 95, p99: 150 }, errorRate: 0.05, throughput: 980, lastIncident: '42d ago' },
+    { name: 'Cache Layer', status: 'healthy' as const, uptime: 99.99, latency: { p50: 5, p95: 12, p99: 25 }, errorRate: 0.01, throughput: 12500, lastIncident: '90d ago' },
   ],
   latencyHistory: [
-    { hour: '00:00', p50: 145, p95: 280, p99: 420 },
-    { hour: '01:00', p50: 140, p95: 275, p99: 415 },
-    { hour: '02:00', p50: 135, p95: 270, p99: 410 },
-    { hour: '03:00', p50: 130, p95: 265, p99: 400 },
-    { hour: '04:00', p50: 125, p95: 260, p99: 395 },
-    { hour: '05:00', p50: 130, p95: 265, p99: 400 },
-    { hour: '06:00', p50: 140, p95: 280, p99: 420 },
-    { hour: '07:00', p50: 155, p95: 300, p99: 450 },
-    { hour: '08:00', p50: 175, p95: 330, p99: 490 },
-    { hour: '09:00', p50: 185, p95: 345, p99: 510 },
-    { hour: '10:00', p50: 180, p95: 340, p99: 500 },
-    { hour: '11:00', p50: 175, p95: 335, p99: 495 },
-    { hour: '12:00', p50: 185, p95: 345, p99: 510 },
-    { hour: '13:00', p50: 180, p95: 340, p99: 500 },
-    { hour: '14:00', p50: 175, p95: 335, p99: 495 },
-    { hour: '15:00', p50: 170, p95: 330, p99: 490 },
-    { hour: '16:00', p50: 175, p95: 335, p99: 495 },
-    { hour: '17:00', p50: 180, p95: 340, p99: 500 },
-    { hour: '18:00', p50: 165, p95: 320, p99: 475 },
-    { hour: '19:00', p50: 155, p95: 305, p99: 455 },
-    { hour: '20:00', p50: 150, p95: 295, p99: 445 },
-    { hour: '21:00', p50: 148, p95: 290, p99: 435 },
-    { hour: '22:00', p50: 146, p95: 285, p99: 425 },
-    { hour: '23:00', p50: 145, p95: 280, p99: 420 },
+    { hour: '00:00', p50: 145, p95: 280, p99: 420 }, { hour: '01:00', p50: 140, p95: 275, p99: 415 },
+    { hour: '02:00', p50: 135, p95: 270, p99: 410 }, { hour: '03:00', p50: 130, p95: 265, p99: 400 },
+    { hour: '04:00', p50: 125, p95: 260, p99: 395 }, { hour: '05:00', p50: 130, p95: 265, p99: 400 },
+    { hour: '06:00', p50: 140, p95: 280, p99: 420 }, { hour: '07:00', p50: 155, p95: 300, p99: 450 },
+    { hour: '08:00', p50: 175, p95: 330, p99: 490 }, { hour: '09:00', p50: 185, p95: 345, p99: 510 },
+    { hour: '10:00', p50: 180, p95: 340, p99: 500 }, { hour: '11:00', p50: 175, p95: 335, p99: 495 },
+    { hour: '12:00', p50: 185, p95: 345, p99: 510 }, { hour: '13:00', p50: 180, p95: 340, p99: 500 },
+    { hour: '14:00', p50: 175, p95: 335, p99: 495 }, { hour: '15:00', p50: 170, p95: 330, p99: 490 },
+    { hour: '16:00', p50: 175, p95: 335, p99: 495 }, { hour: '17:00', p50: 180, p95: 340, p99: 500 },
+    { hour: '18:00', p50: 165, p95: 320, p99: 475 }, { hour: '19:00', p50: 155, p95: 305, p99: 455 },
+    { hour: '20:00', p50: 150, p95: 295, p99: 445 }, { hour: '21:00', p50: 148, p95: 290, p99: 435 },
+    { hour: '22:00', p50: 146, p95: 285, p99: 425 }, { hour: '23:00', p50: 145, p95: 280, p99: 420 },
   ],
 };
 
@@ -671,13 +484,7 @@ const latencyPercentiles = {
     { time: 'Week 6', p50: 145, p95: 280, p99: 420, requests: 4200, errors: 8 },
   ],
   anomalies: [] as { start: number; end: number; severity: string; cause: string }[],
-  currentStats: {
-    p50: 145,
-    p95: 280,
-    p99: 420,
-    requestRate: 4200,
-    errorRate: 0.19,
-  },
+  currentStats: { p50: 145, p95: 280, p99: 420, requestRate: 4200, errorRate: 0.19 },
 };
 
 const dataQuality: DataQualityData = {
@@ -744,46 +551,23 @@ const journeyMap: JourneyMapData = {
 const orgHealth = {
   asOfDate: 'Q4 2024',
   headcount: {
-    total: 273,
-    fullTime: 245,
-    contractors: 28,
-    openRoles: 8,
+    total: 273, fullTime: 245, contractors: 28, openRoles: 8,
     trend: [
-      { month: 'Jul', count: 45 },
-      { month: 'Aug', count: 95 },
-      { month: 'Sep', count: 145 },
-      { month: 'Oct', count: 185 },
-      { month: 'Nov', count: 220 },
-      { month: 'Dec', count: 273 },
+      { month: 'Jul', count: 45 }, { month: 'Aug', count: 95 }, { month: 'Sep', count: 145 },
+      { month: 'Oct', count: 185 }, { month: 'Nov', count: 220 }, { month: 'Dec', count: 273 },
     ],
   },
-  attrition: {
-    monthly: 0.8,
-    annual: 6.2,
-    voluntary: 4.5,
-    involuntary: 1.7,
-    regrettable: 2.1,
-    benchmark: 15,
-  },
+  attrition: { monthly: 0.8, annual: 6.2, voluntary: 4.5, involuntary: 1.7, regrettable: 2.1, benchmark: 15 },
   engagement: {
-    enps: 42,
-    participation: 94,
-    trend: [
-      { month: 'Q1', score: 32 },
-      { month: 'Q2', score: 36 },
-      { month: 'Q3', score: 39 },
-      { month: 'Q4', score: 42 },
-    ],
+    enps: 42, participation: 94,
+    trend: [{ month: 'Q1', score: 32 }, { month: 'Q2', score: 36 }, { month: 'Q3', score: 39 }, { month: 'Q4', score: 42 }],
   },
   dei: {
     gender: { male: 48, female: 49, nonBinary: 3 },
     leadership: { male: 45, female: 52, nonBinary: 3 },
     ethnicity: [
-      { group: 'White', percent: 42 },
-      { group: 'Asian', percent: 35 },
-      { group: 'Hispanic', percent: 12 },
-      { group: 'Black', percent: 8 },
-      { group: 'Other', percent: 3 },
+      { group: 'White', percent: 42 }, { group: 'Asian', percent: 35 }, { group: 'Hispanic', percent: 12 },
+      { group: 'Black', percent: 8 }, { group: 'Other', percent: 3 },
     ],
   },
   departments: [
@@ -793,13 +577,10 @@ const orgHealth = {
     { name: 'Admins', headcount: 5, attrition: 0, enps: 55, openRoles: 1 },
   ],
   tenure: [
-    { range: '<1 year', count: 118, percent: 43 },
-    { range: '1-2 years', count: 79, percent: 29 },
-    { range: '2-3 years', count: 52, percent: 19 },
-    { range: '3+ years', count: 24, percent: 9 },
+    { range: '<1 year', count: 118, percent: 43 }, { range: '1-2 years', count: 79, percent: 29 },
+    { range: '2-3 years', count: 52, percent: 19 }, { range: '3+ years', count: 24, percent: 9 },
   ],
 };
-
 
 // ─────────────────────────────────────────────────────────────────────────────
 // IMPACT — Waterfall + Unit Economics + Calendar + Sparklines
@@ -818,14 +599,7 @@ const waterfall = [
 const unitEconomics = {
   period: 'Q4 2024',
   currency: 'USD',
-  summary: {
-    ltv: 86600,
-    cac: 12200,
-    ltvCacRatio: 7.1,
-    paybackMonths: 4.2,
-    grossMargin: 61,
-    netRevRetention: 135,
-  },
+  summary: { ltv: 86600, cac: 12200, ltvCacRatio: 7.1, paybackMonths: 4.2, grossMargin: 61, netRevRetention: 135 },
   segments: [
     { name: 'Enterprise Brands', ltv: 125000, cac: 18000, ratio: 6.9, payback: 3.8, customers: 8, arr: 1000000 },
     { name: 'Regional Teams', ltv: 68000, cac: 12500, ratio: 5.4, payback: 4.5, customers: 24, arr: 1632000 },
@@ -833,19 +607,14 @@ const unitEconomics = {
     { name: 'Marketing Ops', ltv: 28000, cac: 6500, ratio: 4.3, payback: 6.0, customers: 65, arr: 1820000 },
   ],
   cohorts: [
-    { month: 'Jul', cac: 15200, ltv: 72000, payback: 5.8 },
-    { month: 'Aug', cac: 14100, ltv: 76000, payback: 5.2 },
-    { month: 'Sep', cac: 13200, ltv: 80000, payback: 4.8 },
-    { month: 'Oct', cac: 12800, ltv: 83000, payback: 4.5 },
-    { month: 'Nov', cac: 12400, ltv: 85000, payback: 4.3 },
-    { month: 'Dec', cac: 12200, ltv: 86600, payback: 4.2 },
+    { month: 'Jul', cac: 15200, ltv: 72000, payback: 5.8 }, { month: 'Aug', cac: 14100, ltv: 76000, payback: 5.2 },
+    { month: 'Sep', cac: 13200, ltv: 80000, payback: 4.8 }, { month: 'Oct', cac: 12800, ltv: 83000, payback: 4.5 },
+    { month: 'Nov', cac: 12400, ltv: 85000, payback: 4.3 }, { month: 'Dec', cac: 12200, ltv: 86600, payback: 4.2 },
   ],
   costBreakdown: {
     cac: [
-      { category: 'Azure OpenAI', amount: 4200, percent: 34 },
-      { category: 'Infrastructure', amount: 3200, percent: 26 },
-      { category: 'Integration', amount: 2400, percent: 20 },
-      { category: 'Training', amount: 1500, percent: 12 },
+      { category: 'Azure OpenAI', amount: 4200, percent: 34 }, { category: 'Infrastructure', amount: 3200, percent: 26 },
+      { category: 'Integration', amount: 2400, percent: 20 }, { category: 'Training', amount: 1500, percent: 12 },
       { category: 'Support', amount: 900, percent: 8 },
     ],
     ltv: [
@@ -854,11 +623,7 @@ const unitEconomics = {
       { category: 'Agency Offset', amount: 12600, percent: 15 },
     ],
   },
-  benchmarks: {
-    ltvCacRatio: { good: 3, great: 5 },
-    paybackMonths: { good: 12, great: 6 },
-    grossMargin: { good: 50, great: 70 },
-  },
+  benchmarks: { ltvCacRatio: { good: 3, great: 5 }, paybackMonths: { good: 12, great: 6 }, grossMargin: { good: 50, great: 70 } },
 };
 
 const calendarHeatmap = {
@@ -866,46 +631,18 @@ const calendarHeatmap = {
   title: 'AI-Assisted Content Volume',
   metric: 'Assets Created',
   data: [
-    { date: '2024-01-01', value: 18 },
-    { date: '2024-02-01', value: 22 },
-    { date: '2024-03-01', value: 25 },
-    { date: '2024-04-01', value: 30 },
-    { date: '2024-05-01', value: 34 },
-    { date: '2024-06-01', value: 38 },
-    { date: '2024-07-01', value: 41 },
-    { date: '2024-08-01', value: 39 },
-    { date: '2024-09-01', value: 44 },
-    { date: '2024-10-01', value: 47 },
-    { date: '2024-11-01', value: 50 },
-    { date: '2024-12-01', value: 52 },
+    { date: '2024-01-01', value: 18 }, { date: '2024-02-01', value: 22 }, { date: '2024-03-01', value: 25 },
+    { date: '2024-04-01', value: 30 }, { date: '2024-05-01', value: 34 }, { date: '2024-06-01', value: 38 },
+    { date: '2024-07-01', value: 41 }, { date: '2024-08-01', value: 39 }, { date: '2024-09-01', value: 44 },
+    { date: '2024-10-01', value: 47 }, { date: '2024-11-01', value: 50 }, { date: '2024-12-01', value: 52 },
   ],
 };
 
 const sparklineGrid = [
-  {
-    label: 'Cycle Time (days)',
-    values: [42, 38, 35, 30, 24, 20, 18, 16, 14],
-    current: 14,
-    change: -66.7,
-  },
-  {
-    label: 'Approved Assets / Month',
-    values: [272, 310, 355, 420, 520, 610, 720, 780, 816],
-    current: 816,
-    change: 200,
-  },
-  {
-    label: 'Revision Rate',
-    values: [0.4, 0.36, 0.32, 0.28, 0.23, 0.2, 0.18, 0.16, 0.15],
-    current: 0.15,
-    change: -62.5,
-  },
-  {
-    label: 'Weekly Active Users',
-    values: [0.1, 0.18, 0.24, 0.32, 0.4, 0.48, 0.55, 0.61, 0.68],
-    current: 0.68,
-    change: 580,
-  },
+  { label: 'Cycle Time (days)', values: [42, 38, 35, 30, 24, 20, 18, 16, 14], current: 14, change: -66.7 },
+  { label: 'Approved Assets / Month', values: [272, 310, 355, 420, 520, 610, 720, 780, 816], current: 816, change: 200 },
+  { label: 'Revision Rate', values: [0.4, 0.36, 0.32, 0.28, 0.23, 0.2, 0.18, 0.16, 0.15], current: 0.15, change: -62.5 },
+  { label: 'Weekly Active Users', values: [0.1, 0.18, 0.24, 0.32, 0.4, 0.48, 0.55, 0.61, 0.68], current: 0.68, change: 580 },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -924,6 +661,7 @@ const gantt = [
 // ─────────────────────────────────────────────────────────────────────────────
 // MODEL CARD — Engineer phase (guardrails, failure modes)
 // ─────────────────────────────────────────────────────────────────────────────
+
 const modelCard = {
   model: { name: 'Pfizer Content Assistant', version: '1.2.0', type: 'RAG + GPT-4 Turbo', lastUpdated: 'Oct 2024', owner: 'AI Platform Team', status: 'Production' },
   description: 'AI assistant for accelerating promotional content creation while maintaining MLR compliance. Uses RAG pipeline over approved SharePoint assets with GPT-4 generation.',
@@ -953,14 +691,7 @@ const modelCard = {
     'Audit logging for all queries and responses',
     'No model training on Pfizer data (API-only)',
   ],
-  training: {
-    dataSize: '12,000 approved content assets',
-    dateRange: 'Jan 2022 - Oct 2024',
-    features: 0,
-    targetVariable: 'Content retrieval & generation',
-    samplingStrategy: 'Full corpus indexing',
-    trainTestSplit: 'N/A (RAG)',
-  },
+  training: { dataSize: '12,000 approved content assets', dateRange: 'Jan 2022 - Oct 2024', features: 0, targetVariable: 'Content retrieval & generation', samplingStrategy: 'Full corpus indexing', trainTestSplit: 'N/A (RAG)' },
   fairness: {
     protectedAttributes: ['brand', 'region', 'content_type'],
     metrics: [
@@ -981,12 +712,7 @@ const modelCard = {
     { name: 'approval_status', importance: 0.10, category: 'compliance' },
     { name: 'user_engagement_history', importance: 0.05, category: 'personalization' },
   ],
-  deployment: {
-    endpoint: 'ai-content-api.pfizer.internal/v1/generate',
-    latency: '280ms p95',
-    throughput: '4,200 req/day',
-    monitoring: 'Datadog APM + custom guardrail alerts',
-  },
+  deployment: { endpoint: 'ai-content-api.pfizer.internal/v1/generate', latency: '280ms p95', throughput: '4,200 req/day', monitoring: 'Datadog APM + custom guardrail alerts' },
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════

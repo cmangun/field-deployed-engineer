@@ -1,19 +1,19 @@
 // src/data/caseStudies/pfizer.normalized.ts
 // ═══════════════════════════════════════════════════════════════════════════════
 // PFIZER CASE STUDY — NORMALIZED (GOLD REFERENCE)
-// All other case studies MUST follow this structure, naming, and pattern
+// Unified end-to-end story: Diagnose → Architect → Engineer → Enable → Impact
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import type { NormalizedCaseStudy } from './types';
 
 export const pfizerNormalized: NormalizedCaseStudy = {
   slug: 'pfizer',
-  client: 'Pfizer',
-  title: 'CoCo: The Company Companion for Global Medical Content',
-  subtitle: 'Turning scattered MLR content into a single, searchable RAG assistant.',
-  category: 'Pharma · RAG · Knowledge Engineering',
+  client: 'Pfizer Global Commercial & Digital',
+  title: 'Pfizer AI Content Engine',
+  subtitle: 'Reduced MLR review cycles by 65% (42 → 14 days), tripled approved AI-assisted content, and unlocked $2M+ annual savings by building a governed AI content engine that sits inside Pfizer\'s existing CLM/CRM stack.',
+  category: 'Pharma · RAG · MLR Compliance · Knowledge Engineering',
   heroImage: '/assets/img/case-studies/_showcase/Sanofi 2.png',
-  brandLogo: '/assets/img/logo/coco-logo.png',
+  brandLogo: '/assets/img/logo/Pfizer_(2021).png',
 
   heroStats: [
     {
@@ -25,13 +25,13 @@ export const pfizerNormalized: NormalizedCaseStudy = {
     {
       id: 'throughput',
       label: 'Throughput',
-      value: '3×',
-      annotation: 'approved AI-assisted content'
+      value: '272 → 816 assets/mo',
+      annotation: '3×'
     },
     {
       id: 'savings',
       label: 'Savings',
-      value: '$2M+',
+      value: '$2.08M',
       annotation: 'annualized'
     }
   ],
@@ -42,22 +42,22 @@ export const pfizerNormalized: NormalizedCaseStudy = {
     // ─────────────────────────────────────────────────────────────────────────
     {
       id: 'diagnose',
-      title: 'Diagnose – Why AI initiatives were stalling',
-      summary: 'We did not know whether AI initiatives were constrained by demand, MLR review, or production capacity. Diagnostics showed that MLR cycle time and fragmented content workflows were the binding constraints.',
+      title: 'Diagnose – Find the real constraint before building anything',
+      summary: 'The organization did not know whether AI initiatives were constrained by demand, MLR review capacity, or production throughput. Diagnostics showed that search, retrieval, and revision loops inside the MLR pipeline were the binding constraints. By combining interviews, process mapping, and log analysis, we established a quantitative baseline for review cycles, revision rates, and search time across three priority brands.',
       duration: '2 weeks',
-      kpiFocus: 'MLR cycle time, content retrieval, revision loops',
-      decisionOwner: 'VP, Global Medical Affairs',
+      kpiFocus: 'Review cycle time & revision rate',
+      decisionOwner: 'Commercial Operations',
       bullets: [
-        'Stakeholder interviews across 3 brands revealed consistent bottleneck patterns',
-        'Workflow mapping showed 75% of delays concentrated at Search & Retrieval stage',
-        '2,450+ assets per quarter entering MLR review with 40% revision rate',
-        'Pain point: 25+ minutes average time searching for relevant templates'
+        'Mapped end-to-end content flow from brief to field deployment',
+        'Measured search time, queue delays, and revision loops at each stage',
+        'Showed that 75% of delays clustered in Search & Retrieval and early MLR triage',
+        'Documented that ~40% of assets required multiple revision cycles'
       ],
       deliverables: [
         'MLR Cycle-Time Baseline',
-        'Bottleneck & Revision Analysis',
+        'Content Funnel & Bottleneck Analysis',
         'RACI Accountability Map',
-        'Risk Register'
+        'Risk Register for AI Interventions'
       ],
       metrics: [
         {
@@ -80,7 +80,7 @@ export const pfizerNormalized: NormalizedCaseStudy = {
           delta: '-62%'
         }
       ],
-      chartKeys: ['FunnelChart', 'RACIMatrix', 'CalendarHeatmap']
+      chartKeys: ['FunnelChart', 'RACIMatrix']
     },
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -88,22 +88,22 @@ export const pfizerNormalized: NormalizedCaseStudy = {
     // ─────────────────────────────────────────────────────────────────────────
     {
       id: 'architect',
-      title: 'Architect – Governed RAG inside existing workflows',
-      summary: 'We needed an AI system that could plug into existing CLM/CRM and survive MLR scrutiny without disrupting controls. We designed a governed RAG content engine that kept Salesforce/CLM as system of record and made the AI layer stateless and replaceable.',
+      title: 'Architect – Design the smallest compliant surface area that can scale',
+      summary: 'We needed an AI system that could plug into existing CLM/CRM and survive MLR scrutiny without becoming a shadow system of record. We designed a governed "datasphere" and RAG engine that kept Salesforce/CLM as system of record and treated the AI layer as stateless and replaceable. We defined a Colab datasphere pattern where content lives in existing stores (SharePoint, Veeva, Workfront) while the AI engine orchestrates retrieval and drafting under explicit compliance boundaries.',
       duration: '2 weeks',
-      kpiFocus: 'Integration complexity, compliance surface, scalability',
-      decisionOwner: 'Chief Digital Officer',
+      kpiFocus: 'Architecture sign-off',
+      decisionOwner: 'Enterprise Architecture',
       bullets: [
-        'C4 system context diagram with 5 external integrations defined',
-        'RAG pipeline architecture: SharePoint → Azure OpenAI → Veeva',
-        'Brand/region filtering for multi-therapeutic support',
-        'Compliance gates ensure human reviewer authority is preserved'
+        'C4 system-context diagram with five external integrations',
+        'Explicit separation of systems of record vs. AI orchestration layer',
+        'Integration contracts for SharePoint, Veeva Vault, Workfront, Teams, and Azure OpenAI',
+        'Non-functional requirements defined for latency, auditability, and data residency'
       ],
       deliverables: [
         'C4 System Context Diagram',
         'RAG Pipeline Blueprint',
-        '14-Week Implementation Plan',
-        'Model Card with guardrails'
+        'Integration & Data-Flow Contracts',
+        'Architecture Decision Records (ADRs)'
       ],
       metrics: [
         {
@@ -119,7 +119,7 @@ export const pfizerNormalized: NormalizedCaseStudy = {
           delta: 'SLO defined'
         }
       ],
-      chartKeys: ['SystemContextDiagram', 'RAGPipeline', 'GanttChart', 'ModelCard']
+      chartKeys: ['SystemContextDiagram', 'RAGPipeline', 'GanttChart']
     },
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -127,22 +127,22 @@ export const pfizerNormalized: NormalizedCaseStudy = {
     // ─────────────────────────────────────────────────────────────────────────
     {
       id: 'engineer',
-      title: 'Engineer – Production-grade RAG at scale',
-      summary: 'We had to prove reliability and performance at production scale, not just in a demo environment. Service health, model documentation, latency and data quality metrics showed stable production behaviour under real workloads.',
+      title: 'Engineer – Turn a diagram into a service that behaves under load',
+      summary: 'We had to prove the RAG co-pilot could handle real workloads, not just demos, while respecting strict MLR and security constraints. Built a production RAG co-pilot with clear SLOs, service-health dashboards, and incident paths, reducing p95 latency from 850ms to ~280ms and reaching 99.7% uptime. We implemented the RAG pipeline, instrumented it like any other tier-1 service, and exposed a single AI content API with role-aware access and MLR-aware guardrails.',
       duration: '6 weeks',
-      kpiFocus: 'p95 latency, uptime, throughput, data quality',
-      decisionOwner: 'Engineering Lead',
+      kpiFocus: 'p95 latency, uptime, and error rate',
+      decisionOwner: 'Platform Engineering',
       bullets: [
-        'RAG pipeline with hybrid search (semantic + keyword) deployed',
-        'Automated review routing and status tracking implemented',
-        'Real-time collaboration dashboard built',
-        'MLR compliance gate with audit logging integrated'
+        'Hybrid search (semantic + keyword) with caching on hot paths',
+        'Single AI Content API with role-aware access control',
+        'End-to-end service health instrumentation (uptime, latency, error rate)',
+        'MLR gateway checks and audit logging for every AI suggestion'
       ],
       deliverables: [
-        'AI Content API & RAG Service',
-        'Production SLO Dashboard',
-        'Model Card & Evaluation Report',
-        'Data Quality Scorecard'
+        'Production RAG Pipeline',
+        'AI Content API',
+        'Service-Health & Latency Dashboard',
+        'Incident Playbooks & On-Call Runbooks'
       ],
       metrics: [
         {
@@ -165,7 +165,7 @@ export const pfizerNormalized: NormalizedCaseStudy = {
           delta: 'production scale'
         }
       ],
-      chartKeys: ['ServiceHealthDashboard', 'LatencyPercentiles', 'DataQualityScorecard']
+      chartKeys: ['ServiceHealthDashboard', 'LatencyPercentiles', 'DataQualityScorecard', 'ModelCard']
     },
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -173,21 +173,21 @@ export const pfizerNormalized: NormalizedCaseStudy = {
     // ─────────────────────────────────────────────────────────────────────────
     {
       id: 'enable',
-      title: 'Enable – Cross-team adoption and satisfaction',
-      summary: 'Without adoption by MLR and field teams, the platform would become another unused AI experiment. Journey and org-health metrics showed cross-team adoption and satisfaction, with MLR and field partners actively using the engine.',
+      title: 'Enable – If no one uses it, it does not exist',
+      summary: 'Without adoption by MLR reviewers, brand teams, and producers, the engine would become yet another unused AI experiment. Embedded the co-pilot into existing tools, trained producers and admins, and reached >200 active users with 94% training completion and 4.2/5 satisfaction. We branded and deployed the co-pilot as "CoCo – the Company Companion," embedded directly in Teams and CLM surfaces with targeted onboarding journeys.',
       duration: '4 weeks',
-      kpiFocus: 'User adoption, training completion, satisfaction score',
-      decisionOwner: 'VP, Content Operations',
+      kpiFocus: 'User activation & satisfaction',
+      decisionOwner: 'Learning & Development',
       bullets: [
-        '200+ content producers onboarded with hands-on training',
-        '5 platform admins certified as power users',
-        'Governance playbook and runbooks published',
-        'Monthly office hours established for advanced features'
+        'Producer journey redesign focused on search and pre-review',
+        'Hands-on training for 200+ content producers',
+        'Power-user track for platform admins and MLR champions',
+        'Monthly office hours and playbook updates based on real use'
       ],
       deliverables: [
-        'Producer Journey Redesign',
+        'Producer Journey & UX Flows',
         'Training & Governance Playbook',
-        'Org Adoption & Health Dashboard'
+        'Org-Adoption & Health Dashboard'
       ],
       metrics: [
         {
@@ -217,20 +217,20 @@ export const pfizerNormalized: NormalizedCaseStudy = {
     // ─────────────────────────────────────────────────────────────────────────
     {
       id: 'impact',
-      title: 'Impact – Durable savings and expansion path',
-      summary: 'We needed to show that infrastructure and change-management investment produced defendable ROI. Waterfall, unit-economics, seasonality and trend charts demonstrated durable savings and an expansion path without infra step-function costs.',
+      title: 'Impact – Prove the economics, then expand',
+      summary: 'Leaders needed durable ROI proof to justify ongoing investment and expansion into additional therapeutic areas. Showed 65% cycle-time reduction, 3× throughput, and $2.08M in annual savings with a clear path to multi-brand expansion. We translated performance and usage telemetry into an executive-level ROI model and expansion roadmap tied directly to cycle time, volume, and rework savings.',
       duration: 'Ongoing',
-      kpiFocus: 'ROI, cost savings, throughput increase',
-      decisionOwner: 'CFO / Commercial Leadership',
+      kpiFocus: 'ROI & expansion readiness',
+      decisionOwner: 'Product & Finance',
       bullets: [
-        '65% reduction in review cycle time (42 → 14 days)',
-        '3× increase in approved content throughput',
-        '$2.08M annual cost savings validated',
-        'Roadmap defined for 5+ therapeutic area expansion'
+        'Cost waterfall decomposing where savings actually came from',
+        'Unit-economics model at the "per asset" level',
+        'Usage seasonality and trend analysis across quarters',
+        'Phase-2 roadmap for 5+ additional therapeutic areas'
       ],
       deliverables: [
         'ROI Waterfall & Savings Model',
-        'Unit Economics Model',
+        'Unit-Economics Model',
         'Usage Seasonality Report',
         'Executive KPI Grid'
       ],
@@ -254,15 +254,15 @@ export const pfizerNormalized: NormalizedCaseStudy = {
           delta: '+$2.08M'
         }
       ],
-      chartKeys: ['WaterfallChart', 'UnitEconomics', 'SparklineGrid']
+      chartKeys: ['WaterfallChart', 'UnitEconomics', 'SparklineGrid', 'CalendarHeatmap']
     }
   ],
 
-  tags: ['RAG', 'MLR', 'Pharma', 'Azure OpenAI', 'Knowledge Graph', 'Content Ops'],
-  primaryCharts: ['FunnelChart', 'RAGPipeline', 'ServiceHealthDashboard', 'WaterfallChart'],
+  tags: ['RAG', 'MLR', 'Pharma', 'Azure OpenAI', 'Knowledge Engineering', 'Content Ops', 'Change Management'],
+  primaryCharts: ['FunnelChart', 'SystemContextDiagram', 'ServiceHealthDashboard', 'CustomerJourneyMap', 'WaterfallChart'],
 
   nextCaseStudy: {
-    slug: 'medtronic',
-    title: 'Surgical AI Platform'
+    slug: 'binaxnow',
+    title: 'Abbott BinaxNOW Diagnostic Platform'
   }
 };
