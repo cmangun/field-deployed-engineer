@@ -13,7 +13,7 @@ import { pfizerCharts } from './pfizerData';
 
 export const abbottAlinityData: CaseStudyData = {
   slug: 'alinity',
-  brandLogo: '/assets/img/logo/alinity-m-logo.png',
+  brandLogo: '/assets/logo/abbott-logo.png',
   title: 'Abbott – Alinity Enterprise Production',
   subtitle: 'Edge + Cloud Reliability Engineering',
   company: 'Abbott Labs',

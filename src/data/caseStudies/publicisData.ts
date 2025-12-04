@@ -13,7 +13,7 @@ import { pfizerCharts } from './pfizerData';
 
 export const publicisData: CaseStudyData = {
   slug: 'publicis',
-  brandLogo: '/assets/img/logo/images.png',
+  brandLogo: '/assets/img/logo/IPG_logo.png',
   title: 'Publicis Health Enterprise Architecture',
   subtitle: 'Multi-Agency System Unification',
   company: 'Publicis Health',
