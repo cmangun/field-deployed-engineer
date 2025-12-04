@@ -25,7 +25,7 @@ const menuItemsTwo: MenuItem[] = [
         static: true,
         caseStudies: [
             // ─────────────────────────────────────────────────────────────
-            // PFIZER / COLAB (End-to-End Transformation Arc) — 1-4
+            // PFIZER — Field-Embedded Engineering
             // ─────────────────────────────────────────────────────────────
             {
                 brand: "Pfizer",
@@ -33,27 +33,9 @@ const menuItemsTwo: MenuItem[] = [
                 description: "Governed AI content engine that cut MLR cycles 42→14 days, tripled AI-assisted throughput.",
                 href: "/case-study/pfizer"
             },
-            {
-                brand: "Pfizer",
-                role: "RAG Solution Architect",
-                description: "Cross-cloud knowledge engine using vector search, auto-labeling, and semantic pipelines.",
-                href: "/case-study/colab"
-            },
-            {
-                brand: "Pfizer",
-                role: "RAG Co-Pilot Engineer",
-                description: "Production pipeline architecture for RAG systems with quality gates and evaluation harnesses.",
-                href: "/case-study/pfizer-pipeline"
-            },
-            {
-                brand: "Pfizer",
-                role: "CoCo Company Companion",
-                description: "Enterprise AI assistant productization — from POC to governed, scalable deployment.",
-                href: "/case-study/coco"
-            },
 
             // ─────────────────────────────────────────────────────────────
-            // ABBOTT (Evaluation → Platform Enablement) — 5-6
+            // ABBOTT (Evaluation → Platform Enablement)
             // ─────────────────────────────────────────────────────────────
             {
                 brand: "Abbott",
@@ -69,7 +51,7 @@ const menuItemsTwo: MenuItem[] = [
             },
 
             // ─────────────────────────────────────────────────────────────
-            // ENTERPRISE ARCHITECTURE — 7
+            // ENTERPRISE ARCHITECTURE
             // ─────────────────────────────────────────────────────────────
             {
                 brand: "Publicis Health",
@@ -79,7 +61,7 @@ const menuItemsTwo: MenuItem[] = [
             },
 
             // ─────────────────────────────────────────────────────────────
-            // MISSION-DRIVEN / HUMANITARIAN — 8
+            // MISSION-DRIVEN / HUMANITARIAN
             // ─────────────────────────────────────────────────────────────
             {
                 brand: "Naked Heart Foundation",

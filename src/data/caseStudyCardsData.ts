@@ -18,13 +18,13 @@ export type CaseStudyCard = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// CANONICAL ORDER (8 Case Studies)
+// CANONICAL ORDER (5 Case Studies)
 // ═══════════════════════════════════════════════════════════════════════════════
 // 0. Intro Card
-// 1-4. Pfizer / Colab (End-to-End Transformation Arc)
-// 5-6. Abbott (Evaluation → Platform Enablement)
-// 7. Publicis Health (Enterprise Architecture)
-// 8. Naked Heart Foundation (Mission-Driven)
+// 1. Pfizer (Field-Embedded Engineering)
+// 2-3. Abbott (Evaluation → Platform Enablement)
+// 4. Publicis Health (Enterprise Architecture)
+// 5. Naked Heart Foundation (Mission-Driven)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const caseStudyCardsData: CaseStudyCard[] = [
@@ -63,58 +63,7 @@ export const caseStudyCardsData: CaseStudyCard[] = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // 2. PFIZER — RAG SOLUTION ARCHITECT
-  // ─────────────────────────────────────────────────────────────────────────────
-  {
-    id: "colab",
-    slug: "colab",
-    title: "RAG Solution Architect",
-    client: "Pfizer",
-    subtitle: "Designed a cross-cloud knowledge engine using vector search, auto-labeling, and semantic pipelines for enterprise research teams.",
-    domain: "RAG, embeddings, ontology, search infra",
-    services: ["Vector Search", "Auto-labeling", "Semantic Pipelines"],
-    year: "2024",
-    heroImage: "/assets/img/case-studies/_showcase/Knowledge_Retreval.jpg",
-    delay: 0.08,
-    isPlaceholder: false,
-  },
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // 3. PFIZER — RAG CO-PILOT ENGINEER (Pipeline)
-  // ─────────────────────────────────────────────────────────────────────────────
-  {
-    id: "pfizer-pipeline",
-    slug: "pfizer-pipeline",
-    title: "RAG Co-Pilot Engineer",
-    client: "Pfizer",
-    subtitle: "Production pipeline architecture for RAG systems with quality gates, evaluation harnesses, and continuous model improvement loops.",
-    domain: "ML pipelines, evaluation, production systems",
-    services: ["Pipeline Architecture", "Model Evaluation", "MLOps"],
-    year: "2024",
-    heroImage: "/assets/img/case-studies/_showcase/Technical_Program.jpg",
-    delay: 0.16,
-    isPlaceholder: false,
-  },
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // 4. PFIZER — COCO COMPANY COMPANION (Assistant)
-  // ─────────────────────────────────────────────────────────────────────────────
-  {
-    id: "coco",
-    slug: "coco",
-    title: "CoCo Company Companion",
-    client: "Pfizer",
-    subtitle: "Enterprise AI assistant productization — from proof-of-concept to governed, scalable deployment across business units.",
-    domain: "AI assistants, productization, enterprise deployment",
-    services: ["AI Assistant", "Enterprise Scale", "Product Launch"],
-    year: "2024",
-    heroImage: "/assets/img/case-studies/_showcase/hero1.png",
-    delay: 0.24,
-    isPlaceholder: true,
-  },
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // 5. ABBOTT — BINAXNOW EVALUATION DATASET
+  // 2. ABBOTT — BINAXNOW EVALUATION DATASET
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: "binaxnow",
@@ -126,12 +75,12 @@ export const caseStudyCardsData: CaseStudyCard[] = [
     services: ["Data QA", "FDA Compliance", "Evaluation Design"],
     year: "2022",
     heroImage: "/assets/img/case-studies/_showcase/BInaxNow.jpg",
-    delay: 0.32,
+    delay: 0.16,
     isPlaceholder: false,
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // 6. ABBOTT — ALINITY PLATFORM
+  // 3. ABBOTT — ALINITY PLATFORM
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: "alinity",
@@ -143,12 +92,12 @@ export const caseStudyCardsData: CaseStudyCard[] = [
     services: ["Edge Computing", "Alerting Systems", "Reliability Engineering"],
     year: "2023",
     heroImage: "/assets/img/home-06/project/alinity.jpg",
-    delay: 0.40,
+    delay: 0.24,
     isPlaceholder: false,
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // 7. PUBLICIS HEALTH — ENTERPRISE ARCHITECTURE AT SCALE
+  // 4. PUBLICIS HEALTH — ENTERPRISE ARCHITECTURE AT SCALE
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: "publicis",
@@ -160,12 +109,12 @@ export const caseStudyCardsData: CaseStudyCard[] = [
     services: ["System Unification", "Identity Management", "Workflow Design"],
     year: "2023",
     heroImage: "/assets/img/case-studies/_showcase/EnterpriseScale.jpg",
-    delay: 0.48,
+    delay: 0.32,
     isPlaceholder: false,
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // 8. NAKED HEART FOUNDATION — GLOBAL PLAYGROUND PROGRAM
+  // 5. NAKED HEART FOUNDATION — GLOBAL PLAYGROUND PROGRAM
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: "nakedheart",
@@ -177,7 +126,7 @@ export const caseStudyCardsData: CaseStudyCard[] = [
     services: ["Data Platform", "Analytics", "Donor Operations"],
     year: "2022",
     heroImage: "/assets/img/case-studies/_showcase/nakedheart.jpg",
-    delay: 0.56,
+    delay: 0.40,
     isPlaceholder: false,
   },
 ];
