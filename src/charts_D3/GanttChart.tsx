@@ -43,17 +43,21 @@ const GanttChart: React.FC<GanttChartProps> = ({
   width = 700,
   height = 400,
   title = "Gantt Chart",
-  weeksToShow = 18,
+  weeksToShow,
   showTodayMarker = false
 }) => {
   const [hoveredTask, setHoveredTask] = useState<number | null>(null);
+
+  // Auto-calculate weeks from data if not provided
+  const maxWeek = Math.max(...data.map(d => d.start + d.duration));
+  const effectiveWeeksToShow = weeksToShow ?? Math.max(maxWeek + 1, 12); // +1 buffer, min 12 weeks
 
   const margin = { top: 120, right: 20, bottom: 30, left: 220 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
   const rowHeight = innerHeight / data.length;
-  const weekWidth = innerWidth / weeksToShow;
+  const weekWidth = innerWidth / effectiveWeeksToShow;
 
   // Current week marker (week 11)
   const currentWeek = 11;
@@ -81,7 +85,7 @@ const GanttChart: React.FC<GanttChartProps> = ({
       >
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           {/* Week labels at the top */}
-          {Array.from({ length: weeksToShow + 1 }).map((_, i) => (
+          {Array.from({ length: effectiveWeeksToShow + 1 }).map((_, i) => (
             <g key={`week-${i}`}>
               <text
                 x={i * weekWidth}
@@ -131,7 +135,7 @@ const GanttChart: React.FC<GanttChartProps> = ({
           })}
 
           {/* Week column grid lines */}
-          {Array.from({ length: weeksToShow + 1 }).map((_, i) => (
+          {Array.from({ length: effectiveWeeksToShow + 1 }).map((_, i) => (
             <g key={`grid-${i}`}>
               <line
                 x1={i * weekWidth}
