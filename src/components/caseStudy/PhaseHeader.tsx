@@ -161,11 +161,6 @@ export function PhaseHeader({ phase, customMeta }: PhaseHeaderProps) {
         {meta.eyebrow}
       </p>
 
-      {/* One-line Summary */}
-      <p style={typography.summary}>
-        {meta.summary}
-      </p>
-
       {/* Metrics Row */}
       <div style={{
         display: 'flex',
