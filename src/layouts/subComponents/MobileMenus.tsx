@@ -9,6 +9,7 @@ const logoMap: Record<string, string> = {
   'colab': '/assets/img/logo/Pfizer-white.png', // Pfizer RAG work
   'syneos health': '/assets/img/logo/Amgen-white.png', // Repatha program
   'publicis health': '/assets/img/logo/IPG-white-logo.png', // IPG enterprise work
+  'ipg': '/assets/img/logo/IPG-white-logo.png', // IPG enterprise work
   'medtronic': '/assets/img/logo/logo-white.png',
   'abbott': '/assets/img/logo/abbott-logo.png', // Abbott labs - BinaxNOW & Alinity
   'amgen': '/assets/img/logo/Amgen-white.png',
