@@ -71,7 +71,6 @@ const MobileMenus = () => {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
   const [resumeHovered, setResumeHovered] = useState(false);
   const [showcaseHovered, setShowcaseHovered] = useState(false);
-  const [homeHovered, setHomeHovered] = useState(false);
 
   return (
     <div style={{
@@ -80,44 +79,6 @@ const MobileMenus = () => {
       width: '100%',
       padding: '100px 40px 50px 40px',
     }}>
-      {/* Home Link */}
-      <Link 
-        href="/career-details-light"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '16px',
-          padding: '8px 0',
-          textDecoration: 'none',
-          borderBottom: '1px solid rgba(255,255,255,0.08)',
-        }}
-        onMouseEnter={() => setHomeHovered(true)}
-        onMouseLeave={() => setHomeHovered(false)}
-      >
-        <div style={{
-          width: '80px',
-          height: '80px',
-          borderRadius: '12px',
-          backgroundColor: homeHovered ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.05)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          transition: 'background-color 0.2s ease',
-        }}>
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={homeHovered ? '#fff' : 'rgba(255,255,255,0.6)'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'stroke 0.2s ease' }}>
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-        </div>
-        <span style={{
-          fontSize: '17px',
-          fontWeight: 400,
-          color: homeHovered ? '#fff' : 'rgba(255,255,255,0.6)',
-          transition: 'color 0.2s ease',
-        }}>
-          Home
-        </span>
-      </Link>
-
       {/* Case Studies Link */}
       <Link 
         href="/portfolio-horizontal-showcase-light"
