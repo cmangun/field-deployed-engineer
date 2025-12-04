@@ -23,6 +23,7 @@ export interface CaseStudyMetricBlock {
 export interface CaseStudySection {
   id: string;              // 'diagnose' | 'architect' | 'engineer' | 'enable' | 'impact'
   title: string;           // 'Diagnose - Why Pfizer Colab?'
+  eyebrow?: string;        // 'Phase 1 · 2 weeks' — appears above section title
   summary: string;         // 1-3 sentence narrative
   duration?: string;       // '3 months'
   kpiFocus?: string;       // 'Cycle time, search depth'
