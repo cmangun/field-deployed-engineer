@@ -13,7 +13,7 @@ import { pfizerCharts } from './pfizerData';
 
 export const binaxNowData: CaseStudyData = {
   slug: 'binaxnow',
-  brandLogo: '/assets/img/logo/Binax.png',
+  brandLogo: '/assets/img/logo/Abbott_Laboratories_logo.svg',
   title: 'Abbott – BinaxNOW Evaluation Backbone',
   subtitle: 'Diagnostic Evaluation Infrastructure',
   company: 'Abbott Labs',
