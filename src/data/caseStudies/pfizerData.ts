@@ -1,7 +1,7 @@
 // src/data/caseStudies/pfizerData.ts
 // ═══════════════════════════════════════════════════════════════════════════════
 // PFIZER CASE STUDY — NARRATIVE + CHART DATA
-// CoCo – Pfizer Enterprise Copilot RAG
+// Charlie: Pfizer Vaccines AI Content Engine
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import type {
@@ -17,217 +17,294 @@ import { chartColors } from '@/charts_D3/colors';
 // NARRATIVE DATA (CaseStudyData)
 // ═══════════════════════════════════════════════════════════════════════════════
 
-// ─────────────────────────────────────────────────────────────────────────────
-// PFIZER — CoCo Enterprise Copilot RAG (Narrative Meta)
-// ─────────────────────────────────────────────────────────────────────────────
 export const pfizerData: CaseStudyData = {
   slug: "pfizer",
   brandLogo: "/assets/img/logo/Pfizer_(2021).png",
-  title: "CoCo – Pfizer Enterprise Copilot RAG",
+  title: "Charlie: Pfizer Vaccines AI Content Engine",
   subtitle:
-    "A governed RAG copilot unifying 20+ systems across Pfizer, IPG, and Publicis to accelerate vaccines MLR, reduce cost, and prepare for AI-first operations.",
+    "Re-architecting global vaccines marketing across Pfizer, IPG, and Publicis with an AI-governed content platform.",
   company: "Pfizer",
   client: "Pfizer Vaccines Franchise (Paxlovid, Abrysvo, Comirnaty)",
-  role: "Forward-Deployed AI/ML Architect",
+  role: "Lead Architect / Forward Deployed Engineer",
   year: "2020–2024",
   services: [
-    "Diagnostics & Baseline",
-    "RAG & Copilot Architecture",
-    "ML Engineering & SRE",
-    "Change Management & Enablement",
+    "AI Architecture",
+    "RAG & Vector Search",
+    "MLR Workflow Optimization",
+    "Enterprise Integration",
+    "Change Management",
   ],
   heroImage: "/assets/img/case-studies/_showcase/Pfizerhero.png",
 
-  // EXECUTIVE SUMMARY (TOP BLOCK)
+  // HERO SECTION
+  hero: {
+    description:
+      `Pfizer's vaccines portfolio—including Paxlovid, Abrysvo, and Comirnaty—generated nearly $10B in revenue while operating under intense strain: quarterly label changes, global regulatory variation, and a split agency model across IPG and Publicis. Over five years, we designed and delivered "Charlie," a governed AI content engine that unified 20+ systems, accelerated MLR cycles by 65%, tripled throughput, and prepared Pfizer's vaccines business for AI-first production at global scale.`,
+    heroContext: {
+      client:
+        "Pfizer Vaccines franchise working across IPG (creative/PR) and Publicis (strategy, media, production).",
+      constraint:
+        "Quarterly strain updates, divergent regional approvals, 40+ languages, and a two-holding-company agency model created massive operational friction across 20+ fragmented systems.",
+      result:
+        `Built "Charlie," a single-source-of-truth AI content engine that reduced MLR cycle time from 42 to 14 days, tripled approved assets per month, and unlocked $2.08M in annual savings while strengthening global compliance and readiness.`,
+    },
+    heroMetrics: [
+      {
+        label: "MLR Cycle Time",
+        value: "42 → 14 days",
+        helperText: "-65% reduction in review cycle duration",
+      },
+      {
+        label: "Throughput",
+        value: "272 → 816 assets / mo",
+        helperText: "3× increase in approved content throughput",
+      },
+      {
+        label: "Annual Savings",
+        value: "$2.08M",
+        helperText: "Annualized, directly attributable savings",
+      },
+      {
+        label: "p95 Latency",
+        value: "850 → 280 ms",
+        helperText: "-67% improvement in AI response time",
+      },
+    ],
+  },
+
+  // EXECUTIVE SECTION
   executiveSummary: {
     client: "Pfizer Vaccines – Global Commercial, Medical, and Agencies",
     context:
       "Pfizer split its marketing business between IPG (creative/PR) and Publicis (strategy, media, production) while vaccines brands like Paxlovid, Abrysvo, and Comirnaty faced quarterly label updates, divergent regional approvals, and multilingual obligations across 150+ markets.",
     primaryConstraint:
-      "The system, not the people: 20+ fragmented tools, slow retrieval, and version collisions created a structurally slow MLR pipeline that blocked AI adoption.",
+      "Quarterly strain updates, divergent regional approvals, 40+ languages, and a two-holding-company agency model created massive operational friction across 20+ fragmented systems.",
     primaryProblem:
       "Even with significant agency and internal capacity, vaccines teams could not move fast enough on label changes, strain variants, and campaigns because no one had a single source of truth for approved content and claims.",
     solutionPattern:
-      "CoCo – a governed enterprise RAG copilot that sits on top of Veeva, SharePoint, Workfront, CLM, and Teams, orchestrating retrieval and drafting while enforcing MLR guardrails, regional rules, and full traceability.",
-    scope:
-      "End-to-end vaccines content lifecycle from brief → template selection → AI-assisted draft → MLR submission → approval → field deployment, with telemetry across each stage.",
-    engagementRole:
-      "Forward-deployed architect embedded with product managers, global marketing, MLR reviewers, Publicis and IPG teams, and platform engineering.",
-    impact: {
-      cycleTime:
-        "MLR review cycle reduced from ~42 days to ~14 days across piloted vaccines brands.",
-      throughput:
-        "3× increase in approved assets per month (272 → 816) under the same or greater regulatory load.",
-      cost:
-        "$2.08M+ annualized savings from reduced rework, shortened cycles, and agency efficiencies.",
-      risk:
-        "Zero MLR exceptions on CoCo-generated content; compliance SLAs held while volume increased.",
-    },
+      `Charlie – a governed AI content engine that sits above existing systems of record and orchestrates retrieval, drafting, and governance for vaccines content.`,
+    impactSummary:
+      "Reduced MLR cycle time by 65% (42→14 days), tripled throughput (272→816 assets/mo), unlocked $2.08M annual savings, and enabled AI/ML capabilities inside a fully auditable, regulator-ready architecture.",
   },
 
-  // PHASE META — Diagnose → Architect → Engineer → Enable → Impact
+  executiveSnapshot: {
+    headline:
+      "Unified vaccines content across Pfizer, IPG, and Publicis into a single AI-governed platform that could absorb quarterly scientific change without breaking compliance or capacity.",
+    keyOutcomes: [
+      `Designed and deployed "Charlie," a governed AI content engine over 20+ legacy systems.`,
+      "Reduced MLR review cycles for global vaccines content by 65% (42 → 14 days).",
+      "Tripled approved asset throughput (272 → 816 assets/month) under heavy regulatory load.",
+      "Enabled AI-assisted retrieval and drafting with >85% retrieval accuracy and 280 ms p95 latency.",
+      "Unlocked $2.08M annual savings via reduced rework, derivative content workflows, and agency efficiencies.",
+      "Created a scalable architecture ready for multi-brand, multi-market expansion.",
+    ],
+  },
+
+  // PHASES (5 FDE phases)
   phasesMeta: [
     {
-      key: "diagnose",
+      id: "diagnose",
       title: "Diagnose",
-      tagline: "Find the real constraint before scaling AI.",
+      tagline: "Surfacing the real bottlenecks beneath a billion-dollar vaccines engine.",
+      duration: "2 weeks",
       challenge:
-        "Pfizer, IPG, and Publicis relied on over 20 fragmented systems to move vaccines content from brief to field. Leadership suspected MLR capacity was the main bottleneck, but had no quantitative baseline.",
+        "Pfizer's vaccines content lifecycle was fragmented across more than 20 systems spanning Pfizer, IPG, Publicis, and regional agencies. No one could say with confidence whether MLR capacity, production bandwidth, or demand was the true constraint. Quarterly strain updates and regional regulatory differences exacerbated the problem, while content was constantly rebuilt instead of derived from approved sources.",
       outcome:
-        "A two-week diagnostic showed that 75% of delays came from search, retrieval, and version collisions, not reviewer headcount.",
-      summaryTitle: "From intuition to quantified bottlenecks.",
+        "Established a quantitative and qualitative baseline that showed the true constraint was not headcount, but fragmented search and retrieval inside the MLR pipeline.",
+      summaryTitle: "From intuition to a quantified problem statement.",
       summaryBody:
-        "We mapped the vaccines content lifecycle—brief → production → MLR → field deployment—across Pfizer, IPG, and Publicis. Log analysis, interviews, and process mapping surfaced systematic issues: assets were recreated instead of derived, regional teams pulled outdated content, and no one could reliably find the latest approved claims. The constraint was clearly the system, not the people.",
+        "Over two weeks, we mapped the end-to-end vaccines content flow—from initial brief through production, MLR review, and field deployment—across Pfizer, IPG, and Publicis. We combined interviews, process mapping, and log analysis to understand where delays and rework actually occurred. The result was a clear, data-backed picture: 75% of delays clustered in search, retrieval, and early MLR triage, and 40% of assets required multiple revision cycles due to content and claims being pulled from the wrong sources.",
       bullets: [
-        "Mapped end-to-end vaccines content flow across three organizations.",
-        "Measured search time, queue delays, and revision loops at each stage.",
-        "Found that ~75% of delay clustered in Search & Retrieval and early MLR triage.",
-        "Documented ~40% revision rate driven by version collisions and hard-to-find references.",
-        "Established that 20+ disconnected systems blocked realistic AI/RAG enablement.",
+        "Mapped content lifecycle from brief → production → MLR → field deployment across three organizations.",
+        "Measured search time, queue delays, and revision loops across multiple vaccines brands.",
+        "Showed 75% of delays occurred in Search & Retrieval and early MLR triage, not reviewer capacity.",
+        "Documented that ~40% of assets required multiple revision cycles, primarily due to retrieval failures and version collisions.",
+        "Confirmed that 20+ unconnected systems prevented any realistic AI/ML enablement.",
       ],
       deliverables: [
         "MLR Cycle-Time Baseline",
         "Content Funnel & Bottleneck Analysis",
         "RACI Accountability Map (Pfizer/IPG/Publicis)",
-        "AI/ML Risk Register",
+        "Risk Register for AI/ML Interventions",
       ],
-      kpiFocus: "Review cycle time, revision rate, search time",
+      kpiFocus: [
+        "Review cycle time (42 days baseline)",
+        "Revision rate (40% baseline)",
+        "Search and retrieval time per asset",
+      ],
       decisionOwner: "Commercial Operations",
+      chartKeys: ["funnel", "raciMatrix"],
     },
     {
-      key: "architect",
+      id: "architect",
       title: "Architect",
-      tagline: "Design CoCo as a governed enterprise RAG platform.",
+      tagline: "Designing Charlie, a unified AI content engine over 20+ systems.",
+      duration: "2 weeks",
       challenge:
-        "Design a copilot that could sit on top of Veeva Vault, SharePoint, Workfront, CLM, and Teams without creating a shadow system of record or violating medical–promo separation and regional regulations.",
+        "We needed an AI-ready architecture that could unify vaccines content across SharePoint, Veeva, Workfront, CLM/CRM, and agency systems without creating a shadow system of record or violating MLR constraints. Any solution had to respect medical–promo boundaries, data residency, and auditability, while handling quarterly label changes and global regulatory variants.",
       outcome:
-        "CoCo was architected as a governed datasphere and stateless RAG layer living fully inside Pfizer's compliance perimeter.",
-      summaryTitle: "A stateless orchestration layer over systems of record.",
+        `Designed "Charlie," a governed AI content platform that treats Veeva, CLM, and SharePoint as systems of record and orchestrates retrieval and drafting via a stateless, replaceable RAG layer.`,
+      summaryTitle: "A governed datasphere and stateless AI orchestration layer.",
       summaryBody:
-        "We defined CoCo as an orchestration engine, not a new content store. Veeva, SharePoint, Workfront, and CLM remained the systems of record; CoCo provided a single AI Content API and retrieval surface. Azure Cognitive Search and Azure OpenAI were used under strict data residency and governance constraints, with medical–promo separation, region and label filters, and explicit SLOs for accuracy, latency, and uptime.",
+        `In partnership with enterprise architecture, we designed Charlie as a "datasphere" and RAG engine that lives entirely inside Pfizer's compliance perimeter. Core content remains in existing systems—Veeva Vault for regulatory, SharePoint for document storage, Workfront for production, CLM/CRM for field deployment—while Charlie provides a single AI Content API that orchestrates retrieval, drafting, and governance. We defined clear integration contracts, C4 system diagrams, and non-functional requirements for latency, auditability, and data residency, with an explicit goal of resilience to model or vendor change.`,
       bullets: [
-        "Defined CoCo as a governed datasphere over Veeva, SharePoint, Workfront, CLM, and Teams.",
-        "Separated systems of record from AI behavior via a stateless RAG layer.",
-        "Embedded medical–promo separation and regional filters into retrieval and generation steps.",
-        "Set SLOs for retrieval accuracy (>85%), p95 latency (<350 ms), and uptime (>99.7%).",
-        "Produced C4 system-context diagrams and integration contracts across 5 core systems.",
+        "Defined Charlie as a governed datasphere over Veeva Vault, SharePoint, Workfront, CLM/CRM, and Teams.",
+        "Separated systems of record from AI orchestration via a stateless RAG layer.",
+        "Integrated Azure Cognitive Search and Azure OpenAI within Pfizer's security and data residency requirements.",
+        "Embedded medical–promo separation directly into the design of RAG filters and generation guardrails.",
+        "Established SLO targets for retrieval accuracy (>85%), p95 latency (<350 ms), and uptime (>99.7%).",
       ],
       deliverables: [
         "C4 System Context Diagram",
         "RAG Pipeline Blueprint",
-        "Integration & Data-Flow Contracts",
+        "Integration & Data-Flow Contracts (SharePoint, Veeva, Workfront, Teams, CLM/CRM)",
         "Architecture Decision Records (ADRs)",
       ],
-      kpiFocus: "Architecture sign-off, SLO definitions",
+      kpiFocus: ["Retrieval accuracy SLO", "Latency SLO", "Uptime SLO"],
       decisionOwner: "Enterprise Architecture",
+      chartKeys: ["systemContext", "ragPipeline"],
     },
     {
-      key: "engineer",
+      id: "engineer",
       title: "Engineer",
-      tagline: "Make the copilot behave like a tier-1 service.",
+      tagline: "Turning the architecture into a production-grade AI service.",
+      duration: "3 weeks",
       challenge:
-        "CoCo needed to support thousands of daily queries for vaccines brands with strict compliance tracing, multilingual fidelity, and low latency—all under MLR oversight.",
+        "We had to prove that Charlie could handle real Pfizer vaccines workloads, not just demos—under strict MLR, security, and regional constraints. The platform needed to support thousands of daily queries, maintain low latency, and provide full observability and traceability for every AI suggestion.",
       outcome:
-        "We implemented a production-ready RAG pipeline with hybrid search, hot-path caching, unified APIs, and full observability, achieving 280 ms p95 latency and 99.7% uptime.",
-      summaryTitle: "From architecture diagram to reliable service.",
+        "Built and deployed a production RAG co-pilot with clear SLOs, service-health dashboards, and incident paths, reducing p95 latency from 850 ms to ~280 ms and achieving 99.7% uptime.",
+      summaryTitle: "A tier-1 service with AI at the core and compliance at the edges.",
       summaryBody:
-        "We hardened CoCo with hybrid semantic + keyword search, a caching layer for hot paths, and a single AI Content API for all producers and reviewers. We implemented extensive logging, metrics, and tracing to treat CoCo like any other tier-1 service, with clear incident playbooks and SLOs. MLR guardrails and sentence-level audit trails ensured every suggestion could be traced back to its sources.",
+        "We implemented the RAG pipeline, AI Content API, and MLR gateway as a fully instrumented, tier-1 internal service. Hybrid semantic + keyword search, a cache layer for hot paths, and a centralized AI Content API ensured consistent performance and access control. We wired up service health dashboards for latency, uptime, and error rates, and established incident playbooks and on-call runbooks so Charlie could be operated like any other mission-critical platform.",
       bullets: [
-        "Implemented hybrid semantic + keyword retrieval tuned for vaccines content.",
-        "Deployed caching to reduce p95 latency from ~850 ms to ~280 ms.",
-        "Exposed a single AI Content API with role-aware and region-aware access.",
-        "Logged full lineage (source → prompt → output) for every AI suggestion.",
-        "Created service health dashboards and on-call runbooks for SLO breaches.",
+        "Implemented hybrid semantic + keyword search with aggressive caching on hot paths.",
+        "Exposed a single AI Content API with role-aware access control and brand/region scoping.",
+        "Instrumented end-to-end service health: uptime, latency percentiles, error rates.",
+        "Added an MLR gateway that enforces guardrails and logs every AI suggestion for auditability.",
+        "Established incident management playbooks and on-call procedures for SLO breaches.",
       ],
       deliverables: [
         "Production RAG Pipeline",
         "AI Content API",
-        "Service Health & Latency Dashboards",
-        "Incident & On-Call Runbooks",
+        "Service-Health & Latency Dashboards",
+        "Incident Playbooks & On-Call Runbooks",
       ],
-      kpiFocus: "p95 latency, uptime, error rate",
+      kpiFocus: ["p95 latency", "Uptime", "Daily queries / throughput"],
       decisionOwner: "Platform Engineering",
+      chartKeys: ["serviceHealth", "latencyPercentiles", "dataQuality", "modelCard"],
     },
     {
-      key: "enable",
+      id: "enable",
       title: "Enable",
-      tagline: "If no one uses it, it does not exist.",
+      tagline: "Equipping producers, reviewers, and agencies to operate Charlie at scale.",
+      duration: "3 weeks",
       challenge:
-        "CoCo would only matter if content producers, MLR reviewers, and agency teams actually used it. Publicis also needed to onboard ~1,000 new hires in five months before key vaccines windows.",
+        "Without meaningful adoption from content producers, brand teams, MLR reviewers, and agencies, Charlie would become another unused AI experiment. Publicis also faced a steep hiring and onboarding curve—scaling to ~1,000 staff—to service Pfizer's portfolio with limited time before flu season.",
       outcome:
-        "We embedded CoCo into existing tools, redesigned journeys, and trained >200 users with 94% completion and a 4.2/5 satisfaction score.",
-      summaryTitle: "From tool to operational companion.",
+        `Embedded Charlie (branded "CoCo – the Company Companion") into existing tools and workflows, onboarded 200+ users with 94% training completion, and achieved a 4.2/5 satisfaction score.`,
+      summaryTitle: "From platform launch to a living operating system for vaccines content.",
       summaryBody:
-        "We branded the copilot as CoCo – the Company Companion and placed it directly inside Teams and CLM workflows. Producer and reviewer journeys were redesigned around AI-assisted search and pre-review. Just-in-time training, office hours, and telemetry-driven UX updates converted CoCo from an experiment into the default operating surface for vaccines content.",
+        "We focused on the human side of the system: redesigning the producer journey, embedding CoCo within Teams and CLM surfaces, and creating targeted onboarding for new Publicis hires and existing Pfizer/IPG users. Journey mapping revealed three major friction points, which we resolved through just-in-time training, in-context help, and simplified flows. CoCo became the default way to search, draft, and pre-review vaccines content, rather than an optional AI add-on.",
       bullets: [
-        "Embedded CoCo into Teams and CLM/CRM surfaces already used by vaccines teams.",
-        "Redesigned the producer journey to include AI-assisted search and pre-review steps.",
-        "Trained >200 users across Pfizer, IPG, and Publicis with 94% completion.",
-        "Created power-user and MLR champion tracks to seed expertise.",
-        "Monitored adoption and friction via org health dashboards and user telemetry.",
+        `Branded the co-pilot as "CoCo – the Company Companion" and embedded it into Teams and CLM flows.`,
+        "Redesigned the producer journey with AI-assisted search and pre-review steps.",
+        "Ran hands-on training for 200+ users across Pfizer, IPG, and Publicis.",
+        "Created a power-user program for platform admins and MLR champions.",
+        "Established monthly office hours and playbook updates based on real usage patterns.",
       ],
       deliverables: [
         "Producer Journey & UX Flows",
         "Training & Governance Playbook",
         "Org-Adoption & Health Dashboard",
       ],
-      kpiFocus: "User activation, satisfaction, training completion",
+      kpiFocus: ["User activation", "Training completion", "User satisfaction"],
       decisionOwner: "Learning & Development",
+      chartKeys: ["journeyMap", "orgHealth"],
     },
     {
-      key: "impact",
+      id: "impact",
       title: "Impact",
-      tagline: "Turn a project into a platform.",
+      tagline: "Quantifying ROI and preparing for multi-brand, multi-market expansion.",
+      duration: "2 weeks",
       challenge:
-        "Pfizer leadership required hard ROI and a clear expansion story beyond vaccines to justify ongoing investment in CoCo.",
+        "Leadership needed hard evidence that Charlie delivered durable value and could scale beyond vaccines into other therapeutic areas. ROI had to be expressed in cycle time, throughput, and dollars saved—not anecdotes.",
       outcome:
-        "We quantified cycle-time reduction, throughput gains, and cost savings, and produced a multi-brand expansion roadmap.",
-      summaryTitle: "A new center of gravity for vaccines content.",
+        "Demonstrated a 65% reduction in MLR cycle time, 3× asset throughput, $2.08M annualized savings, and a clear roadmap for expansion into additional brands and markets.",
+      summaryTitle: "From project to platform: Charlie as Pfizer's vaccines content backbone.",
       summaryBody:
-        "CoCo reduced MLR cycle time from 42 to 14 days, tripled approved asset throughput, and delivered $2.08M in annualized savings. Data completeness improved to 96%, and telemetry supported a clear expansion plan into additional therapeutic areas. CoCo became not just an AI pilot but Pfizer's enterprise vaccines content backbone.",
+        "Using telemetry from Charlie's service layer and MLR workflow data, we built an ROI model that decomposed savings into cycle-time reduction, revision-loop reduction, agency fee optimization, and producer/reviewer time recovered. We then mapped these gains into a phase-2 expansion plan across additional therapeutic areas. Charlie emerged not as a one-off AI initiative, but as Pfizer's new center of gravity for AI-enabled content operations.",
       bullets: [
-        "Reduced MLR review cycles from 42 → 14 days (-65%).",
-        "Increased approved assets from 272 → 816 per month (3×).",
-        "Realized $2.08M in annualized savings.",
-        "Improved data completeness from ~72% → 96% with automated quality gates.",
-        "Defined an expansion roadmap for 5+ additional therapeutic areas.",
+        "Reduced MLR review cycle time from 42 to 14 days (-65%).",
+        "Increased approved asset throughput from 272 to 816 assets per month (3×).",
+        "Unlocked $2.08M in annual savings across production, review, and agency costs.",
+        "Improved data completeness from 72% to 96% with automated quality gates.",
+        "Defined an expansion roadmap to extend Charlie to 5+ additional therapeutic areas.",
       ],
       deliverables: [
         "ROI Waterfall & Savings Model",
-        "Unit Economics Model",
-        "Usage Seasonality & Capacity Planning",
+        `Unit-Economics Model ("per asset" economics)`,
+        "Usage Seasonality & Capacity Planning Report",
         "Executive KPI Grid & Expansion Roadmap",
       ],
-      kpiFocus: "Cycle time, throughput, savings, expansion readiness",
+      kpiFocus: [
+        "Cycle time reduction",
+        "Throughput (assets/month)",
+        "Annualized savings",
+        "Expansion readiness",
+      ],
       decisionOwner: "Product / Finance",
+      chartKeys: ["waterfall", "unitEconomics", "calendarHeatmap", "sparklineGrid"],
     },
   ],
 
-  // LEGACY / SUMMARY FIELDS (for template footer)
+  // LEGACY FIELDS (for backward compatibility)
   challenge: {
-    title: "Slow, fragmented vaccines MLR pipeline",
+    title: "Challenge",
     description:
-      "Pfizer, IPG, and Publicis teams were constrained by fragmented systems, slow retrieval, and high revision rates while managing quarterly label changes and global vaccines launches.",
+      "A fragmented vaccines content ecosystem across Pfizer, IPG, and Publicis struggled to keep pace with quarterly strain updates, global regulatory differences, and blockbuster launch pressure.",
     points: [
-      "42-day average MLR review cycle time for vaccines brands.",
-      "2,450+ assets per quarter entering some form of review.",
-      "~40% revision rate driven by version collisions and poor retrieval.",
+      "20+ disconnected systems across three organizations",
+      "42-day average MLR review cycle",
+      "40% of assets required multiple revision cycles",
+      "No single source of truth for approved content",
     ],
   },
   approach: {
-    title: "CoCo – a governed enterprise copilot RAG platform",
+    title: "Approach",
     description:
-      "Acted as a forward-deployed architect to diagnose bottlenecks, design CoCo as a governed RAG engine over existing systems, and deploy it as a tier-1 service with full observability and governance.",
+      "Acted as a forward deployed architect embedded across product, marketing, agencies, and MLR to diagnose bottlenecks, design Charlie as a governed AI content engine, and lead its implementation as a tier-1 internal service.",
+    points: [
+      "Embedded across Pfizer, IPG, and Publicis as forward deployed engineer",
+      "Diagnosed real constraints via logs, process mapping, and interviews",
+      "Designed governed AI platform respecting MLR and compliance requirements",
+      "Led implementation with full observability and incident management",
+    ],
   },
   solution: {
-    title: "Unified, AI-enabled vaccines content engine",
+    title: "Solution",
     description:
-      "CoCo unified 20+ systems into a single AI-governed content layer, enabling fast, accurate, and compliant vaccines content in 40+ languages and 150+ markets.",
+      `Charlie unified 20+ systems into a single AI-governed content platform, enabling fast, accurate, and compliant vaccines content creation across 40+ languages, multiple regions, and a complex agency model.`,
+    points: [
+      "Stateless RAG layer over Veeva, SharePoint, Workfront, CLM/CRM",
+      "Hybrid semantic + keyword search with brand/region filters",
+      "MLR gateway with guardrails and full audit logging",
+      "Embedded in Teams and CLM for seamless user adoption",
+    ],
+    tools: [
+      { label: "Azure OpenAI", value: "GPT-4 Turbo" },
+      { label: "Azure Cognitive Search", value: "Hybrid search" },
+      { label: "Veeva Vault", value: "MLR workflow" },
+      { label: "Microsoft Teams", value: "CoCo interface" },
+    ],
   },
   results: {
-    title: "Enterprise-grade impact",
-    description:
-      "65% faster MLR reviews, 3× throughput, $2.08M annual savings, and a scalable pattern for future AI platforms at Pfizer.",
+    title: "Results",
+    metrics: [
+      { value: "65%", label: "Reduction in MLR cycle time" },
+      { value: "3×", label: "Increase in approved assets/month" },
+      { value: "$2.08M", label: "Annual savings" },
+      { value: "280ms", label: "p95 latency (from 850ms)" },
+    ],
   },
   testimonial: "",
   nextCaseStudy: "abbott-binaxnow-diagnostic-platform",
@@ -244,8 +321,8 @@ export const pfizerData: CaseStudyData = {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const funnel = [
-  { stage: 'Assets Created', value: 2450, color: chartColors.charcoal },
-  { stage: 'Search & Retrieval', value: 1470, color: chartColors.gray },
+  { stage: 'Assets Created', value: 2500, color: chartColors.charcoal },
+  { stage: 'Search & Retrieval', value: 1500, color: chartColors.gray },
   { stage: 'Draft Complete', value: 1100, color: chartColors.charcoal },
   { stage: 'MLR Submitted', value: 980, color: chartColors.gray },
   { stage: 'First-Pass Approved', value: 590, color: chartColors.charcoal },
@@ -287,7 +364,7 @@ const raciMatrix = {
 
 const systemContext: SystemContextData = {
   system: {
-    name: 'AI Content Engine',
+    name: 'Charlie / CoCo AI Content Engine',
     description: 'Governed RAG and drafting layer for MLR-sensitive content',
     type: 'Software System',
   },
@@ -309,13 +386,14 @@ const systemContext: SystemContextData = {
 
 const ragPipeline = {
   sections: [
-    { id: 'ingestion', name: 'Ingest', color: chartColors.navy || '#1a365d', components: [{ id: 'ingest', name: 'Ingest', icon: '📄', desc: 'Ingest approved assets, templates, and claims from systems of record.' }] },
-    { id: 'indexing', name: 'Index', color: chartColors.purple || '#553c9a', components: [{ id: 'index', name: 'Index', icon: '⬡', desc: 'Chunk, embed, and index content with claims-aware metadata.' }] },
-    { id: 'retrieval', name: 'Retrieve', color: chartColors.teal || '#0d9488', components: [{ id: 'retrieve', name: 'Retrieve', icon: '⟐', desc: 'Hybrid semantic + keyword retrieval with brand and region filters.' }] },
-    { id: 'generation', name: 'Generate', color: chartColors.orange || '#dd6b20', components: [{ id: 'generate', name: 'Generate', icon: '★', desc: 'LLM drafts content with explicit citations and claim references.' }] },
-    { id: 'review', name: 'Review', color: chartColors.green || '#38a169', components: [{ id: 'review', name: 'Review', icon: '✓', desc: 'Producers and MLR reviewers inspect, edit, and approve drafts.' }] },
+    { id: 'ingestion', name: 'Ingest', color: chartColors.navy || '#1a365d', components: [{ id: 'ingest', name: 'Ingestion', icon: '📄', desc: 'Pull content from SharePoint, Veeva, Workfront into staging.' }] },
+    { id: 'normalize', name: 'Normalize', color: chartColors.purple || '#553c9a', components: [{ id: 'normalize', name: 'Normalization & Enrichment', icon: '⬡', desc: 'Clean, tag, and enrich with brand/region/label metadata.' }] },
+    { id: 'indexing', name: 'Index', color: chartColors.teal || '#0d9488', components: [{ id: 'index', name: 'Indexing', icon: '⟐', desc: 'Create hybrid lexical + vector indices with freshness checks.' }] },
+    { id: 'retrieval', name: 'Retrieve', color: chartColors.orange || '#dd6b20', components: [{ id: 'retrieve', name: 'Retrieval', icon: '★', desc: 'Retrieve top-k candidates with filters for brand, region, language, and label version.' }] },
+    { id: 'generation', name: 'Generate', color: chartColors.green || '#38a169', components: [{ id: 'generate', name: 'Generation', icon: '✦', desc: 'Draft suggestions with Azure OpenAI under prompt and policy guardrails.' }] },
+    { id: 'mlr-gateway', name: 'MLR Gateway', color: chartColors.red || '#e53e3e', components: [{ id: 'mlr-gateway', name: 'MLR Gateway', icon: '✓', desc: 'Apply hard guardrails, log every suggestion, and route to human review.' }] },
   ],
-  flows: [{ from: 'ingest', to: 'index' }, { from: 'index', to: 'retrieve' }, { from: 'retrieve', to: 'generate' }, { from: 'generate', to: 'review' }],
+  flows: [{ from: 'ingest', to: 'normalize' }, { from: 'normalize', to: 'index' }, { from: 'index', to: 'retrieve' }, { from: 'retrieve', to: 'generate' }, { from: 'generate', to: 'mlr-gateway' }],
   metrics: [
     { name: 'Relevance', value: 0.91, desc: 'Retrieved doc relevance' },
     { name: 'Faithfulness', value: 0.96, desc: 'Citations verified' },
@@ -404,7 +482,7 @@ const journeyMap: JourneyMapData = {
     },
     {
       id: 'draft', name: 'AI-Assisted Draft', icon: '/assets/SVG/Light Bulb.svg', color: chartColors.orange || '#dd6b20', duration: '2–3 days',
-      touchpoints: [{ channel: 'AI Content Engine', type: 'owned' as const }, { channel: 'SharePoint', type: 'owned' as const }],
+      touchpoints: [{ channel: 'Charlie AI Engine', type: 'owned' as const }, { channel: 'SharePoint', type: 'owned' as const }],
       actions: ['Draft content using templates', 'Use CoCo suggestions'],
       thoughts: ['"This is much faster than starting from scratch"', '"The AI remembers our brand voice"'],
       emotions: { score: 4, label: 'Optimistic' },
@@ -478,7 +556,7 @@ const waterfall = [
   { label: 'Agency Fee Savings', value: -0.38, type: 'decrease' as const },
   { label: 'Producer Hour Recovery', value: -0.25, type: 'decrease' as const },
   { label: 'Reviewer Bandwidth', value: -0.12, type: 'decrease' as const },
-  { label: 'Net Annual Cost', value: 2.08, type: 'total' as const },
+  { label: 'Net Annual Cost', value: 2.12, type: 'total' as const },
 ];
 
 const unitEconomics = {
@@ -549,7 +627,7 @@ const gantt = [
 // ─────────────────────────────────────────────────────────────────────────────
 
 const modelCard = {
-  model: { name: 'Pfizer Content Assistant', version: '1.2.0', type: 'RAG + GPT-4 Turbo', lastUpdated: 'Oct 2024', owner: 'AI Platform Team', status: 'Production' },
+  model: { name: 'Charlie Content Assistant', version: '1.2.0', type: 'RAG + GPT-4 Turbo', lastUpdated: 'Oct 2024', owner: 'AI Platform Team', status: 'Production' },
   description: 'AI assistant for accelerating promotional content creation while maintaining MLR compliance. Uses RAG pipeline over approved SharePoint assets with GPT-4 generation.',
   intendedUse: {
     primary: ['Draft promotional content', 'Search approved templates', 'Pre-check compliance issues'],
