@@ -101,15 +101,22 @@ export interface CaseStudyExecutiveSummary {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PHASE NARRATIVE META — Challenge/Outcome per phase
+// PHASE NARRATIVE META — Challenge/Outcome per phase (Extended)
 // ─────────────────────────────────────────────────────────────────────────────
 export type PhaseKey = 'diagnose' | 'architect' | 'engineer' | 'enable' | 'impact';
 
 export interface PhaseNarrativeMeta {
     key: PhaseKey;
     title: string;
+    tagline?: string;
     challenge: string;
     outcome: string;
+    summaryTitle?: string;
+    summaryBody?: string;
+    bullets?: string[];
+    deliverables?: string[];
+    kpiFocus?: string;
+    decisionOwner?: string;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

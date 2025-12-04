@@ -56,15 +56,13 @@ const normalizedRegistry: Record<string, NormalizedCaseStudy> = {
 
 export const caseStudyConfigs: Record<string, CaseStudyConfig> = {
   // ═══════════════════════════════════════════════════════════════════════════
-  // PFIZER QUARTET — Focused single-phase case studies
+  // PFIZER — Full E2E Case Study (Diagnose → Architect → Engineer → Enable → Impact)
   // ═══════════════════════════════════════════════════════════════════════════
-  // 1. Pfizer — Diagnostic Search Baseline (Diagnose-only)
-  "pfizer": { slug: "pfizer", study: pfizerDiagnoseData, charts: pfizerDiagnoseCharts },
-  // 2. Pfizer — Architecture Colab Datasphere (Architect-only)
+  "pfizer": { slug: "pfizer", study: pfizerData, charts: pfizerCharts },
+  // Legacy Pfizer Quartet (kept for backwards compatibility)
+  "pfizer-diagnose": { slug: "pfizer-diagnose", study: pfizerDiagnoseData, charts: pfizerDiagnoseCharts },
   "colab": { slug: "colab", study: colabArchitectData, charts: colabArchitectCharts },
-  // 3. Pfizer — RAG Co-Pilot Engineering (Engineer-only)
   "pfizer-pipeline": { slug: "pfizer-pipeline", study: pfizerPipelineData, charts: pfizerPipelineCharts },
-  // 4. Pfizer — CoCo Company Companion (Enable-only)
   "coco": { slug: "coco", study: cocoData, charts: cocoCharts },
   // ═══════════════════════════════════════════════════════════════════════════
   // OTHER CASE STUDIES

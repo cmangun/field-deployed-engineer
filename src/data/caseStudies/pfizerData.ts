@@ -1,15 +1,15 @@
 // src/data/caseStudies/pfizerData.ts
 // ═══════════════════════════════════════════════════════════════════════════════
 // PFIZER CASE STUDY — NARRATIVE + CHART DATA
-// Complete data bundle for the Pfizer AI Content Engine case study
+// Unified end-to-end story: Diagnose → Architect → Engineer → Enable → Impact
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import type { 
-  CaseStudyData, 
+import type {
+  CaseStudyData,
   CaseStudyCharts,
   SystemContextData,
   JourneyMapData,
-  DataQualityData 
+  DataQualityData,
 } from '@/types/caseStudy';
 import { chartColors } from '@/charts_D3/colors';
 
@@ -21,103 +21,216 @@ export const pfizerData: CaseStudyData = {
   slug: 'pfizer',
   brandLogo: '/assets/img/logo/Pfizer_(2021).png',
   title: 'Pfizer AI Content Engine',
-  subtitle: 'AI/ML Engineering',
+  subtitle: 'Diagnostics → Architecture → Production → Enablement',
   company: 'Pfizer',
-  client: 'Pfizer Global Production',
-  role: 'Lead AI/ML Engineer',
+  client: 'Pfizer Global Commercial & Digital',
+  role: 'Forward-Deployed AI/ML Engineer',
   year: '2024',
-  services: ['AI/ML Engineering', 'RAG Pipeline', 'System Integration', 'Change Management'],
+  services: [
+    'Diagnostics & Baseline',
+    'RAG Architecture',
+    'ML Engineering & SRE',
+    'Change Management',
+  ],
   heroImage: '/assets/img/case-studies/pfizer/hero.jpg',
-  overview: 'Reduced MLR review cycles by 65% (42 → 14 days), tripled approved AI-assisted content, and unlocked $2M+ annual savings with a governed AI content engine embedded in existing CLM/CRM workflows.',
 
-  // Three-line hero context (replaces complex executive header)
+  overview:
+    "Reduced MLR review cycles by 65% (42 → 14 days), tripled approved AI-assisted content, and unlocked $2M+ annual savings by building a governed AI content engine that sits inside Pfizer's existing CLM/CRM stack.",
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // HERO CONTEXT
+  // ─────────────────────────────────────────────────────────────────────────────
   heroContext: {
-    client: 'Global top-5 pharma; commercial & digital teams operating under MLR governance.',
-    constraint: '4–6 week review cycles and fragmented retrieval made AI experimentation too slow and expensive.',
-    result: '65% faster approvals, 3× throughput, $2M+ in annual savings, and zero MLR exceptions (≥99% compliance SLA).'
+    client:
+      'Global top-5 pharma; commercial, medical, and digital teams operating under strict MLR governance.',
+    constraint:
+      'Campaign content moved on 4–6 week cycles with high revision rates and scattered templates, making AI experimentation too slow and expensive.',
+    result:
+      '65% faster review cycles, 3× throughput in approved AI-assisted content, and >$2M annual savings with zero MLR exceptions.',
   },
 
-  // Metrics row under hero
   heroMetrics: [
     { label: 'Cycle Time', value: '42 → 14 days', delta: '-65%' },
-    { label: 'Throughput', value: '3×', delta: 'approved AI-assisted content' },
-    { label: 'Savings', value: '$2M+', delta: 'annualized' }
+    { label: 'Throughput', value: '272 → 816 assets/mo', delta: '3×' },
+    { label: 'Savings', value: '$2.08M', delta: 'annualized' },
   ],
 
+  // ─────────────────────────────────────────────────────────────────────────────
+  // EXECUTIVE SNAPSHOT
+  // ─────────────────────────────────────────────────────────────────────────────
   executiveSnapshot: {
-    headline: '65% faster MLR cycles, $2M+ annual savings',
+    headline: 'From 42-day cycles to 14-day AI-assisted approvals.',
     keyOutcomes: [
-      '42→14 day review cycles',
-      '3× throughput increase',
-      '200+ users onboarded',
-      '5 systems integrated'
-    ]
+      '65% reduction in MLR cycle time',
+      '3× increase in approved AI-assisted assets',
+      '$2.08M+ annual cost savings',
+      'Zero MLR exceptions; ≥99% compliance SLA',
+    ],
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // EXECUTIVE SUMMARY — Full case study context block
+  // EXECUTIVE SUMMARY
   // ─────────────────────────────────────────────────────────────────────────────
   executiveSummary: {
-    client: 'Global Top-5 Pharma',
-    context: 'Commercial / Digital – MLR-governed content at global scale',
-    primaryConstraint: 'Medical–Legal–Regulatory (MLR) review time and risk tolerance',
-    primaryProblem: 'Campaign content cycles were too slow and expensive to justify AI-driven experimentation.',
-    solutionPattern: 'Governed AI Content Engine: RAG + structured templates + human-in-the-loop MLR review, plugged into existing CLM and CRM surfaces.',
-    scope: 'Salesforce, CLM platform, content asset library, MLR workflow, field enablement reporting.',
-    engagementRole: 'Forward-Deployed Engineer embedded with Commercial, MLR, and Platform teams.',
+    client: 'Pfizer – Global Commercial & Digital',
+    context:
+      'Commercial and medical teams depended on a complex mix of CLM, CRM, asset libraries, and MLR workflows to launch and sustain promotional campaigns.',
+    primaryConstraint:
+      'MLR review time and fragmented retrieval – not demand – were the binding constraints on campaign velocity and AI adoption.',
+    primaryProblem:
+      'AI and automation pilots could not scale because no one could prove they would relieve the true bottleneck instead of just adding more work to an already overloaded MLR queue.',
+    solutionPattern:
+      'A governed AI content engine: retrieval-augmented generation (RAG) plus structured templates and human-in-the-loop MLR review, fully embedded in existing CLM/CRM workflows.',
+    scope:
+      'End-to-end pipeline from brief → template selection → draft → MLR submission → approval → field deployment, with telemetry and SLOs across each stage.',
+    engagementRole:
+      'Field-embedded engineer partnering with Commercial Ops, MLR, Platform Engineering, and Enterprise Architecture.',
     impact: {
-      cycleTime: 'Content review cycle reduced from ~45 days to ~14 days.',
+      cycleTime: 'Review cycle reduced from ~42 days to ~14 days across piloted brands.',
       throughput: '3× increase in approved AI-assisted content throughput.',
-      cost: '$2M+ annualized savings from reduced agency/producer spend.',
-      risk: 'Zero MLR exceptions; compliance SLA maintained ≥99%.',
+      cost: '$2.08M+ annualized savings from reduced agency hours, rework, and producer time.',
+      risk: 'Zero MLR exceptions; compliance SLA held at ≥99% while volume increased.',
     },
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // PHASE NARRATIVE META — Challenge/Outcome per phase
+  // PHASE META — Diagnose → Architect → Engineer → Enable → Impact
   // ─────────────────────────────────────────────────────────────────────────────
   phasesMeta: [
     {
       key: 'diagnose',
       title: 'Diagnose',
-      challenge: 'We did not know whether AI initiatives were constrained by demand, MLR review, or production capacity.',
-      outcome: 'Diagnostics showed that MLR cycle time and fragmented content workflows were the binding constraints.',
+      tagline: 'Find the real constraint before building anything.',
+      challenge:
+        'The organization did not know whether AI initiatives were constrained by demand, MLR review capacity, or production throughput.',
+      outcome:
+        'Diagnostics showed that search, retrieval, and revision loops inside the MLR pipeline were the binding constraints.',
+      summaryTitle: 'Baseline the MLR content pipeline.',
+      summaryBody:
+        'By combining interviews, process mapping, and log analysis, we established a quantitative baseline for review cycles, revision rates, and search time across three priority brands.',
+      bullets: [
+        'Mapped end-to-end content flow from brief to field deployment.',
+        'Measured search time, queue delays, and revision loops at each stage.',
+        'Showed that 75% of delays clustered in Search & Retrieval and early MLR triage.',
+        'Documented that ~40% of assets required multiple revision cycles.',
+      ],
+      deliverables: [
+        'MLR cycle-time baseline',
+        'Content funnel & bottleneck analysis',
+        'RACI accountability map',
+        'Risk register for AI interventions',
+      ],
+      kpiFocus: 'Review cycle time & revision rate',
+      decisionOwner: 'Commercial Operations',
     },
     {
       key: 'architect',
       title: 'Architect',
-      challenge: 'We needed an AI system that could plug into existing CLM/CRM and survive MLR scrutiny without disrupting controls.',
-      outcome: 'We designed a governed RAG content engine that kept Salesforce/CLM as system of record and made the AI layer stateless and replaceable.',
+      tagline: 'Design the smallest compliant surface area that can scale.',
+      challenge:
+        'We needed an AI system that could plug into existing CLM/CRM and survive MLR scrutiny without becoming a shadow system of record.',
+      outcome:
+        'Designed a governed "datasphere" and RAG engine that kept Salesforce/CLM as system of record and treated the AI layer as stateless and replaceable.',
+      summaryTitle: 'Colab datasphere and governed RAG architecture.',
+      summaryBody:
+        'We defined a Colab datasphere pattern where content lives in existing stores (SharePoint, Veeva, Workfront) while the AI engine orchestrates retrieval and drafting under explicit compliance boundaries.',
+      bullets: [
+        'C4 system-context diagram with five external integrations.',
+        'Explicit separation of systems of record vs. AI orchestration layer.',
+        'Integration contracts for SharePoint, Veeva Vault, Workfront, Teams, and Azure OpenAI.',
+        'Non-functional requirements defined for latency, auditability, and data residency.',
+      ],
+      deliverables: [
+        'C4 system-context diagram',
+        'RAG pipeline blueprint',
+        'Integration & data-flow contracts',
+        'Architecture decision records (ADRs)',
+      ],
+      kpiFocus: 'Architecture sign-off',
+      decisionOwner: 'Enterprise Architecture',
     },
     {
       key: 'engineer',
       title: 'Engineer',
-      challenge: 'We had to prove reliability and performance at production scale, not just in a demo environment.',
-      outcome: 'Service health, model documentation, latency and data quality metrics showed stable production behaviour under real workloads.',
+      tagline: 'Turn a diagram into a service that behaves under load.',
+      challenge:
+        'We had to prove the RAG co-pilot could handle real workloads, not just demos, while respecting strict MLR and security constraints.',
+      outcome:
+        'Built a production RAG co-pilot with clear SLOs, service-health dashboards, and incident paths, reducing p95 latency from 850ms to ~280ms and reaching 99.7% uptime.',
+      summaryTitle: 'Production RAG co-pilot with SLOs.',
+      summaryBody:
+        'We implemented the RAG pipeline, instrumented it like any other tier-1 service, and exposed a single AI content API with role-aware access and MLR-aware guardrails.',
+      bullets: [
+        'Hybrid search (semantic + keyword) with caching on hot paths.',
+        'Single AI Content API with role-aware access control.',
+        'End-to-end service health instrumentation (uptime, latency, error rate).',
+        'MLR gateway checks and audit logging for every AI suggestion.',
+      ],
+      deliverables: [
+        'Production RAG pipeline',
+        'AI Content API',
+        'Service-health & latency dashboard',
+        'Incident playbooks & on-call runbooks',
+      ],
+      kpiFocus: 'p95 latency, uptime, and error rate',
+      decisionOwner: 'Platform Engineering',
     },
     {
       key: 'enable',
       title: 'Enable',
-      challenge: 'Without adoption by MLR and field teams, the platform would become another unused AI experiment.',
-      outcome: 'Journey and org-health metrics showed cross-team adoption and satisfaction, with MLR and field partners actively using the engine.',
+      tagline: 'If no one uses it, it does not exist.',
+      challenge:
+        'Without adoption by MLR reviewers, brand teams, and producers, the engine would become yet another unused AI experiment.',
+      outcome:
+        'Embedded the co-pilot into existing tools, trained producers and admins, and reached >200 active users with 94% training completion and 4.2/5 satisfaction.',
+      summaryTitle: 'CoCo – the Company Companion.',
+      summaryBody:
+        'We branded and deployed the co-pilot as "CoCo – the Company Companion," embedded directly in Teams and CLM surfaces with targeted onboarding journeys.',
+      bullets: [
+        'Producer journey redesign focused on search and pre-review.',
+        'Hands-on training for 200+ content producers.',
+        'Power-user track for platform admins and MLR champions.',
+        'Monthly office hours and playbook updates based on real use.',
+      ],
+      deliverables: [
+        'Producer journey & UX flows',
+        'Training & governance playbook',
+        'Org-adoption & health dashboard',
+      ],
+      kpiFocus: 'User activation & satisfaction',
+      decisionOwner: 'Learning & Development',
     },
     {
       key: 'impact',
       title: 'Impact',
-      challenge: 'We needed to show that infrastructure and change-management investment produced defendable ROI.',
-      outcome: 'Waterfall, unit-economics, seasonality and trend charts demonstrated durable savings and an expansion path without infra step-function costs.',
+      tagline: 'Prove the economics, then expand.',
+      challenge:
+        'Leaders needed durable ROI proof to justify ongoing investment and expansion into additional therapeutic areas.',
+      outcome:
+        'Showed 65% cycle-time reduction, 3× throughput, and $2.08M in annual savings with a clear path to multi-brand expansion.',
+      summaryTitle: 'From pilot economics to portfolio impact.',
+      summaryBody:
+        'We translated performance and usage telemetry into an executive-level ROI model and expansion roadmap tied directly to cycle time, volume, and rework savings.',
+      bullets: [
+        'Cost waterfall decomposing where savings actually came from.',
+        'Unit-economics model at the "per asset" level.',
+        'Usage seasonality and trend analysis across quarters.',
+        'Phase-2 roadmap for 5+ additional therapeutic areas.',
+      ],
+      deliverables: [
+        'ROI waterfall & savings model',
+        'Unit-economics model',
+        'Usage seasonality report',
+        'Executive KPI grid',
+      ],
+      kpiFocus: 'ROI & expansion readiness',
+      decisionOwner: 'Product & Finance',
     },
   ],
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // PATTERN GENERALIZATION — How this pattern generalizes
+  // PHASES — Detailed phase sections
   // ─────────────────────────────────────────────────────────────────────────────
-  patternGeneralization: {
-    bestFitEnvironments: 'Regulated, high-volume content workflows – pharma, med-device, payer, and financial marketing teams with MLR or similar review boards.',
-    corePrimitives: 'Governed RAG, curated asset library, approval-workflow hooks, production observability, and clear SLOs aligned to review SLAs.',
-    whatYouNeedReady: 'Clean content sources, defined review process, and 1–2 pilot teams willing to co-design workflows around the AI content engine.',
-  },
-
   phases: {
     diagnose: {
       id: 'diagnose',
@@ -130,7 +243,7 @@ export const pfizerData: CaseStudyData = {
         '2,450+ assets per quarter entering MLR review',
         'Pain point: 25+ min searching for relevant templates'
       ],
-      deliverables: ['MLR Cycle-Time Baseline', 'Bottleneck & Revision Analysis', 'Accountability Map'],
+      deliverables: ['MLR Cycle-Time Baseline', 'Content Funnel & Bottleneck Analysis', 'RACI Accountability Map'],
       metrics: [
         { value: '42', numericValue: 42, suffix: ' days', label: 'Avg Review Cycle' },
         { value: '2,450+', label: 'Assets/Quarter' },
@@ -148,7 +261,7 @@ export const pfizerData: CaseStudyData = {
         'Brand/region filtering for multi-therapeutic support',
         'Compliance gates ensure human reviewer authority'
       ],
-      deliverables: ['C4 System Context Diagram', 'RAG Pipeline Blueprint', '14-Week Implementation Plan'],
+      deliverables: ['C4 System Context Diagram', 'RAG Pipeline Blueprint', 'Integration & Data-Flow Contracts'],
       tools: [
         { label: 'AI', value: 'Azure OpenAI GPT-4' },
         { label: 'Search', value: 'Azure AI Search' },
@@ -162,11 +275,11 @@ export const pfizerData: CaseStudyData = {
       description: 'Built production RAG pipeline handling 4,200+ daily queries. Optimized p95 latency from 850ms → 280ms.',
       points: [
         'RAG pipeline with hybrid search (semantic + keyword)',
-        'Automated review routing and status tracking',
-        'Real-time collaboration dashboard',
-        'MLR compliance gate with audit logging'
+        'Single AI Content API with role-aware access control',
+        'End-to-end service health instrumentation',
+        'MLR gateway checks and audit logging'
       ],
-      deliverables: ['AI Content API & RAG Service', 'Production SLO Dashboard', 'Model Card & Evaluation Report', 'Data Quality Scorecard'],
+      deliverables: ['Production RAG Pipeline', 'AI Content API', 'Service-Health Dashboard', 'Incident Playbooks'],
       metrics: [
         { value: '280', numericValue: 280, suffix: 'ms', label: 'p95 Latency' },
         { value: '99.7%', numericValue: 99.7, suffix: '%', label: 'Uptime' },
@@ -179,12 +292,12 @@ export const pfizerData: CaseStudyData = {
       duration: '4 weeks',
       description: 'Trained 200+ users, certified 5 admins, established governance playbook. User satisfaction reached 4.2/5.',
       points: [
-        '200+ content producers onboarded',
-        '5 platform admins certified',
-        'Governance playbook and runbooks',
-        'Monthly office hours for advanced features'
+        'Producer journey redesign focused on search and pre-review',
+        'Hands-on training for 200+ content producers',
+        'Power-user track for platform admins and MLR champions',
+        'Monthly office hours and playbook updates'
       ],
-      deliverables: ['Producer Journey Redesign', 'Training & Governance Playbook', 'Org Adoption & Health Dashboard'],
+      deliverables: ['Producer Journey & UX Flows', 'Training & Governance Playbook', 'Org Adoption Dashboard'],
       metrics: [
         { value: '208', numericValue: 208, label: 'Users Onboarded' },
         { value: '4.2/5', label: 'Satisfaction Score' },
@@ -202,134 +315,139 @@ export const pfizerData: CaseStudyData = {
         '$2.08M annual cost savings',
         'Roadmap to 5+ therapeutic areas'
       ],
-      deliverables: ['ROI Waterfall & Savings Model', 'Unit Economics Model', 'Usage Seasonality Report', 'Executive KPI Grid'],
+      deliverables: ['ROI Waterfall & Savings Model', 'Unit Economics Model', 'Usage Seasonality Report'],
       metrics: [
         { value: '65%', numericValue: 65, suffix: '%', label: 'Cycle Time Reduction' },
         { value: '3×', label: 'Throughput Increase' },
-        { value: '$2M+', label: 'Annual Savings' }
+        { value: '$2.08M', label: 'Annual Savings' }
       ]
     }
   },
 
+  // ─────────────────────────────────────────────────────────────────────────────
+  // LEGACY / SUMMARY FIELDS
+  // ─────────────────────────────────────────────────────────────────────────────
   challenge: {
-    title: 'Challenge',
-    description: 'Manual content workflows bottlenecking delivery across global brand teams.',
+    title: 'Slow, fragmented MLR pipeline',
+    description:
+      "Pfizer's teams produced thousands of assets per quarter, but 4–6 week MLR cycles and duplicated work made AI investment hard to justify.",
     points: [
-      'Content review cycles taking 4-6 weeks',
-      'No centralized system for asset management',
-      'Stakeholders across 3 continents misaligned',
-      '40% of assets stuck in revision loops'
-    ]
+      '42-day average review cycle time across piloted brands.',
+      '2,450+ assets per quarter entering some form of MLR review.',
+      '~40% revision rate driven by duplicated or hard-to-find precedents.',
+      'Search-to-answer time often exceeded 25 minutes per asset.',
+    ],
   },
 
   approach: {
-    title: 'Approach',
-    description: 'Embedded engineering with phased AI integration.',
+    title: 'Field-embedded AI/ML engineering',
+    description:
+      'Rather than starting from a model, we started from the bottleneck, embedded in the teams experiencing it, and worked backwards to architecture and implementation.',
     points: [
-      'Onsite discovery with brand and MLR teams',
-      'Mapped workflows and identified bottlenecks',
-      'Designed compliant AI architecture',
-      'Iterative delivery with continuous feedback'
-    ]
+      'Diagnostic sprint to quantify the constraint.',
+      'Governed architecture that preserved systems of record.',
+      'SLO-driven RAG engineering with full observability.',
+      'Deliberate enablement and change-management plan.',
+    ],
   },
 
   solution: {
-    title: 'Solution',
-    description: 'AI-powered content engine with RAG retrieval and MLR compliance.',
+    title: 'Pfizer AI Content Engine',
+    description:
+      'A governed AI content engine embedded in CLM/CRM workflows that accelerates MLR cycles without compromising compliance.',
     points: [
-      'GPT-4 RAG pipeline over SharePoint assets',
-      'Automated review routing and tracking',
-      'Real-time collaboration dashboard',
-      'MLR governance checkpoints'
+      'RAG engine tuned for high-trust template retrieval and drafting.',
+      'Integration with Salesforce, Veeva, SharePoint, Workfront, and Teams.',
+      'MLR-aware audit trails for every AI suggestion and decision.',
+      'Composable architecture for future models and use cases.',
     ],
     tools: [
-      { label: 'AI/ML', value: 'Azure OpenAI, GPT-4' },
-      { label: 'Search', value: 'Azure AI Search' },
-      { label: 'Platform', value: 'SharePoint, Veeva, Workfront' },
-      { label: 'Infra', value: 'Azure, Teams Bot Framework' }
-    ]
+      { label: 'AI/ML', value: 'Azure OpenAI GPT-4' },
+      { label: 'Search', value: 'Azure Cognitive Search' },
+      { label: 'Platform', value: 'Veeva Vault, Salesforce CLM' },
+      { label: 'Infra', value: 'Azure, Teams Bot Framework' },
+    ],
   },
 
   results: {
-    title: 'Outcomes',
+    title: 'Measured Outcomes',
     metrics: [
-      { value: '65%', numericValue: 65, suffix: '%', label: 'Cycle Time Reduction' },
-      { value: '3×', label: 'Throughput Increase' },
-      { value: '$2M+', label: 'Annual Savings' },
-      { value: '200+', label: 'Users Onboarded' }
-    ]
+      { value: '65%', label: 'Cycle time reduction (42 → 14 days)', suffix: '' },
+      { value: '3×', label: 'Increase in approved AI-assisted assets', suffix: '' },
+      { value: '$2.08M', label: 'Annual savings validated', suffix: '' },
+      { value: '0', label: 'MLR exceptions in pilot period', suffix: '' },
+    ],
   },
 
   testimonial: {
-    quote: 'Christopher embedded with our team and delivered a system that fundamentally changed how we produce content. The AI integration was seamless and the compliance framework gave us confidence to scale.',
-    author: 'Sarah Johnson',
-    role: 'VP, Global Brand Operations',
-    company: 'Pfizer'
+    quote:
+      'For the first time, we could see exactly where our content pipeline broke—and how AI actually fixed it without adding risk.',
+    author: 'Director',
+    role: 'Commercial Operations',
+    company: 'Pfizer',
   },
 
-  galleryImages: [
-    '/assets/img/case-studies/pfizer/gallery-1.jpg',
-    '/assets/img/case-studies/pfizer/gallery-2.jpg',
-    '/assets/img/case-studies/pfizer/gallery-3.jpg',
-    '/assets/img/home-06/project/Embedded.jpg',
-    '/assets/img/home-06/project/Embedded.jpg',
-    '/assets/img/home-06/project/Embedded.jpg',
-    '/assets/img/home-06/project/Embedded.jpg'
-  ],
-
   nextCaseStudy: {
-    brand: 'Medtronic',
-    title: 'Surgical AI Platform',
-    description: 'Real-time surgical guidance system',
-    href: '/case-study/medtronic'
-  }
+    brand: 'Abbott',
+    title: 'BinaxNOW Diagnostic Platform',
+    href: '/case-study/binaxnow',
+  },
 };
 
+
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHART DATA
+// CHART DATA (CaseStudyCharts)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 // ─────────────────────────────────────────────────────────────────────────────
-// GANTT CHART — 14-week timeline
+// DIAGNOSE — Funnel + RACI
 // ─────────────────────────────────────────────────────────────────────────────
-const gantt = [
-  { id: 1, task: "Stakeholder Interviews & Discovery", start: 0, duration: 2, category: "Discovery", progress: 100 },
-  { id: 2, task: "Workflow & MLR Bottleneck Mapping", start: 1, duration: 2, category: "Discovery", progress: 100 },
-  { id: 3, task: "Pain Point Analysis", start: 1, duration: 2, category: "Discovery", progress: 100 },
-  { id: 4, task: "AI Pipeline Architecture", start: 2, duration: 2, category: "Architecture", progress: 100 },
-  { id: 5, task: "Compliance & Guardrail Design", start: 3, duration: 2, category: "Architecture", progress: 100 },
-  { id: 6, task: "System Integration Planning", start: 3, duration: 1, category: "Architecture", progress: 100 },
-  { id: 7, task: "RAG Pipeline Build", start: 4, duration: 4, category: "Engineering", progress: 100 },
-  { id: 8, task: "Automated Review Routing", start: 5, duration: 3, category: "Engineering", progress: 100 },
-  { id: 9, task: "Collaboration Dashboard", start: 6, duration: 3, category: "Engineering", progress: 100 },
-  { id: 10, task: "MLR Compliance Gate", start: 7, duration: 3, category: "Engineering", progress: 100 },
-  { id: 11, task: "Governance Playbook", start: 8, duration: 3, category: "Enablement", progress: 100 },
-  { id: 12, task: "User Training (200+)", start: 9, duration: 3, category: "Enablement", progress: 100 },
-  { id: 13, task: "Power User Certification", start: 10, duration: 2, category: "Enablement", progress: 100 },
-  { id: 14, task: "Quarterly Review & KPIs", start: 12, duration: 2, category: "Enablement", progress: 100 }
-];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// FUNNEL CHART — MLR Content Review Pipeline (Diagnose phase)
-// Per manuscript: 2,450+ assets per quarter entering MLR review
-// ─────────────────────────────────────────────────────────────────────────────
 const funnel = [
-  { stage: 'Assets Created (Q)', value: 2450, color: chartColors.teal },
+  { stage: 'Assets Created', value: 2450, color: chartColors.charcoal },
   { stage: 'Search & Retrieval', value: 1470, color: chartColors.gray },
-  { stage: 'MLR Review Queue', value: 1225, color: chartColors.orange },
-  { stage: 'Revisions Loop', value: 735, color: chartColors.indigo },
-  { stage: 'Final Approval', value: 612, color: chartColors.purple },
-  { stage: 'Field Deployed', value: 612, color: chartColors.green },
+  { stage: 'Draft Complete', value: 1100, color: chartColors.charcoal },
+  { stage: 'MLR Submitted', value: 980, color: chartColors.gray },
+  { stage: 'First-Pass Approved', value: 590, color: chartColors.charcoal },
+  { stage: 'Field Deployed', value: 520, color: chartColors.gray },
 ];
 
+const raciMatrix = {
+  project: 'MLR Content Workflow',
+  lastUpdated: 'Oct 2024',
+  workstreams: [
+    { id: 'ws1', name: 'Define Brief', category: 'Creation' },
+    { id: 'ws2', name: 'Select Template', category: 'Creation' },
+    { id: 'ws3', name: 'Draft Content', category: 'Creation' },
+    { id: 'ws4', name: 'Submit to MLR', category: 'Review' },
+    { id: 'ws5', name: 'Review & Approve', category: 'Review' },
+    { id: 'ws6', name: 'Publish to Field', category: 'Deployment' },
+  ],
+  stakeholders: [
+    { id: 'p1', name: 'Brand', role: 'Brand Lead', team: 'Marketing', initials: 'BR' },
+    { id: 'p2', name: 'Producer', role: 'Content Producer', team: 'Production', initials: 'PR' },
+    { id: 'p3', name: 'MLR', role: 'MLR Reviewer', team: 'Compliance', initials: 'ML' },
+    { id: 'p4', name: 'Platform', role: 'Platform Team', team: 'Tech', initials: 'PL' },
+    { id: 'p5', name: 'IT', role: 'IT Support', team: 'IT', initials: 'IT' },
+  ],
+  assignments: {
+    'ws1-p1': 'A', 'ws1-p2': 'R', 'ws1-p3': 'C', 'ws1-p4': 'C', 'ws1-p5': 'I',
+    'ws2-p1': 'C', 'ws2-p2': 'R', 'ws2-p3': 'C', 'ws2-p4': 'I', 'ws2-p5': 'I',
+    'ws3-p1': 'C', 'ws3-p2': 'R', 'ws3-p3': 'C', 'ws3-p4': 'I', 'ws3-p5': 'I',
+    'ws4-p1': 'I', 'ws4-p2': 'R', 'ws4-p3': 'C', 'ws4-p4': 'I', 'ws4-p5': 'I',
+    'ws5-p1': 'I', 'ws5-p2': 'I', 'ws5-p3': 'R', 'ws5-p4': 'C', 'ws5-p5': 'I',
+    'ws6-p1': 'A', 'ws6-p2': 'R', 'ws6-p3': 'C', 'ws6-p4': 'I', 'ws6-p5': 'C',
+  } as Record<string, string>,
+};
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SYSTEM CONTEXT (C4) — Architect phase
+// ARCHITECT — System Context + RAG Pipeline
 // ─────────────────────────────────────────────────────────────────────────────
+
 const systemContext: SystemContextData = {
   system: {
     name: 'AI Content Engine',
-    description: 'GPT-4 powered content assistant with RAG retrieval, integrated into Pfizer content workflow',
+    description: 'Governed RAG and drafting layer for MLR-sensitive content',
     type: 'Software System',
   },
   users: [
@@ -337,274 +455,118 @@ const systemContext: SystemContextData = {
       id: 'content-producer',
       name: 'Content Producer',
       icon: '/assets/SVG/Edit 1.svg',
-      description: 'Creates and edits promotional content',
+      description: 'Creates and submits content through CLM/CRM surfaces',
       interactions: ['Draft content', 'Request AI suggestions', 'Submit for review'],
     },
     {
       id: 'mlr-reviewer',
       name: 'MLR Reviewer',
       icon: '/assets/SVG/Legal.svg',
-      description: 'Reviews content for regulatory compliance',
+      description: 'Reviews, comments, and approves content for field use',
       interactions: ['Review submissions', 'Flag issues', 'Approve content'],
     },
     {
-      id: 'brand-manager',
-      name: 'Brand Manager',
+      id: 'brand-lead',
+      name: 'Brand Lead',
       icon: '/assets/SVG/Chart Statistics 1.svg',
-      description: 'Oversees brand content strategy',
+      description: 'Owns campaign objectives and portfolio',
       interactions: ['Track approvals', 'View dashboards', 'Manage templates'],
     },
     {
-      id: 'admin',
+      id: 'platform-admin',
       name: 'Platform Admin',
       icon: '/assets/SVG/Settings 1.svg',
-      description: 'Manages system configuration and users',
+      description: 'Manages access, guardrails, and configuration',
       interactions: ['User management', 'Configure guardrails', 'Monitor usage'],
     },
   ],
   externalSystems: [
     {
-      id: 'openai',
-      name: 'Azure OpenAI',
-      type: 'AI Service',
-      icon: '/assets/SVG/Light Bulb.svg',
-      description: 'GPT-4 language model',
-      protocol: 'REST API',
-      direction: 'outbound' as const,
-      dataFlow: ['Prompts', 'Completions', 'Embeddings'],
-    },
-    {
-      id: 'sharepoint',
-      name: 'SharePoint',
-      type: 'Document Store',
+      id: 'salesforce',
+      name: 'Salesforce / CLM',
+      type: 'CRM',
       icon: '/assets/SVG/Folder.svg',
-      description: 'Enterprise document management',
-      protocol: 'Graph API',
-      direction: 'bidirectional' as const,
-      dataFlow: ['Content drafts', 'Templates', 'Approved assets'],
-    },
-    {
-      id: 'teams',
-      name: 'Microsoft Teams',
-      type: 'Collaboration',
-      icon: '/assets/SVG/Chat Bubble.svg',
-      description: 'Real-time collaboration',
-      protocol: 'Bot Framework',
-      direction: 'bidirectional' as const,
-      dataFlow: ['Notifications', 'Approvals', 'Comments'],
-    },
-    {
-      id: 'workfront',
-      name: 'Workfront',
-      type: 'Project Management',
-      icon: '/assets/SVG/Clipboard.svg',
-      description: 'Marketing workflow orchestration',
+      description: 'Field and campaign execution',
       protocol: 'REST API',
       direction: 'bidirectional' as const,
-      dataFlow: ['Task assignments', 'Status updates', 'Deadlines'],
+      dataFlow: ['Campaign data', 'Field feedback', 'Asset metadata'],
     },
     {
       id: 'veeva',
       name: 'Veeva Vault',
       type: 'Content Platform',
       icon: '/assets/SVG/Medical Kit.svg',
-      description: 'Pharma content management',
+      description: 'MLR submission and tracking',
+      protocol: 'REST API',
+      direction: 'bidirectional' as const,
+      dataFlow: ['MLR submissions', 'Approval status', 'Audit trail'],
+    },
+    {
+      id: 'sharepoint',
+      name: 'SharePoint',
+      type: 'Document Store',
+      icon: '/assets/SVG/Folder.svg',
+      description: 'Template and asset repository',
+      protocol: 'Graph API',
+      direction: 'bidirectional' as const,
+      dataFlow: ['Templates', 'Approved assets', 'Brand guidelines'],
+    },
+    {
+      id: 'workfront',
+      name: 'Workfront',
+      type: 'Project Management',
+      icon: '/assets/SVG/Clipboard.svg',
+      description: 'Project and workflow management',
+      protocol: 'REST API',
+      direction: 'bidirectional' as const,
+      dataFlow: ['Task assignments', 'Status updates', 'Deadlines'],
+    },
+    {
+      id: 'teams',
+      name: 'Microsoft Teams',
+      type: 'Collaboration',
+      icon: '/assets/SVG/Chat Bubble.svg',
+      description: 'CoCo assistant interface',
+      protocol: 'Bot Framework',
+      direction: 'bidirectional' as const,
+      dataFlow: ['User queries', 'AI responses', 'Notifications'],
+    },
+    {
+      id: 'openai',
+      name: 'Azure OpenAI',
+      type: 'AI Service',
+      icon: '/assets/SVG/Light Bulb.svg',
+      description: 'LLM inference and embeddings',
       protocol: 'REST API',
       direction: 'outbound' as const,
-      dataFlow: ['Approved content', 'Audit trail', 'Metadata sync'],
+      dataFlow: ['Prompts', 'Completions', 'Embeddings'],
     },
   ],
 };
 
-
-// ─────────────────────────────────────────────────────────────────────────────
-// SERVICE HEALTH DASHBOARD — Engineer phase
-// p95 response time optimized from 850ms → 280ms per manuscript
-// ─────────────────────────────────────────────────────────────────────────────
-const serviceHealth = {
-  services: [
-    { name: 'AI Content API', status: 'healthy' as const, uptime: 99.72, latency: { p50: 145, p95: 280, p99: 520 }, errorRate: 0.28, throughput: 4200, lastIncident: '21d ago' },
-    { name: 'RAG Pipeline', status: 'healthy' as const, uptime: 99.68, latency: { p50: 320, p95: 580, p99: 920 }, errorRate: 0.32, throughput: 3800, lastIncident: '14d ago' },
-    { name: 'MLR Gateway', status: 'healthy' as const, uptime: 99.91, latency: { p50: 95, p95: 185, p99: 310 }, errorRate: 0.09, throughput: 2100, lastIncident: '45d ago' },
-    { name: 'SharePoint Sync', status: 'degraded' as const, uptime: 99.54, latency: { p50: 210, p95: 420, p99: 680 }, errorRate: 0.46, throughput: 8500, lastIncident: '3d ago' },
-    { name: 'Notification Service', status: 'healthy' as const, uptime: 99.87, latency: { p50: 38, p95: 72, p99: 125 }, errorRate: 0.13, throughput: 12000, lastIncident: '30d ago' },
-  ],
-  latencyHistory: [
-    { hour: '00:00', p50: 245, p95: 480, p99: 820 },
-    { hour: '01:00', p50: 220, p95: 440, p99: 780 },
-    { hour: '02:00', p50: 195, p95: 390, p99: 720 },
-    { hour: '03:00', p50: 180, p95: 360, p99: 680 },
-    { hour: '04:00', p50: 185, p95: 370, p99: 700 },
-    { hour: '05:00', p50: 210, p95: 420, p99: 760 },
-    { hour: '06:00', p50: 260, p95: 520, p99: 880 },
-    { hour: '07:00', p50: 320, p95: 640, p99: 1050 },
-    { hour: '08:00', p50: 350, p95: 700, p99: 1150 },
-    { hour: '09:00', p50: 380, p95: 760, p99: 1250 },
-    { hour: '10:00', p50: 360, p95: 720, p99: 1180 },
-    { hour: '11:00', p50: 340, p95: 680, p99: 1120 },
-    { hour: '12:00', p50: 390, p95: 780, p99: 1280 },
-    { hour: '13:00', p50: 370, p95: 740, p99: 1220 },
-    { hour: '14:00', p50: 355, p95: 710, p99: 1165 },
-    { hour: '15:00', p50: 345, p95: 690, p99: 1135 },
-    { hour: '16:00', p50: 360, p95: 720, p99: 1180 },
-    { hour: '17:00', p50: 380, p95: 760, p99: 1250 },
-    { hour: '18:00', p50: 330, p95: 660, p99: 1085 },
-    { hour: '19:00', p50: 290, p95: 580, p99: 950 },
-    { hour: '20:00', p50: 270, p95: 540, p99: 890 },
-    { hour: '21:00', p50: 258, p95: 515, p99: 850 },
-    { hour: '22:00', p50: 250, p95: 500, p99: 830 },
-    { hour: '23:00', p50: 248, p95: 495, p99: 825 },
-  ]
-};
-
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CUSTOMER JOURNEY MAP — Enable phase
-// ─────────────────────────────────────────────────────────────────────────────
-const journeyMap: JourneyMapData = {
-  persona: { name: 'Content Producer', role: 'Senior Medical Writer', company: 'Pfizer Marketing', avatar: '/assets/SVG/Edit 1.svg' },
-  goal: 'Get promotional content through MLR approval faster with AI assistance',
-  stages: [
-    {
-      id: 'brief', name: 'Brief', icon: '/assets/SVG/Clipboard.svg', color: chartColors.teal, duration: '1-2 days',
-      touchpoints: [{ channel: 'Workfront', type: 'owned' as const }, { channel: 'Teams', type: 'owned' as const }],
-      actions: ['Receives campaign brief from brand team', 'Reviews brand guidelines and templates', 'Checks previous approved content'],
-      thoughts: ['"What templates can I reuse?"', '"How do I find similar approved content?"'],
-      emotions: { score: 3, label: 'Neutral' },
-      painPoints: ['Hard to find relevant templates'],
-      opportunities: ['AI-powered template suggestions'],
-    },
-    {
-      id: 'draft', name: 'AI-Assisted Draft', icon: '/assets/SVG/Light Bulb.svg', color: chartColors.orange, duration: '2-3 days',
-      touchpoints: [{ channel: 'AI Content Engine', type: 'owned' as const }, { channel: 'SharePoint', type: 'owned' as const }],
-      actions: ['Opens AI assistant in Teams', 'Gets suggested content based on brief', 'Iterates with AI on messaging'],
-      thoughts: ['"This is much faster than starting from scratch"', '"The AI remembers our brand voice"'],
-      emotions: { score: 4, label: 'Optimistic' },
-      painPoints: ['Learning new AI interface'],
-      opportunities: ['Training videos'],
-    },
-    {
-      id: 'mlr', name: 'MLR Submission', icon: '/assets/SVG/Legal.svg', color: chartColors.indigo, duration: '3-5 days',
-      touchpoints: [{ channel: 'MLR Gateway', type: 'owned' as const }, { channel: 'Veeva Vault', type: 'owned' as const }],
-      actions: ['Submits draft through AI gateway', 'AI pre-checks for common issues', 'Receives automated routing to right reviewer'],
-      thoughts: ['"The pre-check caught issues before MLR saw it"', '"I know exactly who is reviewing"'],
-      emotions: { score: 4, label: 'Confident' },
-      painPoints: ['Waiting for reviewer assignment'],
-      opportunities: ['Real-time status tracking'],
-    },
-    {
-      id: 'approved', name: 'Approved', icon: '/assets/SVG/Checkmark Square.svg', color: chartColors.green, duration: '1 day',
-      touchpoints: [{ channel: 'Teams notification', type: 'owned' as const }, { channel: 'Veeva Vault', type: 'owned' as const }],
-      actions: ['Receives approval notification', 'Content auto-syncs to Veeva', 'Shares with field team'],
-      thoughts: ['"That was 65% faster than before!"', '"I can take on more projects now"'],
-      emotions: { score: 5, label: 'Delighted' },
-      painPoints: [],
-      opportunities: ['Celebrate wins'],
-    },
-  ],
-};
-
-
-// ─────────────────────────────────────────────────────────────────────────────
-// WATERFALL CHART — Impact phase ($2.08M annual savings)
-// ─────────────────────────────────────────────────────────────────────────────
-const waterfall = [
-  { label: 'Baseline Cost/Asset', value: 4.2, type: 'total' as const },
-  { label: 'Faster MLR Cycles (-65%)', value: -0.95, type: 'decrease' as const },
-  { label: 'Reduced Revision Loops', value: -0.42, type: 'decrease' as const },
-  { label: 'Agency Fee Savings', value: -0.38, type: 'decrease' as const },
-  { label: 'Producer Hour Recovery', value: -0.25, type: 'decrease' as const },
-  { label: 'Reviewer Bandwidth', value: -0.12, type: 'decrease' as const },
-  { label: 'Net Annual Cost', value: 2.08, type: 'total' as const },
-];
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CALENDAR HEATMAP — Diagnose phase (production volume patterns)
-// ─────────────────────────────────────────────────────────────────────────────
-const calendarHeatmap = {
-  year: 2024,
-  title: 'Content Production Volume',
-  metric: 'Assets Created',
-  data: Array.from({ length: 365 }, (_, i) => {
-    const date = new Date(2024, 0, i + 1);
-    const dayOfWeek = date.getDay();
-    const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
-    const monthMultiplier = [0.7, 0.8, 1.2, 1.0, 0.9, 0.6, 0.5, 0.7, 1.3, 1.4, 1.1, 0.8][date.getMonth()];
-    const baseValue = isWeekend ? 2 : Math.floor(Math.random() * 15 + 8);
-    return { date: date.toISOString().split('T')[0], value: Math.floor(baseValue * monthMultiplier) };
-  }),
-};
-
-// ─────────────────────────────────────────────────────────────────────────────
-// RACI MATRIX — Diagnose phase (workflow ownership)
-// ─────────────────────────────────────────────────────────────────────────────
-const raciMatrix = {
-  project: 'MLR Content Workflow',
-  lastUpdated: 'Oct 2024',
-  workstreams: [
-    { id: 'ws1', name: 'Content Drafting', category: 'Creation' },
-    { id: 'ws2', name: 'Template Search', category: 'Creation' },
-    { id: 'ws3', name: 'Compliance Pre-Check', category: 'Review' },
-    { id: 'ws4', name: 'MLR Submission', category: 'Review' },
-    { id: 'ws5', name: 'Medical Review', category: 'Review' },
-    { id: 'ws6', name: 'Legal Review', category: 'Review' },
-    { id: 'ws7', name: 'Revision Management', category: 'Operations' },
-    { id: 'ws8', name: 'Final Approval', category: 'Operations' },
-    { id: 'ws9', name: 'Asset Publishing', category: 'Deployment' },
-  ],
-  stakeholders: [
-    { id: 'p1', name: 'Content Producer', role: 'Medical Writer', team: 'Marketing', initials: 'CP' },
-    { id: 'p2', name: 'MLR Reviewer', role: 'Compliance Lead', team: 'MLR', initials: 'MR' },
-    { id: 'p3', name: 'Brand Manager', role: 'Brand Lead', team: 'Brand', initials: 'BM' },
-    { id: 'p4', name: 'Legal/Medical', role: 'Reviewer', team: 'Legal', initials: 'LM' },
-    { id: 'p5', name: 'AI System', role: 'Automation', team: 'Tech', initials: 'AI' },
-  ],
-  assignments: {
-    'ws1-p1': 'R', 'ws1-p3': 'A', 'ws1-p4': 'C', 'ws1-p5': 'C',
-    'ws2-p1': 'R', 'ws2-p5': 'R', 'ws2-p3': 'I',
-    'ws3-p1': 'I', 'ws3-p2': 'C', 'ws3-p4': 'C', 'ws3-p5': 'R',
-    'ws4-p1': 'R', 'ws4-p2': 'A', 'ws4-p5': 'C',
-    'ws5-p1': 'I', 'ws5-p2': 'C', 'ws5-p4': 'R',
-    'ws6-p1': 'I', 'ws6-p2': 'C', 'ws6-p4': 'R',
-    'ws7-p1': 'R', 'ws7-p2': 'A', 'ws7-p3': 'C', 'ws7-p5': 'R',
-    'ws8-p2': 'R', 'ws8-p3': 'A', 'ws8-p4': 'C',
-    'ws9-p1': 'R', 'ws9-p3': 'A', 'ws9-p5': 'C',
-  } as Record<string, string>,
-};
-
-
-// ─────────────────────────────────────────────────────────────────────────────
-// RAG PIPELINE — Architect phase
-// ─────────────────────────────────────────────────────────────────────────────
 const ragPipeline = {
   sections: [
-    { id: 'ingestion', name: 'SharePoint Ingestion', color: chartColors.navy, components: [
-      { id: 'docs', name: 'Brand Assets', icon: '📄', desc: 'Templates, approved content' },
-      { id: 'loader', name: 'Graph API Loader', icon: '⟳', desc: 'Microsoft Graph' },
-      { id: 'chunker', name: 'Section Chunker', icon: '▤', desc: 'Preserves claims' },
+    { id: 'ingestion', name: 'Ingest', color: chartColors.navy || '#1a365d', components: [
+      { id: 'ingest', name: 'Ingest', icon: '📄', desc: 'Ingest approved assets, templates, and claims from systems of record.' },
     ]},
-    { id: 'embedding', name: 'Azure Embeddings', color: chartColors.purple, components: [
-      { id: 'embedder', name: 'text-embedding-3', icon: '◈', desc: 'Azure OpenAI' },
-      { id: 'vectordb', name: 'Cognitive Search', icon: '⬡', desc: 'Azure AI Search' },
-      { id: 'metadata', name: 'Brand Filters', icon: '☰', desc: 'Region, Therapeutic' },
+    { id: 'indexing', name: 'Index', color: chartColors.purple || '#553c9a', components: [
+      { id: 'index', name: 'Index', icon: '⬡', desc: 'Chunk, embed, and index content with claims-aware metadata.' },
     ]},
-    { id: 'retrieval', name: 'MLR-Aware Retrieval', color: chartColors.teal, components: [
-      { id: 'query-embed', name: 'Query + Context', icon: '◇', desc: 'User intent' },
-      { id: 'search', name: 'Hybrid Search', icon: '⟐', desc: 'Semantic + Keyword' },
-      { id: 'rerank', name: 'Compliance Filter', icon: '↕', desc: 'Approved only' },
+    { id: 'retrieval', name: 'Retrieve', color: chartColors.teal || '#0d9488', components: [
+      { id: 'retrieve', name: 'Retrieve', icon: '⟐', desc: 'Hybrid semantic + keyword retrieval with brand and region filters.' },
     ]},
-    { id: 'generation', name: 'Guarded Generation', color: chartColors.orange, components: [
-      { id: 'context', name: 'Prompt Template', icon: '⊞', desc: 'Brand voice' },
-      { id: 'llm', name: 'GPT-4 Turbo', icon: '★', desc: 'Azure OpenAI' },
-      { id: 'response', name: 'Draft + Citations', icon: '◉', desc: 'Traceable output' },
+    { id: 'generation', name: 'Generate', color: chartColors.orange || '#dd6b20', components: [
+      { id: 'generate', name: 'Generate', icon: '★', desc: 'LLM drafts content with explicit citations and claim references.' },
+    ]},
+    { id: 'review', name: 'Review', color: chartColors.green || '#38a169', components: [
+      { id: 'review', name: 'Review', icon: '✓', desc: 'Producers and MLR reviewers inspect, edit, and approve drafts.' },
     ]},
   ],
   flows: [
-    { from: 'docs', to: 'loader' }, { from: 'loader', to: 'chunker' }, { from: 'chunker', to: 'embedder' },
-    { from: 'embedder', to: 'vectordb' }, { from: 'chunker', to: 'metadata' },
-    { from: 'query-embed', to: 'search', type: 'query' }, { from: 'vectordb', to: 'search', type: 'query' },
-    { from: 'metadata', to: 'search', type: 'query' }, { from: 'search', to: 'rerank', type: 'query' },
-    { from: 'rerank', to: 'context', type: 'gen' }, { from: 'context', to: 'llm', type: 'gen' }, { from: 'llm', to: 'response', type: 'gen' },
+    { from: 'ingest', to: 'index' },
+    { from: 'index', to: 'retrieve' },
+    { from: 'retrieve', to: 'generate' },
+    { from: 'generate', to: 'review' },
   ],
   metrics: [
     { name: 'Relevance', value: 0.91, desc: 'Retrieved doc relevance' },
@@ -614,192 +576,245 @@ const ragPipeline = {
   ]
 };
 
+
 // ─────────────────────────────────────────────────────────────────────────────
-// MODEL CARD — Architect phase (guardrails, failure modes)
+// ENGINEER — Service Health + Latency + Data Quality
 // ─────────────────────────────────────────────────────────────────────────────
-const modelCard = {
-  model: { name: 'Pfizer Content Assistant', version: '1.2.0', type: 'RAG + GPT-4 Turbo', lastUpdated: 'Oct 2024', owner: 'AI Platform Team', status: 'Production' },
-  description: 'AI assistant for accelerating promotional content creation while maintaining MLR compliance. Uses RAG pipeline over approved SharePoint assets with GPT-4 generation.',
-  intendedUse: {
-    primary: ['Draft promotional content', 'Search approved templates', 'Pre-check compliance issues'],
-    outOfScope: ['Final MLR approval decisions', 'Medical claims without review', 'Patient-facing content'],
-    users: ['Content Producers', 'Brand Managers', 'Agency Partners'],
-  },
-  performance: {
-    metrics: [
-      { name: 'Retrieval Accuracy', value: '91%', baseline: '—', threshold: '>85%' },
-      { name: 'Citation Faithfulness', value: '96%', baseline: '—', threshold: '>90%' },
-      { name: 'User Satisfaction', value: '4.2/5', baseline: '3.1/5', threshold: '>4.0' },
-      { name: 'p95 Latency', value: '280ms', baseline: '850ms', threshold: '<500ms' },
-    ],
-    evaluationData: 'Internal benchmark: 500 queries across 12 brands',
-  },
-  limitations: [
-    'Cannot verify scientific claims — requires medical reviewer',
-    'May hallucinate if query is outside SharePoint corpus',
-    'Region/brand filters must be set correctly by user',
-    'Not trained on competitor content or external sources',
+
+const serviceHealth = {
+  services: [
+    {
+      name: 'AI Content API',
+      status: 'healthy' as const,
+      uptime: 99.72,
+      latency: { p50: 145, p95: 280, p99: 420 },
+      errorRate: 0.28,
+      throughput: 4200,
+      lastIncident: '14d ago',
+    },
+    {
+      name: 'Vector Search',
+      status: 'healthy' as const,
+      uptime: 99.9,
+      latency: { p50: 85, p95: 165, p99: 280 },
+      errorRate: 0.1,
+      throughput: 8400,
+      lastIncident: '28d ago',
+    },
+    {
+      name: 'Embedding Service',
+      status: 'healthy' as const,
+      uptime: 99.8,
+      latency: { p50: 120, p95: 220, p99: 350 },
+      errorRate: 0.2,
+      throughput: 4200,
+      lastIncident: '21d ago',
+    },
+    {
+      name: 'MLR Gateway',
+      status: 'healthy' as const,
+      uptime: 99.95,
+      latency: { p50: 45, p95: 95, p99: 150 },
+      errorRate: 0.05,
+      throughput: 980,
+      lastIncident: '42d ago',
+    },
+    {
+      name: 'Cache Layer',
+      status: 'healthy' as const,
+      uptime: 99.99,
+      latency: { p50: 5, p95: 12, p99: 25 },
+      errorRate: 0.01,
+      throughput: 12500,
+      lastIncident: '90d ago',
+    },
   ],
-  ethicalConsiderations: [
-    'All output requires human MLR review before use',
-    'PHI redaction layer prevents patient data exposure',
-    'Audit logging for all queries and responses',
-    'No model training on Pfizer data (API-only)',
+  latencyHistory: [
+    { hour: '00:00', p50: 145, p95: 280, p99: 420 },
+    { hour: '01:00', p50: 140, p95: 275, p99: 415 },
+    { hour: '02:00', p50: 135, p95: 270, p99: 410 },
+    { hour: '03:00', p50: 130, p95: 265, p99: 400 },
+    { hour: '04:00', p50: 125, p95: 260, p99: 395 },
+    { hour: '05:00', p50: 130, p95: 265, p99: 400 },
+    { hour: '06:00', p50: 140, p95: 280, p99: 420 },
+    { hour: '07:00', p50: 155, p95: 300, p99: 450 },
+    { hour: '08:00', p50: 175, p95: 330, p99: 490 },
+    { hour: '09:00', p50: 185, p95: 345, p99: 510 },
+    { hour: '10:00', p50: 180, p95: 340, p99: 500 },
+    { hour: '11:00', p50: 175, p95: 335, p99: 495 },
+    { hour: '12:00', p50: 185, p95: 345, p99: 510 },
+    { hour: '13:00', p50: 180, p95: 340, p99: 500 },
+    { hour: '14:00', p50: 175, p95: 335, p99: 495 },
+    { hour: '15:00', p50: 170, p95: 330, p99: 490 },
+    { hour: '16:00', p50: 175, p95: 335, p99: 495 },
+    { hour: '17:00', p50: 180, p95: 340, p99: 500 },
+    { hour: '18:00', p50: 165, p95: 320, p99: 475 },
+    { hour: '19:00', p50: 155, p95: 305, p99: 455 },
+    { hour: '20:00', p50: 150, p95: 295, p99: 445 },
+    { hour: '21:00', p50: 148, p95: 290, p99: 435 },
+    { hour: '22:00', p50: 146, p95: 285, p99: 425 },
+    { hour: '23:00', p50: 145, p95: 280, p99: 420 },
   ],
-  // Training data section required by ModelCard component
-  training: {
-    dataSize: '12,000 approved content assets',
-    dateRange: 'Jan 2022 - Oct 2024',
-    features: 0, // RAG pipeline, not feature-based ML
-    targetVariable: 'Content retrieval & generation',
-    samplingStrategy: 'Full corpus indexing',
-    trainTestSplit: 'N/A (RAG)',
-  },
-  // Fairness metrics section
-  fairness: {
-    protectedAttributes: ['brand', 'region', 'content_type'],
-    metrics: [
-      { group: 'US Brands', fpr: 0.08, fnr: 0.12, samples: 4500 },
-      { group: 'EU Brands', fpr: 0.09, fnr: 0.14, samples: 3200 },
-      { group: 'APAC Brands', fpr: 0.11, fnr: 0.15, samples: 2100 },
-    ],
-    findings: [
-      { severity: 'info', text: 'Retrieval accuracy consistent across regions (±3%)' },
-      { severity: 'low', text: 'Newer brands have less indexed content' },
-    ],
-  },
-  // Feature importance for RAG system
-  features: [
-    { name: 'semantic_similarity', importance: 0.35, category: 'retrieval' },
-    { name: 'recency_score', importance: 0.20, category: 'retrieval' },
-    { name: 'brand_filter_match', importance: 0.18, category: 'filter' },
-    { name: 'content_type_match', importance: 0.12, category: 'filter' },
-    { name: 'approval_status', importance: 0.10, category: 'compliance' },
-    { name: 'user_engagement_history', importance: 0.05, category: 'personalization' },
-  ],
-  // Deployment info required by ModelCard component
-  deployment: {
-    endpoint: 'ai-content-api.pfizer.internal/v1/generate',
-    latency: '280ms p95',
-    throughput: '4,200 req/day',
-    monitoring: 'Datadog APM + custom guardrail alerts',
-  },
 };
 
-
-// ─────────────────────────────────────────────────────────────────────────────
-// LATENCY PERCENTILES — Engineer phase (850ms → 280ms)
-// ─────────────────────────────────────────────────────────────────────────────
 const latencyPercentiles = {
-  service: 'ai-content-api',
-  timeRange: 'Week 10 Production',
-  currentTime: '14:30 UTC',
-  sloTargets: { p50: 200, p95: 400, p99: 800 },
+  service: 'AI Content API',
+  timeRange: '6 weeks',
+  currentTime: 'Week 6',
+  sloTargets: { p50: 200, p95: 350, p99: 500 },
   dataPoints: [
-    { time: 'Baseline', p50: 450, p95: 850, p99: 1420, requests: 2100, errors: 45 },
-    { time: 'Week 6', p50: 380, p95: 720, p99: 1180, requests: 2800, errors: 32 },
-    { time: 'Week 7', p50: 320, p95: 580, p99: 950, requests: 3200, errors: 24 },
-    { time: 'Week 8', p50: 245, p95: 420, p99: 720, requests: 3600, errors: 18 },
-    { time: 'Week 9', p50: 185, p95: 340, p99: 580, requests: 3900, errors: 12 },
-    { time: 'Week 10', p50: 145, p95: 280, p99: 520, requests: 4200, errors: 8 },
+    { time: 'Week 1', p50: 450, p95: 850, p99: 1200, requests: 2100, errors: 45 },
+    { time: 'Week 2', p50: 380, p95: 720, p99: 980, requests: 2800, errors: 32 },
+    { time: 'Week 3', p50: 280, p95: 520, p99: 750, requests: 3200, errors: 24 },
+    { time: 'Week 4', p50: 195, p95: 380, p99: 580, requests: 3600, errors: 18 },
+    { time: 'Week 5', p50: 160, p95: 310, p99: 480, requests: 3900, errors: 12 },
+    { time: 'Week 6', p50: 145, p95: 280, p99: 420, requests: 4200, errors: 8 },
   ],
-  anomalies: [
-    { start: 0, end: 1, severity: 'warning', cause: 'Pre-optimization baseline period' }
-  ],
+  anomalies: [] as { start: number; end: number; severity: string; cause: string }[],
   currentStats: {
     p50: 145,
     p95: 280,
-    p99: 520,
+    p99: 420,
     requestRate: 4200,
     errorRate: 0.19,
-  }
+  },
 };
 
-// ─────────────────────────────────────────────────────────────────────────────
-// DATA QUALITY SCORECARD — Engineer phase
-// ─────────────────────────────────────────────────────────────────────────────
 const dataQuality: DataQualityData = {
-  overall: 94,
+  overall: 93,
   dimensions: [
-    { name: 'Embedding Coverage', score: 96, target: 95, trend: 'up' as const },
-    { name: 'Retrieval Accuracy', score: 91, target: 90, trend: 'up' as const },
-    { name: 'Freshness', score: 95, target: 95, trend: 'stable' as const },
-    { name: 'Drift Detection', score: 92, target: 90, trend: 'up' as const },
-    { name: 'Citation Validity', score: 96, target: 95, trend: 'stable' as const },
+    { name: 'Freshness', score: 92, target: 90, trend: 'up' as const },
+    { name: 'Accuracy', score: 95, target: 95, trend: 'stable' as const },
+    { name: 'Completeness', score: 88, target: 85, trend: 'up' as const },
+    { name: 'Traceability', score: 95, target: 90, trend: 'stable' as const },
   ],
   issues: [
-    { severity: 'info' as const, count: 12, description: 'New templates indexed this week' },
+    { severity: 'info' as const, count: 12, description: 'New content indexed this week' },
     { severity: 'warning' as const, count: 3, description: 'Stale embeddings detected (>30d)' },
   ],
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// ORG HEALTH DASHBOARD — Enable phase (adoption, training)
+// ENABLE — Journey Map + Org Health
 // ─────────────────────────────────────────────────────────────────────────────
+
+const journeyMap: JourneyMapData = {
+  persona: { name: 'Content Producer', role: 'Senior Medical Writer', company: 'Pfizer Marketing', avatar: '/assets/SVG/Edit 1.svg' },
+  goal: 'Get promotional content through MLR approval faster with AI assistance',
+  stages: [
+    {
+      id: 'brief', name: 'Brief', icon: '/assets/SVG/Clipboard.svg', color: chartColors.teal || '#0d9488', duration: '1–2 days',
+      touchpoints: [{ channel: 'Workfront', type: 'owned' as const }, { channel: 'Teams', type: 'owned' as const }],
+      actions: ['Clarify objectives', 'Pull prior campaigns'],
+      thoughts: ['"What templates can I reuse?"', '"How do I find similar approved content?"'],
+      emotions: { score: 3, label: 'Neutral' },
+      painPoints: ['Hard to find relevant templates'],
+      opportunities: ['AI-powered template suggestions at brief stage'],
+    },
+    {
+      id: 'draft', name: 'AI-Assisted Draft', icon: '/assets/SVG/Light Bulb.svg', color: chartColors.orange || '#dd6b20', duration: '2–3 days',
+      touchpoints: [{ channel: 'AI Content Engine', type: 'owned' as const }, { channel: 'SharePoint', type: 'owned' as const }],
+      actions: ['Draft content using templates', 'Use CoCo suggestions'],
+      thoughts: ['"This is much faster than starting from scratch"', '"The AI remembers our brand voice"'],
+      emotions: { score: 4, label: 'Optimistic' },
+      painPoints: ['Learning curve for first-time AI usage'],
+      opportunities: ['Just-in-time training inside Teams'],
+    },
+    {
+      id: 'submission', name: 'MLR Submission', icon: '/assets/SVG/Legal.svg', color: chartColors.indigo || '#5a67d8', duration: '3–5 days',
+      touchpoints: [{ channel: 'MLR Gateway', type: 'owned' as const }, { channel: 'Veeva Vault', type: 'owned' as const }],
+      actions: ['Submit and track content through MLR workflow'],
+      thoughts: ['"The pre-check caught issues before MLR saw it"', '"I know exactly who is reviewing"'],
+      emotions: { score: 4, label: 'Confident' },
+      painPoints: ['Anxiety waiting on reviewer assignment'],
+      opportunities: ['Real-time status tracking and notifications'],
+    },
+    {
+      id: 'approved', name: 'Approval & Field', icon: '/assets/SVG/Checkmark Square.svg', color: chartColors.green || '#38a169', duration: '1 day',
+      touchpoints: [{ channel: 'Teams notification', type: 'owned' as const }, { channel: 'Veeva Vault', type: 'owned' as const }],
+      actions: ['Publish to field', 'Capture usage signals'],
+      thoughts: ['"That was 65% faster than before!"', '"I can take on more projects now"'],
+      emotions: { score: 5, label: 'Delighted' },
+      painPoints: [],
+      opportunities: ['Celebrate wins'],
+    },
+  ],
+};
+
 const orgHealth = {
   asOfDate: 'Q4 2024',
   headcount: {
-    total: 1400,
-    fullTime: 1260,
-    contractors: 140,
-    openRoles: 45,
+    total: 273,
+    fullTime: 245,
+    contractors: 28,
+    openRoles: 8,
     trend: [
-      { month: 'Jul', count: 320 },
-      { month: 'Aug', count: 520 },
-      { month: 'Sep', count: 780 },
-      { month: 'Oct', count: 1050 },
-      { month: 'Nov', count: 1250 },
-      { month: 'Dec', count: 1400 },
+      { month: 'Jul', count: 45 },
+      { month: 'Aug', count: 95 },
+      { month: 'Sep', count: 145 },
+      { month: 'Oct', count: 185 },
+      { month: 'Nov', count: 220 },
+      { month: 'Dec', count: 273 },
     ],
   },
   attrition: {
-    monthly: 1.2,
-    annual: 8.5,
-    voluntary: 6.0,
-    involuntary: 2.5,
-    regrettable: 3.0,
+    monthly: 0.8,
+    annual: 6.2,
+    voluntary: 4.5,
+    involuntary: 1.7,
+    regrettable: 2.1,
     benchmark: 15,
   },
   engagement: {
-    enps: 62,
+    enps: 42,
     participation: 94,
     trend: [
-      { month: 'Q1', score: 48 },
-      { month: 'Q2', score: 52 },
-      { month: 'Q3', score: 58 },
-      { month: 'Q4', score: 62 },
+      { month: 'Q1', score: 32 },
+      { month: 'Q2', score: 36 },
+      { month: 'Q3', score: 39 },
+      { month: 'Q4', score: 42 },
     ],
   },
   dei: {
-    gender: { male: 52, female: 45, nonBinary: 3 },
-    leadership: { male: 50, female: 50, nonBinary: 0 },
+    gender: { male: 48, female: 49, nonBinary: 3 },
+    leadership: { male: 45, female: 52, nonBinary: 3 },
     ethnicity: [
-      { group: 'White', percent: 45 },
-      { group: 'Asian', percent: 32 },
+      { group: 'White', percent: 42 },
+      { group: 'Asian', percent: 35 },
       { group: 'Hispanic', percent: 12 },
       { group: 'Black', percent: 8 },
       { group: 'Other', percent: 3 },
     ],
   },
   departments: [
-    { name: 'AI/ML Engineering', headcount: 380, attrition: 5, enps: 68, openRoles: 12 },
-    { name: 'Content Ops', headcount: 340, attrition: 8, enps: 58, openRoles: 8 },
-    { name: 'Medical Review', headcount: 280, attrition: 6, enps: 62, openRoles: 10 },
-    { name: 'Brand Marketing', headcount: 220, attrition: 10, enps: 55, openRoles: 8 },
-    { name: 'Product', headcount: 180, attrition: 4, enps: 72, openRoles: 7 },
+    { name: 'Producers', headcount: 208, attrition: 5, enps: 45, openRoles: 4 },
+    { name: 'MLR Reviewers', headcount: 42, attrition: 4, enps: 40, openRoles: 2 },
+    { name: 'Brand Leads', headcount: 18, attrition: 3, enps: 48, openRoles: 1 },
+    { name: 'Admins', headcount: 5, attrition: 0, enps: 55, openRoles: 1 },
   ],
   tenure: [
-    { range: '<1 year', count: 602, percent: 43 },
-    { range: '1-2 years', count: 406, percent: 29 },
-    { range: '2-3 years', count: 266, percent: 19 },
-    { range: '3-5 years', count: 126, percent: 9 },
+    { range: '<1 year', count: 118, percent: 43 },
+    { range: '1-2 years', count: 79, percent: 29 },
+    { range: '2-3 years', count: 52, percent: 19 },
+    { range: '3+ years', count: 24, percent: 9 },
   ],
 };
 
 
 // ─────────────────────────────────────────────────────────────────────────────
-// UNIT ECONOMICS — Impact phase
+// IMPACT — Waterfall + Unit Economics + Calendar + Sparklines
 // ─────────────────────────────────────────────────────────────────────────────
+
+const waterfall = [
+  { label: 'Baseline Cost', value: 4.2, type: 'total' as const },
+  { label: 'Faster MLR Cycles (-65%)', value: -0.95, type: 'decrease' as const },
+  { label: 'Reduced Revision Loops', value: -0.42, type: 'decrease' as const },
+  { label: 'Agency Fee Savings', value: -0.38, type: 'decrease' as const },
+  { label: 'Producer Hour Recovery', value: -0.25, type: 'decrease' as const },
+  { label: 'Reviewer Bandwidth', value: -0.12, type: 'decrease' as const },
+  { label: 'Net Annual Cost', value: 2.08, type: 'total' as const },
+];
+
 const unitEconomics = {
   period: 'Q4 2024',
   currency: 'USD',
@@ -846,35 +861,133 @@ const unitEconomics = {
   },
 };
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SPARKLINE GRID — Impact phase (KPI trends)
-// ─────────────────────────────────────────────────────────────────────────────
+const calendarHeatmap = {
+  year: 2024,
+  title: 'AI-Assisted Content Volume',
+  metric: 'Assets Created',
+  data: [
+    { date: '2024-01-01', value: 18 },
+    { date: '2024-02-01', value: 22 },
+    { date: '2024-03-01', value: 25 },
+    { date: '2024-04-01', value: 30 },
+    { date: '2024-05-01', value: 34 },
+    { date: '2024-06-01', value: 38 },
+    { date: '2024-07-01', value: 41 },
+    { date: '2024-08-01', value: 39 },
+    { date: '2024-09-01', value: 44 },
+    { date: '2024-10-01', value: 47 },
+    { date: '2024-11-01', value: 50 },
+    { date: '2024-12-01', value: 52 },
+  ],
+};
+
 const sparklineGrid = [
-  { 
-    label: 'Cycle Time (days)', 
-    values: [42, 40, 38, 35, 32, 28, 25, 22, 20, 18, 17, 16, 15, 14, 14, 14],
+  {
+    label: 'Cycle Time (days)',
+    values: [42, 38, 35, 30, 24, 20, 18, 16, 14],
     current: 14,
     change: -66.7,
   },
-  { 
-    label: 'Throughput (assets/mo)', 
-    values: [272, 285, 310, 340, 380, 420, 480, 540, 600, 660, 720, 760, 790, 810, 816, 816],
+  {
+    label: 'Approved Assets / Month',
+    values: [272, 310, 355, 420, 520, 610, 720, 780, 816],
     current: 816,
     change: 200,
   },
-  { 
-    label: 'User Adoption', 
-    values: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 95, 145, 185, 200, 208],
-    current: 208,
-    change: 100,
+  {
+    label: 'Revision Rate',
+    values: [0.4, 0.36, 0.32, 0.28, 0.23, 0.2, 0.18, 0.16, 0.15],
+    current: 0.15,
+    change: -62.5,
   },
-  { 
-    label: 'p95 Latency (ms)', 
-    values: [850, 850, 850, 850, 780, 720, 620, 520, 450, 380, 340, 310, 290, 285, 280, 280],
-    current: 280,
-    change: -67.1,
+  {
+    label: 'Weekly Active Users',
+    values: [0.1, 0.18, 0.24, 0.32, 0.4, 0.48, 0.55, 0.61, 0.68],
+    current: 0.68,
+    change: 580,
   },
 ];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// TIMELINE — High level Gantt across phases
+// ─────────────────────────────────────────────────────────────────────────────
+
+const gantt = [
+  { id: 1, task: 'Diagnostic Sprint', start: 0, duration: 2, category: 'Diagnose', progress: 100 },
+  { id: 2, task: 'Architecture & Security Review', start: 2, duration: 2, category: 'Architect', progress: 100 },
+  { id: 3, task: 'RAG Pipeline Implementation', start: 4, duration: 3, category: 'Engineer', progress: 100 },
+  { id: 4, task: 'Service Health & SLOs', start: 5, duration: 2, category: 'Engineer', progress: 100 },
+  { id: 5, task: 'Pilot Enablement & Training', start: 7, duration: 3, category: 'Enable', progress: 100 },
+  { id: 6, task: 'ROI & Expansion Plan', start: 9, duration: 2, category: 'Impact', progress: 100 },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MODEL CARD — Engineer phase (guardrails, failure modes)
+// ─────────────────────────────────────────────────────────────────────────────
+const modelCard = {
+  model: { name: 'Pfizer Content Assistant', version: '1.2.0', type: 'RAG + GPT-4 Turbo', lastUpdated: 'Oct 2024', owner: 'AI Platform Team', status: 'Production' },
+  description: 'AI assistant for accelerating promotional content creation while maintaining MLR compliance. Uses RAG pipeline over approved SharePoint assets with GPT-4 generation.',
+  intendedUse: {
+    primary: ['Draft promotional content', 'Search approved templates', 'Pre-check compliance issues'],
+    outOfScope: ['Final MLR approval decisions', 'Medical claims without review', 'Patient-facing content'],
+    users: ['Content Producers', 'Brand Managers', 'Agency Partners'],
+  },
+  performance: {
+    metrics: [
+      { name: 'Retrieval Accuracy', value: '91%', baseline: '—', threshold: '>85%' },
+      { name: 'Citation Faithfulness', value: '96%', baseline: '—', threshold: '>90%' },
+      { name: 'User Satisfaction', value: '4.2/5', baseline: '3.1/5', threshold: '>4.0' },
+      { name: 'p95 Latency', value: '280ms', baseline: '850ms', threshold: '<500ms' },
+    ],
+    evaluationData: 'Internal benchmark: 500 queries across 12 brands',
+  },
+  limitations: [
+    'Cannot verify scientific claims — requires medical reviewer',
+    'May hallucinate if query is outside SharePoint corpus',
+    'Region/brand filters must be set correctly by user',
+    'Not trained on competitor content or external sources',
+  ],
+  ethicalConsiderations: [
+    'All output requires human MLR review before use',
+    'PHI redaction layer prevents patient data exposure',
+    'Audit logging for all queries and responses',
+    'No model training on Pfizer data (API-only)',
+  ],
+  training: {
+    dataSize: '12,000 approved content assets',
+    dateRange: 'Jan 2022 - Oct 2024',
+    features: 0,
+    targetVariable: 'Content retrieval & generation',
+    samplingStrategy: 'Full corpus indexing',
+    trainTestSplit: 'N/A (RAG)',
+  },
+  fairness: {
+    protectedAttributes: ['brand', 'region', 'content_type'],
+    metrics: [
+      { group: 'US Brands', fpr: 0.08, fnr: 0.12, samples: 4500 },
+      { group: 'EU Brands', fpr: 0.09, fnr: 0.14, samples: 3200 },
+      { group: 'APAC Brands', fpr: 0.11, fnr: 0.15, samples: 2100 },
+    ],
+    findings: [
+      { severity: 'info', text: 'Retrieval accuracy consistent across regions (±3%)' },
+      { severity: 'low', text: 'Newer brands have less indexed content' },
+    ],
+  },
+  features: [
+    { name: 'semantic_similarity', importance: 0.35, category: 'retrieval' },
+    { name: 'recency_score', importance: 0.20, category: 'retrieval' },
+    { name: 'brand_filter_match', importance: 0.18, category: 'filter' },
+    { name: 'content_type_match', importance: 0.12, category: 'filter' },
+    { name: 'approval_status', importance: 0.10, category: 'compliance' },
+    { name: 'user_engagement_history', importance: 0.05, category: 'personalization' },
+  ],
+  deployment: {
+    endpoint: 'ai-content-api.pfizer.internal/v1/generate',
+    latency: '280ms p95',
+    throughput: '4,200 req/day',
+    monitoring: 'Datadog APM + custom guardrail alerts',
+  },
+};
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // EXPORT — Master Pfizer chart bundle
@@ -899,19 +1012,16 @@ export const pfizerCharts: CaseStudyCharts = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// CLEAN CONFIG EXPORT — Single import for case study pages
-// ═══════════════════════════════════════════════════════════════════════════════
-// Usage: import { pfizerConfig } from '@/data/caseStudies/pfizerData';
-// Then:  <CaseStudyTemplate study={pfizerConfig.study} charts={pfizerConfig.charts} />
+// CLEAN CONFIG EXPORT
 // ═══════════════════════════════════════════════════════════════════════════════
 
-export interface CaseStudyConfig {
+export interface PfizerCaseStudyConfig {
   slug: string;
   study: CaseStudyData;
   charts: CaseStudyCharts;
 }
 
-export const pfizerConfig: CaseStudyConfig = {
+export const pfizerConfig: PfizerCaseStudyConfig = {
   slug: 'pfizer',
   study: pfizerData,
   charts: pfizerCharts,
