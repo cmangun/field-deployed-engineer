@@ -13,7 +13,7 @@ export const pfizerNormalized: NormalizedCaseStudy = {
   subtitle:
     "Reduced MLR review cycles by 65% (42 → 14 days), tripled throughput, and unlocked $2.08M annual savings by deploying a governed RAG platform over 20+ systems across Pfizer, IPG, and Publicis.",
   category: "Pharma · RAG · MLR Compliance · Enterprise AI",
-  heroImage: "/assets/img/case-studies/_showcase/Sanofi 2.png",
+  heroImage: "/assets/img/case-studies/_showcase/Pfizerhero.png",
   brandLogo: "/assets/img/logo/Pfizer_(2021).png",
 
   heroStats: [

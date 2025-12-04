@@ -36,46 +36,9 @@ export const pfizerData: CaseStudyData = {
     "ML Engineering & SRE",
     "Change Management & Enablement",
   ],
-  heroImage: "/assets/img/case-studies/pfizer/hero.jpg",
+  heroImage: "/assets/img/case-studies/_showcase/Pfizerhero.png",
 
-  overview:
-    "Reduced MLR review cycles by 65% (42 → 14 days), tripled approved AI-assisted content, and unlocked $2.08M+ annual savings by building a governed AI content engine that sits inside Pfizer's existing CLM/CRM stack.",
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // HERO CONTEXT
-  // ─────────────────────────────────────────────────────────────────────────────
-  heroContext: {
-    client:
-      'Pfizer Vaccines – Global Commercial, Medical, and Agencies (IPG and Publicis)',
-    constraint:
-      'The system, not the people: 20+ fragmented tools, slow retrieval, and version collisions created a structurally slow MLR pipeline that blocked AI adoption.',
-    result:
-      '65% faster review cycles, 3× throughput in approved AI-assisted content, and $2.08M annual savings with zero MLR exceptions.',
-  },
-
-  heroMetrics: [
-    { label: 'MLR Cycle Time', value: '42 → 14 days', delta: '-65%' },
-    { label: 'Throughput', value: '272 → 816 assets/mo', delta: '3×' },
-    { label: 'Annual Savings', value: '$2.08M', delta: 'annualized' },
-    { label: 'p95 Latency', value: '850 → 280 ms', delta: '-67%' },
-  ],
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // EXECUTIVE SNAPSHOT
-  // ─────────────────────────────────────────────────────────────────────────────
-  executiveSnapshot: {
-    headline: 'From 42-day cycles to 14-day AI-assisted approvals.',
-    keyOutcomes: [
-      '65% reduction in MLR cycle time',
-      '3× increase in approved AI-assisted assets',
-      '$2.08M+ annual cost savings',
-      'Zero MLR exceptions; ≥99% compliance SLA',
-    ],
-  },
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // EXECUTIVE SUMMARY
-  // ─────────────────────────────────────────────────────────────────────────────
+  // EXECUTIVE SUMMARY (TOP BLOCK)
   executiveSummary: {
     client: "Pfizer Vaccines – Global Commercial, Medical, and Agencies",
     context:
@@ -102,9 +65,7 @@ export const pfizerData: CaseStudyData = {
     },
   },
 
-  // ─────────────────────────────────────────────────────────────────────────────
   // PHASE META — Diagnose → Architect → Engineer → Enable → Impact
-  // ─────────────────────────────────────────────────────────────────────────────
   phasesMeta: [
     {
       key: "diagnose",
@@ -133,7 +94,6 @@ export const pfizerData: CaseStudyData = {
       kpiFocus: "Review cycle time, revision rate, search time",
       decisionOwner: "Commercial Operations",
     },
-
     {
       key: "architect",
       title: "Architect",
@@ -161,7 +121,6 @@ export const pfizerData: CaseStudyData = {
       kpiFocus: "Architecture sign-off, SLO definitions",
       decisionOwner: "Enterprise Architecture",
     },
-
     {
       key: "engineer",
       title: "Engineer",
@@ -189,7 +148,6 @@ export const pfizerData: CaseStudyData = {
       kpiFocus: "p95 latency, uptime, error rate",
       decisionOwner: "Platform Engineering",
     },
-
     {
       key: "enable",
       title: "Enable",
@@ -216,7 +174,6 @@ export const pfizerData: CaseStudyData = {
       kpiFocus: "User activation, satisfaction, training completion",
       decisionOwner: "Learning & Development",
     },
-
     {
       key: "impact",
       title: "Impact",
@@ -246,105 +203,7 @@ export const pfizerData: CaseStudyData = {
     },
   ],
 
-  // ─────────────────────────────────────────────────────────────────────────────
-  // PHASES (for template rendering)
-  // ─────────────────────────────────────────────────────────────────────────────
-  phases: {
-    diagnose: {
-      id: 'diagnose',
-      title: 'Diagnose – Find the Real Constraint',
-      duration: '2 weeks',
-      description: 'A two-week diagnostic showed that 75% of delays occurred in search, retrieval, and version collisions, not reviewer headcount.',
-      points: [
-        'Mapped end-to-end vaccines content flow across three organizations.',
-        'Measured search time, queue delays, and revision loops at each stage.',
-        'Found that ~75% of delay clustered in Search & Retrieval and early MLR triage.',
-        'Documented ~40% revision rate driven by version collisions and hard-to-find references.',
-      ],
-      deliverables: ['MLR Cycle-Time Baseline', 'Content Funnel & Bottleneck Analysis', 'RACI Accountability Map'],
-      metrics: [
-        { value: '42', numericValue: 42, suffix: ' days', label: 'Baseline Cycle Time' },
-        { value: '40%', numericValue: 40, suffix: '%', label: 'Revision Rate' },
-        { value: '25', numericValue: 25, suffix: ' min', label: 'Avg Search Time' }
-      ]
-    },
-    architect: {
-      id: 'architect',
-      title: 'Architect – Design a Governed RAG Platform',
-      duration: '2 weeks',
-      description: 'CoCo was architected as a governed RAG engine sitting over Veeva Vault, SharePoint, Workfront, CLM, and Teams.',
-      points: [
-        'Defined CoCo as a governed datasphere over Veeva, SharePoint, Workfront, CLM, and Teams.',
-        'Separated systems of record from AI behavior via a stateless RAG layer.',
-        'Embedded medical–promo separation and regional filters into retrieval and generation steps.',
-        'Set SLOs for retrieval accuracy (>85%), p95 latency (<350 ms), and uptime (>99.7%).',
-      ],
-      deliverables: ['C4 System Context Diagram', 'RAG Pipeline Blueprint', 'Integration Contracts'],
-      metrics: [
-        { value: '5', numericValue: 5, label: 'Systems Integrated' },
-        { value: '>85%', label: 'Retrieval Accuracy SLO' },
-        { value: '<350ms', label: 'p95 Latency SLO' }
-      ]
-    },
-    engineer: {
-      id: 'engineer',
-      title: 'Engineer – Build a Tier-1 AI Service',
-      duration: '3 weeks',
-      description: 'We implemented a production-ready RAG pipeline with hybrid search, hot-path caching, unified APIs, and full observability.',
-      points: [
-        'Implemented hybrid semantic + keyword retrieval tuned for vaccines content.',
-        'Deployed caching to reduce p95 latency from ~850 ms to ~280 ms.',
-        'Exposed a single AI Content API with role-aware and region-aware access.',
-        'Logged full lineage (source → prompt → output) for every AI suggestion.',
-      ],
-      deliverables: ['Production RAG Pipeline', 'AI Content API', 'Service Health Dashboards'],
-      metrics: [
-        { value: '280', numericValue: 280, suffix: 'ms', label: 'p95 Latency' },
-        { value: '99.7%', numericValue: 99.7, suffix: '%', label: 'Uptime' },
-        { value: '4,200', label: 'Daily Requests' }
-      ]
-    },
-    enable: {
-      id: 'enable',
-      title: 'Enable – Drive Adoption',
-      duration: '3 weeks',
-      description: 'CoCo was embedded into existing tools (Teams, CLM) and re-framed as a companion rather than a separate app.',
-      points: [
-        'Embedded CoCo into Teams and CLM/CRM surfaces already used by vaccines teams.',
-        'Redesigned the producer journey to include AI-assisted search and pre-review steps.',
-        'Trained >200 users across Pfizer, IPG, and Publicis with 94% completion.',
-        'Monitored adoption and friction via org health dashboards and user telemetry.',
-      ],
-      deliverables: ['Producer Journey & UX Flows', 'Training Playbook', 'Org-Adoption Dashboard'],
-      metrics: [
-        { value: '200+', label: 'Users Trained' },
-        { value: '94%', numericValue: 94, suffix: '%', label: 'Training Completion' },
-        { value: '4.2/5', label: 'Satisfaction Score' }
-      ]
-    },
-    impact: {
-      id: 'impact',
-      title: 'Impact – Platform, Not Project',
-      duration: '2 weeks',
-      description: 'CoCo reduced MLR cycle time from 42 to 14 days, tripled asset throughput, and unlocked $2.08M in annual savings.',
-      points: [
-        'Reduced MLR review cycles from 42 → 14 days (-65%).',
-        'Increased approved assets from 272 → 816 per month (3×).',
-        'Realized $2.08M in annualized savings.',
-        'Defined an expansion roadmap for 5+ additional therapeutic areas.',
-      ],
-      deliverables: ['ROI Waterfall & Savings Model', 'Unit Economics Model', 'Expansion Roadmap'],
-      metrics: [
-        { value: '65%', numericValue: 65, suffix: '%', label: 'Cycle Time Reduction' },
-        { value: '3×', label: 'Throughput Increase' },
-        { value: '$2.08M', label: 'Annual Savings' }
-      ]
-    }
-  },
-
-  // ─────────────────────────────────────────────────────────────────────────────
-  // LEGACY / SUMMARY FIELDS
-  // ─────────────────────────────────────────────────────────────────────────────
+  // LEGACY / SUMMARY FIELDS (for template footer)
   challenge: {
     title: "Slow, fragmented vaccines MLR pipeline",
     description:
@@ -359,52 +218,19 @@ export const pfizerData: CaseStudyData = {
     title: "CoCo – a governed enterprise copilot RAG platform",
     description:
       "Acted as a forward-deployed architect to diagnose bottlenecks, design CoCo as a governed RAG engine over existing systems, and deploy it as a tier-1 service with full observability and governance.",
-    points: [
-      'Diagnostic sprint to quantify the constraint.',
-      'Governed architecture that preserved systems of record.',
-      'SLO-driven RAG engineering with full observability.',
-      'Deliberate enablement and change-management plan.',
-    ],
   },
   solution: {
     title: "Unified, AI-enabled vaccines content engine",
     description:
       "CoCo unified 20+ systems into a single AI-governed content layer, enabling fast, accurate, and compliant vaccines content in 40+ languages and 150+ markets.",
-    points: [
-      'RAG engine tuned for high-trust template retrieval and drafting.',
-      'Integration with Veeva, SharePoint, Workfront, CLM, and Teams.',
-      'MLR-aware audit trails for every AI suggestion and decision.',
-      'Composable architecture for future models and use cases.',
-    ],
-    tools: [
-      { label: 'AI/ML', value: 'Azure OpenAI GPT-4' },
-      { label: 'Search', value: 'Azure Cognitive Search' },
-      { label: 'Platform', value: 'Veeva Vault, Salesforce CLM' },
-      { label: 'Infra', value: 'Azure, Teams Bot Framework' },
-    ],
   },
   results: {
     title: "Enterprise-grade impact",
-    metrics: [
-      { value: '65%', label: 'Cycle time reduction (42 → 14 days)', suffix: '' },
-      { value: '3×', label: 'Increase in approved AI-assisted assets', suffix: '' },
-      { value: '$2.08M', label: 'Annual savings validated', suffix: '' },
-      { value: '0', label: 'MLR exceptions in pilot period', suffix: '' },
-    ],
+    description:
+      "65% faster MLR reviews, 3× throughput, $2.08M annual savings, and a scalable pattern for future AI platforms at Pfizer.",
   },
-
-  testimonial: {
-    quote: 'For the first time, we could see exactly where our content pipeline broke—and how AI actually fixed it without adding risk.',
-    author: 'Director',
-    role: 'Commercial Operations',
-    company: 'Pfizer',
-  },
-
-  nextCaseStudy: {
-    brand: 'Abbott',
-    title: 'BinaxNOW Diagnostic Platform',
-    href: '/case-study/binaxnow',
-  },
+  testimonial: "",
+  nextCaseStudy: "abbott-binaxnow-diagnostic-platform",
 };
 
 
@@ -454,6 +280,7 @@ const raciMatrix = {
   } as Record<string, string>,
 };
 
+
 // ─────────────────────────────────────────────────────────────────────────────
 // ARCHITECT — System Context + RAG Pipeline
 // ─────────────────────────────────────────────────────────────────────────────
@@ -496,6 +323,7 @@ const ragPipeline = {
     { name: 'Recall@5', value: 0.82, desc: 'Relevant in top 5' },
   ]
 };
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // ENGINEER — Service Health + Latency + Data Quality
@@ -638,6 +466,7 @@ const orgHealth = {
   ],
 };
 
+
 // ─────────────────────────────────────────────────────────────────────────────
 // IMPACT — Waterfall + Unit Economics + Calendar + Sparklines
 // ─────────────────────────────────────────────────────────────────────────────
@@ -771,6 +600,7 @@ const modelCard = {
   ],
   deployment: { endpoint: 'ai-content-api.pfizer.internal/v1/generate', latency: '280ms p95', throughput: '4,200 req/day', monitoring: 'Datadog APM + custom guardrail alerts' },
 };
+
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // EXPORT — Master Pfizer chart bundle
