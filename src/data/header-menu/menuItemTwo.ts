@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// MENU ITEMS — Canonical 1-12 Case Study Order
+// MENU ITEMS — Canonical Case Study Order
 // Updated: December 2024
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -69,49 +69,17 @@ const menuItemsTwo: MenuItem[] = [
             },
 
             // ─────────────────────────────────────────────────────────────
-            // MAJOR ENTERPRISE ARCHITECTURE WORK — 7-9
+            // ENTERPRISE ARCHITECTURE — 7
             // ─────────────────────────────────────────────────────────────
-            {
-                brand: "Medtronic",
-                role: "Genius GI Surgical AI",
-                description: "Surgical AI platform with spec-to-model traceability, model cards, and latency-bound inference.",
-                href: "/case-study/medtronic"
-            },
             {
                 brand: "Publicis Health",
                 role: "Enterprise Architecture at Scale",
                 description: "Unified 14 agency systems into governed content supply-chain with identity and workflow alignment.",
                 href: "/case-study/publicis"
             },
-            {
-                brand: "IPG / Area 23",
-                role: "Sub-Portfolio Planning",
-                description: "Intranet-as-platform with modular features, shared UI components, and cross-client governance.",
-                href: "/case-study/ipg"
-            },
 
             // ─────────────────────────────────────────────────────────────
-            // TECHNICAL PROGRAM LEADERSHIP — 10
-            // ─────────────────────────────────────────────────────────────
-            {
-                brand: "Syneos Health",
-                role: "Repatha Technical Program Lead",
-                description: "Multi-team, multi-cloud rollout of scientific data platform with harmonized taxonomies.",
-                href: "/case-study/amgen"
-            },
-
-            // ─────────────────────────────────────────────────────────────
-            // CROSS-SECTOR ANALYTICS — 11
-            // ─────────────────────────────────────────────────────────────
-            {
-                brand: "Sanofi",
-                role: "Cross-Sector Dashboard",
-                description: "Global dashboard aligning R&D, supply, commercial, and safety into unified decision center.",
-                href: "/case-study/sanofi"
-            },
-
-            // ─────────────────────────────────────────────────────────────
-            // MISSION-DRIVEN / HUMANITARIAN — 12
+            // MISSION-DRIVEN / HUMANITARIAN — 8
             // ─────────────────────────────────────────────────────────────
             {
                 brand: "Naked Heart Foundation",

@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CASE STUDY CARDS — Canonical 1-12 Order for Portfolio Showcase
+// CASE STUDY CARDS — Portfolio Showcase Data
 // Updated: December 2024
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -18,14 +18,13 @@ export type CaseStudyCard = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// CANONICAL ORDER (1-12)
+// CANONICAL ORDER (8 Case Studies)
 // ═══════════════════════════════════════════════════════════════════════════════
-// Pfizer / Colab (End-to-End Transformation Arc) — 1-4
-// Abbott (Evaluation → Platform Enablement) — 5-6
-// Major Enterprise Architecture Work — 7-9
-// Technical Program Leadership — 10
-// Cross-Sector Analytics & Harmonization — 11
-// Mission-Driven / Humanitarian — 12
+// 0. Intro Card
+// 1-4. Pfizer / Colab (End-to-End Transformation Arc)
+// 5-6. Abbott (Evaluation → Platform Enablement)
+// 7. Publicis Health (Enterprise Architecture)
+// 8. Naked Heart Foundation (Mission-Driven)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 export const caseStudyCardsData: CaseStudyCard[] = [
@@ -149,7 +148,7 @@ export const caseStudyCardsData: CaseStudyCard[] = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // 8. PUBLICIS HEALTH — ENTERPRISE ARCHITECTURE AT SCALE
+  // 7. PUBLICIS HEALTH — ENTERPRISE ARCHITECTURE AT SCALE
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: "publicis",
@@ -161,12 +160,12 @@ export const caseStudyCardsData: CaseStudyCard[] = [
     services: ["System Unification", "Identity Management", "Workflow Design"],
     year: "2023",
     heroImage: "/assets/img/case-studies/_showcase/EnterpriseScale.jpg",
-    delay: 0.56,
+    delay: 0.48,
     isPlaceholder: false,
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // 9. NAKED HEART FOUNDATION — GLOBAL PLAYGROUND PROGRAM
+  // 8. NAKED HEART FOUNDATION — GLOBAL PLAYGROUND PROGRAM
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: "nakedheart",
@@ -178,7 +177,7 @@ export const caseStudyCardsData: CaseStudyCard[] = [
     services: ["Data Platform", "Analytics", "Donor Operations"],
     year: "2022",
     heroImage: "/assets/img/case-studies/_showcase/nakedheart.jpg",
-    delay: 0.64,
+    delay: 0.56,
     isPlaceholder: false,
   },
 ];

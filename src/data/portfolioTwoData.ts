@@ -129,15 +129,10 @@ export const portfolioWebglSlides = [
     { id: 1, active: false, title: "Pfizer", categories: ["Field-Embedded Engineering"], description: "Embedded with Pfizer Global Production as an onsite FDE, engineering AI workflows that accelerated content supply operations and integrated OpenAI systems into high-stakes brand pipelines.", link: "/portfolio-horizontal-showcase-light" },
     { id: 2, active: false, title: "Colab", categories: ["Retrieval & Knowledge Engineering"], description: "Designed and deployed an internal AI search assistant using OpenAI + SharePoint with Glean-style semantic indexing, enabling secure enterprise RAG capabilities for air-gapped environments.", link: "/portfolio-horizontal-showcase-light" },
     { id: 3, active: false, title: "Publicis Health", categories: ["Enterprise Architecture at Scale"], description: "Architected a multi-brand RAG ecosystem across SharePoint/Teams and Azure ML, reducing review cycles by 35% and increasing asset reuse 2.3× while aligning with MLR governance requirements.", link: "/portfolio-horizontal-showcase-light" },
-    { id: 4, active: false, title: "Medtronic", categories: ["LLM-Centered Architecture"], description: "Led architecture for an LLM-driven decision-support system within Medtronic's regulated workflows, integrating secure context windows and evaluation layers to support clinical-grade reliability.", link: "/portfolio-horizontal-showcase-light" },
-    { id: 5, active: false, title: "Abbott Labs", categories: ["Responsible AI & Governance"], description: "Engineered HIPAA-compliant data planes and audit-ready ML pipelines for global diagnostics, achieving zero audit findings and establishing governance frameworks for LLM readiness.", link: "/portfolio-horizontal-showcase-light" },
-    { id: 6, active: false, title: "Amgen", categories: ["Technical Program Leadership"], description: "Directed AI-enabled product launches and cross-functional engineering streams for Amgen Biosimilars and Repatha, coordinating technical, medical, and regulatory teams under tight release gates.", link: "/portfolio-horizontal-showcase-light" },
-    { id: 7, active: false, title: "Sanofi Global Vaccines", categories: ["Cross-Sector Communication"], description: "Unified technical, medical, and commercial stakeholders across seven global vaccine brands, translating complex data and system constraints into actionable AI-enabled pathways.", link: "/portfolio-horizontal-showcase-light" },
-    { id: 8, active: false, title: "Abbott Labs Alinity", categories: ["Systems for Mission Outcomes"], description: "Deployed real-time data ingestion and ML-readiness pipelines across 30,000+ Alinity diagnostic systems, enabling faster decision cycles and downstream LLM integration for global operations.", link: "/portfolio-horizontal-showcase-light" },
-    { id: 9, active: false, title: "Abbott BinaxNOW", categories: ["Eval-Controlled LLM Asset"], description: "Built evaluation-driven NLP/LLM pipelines to support BinaxNOW's data ecosystem, establishing continuous validation loops and boosting retrieval efficiency by 65%.", link: "/portfolio-horizontal-showcase-light" },
-    { id: 10, active: false, title: "Eli Lilly", categories: ["Regulated Portfolio Deployment"], description: "Managed large-scale technical deployments and Veeva/Salesforce governance for Eli Lilly, ensuring compliant data flows and system integrity across a deeply regulated portfolio.", link: "/portfolio-horizontal-showcase-light" },
-    { id: 11, active: false, title: "IPG Global Intranets", categories: ["Sub-Portfolio Planning"], description: "Architected global intranet and knowledge systems for AREA23 and ProHealth, creating single-source-of-truth environments that reduced operational friction and improved cross-team alignment.", link: "/portfolio-horizontal-showcase-light" },
-    { id: 12, active: false, title: "Naked Heart Foundation", categories: ["Mission-Embedded Non-Profit"], description: "Built the foundation's first global digital platform with multi-currency, tax-compliant donation infrastructure, advancing global fundraising capacity for a mission-driven organization.", link: "/portfolio-horizontal-showcase-light" },
+    { id: 4, active: false, title: "Abbott Labs", categories: ["Responsible AI & Governance"], description: "Engineered HIPAA-compliant data planes and audit-ready ML pipelines for global diagnostics, achieving zero audit findings and establishing governance frameworks for LLM readiness.", link: "/portfolio-horizontal-showcase-light" },
+    { id: 5, active: false, title: "Abbott Labs Alinity", categories: ["Systems for Mission Outcomes"], description: "Deployed real-time data ingestion and ML-readiness pipelines across 30,000+ Alinity diagnostic systems, enabling faster decision cycles and downstream LLM integration for global operations.", link: "/portfolio-horizontal-showcase-light" },
+    { id: 6, active: false, title: "Abbott BinaxNOW", categories: ["Eval-Controlled LLM Asset"], description: "Built evaluation-driven NLP/LLM pipelines to support BinaxNOW's data ecosystem, establishing continuous validation loops and boosting retrieval efficiency by 65%.", link: "/portfolio-horizontal-showcase-light" },
+    { id: 7, active: false, title: "Naked Heart Foundation", categories: ["Mission-Embedded Non-Profit"], description: "Built the foundation's first global digital platform with multi-currency, tax-compliant donation infrastructure, advancing global fundraising capacity for a mission-driven organization.", link: "/portfolio-horizontal-showcase-light" },
 ];
 
 // slider images
@@ -146,14 +141,9 @@ export const sliderImages = [
     imgPfizer,       // Pfizer
     imgColab,        // Colab
     imgPublicis,     // Publicis Health
-    imgMedtronic,    // Medtronic
     imgAbbott,       // Abbott Labs
-    imgAmgen,        // Amgen
-    imgSanofi,       // Sanofi Global Vaccines
     imgAlinity,      // Abbott Labs Alinity
     imgBinaxNOW,     // Abbott BinaxNOW
-    imgEliLilly,     // Eli Lilly
-    imgPublicis,     // IPG Global Intranets (using Publicis as placeholder)
     imgNakedHeart,   // Naked Heart Foundation
 ];
 
