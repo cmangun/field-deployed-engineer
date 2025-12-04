@@ -54,7 +54,7 @@ const menuItemsTwo: MenuItem[] = [
             // ENTERPRISE ARCHITECTURE
             // ─────────────────────────────────────────────────────────────
             {
-                brand: "Publicis Health",
+                brand: "IPG",
                 role: "Enterprise Architecture at Scale",
                 description: "Unified 14 agency systems into governed content supply-chain with identity and workflow alignment.",
                 href: "/case-study/publicis"

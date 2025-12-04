@@ -98,6 +98,7 @@ export { default as RACIMatrix } from './RACIMatrix';
 export { default as CapacityPlanning } from './CapacityPlanning';
 export { default as UserSegmentation } from './UserSegmentation';
 export { default as HypercareDashboard } from './HypercareDashboard';
+export { default as ProjectPlanChart } from './ProjectPlanChart';
 
 // Sales & Marketing (71-76)
 export { default as PipelineWaterfall } from './PipelineWaterfall';

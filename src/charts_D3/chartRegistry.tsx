@@ -32,6 +32,7 @@ import ErrorBudgetTracker from './ErrorBudgetTracker';
 import OKRTracker from './OKRTracker';
 import HCPEngagementFunnel from './HCPEngagementFunnel';
 import ModelRegistry from './ModelRegistry';
+import ProjectPlanChart from './ProjectPlanChart';
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // TYPES
@@ -72,6 +73,14 @@ export const chartRegistry: ChartRegistry = {
     phase: 'diagnose',
     tags: ['governance', 'accountability', 'ownership'],
     render: (data) => <RACIMatrix data={data as Record<string, unknown>} />,
+  },
+  ProjectPlanChart: {
+    key: 'ProjectPlanChart',
+    title: 'Project Plan',
+    subtitle: '6-phase execution roadmap with tasks and deliverables',
+    phase: 'diagnose',
+    tags: ['planning', 'roadmap', 'execution'],
+    render: (data) => <ProjectPlanChart data={data as Record<string, unknown>} />,
   },
   RiskRegister: {
     key: 'RiskRegister',

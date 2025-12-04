@@ -97,13 +97,13 @@ export const caseStudyCardsData: CaseStudyCard[] = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // 4. PUBLICIS HEALTH — ENTERPRISE ARCHITECTURE AT SCALE
+  // 4. IPG — ENTERPRISE ARCHITECTURE AT SCALE
   // ─────────────────────────────────────────────────────────────────────────────
   {
     id: "publicis",
     slug: "publicis",
     title: "Enterprise Architecture at Scale",
-    client: "Publicis Health",
+    client: "IPG",
     subtitle: "Unified 14 agency systems into a governed content supply-chain with identity, routing, and creative-to-MLR workflow alignment.",
     domain: "Multi-tenant architecture, SSO, workflow systems",
     services: ["System Unification", "Identity Management", "Workflow Design"],

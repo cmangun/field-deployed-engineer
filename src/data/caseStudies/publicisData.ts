@@ -1,6 +1,6 @@
 // src/data/caseStudies/publicisData.ts
 // ═══════════════════════════════════════════════════════════════════════════════
-// PUBLICIS HEALTH CASE STUDY - NARRATIVE + CHART DATA
+// IPG CASE STUDY - NARRATIVE + CHART DATA
 // Enterprise Architecture at Scale - Multi-Agency System Unification
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -13,11 +13,11 @@ import { pfizerCharts } from './pfizerData';
 
 export const publicisData: CaseStudyData = {
   slug: 'publicis',
-  brandLogo: '/assets/img/logo/IPG-white.png',
-  title: 'Publicis Health Enterprise Architecture',
+  brandLogo: '/assets/img/logo/IPG-dark.png',
+  title: 'IPG Enterprise Architecture',
   subtitle: 'Multi-Agency System Unification',
-  company: 'Publicis Health',
-  client: 'Publicis Health Network',
+  company: 'IPG',
+  client: 'IPG Network',
   role: 'Lead Enterprise Architect',
   year: '2023',
   services: ['System Unification', 'Identity Management', 'Workflow Design', 'SSO Integration'],
@@ -25,7 +25,7 @@ export const publicisData: CaseStudyData = {
   overview: 'Unified 14 agency systems into a governed content supply-chain with identity, routing, and creative-to-MLR workflow alignment. Reduced cross-agency handoff time by 60%, eliminated duplicate asset creation, and established a single source of truth for 2,500+ users across the network.',
 
   heroContext: {
-    client: 'Publicis Health network of 14 agencies operated on fragmented systems with no unified identity, content routing, or workflow governance.',
+    client: 'IPG network of 14 agencies operated on fragmented systems with no unified identity, content routing, or workflow governance.',
     constraint: 'Each agency had evolved its own tech stack, creating silos that slowed cross-agency collaboration and increased compliance risk.',
     result: 'Delivered a unified architecture enabling seamless content flow from creative through MLR across all agencies.'
   },
@@ -51,7 +51,7 @@ export const publicisData: CaseStudyData = {
       key: 'diagnose',
       title: 'Diagnose',
       challenge:
-        'Publicis Health\'s 14 agencies each had their own stack, workflows, and identity model. No one had an end-to-end picture of how content moved from creative through MLR, or where it stalled.',
+        'IPG\'s 14 agencies each had their own stack, workflows, and identity model. No one had an end-to-end picture of how content moved from creative through MLR, or where it stalled.',
       outcome:
         'In four weeks we inventoried 14 tech stacks, mapped 47 workflows, and quantified $2.3M in annual cost from duplicate asset creation and rework, reframing the problem as a system unification challenge, not a tooling issue at any single agency.'
     },
@@ -170,7 +170,7 @@ export const publicisData: CaseStudyData = {
       id: 'impact',
       title: 'Impact',
       duration: 'Ongoing',
-      description: 'The unified architecture transformed how Publicis Health operates, enabling faster collaboration and eliminating costly inefficiencies.',
+      description: 'The unified architecture transformed how IPG operates, enabling faster collaboration and eliminating costly inefficiencies.',
       points: [
         '60% reduction in cross-agency handoff time',
         'Zero duplicate asset creation incidents post-launch',
@@ -187,7 +187,7 @@ export const publicisData: CaseStudyData = {
 
   challenge: {
     title: 'The Challenge',
-    description: 'Publicis Health network of 14 agencies operated on fragmented systems with no unified identity or workflow governance.',
+    description: 'IPG network of 14 agencies operated on fragmented systems with no unified identity or workflow governance.',
     points: [
       '14 distinct agency tech stacks',
       '47 unique content workflows',

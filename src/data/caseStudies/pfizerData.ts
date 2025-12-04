@@ -133,7 +133,7 @@ export const pfizerData: CaseStudyData = {
         "Search and retrieval time per asset",
       ],
       decisionOwner: "Commercial Operations",
-      chartKeys: ["funnel", "raciMatrix"],
+      chartKeys: ["funnel", "raciMatrix", "projectPlan"],
     },
     {
       id: "architect",
@@ -355,6 +355,101 @@ const raciMatrix = {
     'ws5-p1': 'I', 'ws5-p2': 'I', 'ws5-p3': 'R', 'ws5-p4': 'C', 'ws5-p5': 'I',
     'ws6-p1': 'A', 'ws6-p2': 'R', 'ws6-p3': 'C', 'ws6-p4': 'I', 'ws6-p5': 'C',
   } as Record<string, string>,
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// DIAGNOSE — Project Plan (6-Phase Execution Roadmap)
+// ─────────────────────────────────────────────────────────────────────────────
+
+const projectPlan = {
+  title: 'CoCo Project Execution Plan',
+  subtitle: '36 tasks across 6 phases: Diagnose → Architect → Prepare Data → Engineer → Enable → Impact',
+  phases: [
+    {
+      id: 'phase-1',
+      number: 1,
+      title: 'DIAGNOSE',
+      goal: 'Prove the problem is structural (search, fragmentation, version drift), not reviewer headcount.',
+      tasks: [
+        { id: '1', title: 'Map cross-org content flow (Pfizer / IPG / Publicis)', description: 'Trace end-to-end vaccines content from brief → draft → MLR → approval → field.', bullets: ['Include Veeva Vault, CLM, Workfront, Teams, SharePoint, regional stores, and agency handoffs.'] },
+        { id: '2', title: 'Instrument the MLR funnel and cycle time', description: 'Quantify the funnel: 2.5K assets created → 520 deployed (20.8%).', bullets: ['Capture 42-day baseline cycle time and where time accumulates.'] },
+        { id: '3', title: 'Measure search & retrieval burden', description: 'Time how long producers and reviewers spend locating prior claims, templates, label text, references.', bullets: ['Establish the 25-minute average search time as a measurable KPI.'] },
+        { id: '4', title: 'Analyze revision loops & version collisions', description: 'Identify what drives the 40% revision rate: wrong template, wrong region, outdated label, missing fair balance.', bullets: ['Cluster revision causes into a small set of structural errors.'] },
+        { id: '5', title: 'Build the RACI across three organizations', description: 'Produce the RACI Accountability Map for drafting, pre-review, reference selection, MLR readiness, and final approval.', bullets: ['Clarify boundaries between Pfizer, IPG, Publicis for content and AI responsibilities.'] },
+        { id: '6', title: 'Create the AI/ML risk register', description: 'Enumerate risks: off-label suggestions, missing safety language, region mis-match, hallucinated references.', bullets: ['Document constraints: sentence-level lineage, immutable logs, MLR visibility, regulator-ready auditability.'] },
+      ],
+    },
+    {
+      id: 'phase-2',
+      number: 2,
+      title: 'ARCHITECT',
+      goal: 'Define CoCo as a governed RAG engine over existing systems, with explicit SLOs and guardrails.',
+      tasks: [
+        { id: '7', title: 'Define CoCo\'s product charter and non-goals', description: 'CoCo is a governed Copilot for vaccines content, not a new DAM, MLR system, or CMS.', bullets: ['It orchestrates over Veeva, Workfront, CLM, Teams, SharePoint, not replaces them.'] },
+        { id: '8', title: 'Draw the C4 system context diagram', description: 'Create the diagram with Content producer, MLR reviewer, brand lead, platform admin.', bullets: ['Connected to: Veeva Vault, Salesforce/CLM, Workfront, SharePoint, Teams, Azure OpenAI.', 'Show inbound/outbound/bidirectional flows and what stays "system of record."'] },
+        { id: '9', title: 'Design the RAG pipeline blueprint', description: 'Explicit Ingestion → Indexing → Retrieval → Response flow.', bullets: ['Ingestion from 5 systems, chunking + metadata, hybrid search, generation with citations and guardrails.', 'Include medical–promo separation and region filters as first-class steps.'] },
+        { id: '10', title: 'Separate systems of record from AI behavior', description: 'Declare that Veeva, CLM, Workfront remain authoritative.', bullets: ['CoCo is stateless RAG, only reading and suggesting, never persisting final records.', 'Capture this in Architecture Decision Records (ADRs).'] },
+        { id: '11', title: 'Set SLOs for retrieval, latency, uptime', description: 'Codify target SLOs: Retrieval accuracy >85%, p95 latency <350 ms, Uptime >99.7%.', bullets: ['Align engineering and business stakeholders on these targets.'] },
+        { id: '12', title: 'Define integration & data-flow contracts', description: 'For each core system (Veeva, Workfront, CLM, SharePoint, Teams):', bullets: ['Specify APIs/events used, call patterns, rate limits, payload schemas.', 'Security model (service principals, scopes, roles).'] },
+      ],
+    },
+    {
+      id: 'phase-3',
+      number: 3,
+      title: 'PREPARE DATA',
+      goal: 'Make the vaccines corpus RAG-ready: canonical, tagged, version-safe, and compliant.',
+      tasks: [
+        { id: '13', title: 'Identify canonical content and references', description: 'Select "golden sources": approved MLR assets, label and SMPC sections, standard fair-balance blocks.', bullets: ['Official templates by region and product.'] },
+        { id: '14', title: 'Define the content & metadata model', description: 'Design fields: brand, indication, lifecycle stage, asset type, region, language, owner, version, effective dates.', bullets: ['Ensure you can answer: "Is this text valid for this region, in this timeframe, for this claim type?"'] },
+        { id: '15', title: 'Normalize and clean the corpus', description: 'OCR and normalize PDFs and decks. Remove duplicate drafts and obsolete copies.', bullets: ['Reconcile conflicting versions into a single canonical lineage.'] },
+        { id: '16', title: 'Establish version lineage and governance', description: 'Implement rules: how new versions are created, how superseded content is marked.', bullets: ['How the RAG index avoids non-approved, non-final content.', 'Record lineage in a way CoCo can surface to reviewers.'] },
+        { id: '17', title: 'Implement data quality scorecards', description: 'Build the Data Quality Scorecard: freshness, completeness, consistency, approval status.', bullets: ['Use thresholds: block indexing if freshness/approval flags are missing.'] },
+        { id: '18', title: 'Validate regulatory & MLR readiness of the corpus', description: 'Run a sample audit with MLR reviewers, medical, legal.', bullets: ['Confirm all surfaced content is MLR-approved.', 'No off-label or outdated safety information is slipping into the RAG index.'] },
+      ],
+    },
+    {
+      id: 'phase-4',
+      number: 4,
+      title: 'ENGINEER',
+      goal: 'Ship a production RAG platform with low latency, high uptime, and full lineage.',
+      tasks: [
+        { id: '19', title: 'Implement hybrid semantic + keyword search', description: 'Build retrieval tuned for claims, safety language, contraindications, references.', bullets: ['Combine traditional term search for exact phrasing with semantic/vector search for conceptual similarity.'] },
+        { id: '20', title: 'Build and expose the AI Content API', description: 'Create a single gateway: role-aware, region-aware, brand-aware.', bullets: ['Operations: "Suggest references," "Draft first-pass copy," "Check MLR-readiness," "Summarize prior approvals."'] },
+        { id: '21', title: 'Deploy hot-path caching and performance tuning', description: 'Add caching layers for frequent queries, standard templates, canonical references.', bullets: ['Reduce p95 latency from ~850 ms to ~280 ms.'] },
+        { id: '22', title: 'Implement sentence-level lineage logging', description: 'For every AI suggestion: log source document, section, sentence/paragraph mapping.', bullets: ['Store prompt + retrieved snippets + output in an immutable log.', 'Make lineage visible in the reviewer UI.'] },
+        { id: '23', title: 'Build service health & latency dashboards', description: 'The Service Health Dashboard: AI Content API, Vector Search, Embedding Service, MLR Gateway, Cache Layer.', bullets: ['Track uptime, p50/p95/p99 latency, error rate, throughput.'] },
+        { id: '24', title: 'Create incident & on-call runbooks', description: 'Define SLO breach thresholds, pager triggers, escalation paths.', bullets: ['Playbooks for: index corruption, model misbehavior, latency spikes, data pipeline failures.'] },
+      ],
+    },
+    {
+      id: 'phase-5',
+      number: 5,
+      title: 'ENABLE',
+      goal: 'Turn CoCo into the default entry point for vaccines content work and MLR prep.',
+      tasks: [
+        { id: '25', title: 'Embed CoCo into existing workflows', description: 'Surface CoCo inside Teams, CLM, Workfront, MLR gateways.', bullets: ['Avoid "yet another portal"; keep it where producers already work.'] },
+        { id: '26', title: 'Redesign producer and reviewer journeys', description: 'Rework the Customer Journey Map: AI template suggestions at brief, AI pre-review before MLR, AI-assisted responses during MLR.', bullets: ['Smooth the emotional journey from "anxious" to "confident."'] },
+        { id: '27', title: 'Train producers, reviewers, and admins', description: 'Deliver training to 200+ users: producers, reviewers, brand leads, admins across all three orgs.', bullets: ['Achieve 94% completion on training modules.'] },
+        { id: '28', title: 'Establish CoCo champions and power users', description: 'Nominate champions in MLR, medical, promo, regional markets.', bullets: ['Create a feedback and advocacy loop: champions run clinics, share best practices, report issues.'] },
+        { id: '29', title: 'Monitor adoption, friction, and satisfaction', description: 'Build the Org Health Dashboard: active users, reuse, session length, feature usage.', bullets: ['Track satisfaction: move from 3.1/5 → 4.2/5.'] },
+        { id: '30', title: 'Run targeted UX and onboarding experiments', description: 'A/B test simplified onboarding vs. full-flow onboarding, inline micro-help vs. separate training.', bullets: ['Use telemetry to refine flows where drop-off is highest.'] },
+      ],
+    },
+    {
+      id: 'phase-6',
+      number: 6,
+      title: 'IMPACT',
+      goal: 'Capture hard ROI, codify CoCo as a platform, and prepare expansion.',
+      tasks: [
+        { id: '31', title: 'Quantify cycle-time reduction', description: 'Validate the shift: 42-day MLR cycle → 14 days (−65%).', bullets: ['Attribute which changes drove the largest share of reduction (search, pre-review, fewer revisions).'] },
+        { id: '32', title: 'Quantify throughput lift', description: 'Track: 272 → 816 approved assets per month (3×).', bullets: ['Confirm that quality and compliance are not degraded.'] },
+        { id: '33', title: 'Build the ROI waterfall and savings model', description: 'Create the ROI Waterfall: baseline cost, savings from faster cycles, fewer revisions, agency fee reduction, producer time savings, reviewer bandwidth.', bullets: ['Arrive at $2.08M annualized net savings.'] },
+        { id: '34', title: 'Model unit economics and capacity', description: 'Build Unit Economics: cost per asset, marginal cost of additional volume.', bullets: ['Use production heatmaps to plan peak review periods and reviewer staffing.'] },
+        { id: '35', title: 'Improve and track data completeness', description: 'Move from ~72% → 96% data completeness via automated quality gates and indexing checks.', bullets: ['Use this as a readiness indicator for new brands/TAs.'] },
+        { id: '36', title: 'Define the expansion roadmap and platform governance', description: 'Document which therapeutic areas come next, which additional markets and languages.', bullets: ['Formalize CoCo as the enterprise vaccines content backbone with clear budget, ownership, and a 12–24 month roadmap.'] },
+      ],
+    },
+  ],
 };
 
 
@@ -693,6 +788,7 @@ export const pfizerCharts: CaseStudyCharts = {
   waterfall,
   calendarHeatmap,
   raciMatrix,
+  projectPlan,
   ragPipeline,
   modelCard,
   latencyPercentiles,
