@@ -636,21 +636,6 @@ const CaseStudyTemplate: React.FC<CaseStudyTemplateProps> = ({ study, charts }) 
                 ))}
 
                 {/* ═══════════════════════════════════════════════════════════════════ */}
-                {/* NEXT CASE STUDY */}
-                {/* ═══════════════════════════════════════════════════════════════════ */}
-                {study.nextCaseStudy && (
-                    <div className="cs-section" style={{ borderTop: '1px solid #eee', paddingTop: '36px', paddingBottom: '36px' }}>
-                        <div className="container container-1230">
-                            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                <a href={`/case-study/${study.nextCaseStudy.slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 20px', backgroundColor: '#000', color: '#fff', borderRadius: '12px', textDecoration: 'none', fontSize: '14px', fontWeight: 600, transition: 'all 0.2s ease' }}>
-                                    {study.nextCaseStudy.title} <span style={{ fontSize: '16px' }}>→</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                )}
-
-                {/* ═══════════════════════════════════════════════════════════════════ */}
                 {/* CONNECT CTA — Breathing room above, balanced icons */}
                 {/* ═══════════════════════════════════════════════════════════════════ */}
                 <div className="cta-footer-grain cs-section cs-connect-footer" style={{ backgroundColor: '#0d9488', color: '#fff', borderRadius: '20px', margin: '20px 20px 10px', position: 'relative', overflow: 'hidden', padding: '52px 0' }}>
