@@ -13,7 +13,7 @@ import { pfizerCharts } from './pfizerData';
 
 export const nakedHeartFoundationData: CaseStudyData = {
   slug: 'nakedheart',
-  brandLogo: '/assets/img/logo/NHF.png',
+  brandLogo: '/assets/logo/NakedHeart-color.jpg',
   title: 'Naked Heart Foundation – Inclusive Playground Network',
   subtitle: 'Networked Execution Model',
   company: 'Naked Heart Foundation',
