@@ -11,7 +11,7 @@
 
 ---
 
-## 🚀 Run in 60 Seconds
+## Run in 60 Seconds
 
 ```bash
 git clone https://github.com/cmangun/field-deployed-engineer.git
@@ -29,7 +29,7 @@ npm install && npm run dev
 
 ---
 
-## 📊 Customer Value
+## Customer Value
 
 This portfolio pattern typically delivers:
 - **50% faster** recruiter engagement (visual case studies vs. plain resume)
